@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     #region Add Item
     public void AddItem(SO_Item item, int quantity)
     {
-        if (!item.data.isStackable)
+        if (!item.commonData.isStackable)
         {
             for (int i = 0; i < quantity; i++)
                 slots.Add(new InventorySlot(item, 1));
@@ -20,9 +20,9 @@ public class Inventory : MonoBehaviour
 
         foreach (var slot in slots)
         {
-            if (slot.item.data.itemName == item.data.itemName && !slot.isFull)
+            if (slot.item.commonData.itemName == item.commonData.itemName && !slot.isFull)
             {
-                int space = item.data.maxQuantityAllowed - slot.currentQuantity;
+                int space = item.commonData.maxQuantityAllowed - slot.currentQuantity;
                 int addAmount = Mathf.Min(space, remain);
 
                 slot.Add(addAmount);
@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
 
         while (remain > 0)
         {
-            int addAmount = Mathf.Min(item.data.maxQuantityAllowed, remain);
+            int addAmount = Mathf.Min(item.commonData.maxQuantityAllowed, remain);
             slots.Add(new InventorySlot(item, addAmount));
             remain -= addAmount;
         }
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
         for (int i = slots.Count - 1; i >= 0; i--)
         {
             var slot = slots[i];
-            if (slot.item.data.itemName == item.data.itemName)
+            if (slot.item.commonData.itemName == item.commonData.itemName)
             {
                 if (slot.currentQuantity > remain)
                 {
@@ -78,7 +78,7 @@ public class Inventory : MonoBehaviour
     public int GetTotalQuantity(SO_Item item)
     {
         return slots
-            .Where(s => s.item.data.itemName == item.data.itemName)
+            .Where(s => s.item.commonData.itemName == item.commonData.itemName)
             .Sum(s => s.currentQuantity);
     }
 
@@ -89,7 +89,7 @@ public class Inventory : MonoBehaviour
 
     public void ClearItem(SO_Item item)
     {
-        slots.RemoveAll(s => s.item.data.itemName == item.data.itemName);
+        slots.RemoveAll(s => s.item.commonData.itemName == item.commonData.itemName);
     }
     #endregion
 }

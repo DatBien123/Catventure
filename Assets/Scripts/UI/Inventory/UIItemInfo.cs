@@ -12,12 +12,12 @@ public class UIItemInfo : MonoBehaviour
 
     public void ShowInfo(SO_Item item)
     {
-        itemIcon.sprite = item.data.icon;
+        itemIcon.sprite = item.commonData.icon;
         itemIcon.enabled = true;
 
-        itemName.text = item.data.itemName;
-        itemType.text = item.data.itemType.ToString();
-        itemDescription.text = item.data.description;
+        itemName.text = item.commonData.itemName;
+        itemType.text = item.commonData.itemType.ToString();
+        itemDescription.text = item.commonData.description;
     }
 
     public void ClearInfo()

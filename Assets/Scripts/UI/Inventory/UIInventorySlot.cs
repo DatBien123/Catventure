@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
 {
 
     [Header("UI Components")]
@@ -44,6 +44,7 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             uiSlot.backGroundImage.color = Color.white;
         }
 
+        uiInventory.itemInfo.gameObject.SetActive(true);
         uiInventory.currentInventorySlotSelected = this;
         isSelected = true;
         backGroundImage.sprite = selectedBackgroundSprite;
@@ -51,28 +52,24 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         uiInventory.RefreshItemDescriptionInfo();
 
     }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-    }
-
     #endregion
     public void SetupSlot(InventorySlot slot)
     {
         slotData = slot;
 
         //Set up Grid Inventory
-        iconImage.sprite = slot.item.data.icon;
+        iconImage.sprite = slot.item.commonData.icon;
         iconImage.enabled = true;
 
-        if (slot.item.data.isStackable && slot.currentQuantity > 1)
+        if (slot.item.commonData.isStackable && slot.currentQuantity > 1)
             quantityText.text = slot.currentQuantity.ToString();
         else
-            quantityText.text = "";
+            quantityText.text = "1";
 
         //Set up Description
-        Name = slot.item.data.itemName;
-        Type = "(" + slot.item.data.itemType.ToString() + ")";
-        Description = slot.item.data.description;
+        Name = slot.item.commonData.itemName;
+        Type = "(" + slot.item.commonData.itemType.ToString() + ")";
+        Description = slot.item.commonData.description;
 
     }
     public void ClearSlot()

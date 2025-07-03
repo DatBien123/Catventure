@@ -11,7 +11,7 @@ public class InventorySlot
     {
         get
         {
-            return (currentQuantity >= item.data.maxQuantityAllowed); // Tinh den truong hop xau nhat la lon hon
+            return (currentQuantity >= item.commonData.maxQuantityAllowed); // Tinh den truong hop xau nhat la lon hon
         }
     }
     public InventorySlot(SO_Item item, int quantity)

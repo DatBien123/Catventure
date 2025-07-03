@@ -3,15 +3,14 @@ using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public enum FilterType
 {
     All,
-    Equipment,
+    Outfit,
     Consumable,
-    Material,
-    Quest,
-    Misc
+
 }
 
 public class UIInventory : MonoBehaviour
@@ -24,11 +23,9 @@ public class UIInventory : MonoBehaviour
 
     [Header("Tab Buttons")]
     public Button buttonAll;
-    public Button buttonEquipment;
-    public Button buttonConsumable;
-    public Button buttonMaterial;
-    public Button buttonQuest;
-    public Button buttonMisc;
+    public Button buttonOutfit;
+    public Button buttonFood;
+
 
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
 
@@ -40,16 +37,17 @@ public class UIInventory : MonoBehaviour
     private void Start()
     {
         buttonAll.onClick.AddListener(() => ChangeFilter(FilterType.All));
-        buttonEquipment.onClick.AddListener(() => ChangeFilter(FilterType.Equipment));
-        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
-        buttonMaterial.onClick.AddListener(() => ChangeFilter(FilterType.Material));
-        buttonQuest.onClick.AddListener(() => ChangeFilter(FilterType.Quest));
-        buttonMisc.onClick.AddListener(() => ChangeFilter(FilterType.Misc));
-
-        RefreshUI();
+        buttonOutfit.onClick.AddListener(() => ChangeFilter(FilterType.Outfit));
+        buttonFood.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
 
 
         AddItem();
+
+        RefreshUI();
+
+        //Ẩn item info khi bắt đầu
+        itemInfo.gameObject.SetActive(false);
+
     }
 
     public void ChangeFilter(FilterType filter)
@@ -67,14 +65,14 @@ public class UIInventory : MonoBehaviour
         }
         uiSlots.Clear();
 
+        foreach (Transform child in slotParent)
+            Destroy(child.gameObject);
+
         // Lọc dữ liệu inventory theo filter
         var filteredSlots = inventoryManager.slots.Where(slot =>
             currentFilter == FilterType.All ||
-            (currentFilter == FilterType.Equipment && slot.item.data.itemType == ItemType.Equipment) ||
-            (currentFilter == FilterType.Consumable && slot.item.data.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Material && slot.item.data.itemType == ItemType.Material) ||
-            (currentFilter == FilterType.Quest && slot.item.data.itemType == ItemType.Quest) ||
-            (currentFilter == FilterType.Misc && slot.item.data.itemType == ItemType.Misc)
+            (currentFilter == FilterType.Outfit && slot.item.commonData.itemType == ItemType.Outfit) ||
+            (currentFilter == FilterType.Consumable && slot.item.commonData.itemType == ItemType.Consumable) 
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc
@@ -101,19 +99,13 @@ public class UIInventory : MonoBehaviour
     //Test
     public SO_Item item1;
     public SO_Item item2;
-    public SO_Item item3;
-    public SO_Item item4;
-    public SO_Item item5;
-    public SO_Item item6;
+
     public int quantity;
     public void AddItem()
     {
         inventoryManager.AddItem(item1, quantity);
         inventoryManager.AddItem(item2, quantity);
-        inventoryManager.AddItem(item3, quantity);
-        inventoryManager.AddItem(item4, quantity);
-        inventoryManager.AddItem(item5, quantity);
-        inventoryManager.AddItem(item6, quantity);
+
         RefreshUI();
     }
 

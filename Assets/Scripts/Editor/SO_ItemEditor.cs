@@ -1,37 +1,58 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SO_Item))]
+[CustomEditor(typeof(SO_Item), true)] // true để hỗ trợ cả class con
 public class SO_ItemEditor : Editor
 {
-    SerializedProperty dataProperty;
-    SerializedProperty isStackableProperty;
-    SerializedProperty maxQuantityAllowedProperty;
+    SerializedProperty commonData;
+    SerializedProperty itemID, itemName, icon, description;
+    SerializedProperty itemType, isStackable, maxQuantityAllowed, price;
 
     void OnEnable()
     {
-        dataProperty = serializedObject.FindProperty("data");
-        isStackableProperty = dataProperty.FindPropertyRelative("isStackable");
-        maxQuantityAllowedProperty = dataProperty.FindPropertyRelative("maxQuantityAllowed");
+        commonData = serializedObject.FindProperty("commonData");
+        itemID = commonData.FindPropertyRelative("itemID");
+        itemName = commonData.FindPropertyRelative("itemName");
+        icon = commonData.FindPropertyRelative("icon");
+        description = commonData.FindPropertyRelative("description");
+        itemType = commonData.FindPropertyRelative("itemType");
+        isStackable = commonData.FindPropertyRelative("isStackable");
+        maxQuantityAllowed = commonData.FindPropertyRelative("maxQuantityAllowed");
+        price = commonData.FindPropertyRelative("price");
+
+        // Set itemType theo loại class tự động (nếu là lần đầu)
+        SO_Item so = (SO_Item)target;
+        if (so.commonData.itemType == default)
+        {
+            if (so is SO_Outfit)
+                so.commonData.itemType = ItemType.Outfit;
+            else if (so is SO_Consumable)
+                so.commonData.itemType = ItemType.Consumable;
+
+            EditorUtility.SetDirty(so); // Đảm bảo nó lưu
+        }
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
 
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("itemID"));
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("itemName"));
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("icon"));
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("description"));
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("itemType"));
-        EditorGUILayout.PropertyField(isStackableProperty);
+        EditorGUILayout.PropertyField(itemID);
+        EditorGUILayout.PropertyField(itemName);
+        EditorGUILayout.PropertyField(icon);
+        EditorGUILayout.PropertyField(description);
+        EditorGUILayout.PropertyField(itemType);
+        EditorGUILayout.PropertyField(isStackable);
 
-        if (isStackableProperty.boolValue)
+        if (isStackable.boolValue)
         {
-            EditorGUILayout.PropertyField(maxQuantityAllowedProperty);
+            EditorGUILayout.PropertyField(maxQuantityAllowed);
         }
 
-        EditorGUILayout.PropertyField(dataProperty.FindPropertyRelative("price"));
+        EditorGUILayout.PropertyField(price);
+
+        // Vẽ phần riêng của từng loại SO con
+        DrawPropertiesExcluding(serializedObject, "commonData");
 
         serializedObject.ApplyModifiedProperties();
     }
