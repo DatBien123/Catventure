@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 
     public Inventory playerInventory;
 
-    public int playerGold = 1000;
+    public int playerGold = 100000000;
 
 
 

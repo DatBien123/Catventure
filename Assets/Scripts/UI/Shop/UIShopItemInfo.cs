@@ -8,9 +8,19 @@ public class UIShopItemInfo : MonoBehaviour
     [Header("UI Elements")]
     public UnityEngine.UI.Image itemIcon;
     public TextMeshProUGUI itemName;
-    public TextMeshProUGUI itemType;
-    public TextMeshProUGUI itemDescription;
+    public TextMeshProUGUI itemPrice;
     public TextField TextField;
+
+    [Header("On Interaction")]
+    public UnityEngine.UI.Button buyButton;
+    public UnityEngine.UI.Button previewButton;
+
+    [Header("References")]
+    public UIShop uiShop;
+    private void Start()
+    {
+        buyButton.onClick.AddListener(() => uiShop.shopManager.TryBuy(uiShop.currentUIShopSlotSelected.item));
+    }
 
     public void ShowInfo(SO_Item item)
     {
@@ -19,10 +29,8 @@ public class UIShopItemInfo : MonoBehaviour
         itemIcon.enabled = true;
 
         itemName.text = item.commonData.itemName;
-        itemType.text = item.commonData.itemType.ToString();
-        itemDescription.text = item.commonData.description;
+        itemPrice.text = item.commonData.price.ToString();
     }
-
     public void HideInfo()
     {
         this.gameObject.SetActive(false);
@@ -30,7 +38,6 @@ public class UIShopItemInfo : MonoBehaviour
         itemIcon.enabled = false;
 
         itemName.text = "";
-        itemType.text = "";
-        itemDescription.text = "";
+        itemPrice.text = "";
     }
 }

@@ -42,6 +42,7 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
             if (isSelected)
             {
                 uiShop.uiShopItemInfo.gameObject.SetActive(true);
+                uiShop.uiShopItemInfo.ShowInfo(uiShop.currentUIShopSlotSelected.item);
                 //shopManager.TryBuy(item);
             }
         });

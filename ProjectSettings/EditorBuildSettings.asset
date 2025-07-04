@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Home Scene.unity
+    guid: 2659c3f82ceaca64f8912cbd0ea62895
+  - enabled: 1
     path: Assets/Scenes/Book Scene.unity
     guid: 540e494b066d05f4fa3cbfcf8441f46a
   m_configObjects:

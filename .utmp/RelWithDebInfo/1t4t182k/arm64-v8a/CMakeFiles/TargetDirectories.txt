@@ -1,0 +1,5 @@
+G:/UnityProjects/Cadventure/.utmp/RelWithDebInfo/1t4t182k/arm64-v8a/CMakeFiles/edit_cache.dir
+G:/UnityProjects/Cadventure/.utmp/RelWithDebInfo/1t4t182k/arm64-v8a/CMakeFiles/rebuild_cache.dir
+G:/UnityProjects/Cadventure/.utmp/RelWithDebInfo/1t4t182k/arm64-v8a/GameActivity/CMakeFiles/game.dir
+G:/UnityProjects/Cadventure/.utmp/RelWithDebInfo/1t4t182k/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+G:/UnityProjects/Cadventure/.utmp/RelWithDebInfo/1t4t182k/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
