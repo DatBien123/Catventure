@@ -18,8 +18,6 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
     [Header("On Interact")]
     public Image backGroundImage;
     public bool isSelected;
-    public Sprite selectedBackgroundSprite;
-    public Sprite deSelectedBackgroundSprite;
 
     [HideInInspector]
     public InventorySlot slotData;
@@ -40,15 +38,13 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
         foreach(var uiSlot in uiInventory.uiSlots)
         {
             uiSlot.isSelected = false;
-            uiSlot.backGroundImage.sprite = deSelectedBackgroundSprite;
-            uiSlot.backGroundImage.color = Color.white;
+            uiSlot.OnSelect(false);
         }
 
         uiInventory.itemInfo.gameObject.SetActive(true);
         uiInventory.currentInventorySlotSelected = this;
         isSelected = true;
-        backGroundImage.sprite = selectedBackgroundSprite;
-        backGroundImage.color = Color.yellow;
+        OnSelect(true);
         uiInventory.RefreshItemDescriptionInfo();
 
     }
@@ -78,6 +74,20 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
         iconImage.sprite = null;
         iconImage.enabled = false;
         quantityText.text = "";
+    }
+
+    public void OnSelect(bool isSelect)
+    {
+        if (isSelect)
+        {
+            backGroundImage.sprite = slotData.item.displayData.buttonData.selectFieldData.backgroundSprite;
+            backGroundImage.color = slotData.item.displayData.buttonData.selectFieldData.backgroundColor;
+        }
+        else
+        {
+            backGroundImage.sprite = slotData.item.displayData.buttonData.deselectdFieldData.backgroundSprite;
+            backGroundImage.color = slotData.item.displayData.buttonData.deselectdFieldData.backgroundColor;
+        }
     }
 }
 

@@ -6,7 +6,6 @@ public enum EOutfitType
     None,
     Hat,
     Shirt,
-    Pants,
     Shoes,
     Glasses
 }

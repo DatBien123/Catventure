@@ -27,11 +27,11 @@ MonoBehaviour:
       mainIcon: {fileID: 0}
       selectFieldData:
         backgroundSprite: {fileID: 21300000, guid: 4c2ce05856cd94f96bda820d2353988c, type: 3}
-        backgroundColor: {r: 0.8784314, g: 0.827451, b: 0.6901961, a: 1}
+        backgroundColor: {r: 0.94509804, g: 0.6905038, b: 0.64705884, a: 0.6509804}
         textColor: {r: 0.9433962, g: 0.12904951, b: 0.12904951, a: 0.9019608}
       deselectdFieldData:
         backgroundSprite: {fileID: 21300000, guid: 75e3eed89f4c445c18126fbb6d66222e, type: 3}
-        backgroundColor: {r: 0.9339623, g: 0.923619, b: 0.8943129, a: 0.4392157}
+        backgroundColor: {r: 0.94509804, g: 0.6901961, b: 0.64705884, a: 0.3137255}
         textColor: {r: 0.8962264, g: 0.13950695, b: 0.13950695, a: 0.89411765}
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

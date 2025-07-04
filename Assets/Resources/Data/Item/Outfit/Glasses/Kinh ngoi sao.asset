@@ -35,4 +35,4 @@ MonoBehaviour:
         textColor: {r: 0.94509804, g: 0.41960785, b: 0.12941177, a: 0.9019608}
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:
-    Type: 5
+    Type: 4

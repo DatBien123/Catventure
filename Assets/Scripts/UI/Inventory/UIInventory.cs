@@ -41,7 +41,6 @@ public class UIInventory : MonoBehaviour
         buttonFood.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
 
 
-        AddItem();
 
         RefreshUI();
 
@@ -96,18 +95,18 @@ public class UIInventory : MonoBehaviour
 
     }
 
-    //Test
-    public SO_Item item1;
-    public SO_Item item2;
+    ////Test
+    //public SO_Item item1;
+    //public SO_Item item2;
 
-    public int quantity;
-    public void AddItem()
-    {
-        inventoryManager.AddItem(item1, quantity);
-        inventoryManager.AddItem(item2, quantity);
+    //public int quantity;
+    //public void AddItem()
+    //{
+    //    inventoryManager.AddItem(item1, quantity);
+    //    inventoryManager.AddItem(item2, quantity);
 
-        RefreshUI();
-    }
+    //    RefreshUI();
+    //}
 
 
 }

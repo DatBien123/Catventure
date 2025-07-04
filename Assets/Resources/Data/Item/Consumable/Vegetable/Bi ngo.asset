@@ -35,4 +35,4 @@ MonoBehaviour:
         textColor: {r: 1, g: 0.4509804, b: 0.050980393, a: 0.9019608}
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   ConsumableData:
-    ConsumableType: 3
+    ConsumableType: 2

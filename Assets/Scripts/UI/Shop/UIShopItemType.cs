@@ -20,9 +20,14 @@ public class UIShopItemType : MonoBehaviour, IPointerDownHandler
         uiShop = GameObject.FindAnyObjectByType<UIShop>();
     }
 
+    public void ResetShopDisplay()
+    {
+
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        foreach(var shopItemType in uiShop.shopItemTypes)
+        foreach (var shopItemType in uiShop.shopItemTypes)
         {
             shopItemType.isSelected = false;
             shopItemType.OnSelect(false);
@@ -31,29 +36,12 @@ public class UIShopItemType : MonoBehaviour, IPointerDownHandler
         isSelected = true;
         uiShop.currentShopItemType = this;
         OnSelect(true);
-
-        // Xoá hết Filter  cũ
-        foreach (var shopItemType in uiShop.shopItemTypes)
-        {
-            Destroy(shopItemType.gameObject);
-        }
-        uiShop.shopItemTypes.Clear();
-
         // Xoá hết Filter cụ thể cũ
         foreach (var shopItemTypeSpecific in uiShop.shopItemTypeSpecifics)
         {
             Destroy(shopItemTypeSpecific.gameObject);
         }
         uiShop.shopItemTypeSpecifics.Clear();
-
-
-        foreach (ItemType type in Enum.GetValues(typeof(ItemType)))
-        {
-            GameObject itemTypeObj = Instantiate(uiShop.itemTypePrefab, uiShop.itemTypeParent);
-            UIShopItemType shopItemType = itemTypeObj.GetComponent<UIShopItemType>();
-            shopItemType.SetUp(type);
-            uiShop.shopItemTypes.Add(shopItemType);
-        }
 
         if (uiShop.currentShopItemType.itemType == ItemType.Outfit)
         {
@@ -79,14 +67,14 @@ public class UIShopItemType : MonoBehaviour, IPointerDownHandler
         }
         uiShop.currentShopItemSpecificType = uiShop.shopItemTypeSpecifics[0];
 
-        uiShop.RefreshShopUI();
+        uiShop.RefreshByShopItemType();
     }
 
     public void SetUp(ItemType type)
     {
         itemType = type;
 
-        SO_ButtonData buttonData = Resources.Load<SO_ButtonData>($"Graphics/{itemType}");
+        SO_ButtonData buttonData = Resources.Load<SO_ButtonData>($"Graphics/ItemType/{itemType}");
         itemImage.sprite = buttonData.buttonData.mainIcon;
 
         textMeshProUGUI.text = itemType.ToString();
@@ -95,7 +83,7 @@ public class UIShopItemType : MonoBehaviour, IPointerDownHandler
     public void OnSelect(bool isSelect)
     {
 
-        SO_ButtonData buttonData = Resources.Load<SO_ButtonData>($"Graphics/{itemType}");
+        SO_ButtonData buttonData = Resources.Load<SO_ButtonData>($"Graphics/ItemType/{itemType}");
         if (isSelect)
         {
             backgroundImage.sprite = buttonData.buttonData.selectFieldData.backgroundSprite;

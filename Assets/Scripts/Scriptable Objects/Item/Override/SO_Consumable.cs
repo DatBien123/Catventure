@@ -5,7 +5,6 @@ public enum EConsumableType
 {
     None,
     Food,
-    Drink,
     Vegetable
 }
 

@@ -92,9 +92,6 @@ public class UIShop : MonoBehaviour
             }
         }
 
-        //currentShopItemType = shopItemTypes[0];
-        //currentShopItemSpecificType = shopItemTypeSpecifics[0];
-
         // Lọc dữ liệu inventory theo filter
         List<SO_Item> filteredShopItems = new List<SO_Item>();
         foreach(var shopItem in shopManager.shopItems)
@@ -104,6 +101,134 @@ public class UIShop : MonoBehaviour
                 if(shopItem as SO_Consumable)
                 {
                     if((shopItem as SO_Consumable).ConsumableData.ConsumableType == currentShopItemSpecificType.consumableType)
+                    {
+                        filteredShopItems.Add(shopItem as SO_Consumable);
+                        continue;
+                    }
+                }
+                else if (shopItem as SO_Outfit)
+                {
+                    if ((shopItem as SO_Outfit).outfitData.Type == currentShopItemSpecificType.outfitType)
+                    {
+                        filteredShopItems.Add(shopItem as SO_Outfit);
+                        continue;
+                    }
+                }
+
+            }
+        }
+
+        // Xoá hết UI Shop Slot cũ
+        foreach (var slot in uiShopSlots)
+        {
+            Destroy(slot.gameObject);
+        }
+        uiShopSlots.Clear();
+
+        //Xóa cả những "con" của shopContentParent
+        foreach (Transform child in shopContentParent)
+            Destroy(child.gameObject);
+
+        foreach (var shopItem in filteredShopItems)
+        {
+            GameObject slotObj = Instantiate(shopSlotPrefab, shopContentParent);
+            UIShopSlot slot = slotObj.GetComponent<UIShopSlot>();
+            slot.Setup(shopItem, shopManager);
+            uiShopSlots.Add(slot);
+        }
+    }
+
+    public void RefreshByShopItemType()
+    {
+        // Xoá hết Filter cụ thể cũ
+        foreach (var shopItemTypeSpecific in shopItemTypeSpecifics)
+        {
+            Destroy(shopItemTypeSpecific.gameObject);
+        }
+        shopItemTypeSpecifics.Clear();
+
+        if (currentShopItemType.itemType == ItemType.Outfit)
+        {
+            foreach (EOutfitType outfitType in Enum.GetValues(typeof(EOutfitType)))
+            {
+                if (outfitType == EOutfitType.None) continue;
+                GameObject itemTypeObj = Instantiate(itemSpecificTypePrefab, itemSpecificTypeParent);
+                UIShopItemTypeSpecific shopItemTypeSpecific = itemTypeObj.GetComponent<UIShopItemTypeSpecific>();
+                shopItemTypeSpecific.SetUp(EConsumableType.None, outfitType);
+                shopItemTypeSpecifics.Add(shopItemTypeSpecific);
+            }
+        }
+        else if (currentShopItemType.itemType == ItemType.Consumable)
+        {
+            foreach (EConsumableType consumableType in Enum.GetValues(typeof(EConsumableType)))
+            {
+                if (consumableType == EConsumableType.None) continue;
+                GameObject itemTypeObj = Instantiate(itemSpecificTypePrefab, itemSpecificTypeParent);
+                UIShopItemTypeSpecific shopItemTypeSpecific = itemTypeObj.GetComponent<UIShopItemTypeSpecific>();
+                shopItemTypeSpecific.SetUp(consumableType, EOutfitType.None);
+                shopItemTypeSpecifics.Add(shopItemTypeSpecific);
+            }
+        }
+
+        // Lọc dữ liệu inventory theo filter
+        List<SO_Item> filteredShopItems = new List<SO_Item>();
+        foreach (var shopItem in shopManager.shopItems)
+        {
+            if (shopItem.commonData.itemType == currentShopItemType.itemType)
+            {
+                if (shopItem as SO_Consumable)
+                {
+                    if ((shopItem as SO_Consumable).ConsumableData.ConsumableType == currentShopItemSpecificType.consumableType)
+                    {
+                        filteredShopItems.Add(shopItem as SO_Consumable);
+                        continue;
+                    }
+                }
+                else if (shopItem as SO_Outfit)
+                {
+                    if ((shopItem as SO_Outfit).outfitData.Type == currentShopItemSpecificType.outfitType)
+                    {
+                        filteredShopItems.Add(shopItem as SO_Outfit);
+                        continue;
+                    }
+                }
+
+            }
+        }
+
+        // Xoá hết UI Shop Slot cũ
+        foreach (var slot in uiShopSlots)
+        {
+            Destroy(slot.gameObject);
+        }
+        uiShopSlots.Clear();
+
+        //Xóa cả những "con" của shopContentParent
+        foreach (Transform child in shopContentParent)
+            Destroy(child.gameObject);
+
+        foreach (var shopItem in filteredShopItems)
+        {
+            GameObject slotObj = Instantiate(shopSlotPrefab, shopContentParent);
+            UIShopSlot slot = slotObj.GetComponent<UIShopSlot>();
+            slot.Setup(shopItem, shopManager);
+            uiShopSlots.Add(slot);
+        }
+
+    }
+
+    public void RefreshByShopItemTypeSpecific()
+    {
+
+        // Lọc dữ liệu inventory theo filter
+        List<SO_Item> filteredShopItems = new List<SO_Item>();
+        foreach (var shopItem in shopManager.shopItems)
+        {
+            if (shopItem.commonData.itemType == currentShopItemType.itemType)
+            {
+                if (shopItem as SO_Consumable)
+                {
+                    if ((shopItem as SO_Consumable).ConsumableData.ConsumableType == currentShopItemSpecificType.consumableType)
                     {
                         filteredShopItems.Add(shopItem as SO_Consumable);
                         continue;
