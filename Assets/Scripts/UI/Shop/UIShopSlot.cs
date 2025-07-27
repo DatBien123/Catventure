@@ -39,12 +39,23 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
 
         buyButton.onClick.AddListener(() =>
         {
-            if (isSelected)
+            //if (isSelected)
+            //{
+            //Loop through all these slots of inventory
+            //Deselect All
+            foreach (var uiShop in uiShop.uiShopSlots)
             {
-                uiShop.uiShopItemInfo.gameObject.SetActive(true);
+                uiShop.isSelected = false;
+                uiShop.OnSelected(false);
+            }
+
+            uiShop.currentUIShopSlotSelected = this;
+            isSelected = true;
+            OnSelected(true);
+            uiShop.uiShopItemInfo.gameObject.SetActive(true);
                 uiShop.uiShopItemInfo.ShowInfo(uiShop.currentUIShopSlotSelected.item);
                 //shopManager.TryBuy(item);
-            }
+            //}
         });
     }
 
