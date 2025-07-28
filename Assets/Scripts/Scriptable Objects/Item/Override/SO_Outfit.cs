@@ -14,6 +14,7 @@ public enum EOutfitType
 public struct OutfitData
 {
     public EOutfitType Type;
+    public AnimationClip equipClip;
 }
 
 [CreateAssetMenu(fileName = "Outfit Item Data", menuName = "Inventory System/Item Data/Outfit Item")]
@@ -23,6 +24,6 @@ public class SO_Outfit : SO_Item
 
     public override void Use(Character character)
     {
-        throw new System.NotImplementedException();
+        character.animator.CrossFadeInFixedTime(outfitData.equipClip.name, .2f);
     }
 }

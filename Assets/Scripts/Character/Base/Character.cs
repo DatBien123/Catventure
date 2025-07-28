@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Animator animator;
+
+    public void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Start()
     {
         

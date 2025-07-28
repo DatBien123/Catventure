@@ -29,6 +29,7 @@ public class UIInventory : MonoBehaviour
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
 
     public UIInventorySlot currentInventorySlotSelected;
+    public UIInventoryActions uiInventoryActions;
     public UIItemInfo itemInfo;
 
     private FilterType currentFilter = FilterType.All;

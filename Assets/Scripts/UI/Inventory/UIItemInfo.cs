@@ -10,6 +10,15 @@ public class UIItemInfo : MonoBehaviour
     public TextMeshProUGUI itemType;
     public TextMeshProUGUI itemDescription;
 
+    [Header("Action")]
+    public Button buttonUse;
+
+    private SO_Item currentItem;
+    public Inventory inventoryRef;
+    private void Start()
+    {
+        buttonUse.onClick.AddListener(() => UseItem());
+    }
     public void ShowInfo(SO_Item item)
     {
         itemIcon.sprite = item.commonData.icon;
@@ -18,6 +27,8 @@ public class UIItemInfo : MonoBehaviour
         itemName.text = item.commonData.itemName;
         itemType.text = item.commonData.itemType.ToString();
         itemDescription.text = item.commonData.description;
+
+        currentItem = item;
     }
 
     public void ClearInfo()
@@ -28,5 +39,14 @@ public class UIItemInfo : MonoBehaviour
         itemName.text = "";
         itemType.text = "";
         itemDescription.text = "";
+    }
+
+    public void UseItem()
+    {
+        gameObject.SetActive(false);
+        if(currentItem as SO_Outfit)
+        {
+            (currentItem as SO_Outfit).Use(inventoryRef.owner);
+        }
     }
 }

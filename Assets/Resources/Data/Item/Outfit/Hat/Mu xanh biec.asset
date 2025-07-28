@@ -27,12 +27,13 @@ MonoBehaviour:
       mainIcon: {fileID: 0}
       selectFieldData:
         backgroundSprite: {fileID: 21300000, guid: 4c2ce05856cd94f96bda820d2353988c, type: 3}
-        backgroundColor: {r: 0.64705884, g: 0.94509804, b: 0.8901961, a: 0.6509804}
+        backgroundColor: {r: 1, g: 0.52156866, b: 0, a: 0.9647059}
         textColor: {r: 0.12941176, g: 0.5928037, b: 0.94509804, a: 0.9019608}
       deselectdFieldData:
         backgroundSprite: {fileID: 21300000, guid: 75e3eed89f4c445c18126fbb6d66222e, type: 3}
-        backgroundColor: {r: 0.64705884, g: 0.94509804, b: 0.8901961, a: 0.3137255}
+        backgroundColor: {r: 1, g: 0.62352943, b: 0, a: 0.9647059}
         textColor: {r: 0.12941177, g: 0.5921569, b: 0.94509804, a: 0.9019608}
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:
     Type: 1
+    equipClip: {fileID: -203655887218126122, guid: 0afba5f734076a04d98ecbb8fc4bd5fd, type: 3}

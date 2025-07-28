@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public Character owner;
     public List<InventorySlot> slots = new List<InventorySlot>();
 
     #region Add Item
