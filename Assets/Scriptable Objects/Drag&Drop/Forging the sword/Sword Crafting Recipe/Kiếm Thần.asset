@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5512c4101df3949abaf524647c247f, type: 3}
+  m_Name: "Ki\u1EBFm Th\u1EA7n"
+  m_EditorClassIdentifier: 
+  recipeName: "Ki\u1EBFm Th\u1EA7n"
+  requiredItems:
+  - {fileID: 11400000, guid: 0ff3cfdb7be15f9469a0f16528a364a8, type: 2}
+  - {fileID: 11400000, guid: 972341a2ab63c84458e1c4df23cb510c, type: 2}
+  - {fileID: 11400000, guid: 795cbb5e88549d0418b162a22811fe71, type: 2}
+  - {fileID: 11400000, guid: a2db6b15ed7c1584ebd2d44b6f924507, type: 2}
+  - {fileID: 11400000, guid: 701d83860a596664d81edac74082e59b, type: 2}
+  craftingTime: 0
+  result: {fileID: 11400000, guid: ce5fca0fde7e3b74d9ab2df4d3fb52db, type: 2}

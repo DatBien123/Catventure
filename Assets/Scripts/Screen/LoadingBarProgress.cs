@@ -1,44 +1,71 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public enum ELoadType
+{
+    LoadAsync,
+    LoadNormal
+}
 public class LoadingBarProgress : MonoBehaviour
 {
     [Header("Loading bar")]
     public Slider loadingBarSlider;
-    //public float lerpRaito = 5.0f;
     public float loadDuration = 5.0f;
 
-    [Header("On Finish Action")]
-    public UnityEvent onFinishedLoad;
+    public string sceneName;
+    public ELoadType loadType;
+
     private void Awake()
     {
         loadingBarSlider = GetComponent<Slider>();
     }
     private void Start()
     {
-        StartLoad(loadDuration);
+        if(loadType == ELoadType.LoadAsync)
+        StartLoadSceneAsync(sceneName);
+        else StartLoadSceneNormal(sceneName, loadDuration);
     }
 
-    Coroutine C_StartLoad;
-
-    public void StartLoad(float duration)
+    Coroutine C_LoadScene;
+    public void StartLoadSceneAsync(string sceneName)
     {
-        if(C_StartLoad != null) StopCoroutine(C_StartLoad);
-        C_StartLoad = StartCoroutine(Load(duration));
-    } 
-    IEnumerator Load(float loadingDuration)
+        if (C_LoadScene != null) StopCoroutine(C_LoadScene);
+        C_LoadScene = StartCoroutine(LoadSceneAsync(sceneName));
+    }
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!operation.isDone )
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loadingBarSlider.value = progress;
+            Debug.Log("Loading progress: " + (progress * 100) + "%");
+            yield return null;
+        }
+    }
+    public void StartLoadSceneNormal(string sceneName, float duration)
+    {
+        if (C_LoadScene != null) StopCoroutine(C_LoadScene);
+        C_LoadScene = StartCoroutine(LoadSceneNormal(sceneName, duration));
+    }
+    IEnumerator LoadSceneNormal(string sceneName, float duration)
     {
         float elapsedTime = 0.0f;
 
-        while (elapsedTime <= loadingDuration)
+        while (elapsedTime <= duration)
         {
-            loadingBarSlider.value += elapsedTime * Time.deltaTime / loadingDuration;
+            float rate = elapsedTime / duration;
+            float progress = Mathf.Clamp01(rate / 0.9f);
+            loadingBarSlider.value = progress;
+            Debug.Log("Loading progress: " + (progress * 100) + "%");
             elapsedTime += Time.deltaTime;
-            yield return null;
+                yield return null;
         }
-        onFinishedLoad?.Invoke();
-
+       SceneManager.LoadScene(sceneName);
     }
 }
