@@ -8,6 +8,10 @@ public class HealthUI : MonoBehaviour
     public Image[] hearts;
     public int hpPerHeart = 1; // Mở rộng thêm ta cần thay đổi 1 trái tim bằng bao nhiêu HP
     public HealthSystem healthSystem;
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         healthSystem.SetupHealth(hearts.Length * hpPerHeart);

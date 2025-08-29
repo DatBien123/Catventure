@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CraftingItemManager : MonoBehaviour
 {
-    public GameObject ingredientPrefab;
-    public Transform ingredientContainer;
-    [SerializeField] private List<Transform> ingredientsHolder;
+    public GameObject craftingItemPrefab;
+    public Transform craftingItemContainer;
+    [SerializeField] private List<Transform> craftingItemsSlotsPosition; // vị trí spawn các nguyên liệu trong vòng trên màn hình
     private void Awake()
     {
 
@@ -32,7 +32,7 @@ public class CraftingItemManager : MonoBehaviour
         for (int i = 0; i < shuffledIngredients.Count; i++)
         {
             CraftingItemSO ingredient = shuffledIngredients[i];
-            GameObject ingredientObject = Instantiate(ingredientPrefab, ingredientsHolder[i].position, Quaternion.identity, ingredientContainer);
+            GameObject ingredientObject = Instantiate(craftingItemPrefab, craftingItemsSlotsPosition[i].position, Quaternion.identity, craftingItemContainer);
             Image ingredientImage = ingredientObject.GetComponentInChildren<Image>();
             ingredientImage.sprite = ingredient.icon;
             ingredientObject.GetComponentInChildren<CraftingItem>().crafttingItemData = ingredient;
@@ -57,7 +57,7 @@ public class CraftingItemManager : MonoBehaviour
         for(int i = 0; i < shuffledElementals.Count; i++)
         {
             CraftingItemSO elemental = shuffledElementals[i];
-            GameObject elementalObject = Instantiate(ingredientPrefab, ingredientsHolder[i].position, Quaternion.identity, ingredientContainer);
+            GameObject elementalObject = Instantiate(craftingItemPrefab, craftingItemsSlotsPosition[i].position, Quaternion.identity, craftingItemContainer);
             Image image = elementalObject.GetComponentInChildren<Image>();
             image.sprite = elemental.icon;
             elementalObject.GetComponentInChildren<CraftingItem>().crafttingItemData = elemental;
