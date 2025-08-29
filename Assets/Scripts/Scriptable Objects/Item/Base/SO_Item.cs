@@ -3,7 +3,10 @@ using UnityEngine;
 [System.Serializable]
 public enum ItemType
 {
-    Outfit,
+    Shirt,
+    Trouser,
+    Shoes,
+    Hat,
     Consumable
 }
 [System.Serializable]

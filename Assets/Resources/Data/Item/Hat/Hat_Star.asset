@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fc2dd6969815e439efb9be5a840535, type: 3}
+  m_Name: Hat_Star
+  m_EditorClassIdentifier: 
+  commonData:
+    itemID: 2
+    itemName: Blue Hat
+    icon: {fileID: 21300000, guid: e05dff05fd0f0c747aced66c2d57c04f, type: 3}
+    description: A beautiful Blue Hat
+    itemType: 3
+    isStackable: 0
+    maxQuantityAllowed: 0
+    price: 250000
+  displayData:
+    buttonData:
+      buttonName: 
+      mainIcon: {fileID: 0}
+      selectFieldData:
+        backgroundSprite: {fileID: 21300000, guid: 4c2ce05856cd94f96bda820d2353988c, type: 3}
+        backgroundColor: {r: 1, g: 0.9628931, b: 0.4433962, a: 0.9647059}
+        textColor: {r: 0.8017012, g: 0.8113208, b: 0.3842292, a: 0.9019608}
+      deselectdFieldData:
+        backgroundSprite: {fileID: 21300000, guid: f2394113ad3897a40992089e90c08822, type: 3}
+        backgroundColor: {r: 1, g: 1, b: 1, a: 0.9647059}
+        textColor: {r: 1, g: 1, b: 1, a: 0.9019608}
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  outfitData:
+    Type: 1
+    equipClip: {fileID: -203655887218126122, guid: 0afba5f734076a04d98ecbb8fc4bd5fd, type: 3}

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public enum FilterType
 {
-    All,
-    Outfit,
+    Shirt,
+    Trouser,
+    Shoes,
+    Hat,
     Consumable,
 
 }
@@ -21,9 +23,11 @@ public class UIInventory : MonoBehaviour
     public Transform slotParent;
 
     [Header("Tab Buttons")]
-    public Button buttonAll;
-    public Button buttonOutfit;
-    public Button buttonFood;
+    public Button buttonShirt;
+    public Button buttonTrouser;
+    public Button buttonShoes;
+    public Button buttonHat;
+    public Button buttonConsumable;
 
 
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
@@ -32,13 +36,15 @@ public class UIInventory : MonoBehaviour
     public UIInventoryActions uiInventoryActions;
     public UIItemInfo itemInfo;
 
-    private FilterType currentFilter = FilterType.All;
+    private FilterType currentFilter = FilterType.Shirt;
 
     private void Start()
     {
-        buttonAll.onClick.AddListener(() => ChangeFilter(FilterType.All));
-        buttonOutfit.onClick.AddListener(() => ChangeFilter(FilterType.Outfit));
-        buttonFood.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
+        buttonTrouser.onClick.AddListener(() => ChangeFilter(FilterType.Trouser));
+        buttonShoes.onClick.AddListener(() => ChangeFilter(FilterType.Shoes));
+        buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
+        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
 
 
 
@@ -69,8 +75,10 @@ public class UIInventory : MonoBehaviour
 
         // Lọc dữ liệu inventory theo filter
         var filteredSlots = inventoryManager.slots.Where(slot =>
-            currentFilter == FilterType.All ||
-            (currentFilter == FilterType.Outfit && slot.item.commonData.itemType == ItemType.Outfit) ||
+            (currentFilter == FilterType.Shirt && slot.item.commonData.itemType == ItemType.Shirt) ||
+            (currentFilter == FilterType.Trouser && slot.item.commonData.itemType == ItemType.Trouser) ||
+            (currentFilter == FilterType.Shoes && slot.item.commonData.itemType == ItemType.Shoes) ||
+            (currentFilter == FilterType.Hat && slot.item.commonData.itemType == ItemType.Hat) ||
             (currentFilter == FilterType.Consumable && slot.item.commonData.itemType == ItemType.Consumable) 
         );
 

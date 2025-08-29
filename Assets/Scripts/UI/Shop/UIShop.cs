@@ -37,7 +37,7 @@ public class UIShop : MonoBehaviour
     {
         //Init teamp
         currentShopItemType = new UIShopItemType();
-        currentShopItemType.itemType = ItemType.Outfit;
+        //currentShopItemType.itemType = ItemType.Outfit;
 
         currentShopItemSpecificType = new UIShopItemTypeSpecific();
         currentShopItemSpecificType.outfitType = EOutfitType.Hat;
@@ -69,16 +69,20 @@ public class UIShop : MonoBehaviour
             shopItemTypes.Add(shopItemType);
         }
 
-        if(currentShopItemType.itemType == ItemType.Outfit)
+        //if(currentShopItemType.itemType == ItemType.Outfit)
+        //{
+        //    foreach (EOutfitType outfitType in Enum.GetValues(typeof(EOutfitType)))
+        //    {
+        //        if (outfitType == EOutfitType.None) continue;
+        //        GameObject itemTypeObj = Instantiate(itemSpecificTypePrefab, itemSpecificTypeParent);
+        //        UIShopItemTypeSpecific shopItemTypeSpecific = itemTypeObj.GetComponent<UIShopItemTypeSpecific>();
+        //        shopItemTypeSpecific.SetUp(EConsumableType.None, outfitType);
+        //        shopItemTypeSpecifics.Add(shopItemTypeSpecific);
+        //    }
+        //}
+        if (true)
         {
-            foreach (EOutfitType outfitType in Enum.GetValues(typeof(EOutfitType)))
-            {
-                if (outfitType == EOutfitType.None) continue;
-                GameObject itemTypeObj = Instantiate(itemSpecificTypePrefab, itemSpecificTypeParent);
-                UIShopItemTypeSpecific shopItemTypeSpecific = itemTypeObj.GetComponent<UIShopItemTypeSpecific>();
-                shopItemTypeSpecific.SetUp(EConsumableType.None, outfitType);
-                shopItemTypeSpecifics.Add(shopItemTypeSpecific);
-            }
+
         }
         else if(currentShopItemType.itemType == ItemType.Consumable)
         {
@@ -147,7 +151,7 @@ public class UIShop : MonoBehaviour
         }
         shopItemTypeSpecifics.Clear();
 
-        if (currentShopItemType.itemType == ItemType.Outfit)
+        if (/*currentShopItemType.itemType == ItemType.Outfit*/ true)
         {
             foreach (EOutfitType outfitType in Enum.GetValues(typeof(EOutfitType)))
             {

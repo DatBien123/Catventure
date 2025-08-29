@@ -43,7 +43,7 @@ public class UIShopItemType : MonoBehaviour, IPointerDownHandler
         }
         uiShop.shopItemTypeSpecifics.Clear();
 
-        if (uiShop.currentShopItemType.itemType == ItemType.Outfit)
+        if (/*uiShop.currentShopItemType.itemType == ItemType.Outfit*/ true)
         {
             foreach (EOutfitType outfitType in Enum.GetValues(typeof(EOutfitType)))
             {

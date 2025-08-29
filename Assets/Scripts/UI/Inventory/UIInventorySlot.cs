@@ -41,7 +41,7 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
             uiSlot.OnSelect(false);
         }
 
-        uiInventory.itemInfo.gameObject.SetActive(true);
+        //uiInventory.itemInfo.gameObject.SetActive(true);
         uiInventory.currentInventorySlotSelected = this;
         isSelected = true;
         OnSelect(true);
@@ -60,7 +60,7 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
         if (slot.item.commonData.isStackable && slot.currentQuantity > 1)
             quantityText.text = slot.currentQuantity.ToString();
         else
-            quantityText.text = "1";
+            quantityText.text = "";
 
         //Set up Description
         Name = slot.item.commonData.itemName;
