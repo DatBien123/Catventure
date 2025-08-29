@@ -6427,7 +6427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd35c18c1bee684aae219182c374e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconPrefab: {fileID: 1913721144416875998, guid: ef489d9ba1578434a88b2c86c7619f7a, type: 3}
+  iconPrefab: {fileID: 1913721144416875998, guid: a57c65a1dabe7fd4687a459c2c735fa8, type: 3}
   iconContainer: {fileID: 991660372}
 --- !u!114 &991660374
 MonoBehaviour:
@@ -16475,7 +16475,7 @@ GameObject:
   - component: {fileID: 1305347497}
   - component: {fileID: 1305347498}
   m_Layer: 5
-  m_Name: Ingredients
+  m_Name: Item Crafting Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16520,9 +16520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e545b74a34fa143b89914936fba8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientPrefab: {fileID: 1536733763567300986, guid: 0c872de748dbcc144a2b133b8489311e, type: 3}
-  ingredientContainer: {fileID: 1988953588}
-  ingredientsHolder:
+  craftingItemPrefab: {fileID: 1536733763567300986, guid: 6504ef4d3b2917f43b9eb46950eb44c4, type: 3}
+  craftingItemContainer: {fileID: 1988953588}
+  craftingItemsSlotsPosition:
   - {fileID: 260710011}
   - {fileID: 84817494}
   - {fileID: 1469226218}
@@ -16845,7 +16845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -335.00003, y: -65}
+  m_AnchoredPosition: {x: -335, y: -65}
   m_SizeDelta: {x: -1030, y: -270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988953589
