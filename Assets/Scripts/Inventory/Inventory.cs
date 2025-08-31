@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public Character owner;
+    public CharacterPlayer owner;
     public List<InventorySlot> slots = new List<InventorySlot>();
 
     #region Add Item
-    public void AddItem(SO_Item item, int quantity)
+    public void AddItem(ItemInstance ItemInstance)
     {
-        if (!item.commonData.isStackable)
+        if (!ItemInstance.ItemStaticData.commonData.isStackable)
         {
-            for (int i = 0; i < quantity; i++)
-                slots.Add(new InventorySlot(item, 1));
+            for (int i = 0; i < ItemInstance.Quantity; i++)
+            {
+                if (ItemInstance is OutfitInstance outfitInstance)
+                {
+                    slots.Add(new InventorySlot(outfitInstance));
+                }
+                else
+                {
+                    slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, 1)));
+                }
+            }
             return;
         }
 
-        int remain = quantity;
+        int remain = ItemInstance.Quantity;
 
         foreach (var slot in slots)
         {
-            if (slot.item.commonData.itemName == item.commonData.itemName && !slot.isFull)
+            if (slot.ItemInstance.ItemStaticData.commonData.itemName == ItemInstance.ItemStaticData.commonData.itemName && !slot.isFull)
             {
-                int space = item.commonData.maxQuantityAllowed - slot.currentQuantity;
+                int space = ItemInstance.ItemStaticData.commonData.maxQuantityAllowed - slot.ItemInstance.Quantity;
                 int addAmount = Mathf.Min(space, remain);
 
                 slot.Add(addAmount);
@@ -35,8 +44,21 @@ public class Inventory : MonoBehaviour
 
         while (remain > 0)
         {
-            int addAmount = Mathf.Min(item.commonData.maxQuantityAllowed, remain);
-            slots.Add(new InventorySlot(item, addAmount));
+            int addAmount = Mathf.Min(ItemInstance.ItemStaticData.commonData.maxQuantityAllowed, remain);
+
+            if (ItemInstance is OutfitInstance outfitInstance)
+            {
+                slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, addAmount, false)));
+            }
+            else if (ItemInstance is ConsumableInstance consumableInstance)
+            {
+                slots.Add(new InventorySlot(new ConsumableInstance(consumableInstance.ItemStaticData, addAmount)));
+            }
+            else
+            {
+                slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, addAmount)));
+            }
+
             remain -= addAmount;
         }
     }
@@ -57,16 +79,16 @@ public class Inventory : MonoBehaviour
         for (int i = slots.Count - 1; i >= 0; i--)
         {
             var slot = slots[i];
-            if (slot.item.commonData.itemName == item.commonData.itemName)
+            if (slot.ItemInstance.ItemStaticData.commonData.itemName == item.commonData.itemName)
             {
-                if (slot.currentQuantity > remain)
+                if (slot.ItemInstance.Quantity > remain)
                 {
                     slot.Remove(remain);
                     break;
                 }
                 else
                 {
-                    remain -= slot.currentQuantity;
+                    remain -= slot.ItemInstance.Quantity;
                     slots.RemoveAt(i);
                     if (remain <= 0) break;
                 }
@@ -79,8 +101,8 @@ public class Inventory : MonoBehaviour
     public int GetTotalQuantity(SO_Item item)
     {
         return slots
-            .Where(s => s.item.commonData.itemName == item.commonData.itemName)
-            .Sum(s => s.currentQuantity);
+            .Where(s => s.ItemInstance.ItemStaticData.commonData.itemName == item.commonData.itemName)
+            .Sum(s => s.ItemInstance.Quantity);
     }
 
     public bool CheckItemExist(SO_Item item, int quantity)
@@ -90,7 +112,7 @@ public class Inventory : MonoBehaviour
 
     public void ClearItem(SO_Item item)
     {
-        slots.RemoveAll(s => s.item.commonData.itemName == item.commonData.itemName);
+        slots.RemoveAll(s => s.ItemInstance.ItemStaticData.commonData.itemName == item.commonData.itemName);
     }
     #endregion
 }

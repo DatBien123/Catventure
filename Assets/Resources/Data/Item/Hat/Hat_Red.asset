@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Red Hat
+    itemName: Hat_Red
     icon: {fileID: 21300000, guid: 59f13d9939f541349888024ec69134d4, type: 3}
     description: A beautiful Red Hat
     itemType: 3

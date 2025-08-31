@@ -167,7 +167,7 @@ Material:
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9150943, g: 0.14970094, b: 0.08201311, a: 1}
+    - _BaseColor: {r: 0.9137255, g: 0.52618444, b: 0.08235291, a: 1}
     - _Color: {r: 0.9150943, g: 0.14970098, b: 0.082013145, a: 1}
     - _ColorCelShadow: {r: 0.49056602, g: 0.34478462, b: 0.4476891, a: 1}
     - _ColorDim: {r: 0.5660378, g: 0.53950477, b: 0.42452833, a: 0.85}
@@ -186,3 +186,4 @@ Material:
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
+public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPointerDownHandler
 {
 
     [Header("UI Components")]
@@ -25,6 +25,9 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
     [Header("Reference")]
     public UIInventory uiInventory;
 
+    public int poolID { get; set; }
+    public ObjectPooler<UIInventorySlot> pool { get; set; }
+
     private void Awake()
     {
         uiInventory = GameObject.FindAnyObjectByType<UIInventory>();
@@ -40,13 +43,10 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
             uiSlot.isSelected = false;
             uiSlot.OnSelect(false);
         }
-
-        //uiInventory.itemInfo.gameObject.SetActive(true);
         uiInventory.currentInventorySlotSelected = this;
+        uiInventory.ShowActionButton(this.slotData.ItemInstance);
         isSelected = true;
         OnSelect(true);
-        uiInventory.RefreshItemDescriptionInfo();
-
     }
     #endregion
     public void SetupSlot(InventorySlot slot)
@@ -54,18 +54,18 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
         slotData = slot;
 
         //Set up Grid Inventory
-        iconImage.sprite = slot.item.commonData.icon;
+        iconImage.sprite = slot.ItemInstance.ItemStaticData.commonData.icon;
         iconImage.enabled = true;
 
-        if (slot.item.commonData.isStackable && slot.currentQuantity > 1)
-            quantityText.text = slot.currentQuantity.ToString();
+        if (slot.ItemInstance.ItemStaticData.commonData.isStackable && slot.ItemInstance.Quantity > 1)
+            quantityText.text = slot.ItemInstance.Quantity.ToString();
         else
             quantityText.text = "";
 
         //Set up Description
-        Name = slot.item.commonData.itemName;
-        Type = "(" + slot.item.commonData.itemType.ToString() + ")";
-        Description = slot.item.commonData.description;
+        Name = slot.ItemInstance.ItemStaticData.commonData.itemName;
+        Type = "(" + slot.ItemInstance.ItemStaticData.commonData.itemType.ToString() + ")";
+        Description = slot.ItemInstance.ItemStaticData.commonData.description;
 
     }
     public void ClearSlot()
@@ -80,13 +80,13 @@ public class UIInventorySlot : MonoBehaviour, IPointerDownHandler
     {
         if (isSelect)
         {
-            backGroundImage.sprite = slotData.item.displayData.buttonData.selectFieldData.backgroundSprite;
-            backGroundImage.color = slotData.item.displayData.buttonData.selectFieldData.backgroundColor;
+            backGroundImage.sprite = slotData.ItemInstance.ItemStaticData.displayData.buttonData.selectFieldData.backgroundSprite;
+            backGroundImage.color = slotData.ItemInstance.ItemStaticData.displayData.buttonData.selectFieldData.backgroundColor;
         }
         else
         {
-            backGroundImage.sprite = slotData.item.displayData.buttonData.deselectdFieldData.backgroundSprite;
-            backGroundImage.color = slotData.item.displayData.buttonData.deselectdFieldData.backgroundColor;
+            backGroundImage.sprite = slotData.ItemInstance.ItemStaticData.displayData.buttonData.deselectdFieldData.backgroundSprite;
+            backGroundImage.color = slotData.ItemInstance.ItemStaticData.displayData.buttonData.deselectdFieldData.backgroundColor;
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Blue Hat
+    itemName: Hat_Traditional
     icon: {fileID: 21300000, guid: 78f859e02e3d36b46b1241c48243d386, type: 3}
     description: A beautiful Green Hat
     itemType: 3

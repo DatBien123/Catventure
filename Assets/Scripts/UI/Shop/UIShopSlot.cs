@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class UIShopSlot : MonoBehaviour, IPointerDownHandler
+public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerDownHandler
 {
     [Header("Item Infomations")]
     public Image itemIcon;
@@ -19,7 +19,11 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
 
     [Header("References")]
     public UIShop uiShop;
-    private Shop shopManager;
+    private Shop ShopManager;
+
+
+    public int poolID { get; set; }
+    public ObjectPooler<UIShopSlot> pool { get; set; }
 
     private void Awake()
     {
@@ -28,7 +32,7 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
     public void Setup(SO_Item shopItem, Shop manager)
     {
         item = shopItem;
-        shopManager = manager;
+        ShopManager = manager;
 
         OnSelected(false);
          
@@ -49,11 +53,11 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
                 uiShop.OnSelected(false);
             }
 
-            uiShop.currentUIShopSlotSelected = this;
+            uiShop.CurrentUIShopSlotSelected = this;
             isSelected = true;
             OnSelected(true);
-            uiShop.uiShopItemInfo.gameObject.SetActive(true);
-                uiShop.uiShopItemInfo.ShowInfo(uiShop.currentUIShopSlotSelected.item);
+            uiShop.UiShopItemInfo.gameObject.SetActive(true);
+                uiShop.UiShopItemInfo.ShowInfo(uiShop.CurrentUIShopSlotSelected.item);
                 //shopManager.TryBuy(item);
             //}
         });
@@ -69,7 +73,7 @@ public class UIShopSlot : MonoBehaviour, IPointerDownHandler
             uiShop.OnSelected(false);
         }
 
-        uiShop.currentUIShopSlotSelected = this;
+        uiShop.CurrentUIShopSlotSelected = this;
         isSelected = true;
         OnSelected(true);
 

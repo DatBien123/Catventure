@@ -21,33 +21,32 @@ public class LoadingBarProgress : MonoBehaviour
 
     private void Awake()
     {
-        loadingBarSlider = GetComponent<Slider>();
+        //loadingBarSlider = GetComponent<Slider>();
     }
     private void Start()
     {
-        if(loadType == ELoadType.LoadAsync)
-        StartLoadSceneAsync(sceneName);
-        else StartLoadSceneNormal(sceneName, loadDuration);
+
+         StartLoadSceneNormal(sceneName, loadDuration);
     }
 
     Coroutine C_LoadScene;
-    public void StartLoadSceneAsync(string sceneName)
-    {
-        if (C_LoadScene != null) StopCoroutine(C_LoadScene);
-        C_LoadScene = StartCoroutine(LoadSceneAsync(sceneName));
-    }
-    IEnumerator LoadSceneAsync(string sceneName)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+    //public void StartLoadSceneAsync(string sceneName)
+    //{
+    //    if (C_LoadScene != null) StopCoroutine(C_LoadScene);
+    //    C_LoadScene = StartCoroutine(LoadSceneAsync(sceneName));
+    //}
+    //IEnumerator LoadSceneAsync(string sceneName)
+    //{
+    //    AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
-        while (!operation.isDone )
-        {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            loadingBarSlider.value = progress;
-            Debug.Log("Loading progress: " + (progress * 100) + "%");
-            yield return null;
-        }
-    }
+    //    while (!operation.isDone )
+    //    {
+    //        float progress = Mathf.Clamp01(operation.progress / 0.9f);
+    //        loadingBarSlider.value = progress;
+    //        Debug.Log("Loading progress: " + (progress * 100) + "%");
+    //        yield return null;
+    //    }
+    //}
     public void StartLoadSceneNormal(string sceneName, float duration)
     {
         if (C_LoadScene != null) StopCoroutine(C_LoadScene);
@@ -61,6 +60,7 @@ public class LoadingBarProgress : MonoBehaviour
         {
             float rate = elapsedTime / duration;
             float progress = Mathf.Clamp01(rate / 0.9f);
+            if(loadingBarSlider)
             loadingBarSlider.value = progress;
             Debug.Log("Loading progress: " + (progress * 100) + "%");
             elapsedTime += Time.deltaTime;

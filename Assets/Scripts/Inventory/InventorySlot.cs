@@ -3,31 +3,28 @@ using UnityEngine;
 [System.Serializable]
 public class InventorySlot
 {
-    public SO_Item item;
-
-    public int currentQuantity;
+    public ItemInstance ItemInstance;
 
     public bool isFull
     {
         get
         {
-            return (currentQuantity >= item.commonData.maxQuantityAllowed); // Tinh den truong hop xau nhat la lon hon
+            return (ItemInstance.Quantity >= ItemInstance.ItemStaticData.commonData.maxQuantityAllowed);
         }
     }
-    public InventorySlot(SO_Item item, int quantity)
+    public InventorySlot(ItemInstance ItemInstance)
     {
-        this.item = item;
-        this.currentQuantity = quantity;
+        this.ItemInstance = ItemInstance;
     }
 
     public void Add(int amount)
     {
-        currentQuantity += amount;
+        ItemInstance.Quantity += amount;
     }
 
     public void Remove(int amount)
     {
-        currentQuantity -= amount;
-        if (currentQuantity < 0) currentQuantity = 0;
+        ItemInstance.Quantity -= amount;
+        if (ItemInstance.Quantity < 0) ItemInstance.Quantity = 0;
     }
 }

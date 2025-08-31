@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Round Glasses
+    itemName: Glass_Spacer
     icon: {fileID: 21300000, guid: 90ec60bc195ffec4d9050e60a064811c, type: 3}
     description: A beautiful Start Glasses
     itemType: 3

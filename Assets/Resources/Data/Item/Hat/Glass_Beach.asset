@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Round Glasses
+    itemName: Glass_Beach
     icon: {fileID: 21300000, guid: a0771058416355741926ca39d47f9c77, type: 3}
     description: A beautiful Ap chong Glasses
     itemType: 3
