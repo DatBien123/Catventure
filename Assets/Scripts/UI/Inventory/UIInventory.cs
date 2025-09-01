@@ -8,8 +8,8 @@ using static UnityEngine.UI.GridLayoutGroup;
 public enum FilterType
 {
     Shirt,
-    Trouser,
-    Shoes,
+    Glasses,
+    HandStuff,
     Hat,
     Consumable,
 
@@ -25,8 +25,8 @@ public class UIInventory : MonoBehaviour
 
     [Header("Filter Buttons")]
     public Button buttonShirt;
-    public Button buttonTrouser;
-    public Button buttonShoes;
+    public Button buttonHandStuff;
+    public Button buttonGlasses;
     public Button buttonHat;
     public Button buttonConsumable;
 
@@ -48,6 +48,10 @@ public class UIInventory : MonoBehaviour
 
     #endregion
 
+    private void OnEnable()
+    {
+        RefreshUI();
+    }
     private void Awake()
     {
         pooler = new ObjectPooler<UIInventorySlot>();
@@ -58,8 +62,8 @@ public class UIInventory : MonoBehaviour
     {
         //Filter Register
         buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
-        buttonTrouser.onClick.AddListener(() => ChangeFilter(FilterType.Trouser));
-        buttonShoes.onClick.AddListener(() => ChangeFilter(FilterType.Shoes));
+        buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
+        buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
 
@@ -133,11 +137,11 @@ public class UIInventory : MonoBehaviour
         {
             inventoryManager.owner.Hat = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
         }
-        else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Shoes)
+        else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Glasses)
         {
             inventoryManager.owner.Shoes = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
         }
-        else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Trouser)
+        else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.HandStuff)
         {
             inventoryManager.owner.Trouser = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
         }
@@ -170,8 +174,8 @@ public class UIInventory : MonoBehaviour
         // Lọc dữ liệu inventory theo filter
         var filteredSlots = inventoryManager.slots.Where(slot =>
             (currentFilter == FilterType.Shirt && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shirt) ||
-            (currentFilter == FilterType.Trouser && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Trouser) ||
-            (currentFilter == FilterType.Shoes && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shoes) ||
+            (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
+            (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
             (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) 
         );

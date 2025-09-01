@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [Header("Outfit Items")]
-    public List<OutfitInstance> ShopOutfitItems = new List<OutfitInstance>();
-    [Header("Consumable Items")]
-    public List<ConsumableInstance> ShopConsumableItems = new List<ConsumableInstance>();
+    public CharacterPlayer owner;
+    public List<SO_Item> slots = new List<SO_Item>();
 
-    public Inventory playerInventory;
+    public Inventory Inventory;
 
     public int playerGold = 100000000;
 
@@ -17,7 +15,7 @@ public class Shop : MonoBehaviour
         if (playerGold >= ItemInstance.ItemStaticData.commonData.price)
         {
             playerGold -= ItemInstance.ItemStaticData.commonData.price;
-            playerInventory.AddItem(ItemInstance); // hoặc quantity tuỳ bạn
+            Inventory.AddItem(ItemInstance); // hoặc quantity tuỳ bạn
             Debug.Log("Đã mua: " + ItemInstance.ItemStaticData.commonData.itemName);
         }
         else

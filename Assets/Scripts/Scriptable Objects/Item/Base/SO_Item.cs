@@ -4,8 +4,8 @@ using UnityEngine;
 public enum ItemType
 {
     Shirt,
-    Trouser,
-    Shoes,
+    Glasses,
+    HandStuff,
     Hat,
     Consumable
 }

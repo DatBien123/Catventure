@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06fc2dd6969815e439efb9be5a840535, type: 3}
-  m_Name: Glass_Green
+  m_Name: Glass_Round
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Glass_Green
-    icon: {fileID: 21300000, guid: b1f0b92f8cad1e44789223081d72862d, type: 3}
-    description: A beautiful Heart Glasses
-    itemType: 3
+    itemName: Glass_Round
+    icon: {fileID: 21300000, guid: 94083c9fb5246824381e9efe62474249, type: 3}
+    description: A beautiful Round Glasses
+    itemType: 1
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 150000
+    price: 100000
   displayData:
     buttonData:
       buttonName: 

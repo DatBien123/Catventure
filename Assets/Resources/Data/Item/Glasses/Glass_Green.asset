@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06fc2dd6969815e439efb9be5a840535, type: 3}
-  m_Name: Giay hong
+  m_Name: Glass_Green
   m_EditorClassIdentifier: 
   commonData:
     itemID: 2
-    itemName: Pink Shoes
-    icon: {fileID: 21300000, guid: 410ef6ed1bbe1c947ac35210813b783b, type: 3}
-    description: A beautiful Pink Shoes
-    itemType: 0
+    itemName: Glass_Green
+    icon: {fileID: 21300000, guid: b1f0b92f8cad1e44789223081d72862d, type: 3}
+    description: A beautiful Heart Glasses
+    itemType: 1
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 200000
+    price: 150000
   displayData:
     buttonData:
       buttonName: 
@@ -35,5 +35,5 @@ MonoBehaviour:
         textColor: {r: 1, g: 1, b: 1, a: 0.9019608}
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:
-    Type: 3
-    equipClip: {fileID: -203655887218126122, guid: a188d3ec53588ef45ace039381eafae0, type: 3}
+    Type: 4
+    equipClip: {fileID: -203655887218126122, guid: d702e3c98c130a846a0c5738baaedd59, type: 3}

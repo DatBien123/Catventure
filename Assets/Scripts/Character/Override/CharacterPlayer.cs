@@ -13,9 +13,8 @@ public class CharacterPlayer : Character
     [Header("Equip Socket")]
     public Transform HatTransformRoot;
     public Transform ShirtTransformRoot;
-    public Transform TrouserTransformRoot;
-    public Transform ShoeLeftTransformRoot;
-    public Transform ShoeRightTransformRoot;
+    public Transform GlassesTransformRoot;
+    public Transform HandStuffTransformRoot;
 
     [Header("Hat Transform Set")]
     public List<Transform> HatTransforms;
@@ -23,12 +22,11 @@ public class CharacterPlayer : Character
     [Header("Shirt Transform Set")]
     public List<Transform> ShirtTransforms;
 
-    [Header("Trouser Transform Set")]
-    public List<Transform> TrouserTransforms;
+    [Header("Glasses Transform Set")]
+    public List<Transform> GlassesTransforms;
 
-    [Header("Shoes Transform Set")]
-    public List<Transform> ShoesLeftTransforms;
-    public List<Transform> ShoesRightTransforms;
+    [Header("HandStuff Transform Set")]
+    public List<Transform> HandStuffTransforms;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,28 +62,23 @@ public class CharacterPlayer : Character
                 //Active Hat by Name
                 ShirtTransformRoot.Find(OutfitName).gameObject.SetActive(true);
                 break;
-            case ItemType.Shoes:
+            case ItemType.Glasses:
                 //Turn off all hat
-                foreach (Transform availableTransform in ShoesLeftTransforms)
-                {
-                    availableTransform.gameObject.SetActive(false);
-                }
-                foreach (Transform availableTransform in ShoesRightTransforms)
+                foreach (Transform availableTransform in GlassesTransforms)
                 {
                     availableTransform.gameObject.SetActive(false);
                 }
                 //Active Hat by Name
-                ShoeLeftTransformRoot.Find(OutfitName).gameObject.SetActive(true);
-                ShoeRightTransformRoot.Find(OutfitName).gameObject.SetActive(true);
+                GlassesTransformRoot.Find(OutfitName).gameObject.SetActive(true);
                 break;
-            case ItemType.Trouser:
+            case ItemType.HandStuff:
                 //Turn off all hat
-                foreach (Transform availableTransform in TrouserTransforms)
+                foreach (Transform availableTransform in HandStuffTransforms)
                 {
                     availableTransform.gameObject.SetActive(false);
                 }
                 //Active Hat by Name
-                TrouserTransformRoot.Find(OutfitName).gameObject.SetActive(true);
+                HandStuffTransformRoot.Find(OutfitName).gameObject.SetActive(true);
                 break;
         }
 
@@ -104,16 +97,16 @@ public class CharacterPlayer : Character
                 //Active Hat by Name
                 ShirtTransformRoot.Find(OutfitName).gameObject.SetActive(false);
                 break;
-            case ItemType.Shoes:
+            case ItemType.Glasses:
 
                 //Active Hat by Name
-                ShoeLeftTransformRoot.Find(OutfitName).gameObject.SetActive(false);
-                ShoeRightTransformRoot.Find(OutfitName).gameObject.SetActive(false);
+                GlassesTransformRoot.Find(OutfitName).gameObject.SetActive(false);
+
                 break;
-            case ItemType.Trouser:
+            case ItemType.HandStuff:
 
                 //Active Hat by Name
-                TrouserTransformRoot.Find(OutfitName).gameObject.SetActive(false);
+                HandStuffTransformRoot.Find(OutfitName).gameObject.SetActive(false);
                 break;
         }
     }

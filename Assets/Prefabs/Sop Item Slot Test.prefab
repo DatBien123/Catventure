@@ -408,8 +408,8 @@ GameObject:
   - component: {fileID: 411875605522357}
   - component: {fileID: 3009883349248536795}
   - component: {fileID: 931236967524294705}
-  - component: {fileID: 666070347027461671}
   - component: {fileID: 8261090820466823896}
+  - component: {fileID: 7607227731028085643}
   m_Layer: 5
   m_Name: Sop Item Slot Test
   m_TagString: Untagged
@@ -477,29 +477,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &666070347027461671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4793237710743133210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e53517f72e1fe408848ae450d9eeb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconImage: {fileID: 4980394635489779620}
-  quantityText: {fileID: 5116642935022921488}
-  Name: 
-  Type: 
-  Description: 
-  backGroundImage: {fileID: 0}
-  isSelected: 0
-  slotData:
-    item: {fileID: 0}
-    currentQuantity: 0
-  uiInventory: {fileID: 0}
 --- !u!114 &8261090820466823896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +503,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7607227731028085643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793237710743133210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf55df19b1560a4791d02faff7cae0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 4980394635489779620}
+  nameText: {fileID: 5116642935022921488}
+  priceText: {fileID: 1111176932737316682}
+  item: {fileID: 0}
+  buyButton: {fileID: 0}
+  backGroundImage: {fileID: 0}
+  isSelected: 0
+  uiShop: {fileID: 0}
 --- !u!1 &5492189322886318810
 GameObject:
   m_ObjectHideFlags: 0
