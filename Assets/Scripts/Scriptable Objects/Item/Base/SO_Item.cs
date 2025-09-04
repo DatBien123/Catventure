@@ -24,7 +24,6 @@ public struct ItemData
 [System.Serializable]
 public struct ItemDisplayData
 {
-    public ButtonData buttonData;
     public Color descriptionColor;
 
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   Data:
     ID: 
     Name: Banh Ran
-    Icon: {fileID: 21300000, guid: e10ea8432e40d0d4db6d5602693dd175, type: 3}
+    Icon: {fileID: 21300000, guid: 1a7ab4280ad82164bbd6a9c62d107ae5, type: 3}
     description: 
     Type: 0
-    IsApplied: 0
+    IsUnlocked: 0

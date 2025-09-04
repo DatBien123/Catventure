@@ -32,7 +32,6 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerDownHan
          
         itemIcon.sprite = item.commonData.icon;
         nameText.text = item.commonData.itemName;
-        nameText.color = item.displayData.buttonData.deselectdFieldData.textColor;
         priceText.text = item.commonData.price.ToString();
     }
 

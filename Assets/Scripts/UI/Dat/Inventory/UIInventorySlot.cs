@@ -41,12 +41,10 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         foreach(var uiSlot in uiInventory.uiSlots)
         {
             uiSlot.isSelected = false;
-            uiSlot.OnSelect(false);
         }
         uiInventory.currentInventorySlotSelected = this;
         uiInventory.ShowActionButton(this.slotData.ItemInstance);
         isSelected = true;
-        OnSelect(true);
     }
     #endregion
     public void SetupSlot(InventorySlot slot)
@@ -74,20 +72,6 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         iconImage.sprite = null;
         iconImage.enabled = false;
         quantityText.text = "";
-    }
-
-    public void OnSelect(bool isSelect)
-    {
-        if (isSelect)
-        {
-            backGroundImage.sprite = slotData.ItemInstance.ItemStaticData.displayData.buttonData.selectFieldData.backgroundSprite;
-            backGroundImage.color = slotData.ItemInstance.ItemStaticData.displayData.buttonData.selectFieldData.backgroundColor;
-        }
-        else
-        {
-            backGroundImage.sprite = slotData.ItemInstance.ItemStaticData.displayData.buttonData.deselectdFieldData.backgroundSprite;
-            backGroundImage.color = slotData.ItemInstance.ItemStaticData.displayData.buttonData.deselectdFieldData.backgroundColor;
-        }
     }
 }
 

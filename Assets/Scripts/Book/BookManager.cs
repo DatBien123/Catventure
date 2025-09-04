@@ -28,7 +28,7 @@ public class BookManager : MonoBehaviour
 
         foreach (SO_Card card in cards)
         {
-            if (card.Data.Type == CardType.Temp)
+            if (card.Data.Type == CardType.Food)
             {
                 result.Add(card as SO_FoodCard);
             }
@@ -43,7 +43,7 @@ public class BookManager : MonoBehaviour
 
         foreach (SO_Card card in cards)
         {
-            if (card.Data.Type == CardType.Temp)
+            if (card.Data.Type == CardType.Volcabulary)
             {
                 result.Add(card as SO_Vocabulary);
             }

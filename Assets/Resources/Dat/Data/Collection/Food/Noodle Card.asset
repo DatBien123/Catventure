@@ -15,7 +15,7 @@ MonoBehaviour:
   Data:
     ID: 
     Name: 
-    Icon: {fileID: 21300000, guid: fc3c164f93b728848ae9f794c453aa23, type: 3}
+    Icon: {fileID: 21300000, guid: f05041939f2cd0e4ca0a20177a14861a, type: 3}
     description: 
     Type: 0
-    IsApplied: 0
+    IsUnlocked: 0
