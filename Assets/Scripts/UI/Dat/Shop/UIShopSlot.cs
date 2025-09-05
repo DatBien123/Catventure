@@ -49,5 +49,7 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerDownHan
 
         ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
 
+        Debug.Log("Buy: " +  item.name);
+
     }
 }

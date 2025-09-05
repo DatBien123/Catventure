@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public enum EBookFilterType
 {
+    None = 0,
     Food,
     Vocabulary,
     Temp
@@ -24,13 +25,15 @@ public class UIBook : MonoBehaviour
     [Header("Current Filter")]
     public int CurrentCouplePage = 1;
     public int CurrentMaxCouplePage;
-    public EBookFilterType CurrentFilterType;
+    public EBookFilterType CurrentFilterType = EBookFilterType.None;
     public Sprite UnlockIcon;
     public Image[] Collections;
 
     [Header("Reference")]
     public BookManager BookManager;
     public Animator Animator;
+
+    bool isFirstTimeOpen = false;
 
     private void Awake()
     {
@@ -44,6 +47,7 @@ public class UIBook : MonoBehaviour
     private void Start()
     {
         FunctionTemp(EBookFilterType.Food);
+        RefreshBookUI();
     }
     #region [Filter]
     public void RefreshBookUI()
@@ -146,6 +150,7 @@ public class UIBook : MonoBehaviour
         CurrentMaxCouplePage = Mathf.CeilToInt((float)totalItems / 8f);
         if (CurrentMaxCouplePage == 0) CurrentMaxCouplePage = 1; // ít nhất phải có 1 trang
 
+        if(isFirstTimeOpen)
         Animator.CrossFadeInFixedTime("Book_Open-Close", 0.0f);
 
         // Update UI highlight filter
@@ -158,7 +163,7 @@ public class UIBook : MonoBehaviour
         Temp_Filter.GetComponent<RectTransform>().localScale =
             FilterType == EBookFilterType.Temp ? new Vector3(1.5f, 1) : new Vector3(1, 1);
 
-        //RefreshBookUI();
+        isFirstTimeOpen = true;
     }
     #endregion
 
