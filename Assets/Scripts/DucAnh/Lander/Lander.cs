@@ -1,9 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lander : MonoBehaviour {
 
     [SerializeField] private Joystick joystick;
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button upButton;
+    [SerializeField] private Button rightButton;
+
 
     private const float GRAVITY_NORMAL = 0.7f;
 
@@ -47,7 +52,7 @@ public class Lander : MonoBehaviour {
     private float fuelAmount;
     private float fuelAmountMax = 10f;
     private State state;
-    private Vector2 direction;
+    private Vector2 joystickDirection;
 
     private void Awake() {
         Instance = this;
@@ -57,11 +62,13 @@ public class Lander : MonoBehaviour {
 
         landerRigidbody2D = GetComponent<Rigidbody2D>();
         landerRigidbody2D.gravityScale = 0f;
+
+
     }
 
     private void FixedUpdate() {
         OnBeforeForce?.Invoke(this, EventArgs.Empty);
-        direction = joystick.Direction; // Keep if you still need the joystick
+        joystickDirection = joystick.Direction; // Keep if you still need the joystick
 
         switch (state) {
             default:
@@ -69,6 +76,7 @@ public class Lander : MonoBehaviour {
                 if (Input.GetKey(KeyCode.W) ||   // Up
                     Input.GetKey(KeyCode.A) ||   // Left
                     Input.GetKey(KeyCode.D) ||   // Right
+                    joystickDirection != Vector2.zero ||    
                     new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) != Vector2.zero) {
                     // Pressing any input
                     landerRigidbody2D.gravityScale = GRAVITY_NORMAL;
@@ -85,6 +93,8 @@ public class Lander : MonoBehaviour {
                 if (Input.GetKey(KeyCode.W) ||
                     Input.GetKey(KeyCode.A) ||
                     Input.GetKey(KeyCode.D) ||
+                    joystickDirection != Vector2.zero ||
+                    
                     new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) != Vector2.zero) {
                     // Pressing any input
                     ConsumeFuel();
@@ -94,21 +104,21 @@ public class Lander : MonoBehaviour {
                 Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
                 // Up / Thrust
-                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone) {
+                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone || joystickDirection.y > 0) {
                     float force = 700f;
                     landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
                     OnUpForce?.Invoke(this, EventArgs.Empty);
                 }
 
                 // Left / Rotate CCW
-                if (Input.GetKey(KeyCode.A) || movementInput.x < -gamepadDeadzone) {
+                if (Input.GetKey(KeyCode.A) || movementInput.x < -gamepadDeadzone || joystickDirection.x < 0) {
                     float turnSpeed = +100f;
                     landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnLeftForce?.Invoke(this, EventArgs.Empty);
                 }
 
                 // Right / Rotate CW
-                if (Input.GetKey(KeyCode.D) || movementInput.x > gamepadDeadzone) {
+                if (Input.GetKey(KeyCode.D) || movementInput.x > gamepadDeadzone || joystickDirection.x > 0) {
                     float turnSpeed = -100f;
                     landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnRightForce?.Invoke(this, EventArgs.Empty);
