@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CharacterPlayer : Character
 {
+    [Header("Data")]
+    public int Coin = 100000;
+    public int CurrentEnergy = 100;
+    public int MaxEnergy = 300;
+
     [Header("Outfit Items")]
     public OutfitInstance Hat;
     public OutfitInstance Shirt;

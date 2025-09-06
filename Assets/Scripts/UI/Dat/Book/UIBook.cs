@@ -26,7 +26,11 @@ public class UIBook : MonoBehaviour
     public int CurrentCouplePage = 1;
     public int CurrentMaxCouplePage;
     public EBookFilterType CurrentFilterType = EBookFilterType.None;
-    public Sprite UnlockIcon;
+
+    public Sprite UnlockIconTemp;
+    public Sprite UnlockIconFood;
+    public Sprite UnlockIconVolcabulary;
+
     public Image[] Collections;
 
     [Header("Reference")]
@@ -71,10 +75,11 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIcon;
+                        Collections[count].sprite = UnlockIconFood;
                         count++;
                     }
                 }
+
                 break;
             case EBookFilterType.Vocabulary:
 
@@ -94,11 +99,10 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIcon;
+                        Collections[count].sprite = UnlockIconVolcabulary;
                         count++;
                     }
                 }
-
                 break;
             case EBookFilterType.Temp:
 
@@ -118,13 +122,18 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIcon;
+                        Collections[count].sprite = UnlockIconTemp;
                         count++;
                     }
                 }
 
+
                 break;
         }
+
+        //Enable / Disable Prev - Next Button
+
+
     }
     public void FunctionTemp(EBookFilterType FilterType)
     {

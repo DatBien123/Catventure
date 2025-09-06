@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,10 @@ public class UIInventory : MonoBehaviour
     [Header("Interact Button")]
     public Button buttonWear;
     public Button buttonTakeoff;
+
+    [Header("Data")]
+    public TextMeshProUGUI Energy;
+    public TextMeshProUGUI Coin;
 
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
 
@@ -190,5 +195,12 @@ public class UIInventory : MonoBehaviour
             uiSlots.Add(uiSlot);
         }
 
+        UpdateResourceUI();
+    }
+
+    public void UpdateResourceUI()
+    {
+        Energy.text = inventoryManager.owner.CurrentEnergy.ToString() + " / " + inventoryManager.owner.MaxEnergy.ToString();
+        Coin.text = inventoryManager.owner.Coin.ToString();
     }
 }

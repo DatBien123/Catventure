@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +21,15 @@ public class UIShop : MonoBehaviour
     public Button buttonConsumable;
 
     [Header("Reference")]
-    public UIShopSlot CurrentUIShopSlotSelected;
+    public UIInventory UIInventory;
+    public UIYabis UIYabis;
     public UIConfirm UIConfirmPurchase;
 
+    [Header("Data")]
+    public TextMeshProUGUI Energy;
+    public TextMeshProUGUI Coin;
+    public UIShopSlot CurrentUIShopSlotSelected;
     public List<UIShopSlot> uiShopSlots = new List<UIShopSlot>();
-
     private FilterType currentFilter = FilterType.Shirt;
 
     #region [ Pool ]
@@ -86,5 +91,13 @@ public class UIShop : MonoBehaviour
             uiShopSlots.Add(uiSlot);
         }
 
+        UpdateResourceUI();
+
+    }
+
+    public void UpdateResourceUI()
+    {
+        Energy.text = ShopManager.owner.CurrentEnergy.ToString() + " / " + ShopManager.owner.MaxEnergy.ToString();
+        Coin.text = ShopManager.owner.Coin.ToString();
     }
 }
