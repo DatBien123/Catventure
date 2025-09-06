@@ -171,3 +171,17 @@ MonoBehaviour:
     loop: 0
     type: 1
     source: {fileID: 0}
+  - name: Perfect Zone
+    clip: {fileID: 8300000, guid: 7794877504b9a0b46814e629abb9b430, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Good Zone
+    clip: {fileID: 8300000, guid: bb3ac16216b596b43b0de2ca4bc2a886, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}

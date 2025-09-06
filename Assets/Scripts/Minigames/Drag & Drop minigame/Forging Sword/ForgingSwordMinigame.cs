@@ -115,7 +115,7 @@ public class ForgingSwordMinigame : DragDropMinigame
         tapToContinueButton.onClick.RemoveAllListeners();
         tapToContinueButton.onClick.AddListener(() =>
         {
-            victoryRewardScreen.ShowRewardDragDrop(recipe.result.icon, recipe.result.name, recipe.reward);
+            victoryRewardScreen.ShowRewardDragDrop(recipe.result.icon, recipe.result.name, recipe.reward,health.currentHealth);
             tapToContinueButton.gameObject.SetActive(false);
         });
     }
