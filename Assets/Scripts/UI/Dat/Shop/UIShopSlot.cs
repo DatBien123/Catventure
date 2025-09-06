@@ -47,7 +47,12 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerDownHan
         uiShop.CurrentUIShopSlotSelected = this;
         isSelected = true;
 
-        ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
+        uiShop.UIConfirmPurchase.SetupItemInfo(item);
+        uiShop.UIConfirmPurchase.gameObject.SetActive(true);
+        
+        //ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
+
+        Debug.Log("Show Item Confirm: " +  item.name);
 
     }
 }
