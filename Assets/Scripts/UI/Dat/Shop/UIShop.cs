@@ -21,7 +21,7 @@ public class UIShop : MonoBehaviour
 
     [Header("Reference")]
     public UIShopSlot CurrentUIShopSlotSelected;
-    public UIShopItemInfo UiShopItemInfo;
+    public UIConfirm UIConfirmPurchase;
 
     public List<UIShopSlot> uiShopSlots = new List<UIShopSlot>();
 
