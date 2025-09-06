@@ -31,5 +31,6 @@ public class UIConfirm : MonoBehaviour
     public void Buy(SO_Item item)
     {
         UIShop.ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
+        gameObject.SetActive(false);
     }
 }
