@@ -26,11 +26,17 @@ public class Pot : MonoBehaviour, IDropHandler
     public ParticleSystem starPuffEffect;
     public Tween shakeTween; // dùng để dừng lại sau
     public Action<bool> OnCookingComplete;
+    
 
-
-    public void Start()
+    public void OnEnable()
     {
-
+        QTEBar.onPerfectZone += ShowPerfectZoneEffect;
+        QTEBar.onGoodZone += ShowGoodZoneEffect;    
+    }
+    public void OnDisable()
+    {
+        QTEBar.onPerfectZone -= ShowPerfectZoneEffect;
+        QTEBar.onGoodZone -= ShowGoodZoneEffect;
     }
     public void Init(CraftingRecipeSO recipe)
     {
@@ -71,25 +77,31 @@ public class Pot : MonoBehaviour, IDropHandler
         if (addedIngredients.Count == currentRecipe.requiredItems.Count)
         {
             CookingMinigame.Instance.HandleCookingDragAndDrop();
-            Debug.Log("Đã đủ nguyên liệu bắt đầu nấu");
-            float originalX = transform.position.x;
-            shakeTween = transform.DOMoveX(originalX + 1f, 0.2f)
-                .SetEase(Ease.InOutSine)
-                .SetLoops(-1, LoopType.Yoyo); AudioManager.instance.PlaySFX("Cooking Sound");
-            if (smokeEffect != null)
-            {
-                smokeEffect.Play(); // 🎉 Bắt đầu khói bốc lên!
-            }
-            if(fireEffect != null) { fireEffect.Play(); }   
-            // Gọi hàm nấu xong sau 3s
-            Invoke(nameof(StopParticleEffect), 3f);
-            Invoke(nameof(CookingComplete), 6f);
+            CookingMinigame.Instance.ShowQTEBar();
+
         }
     }
     public void StopParticleEffect()
     {
         smokeEffect.Stop();
         fireEffect.Stop();
+    }
+    // Bắt đầu nấu ăn là sẽ chạy các animation của nồi, effect các thứ
+
+    public void Cooking()
+    {
+        float originalX = transform.position.x;
+        shakeTween = transform.DOMoveX(originalX + 1f, 0.2f)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo); AudioManager.instance.PlaySFX("Cooking Sound");
+        if (smokeEffect != null)
+        {
+            smokeEffect.Play(); // 🎉 Bắt đầu khói bốc lên!
+        }
+        if (fireEffect != null) { fireEffect.Play();  }
+        // Gọi hàm nấu xong sau 3s
+        Invoke(nameof(StopParticleEffect), 3f);
+        Invoke(nameof(CookingComplete), 6f);
     }
     public void CookingComplete()
     {
@@ -114,6 +126,22 @@ public class Pot : MonoBehaviour, IDropHandler
         OnCookingComplete?.Invoke(true);
     }
 
+    // Hiệu ứng khi người chơi chọn đúng Perfect Zone trong QTE
+    public void ShowPerfectZoneEffect()
+    {
+        Debug.Log("Chạy hiệu ứng hoàn hảo");
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.DOShakeScale(0.3f, strength: 1.5f, vibrato: 10, randomness: 90, fadeOut: true);
+    }
+
+    // Hiệu ứng khi người chơi chọn Good Zone trong QTE
+    public void ShowGoodZoneEffect()
+    {
+        Debug.Log("Chạy hiệu ứng tốt");
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        rt.DOShakePosition(0.3f, strength: new Vector3(20f, 20f, 0f), vibrato: 10, randomness: 90, fadeOut: true);
+
+    }
 
 }
 

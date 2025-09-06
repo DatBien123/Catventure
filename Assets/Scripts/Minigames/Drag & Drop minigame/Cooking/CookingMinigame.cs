@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookingMinigame : DragDropMinigame
 {
@@ -10,9 +13,13 @@ public class CookingMinigame : DragDropMinigame
     public CraftingItemManager ingredientManager;
     public List<GameObject> ingredientPlates;
 
+    // QTE Bar 
+    public QTEBar quickTimeEventBar;
     // UI
     public GameObject startMinigamePanel;
     public GameObject userInterface;
+    public GameObject itemCraftingHolder; // Container chứa các nguyên liệu trên màn hình
+    public GameObject ingredientBar;
 
     private void Awake()
     {
@@ -49,6 +56,7 @@ public class CookingMinigame : DragDropMinigame
         pot.OnCookingComplete += EndGame;
         health.OnHealthZero += EndGame;
         countDownTimer.OnTimeUp += EndGame;
+        quickTimeEventBar.onCookingCompleted += StartCooking;
 
     }
     new void EndGame(bool success)
@@ -116,8 +124,38 @@ public class CookingMinigame : DragDropMinigame
         tapToContinueButton.onClick.RemoveAllListeners();
         tapToContinueButton.onClick.AddListener(() =>
         {
-            victoryRewardScreen.ShowRewardDragDrop(recipe.result.icon,recipe.result.name, recipe.reward);
+            victoryRewardScreen.ShowRewardDragDrop(recipe.result.icon,recipe.result.name, recipe.reward, health.currentHealth);
             tapToContinueButton.gameObject.SetActive(false);
         });
     }
+
+    // Gọi ra Quick Time Event Bar để thêm màn chơi nấu nữa
+    // Sau khi người chơi cho hết cả nguyên liệu cần thiết thì sẽ phải chơi tiếp Quick Time Event Bar để nấu món ăn
+    public void ShowQTEBar()
+    {
+        DG.Tweening.Sequence seqItemCraftingHolder = DOTween.Sequence();
+        seqItemCraftingHolder.Append(itemCraftingHolder.GetComponent<Image>().DOFade(0f, 0.5f))
+            .AppendCallback(() =>
+            {
+            itemCraftingHolder.gameObject.SetActive(false);
+        });
+        DG.Tweening.Sequence seqIngredientBar = DOTween.Sequence();
+        seqIngredientBar.Append(ingredientBar.GetComponent<Image>().DOFade(0f, 0.5f))
+            .AppendCallback(() => 
+            {
+                ingredientBar.gameObject.SetActive(false);  
+            });
+        
+        RectTransform rt = pot.gameObject.GetComponent<RectTransform>();
+        rt.DOLocalMove(new Vector3(0f,rt.position.y,0f), 1f);
+        quickTimeEventBar.SetupQTEBar();
+    }
+    public void StartCooking()
+    {
+        pot.Cooking();
+        userInterface.SetActive(true);
+        itemCraftingHolder.SetActive(false);
+        quickTimeEventBar.gameObject.SetActive(false);    }
+
+
 }
