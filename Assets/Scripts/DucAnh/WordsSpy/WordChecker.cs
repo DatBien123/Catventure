@@ -34,7 +34,7 @@ public class WordChecker : MonoBehaviour
     }
 
     private void GameEvents_OnLoadNextLevel() {
-        SceneManager.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
     }
 
     private void GameEvents_OnClearSelection() {
@@ -183,7 +183,7 @@ public class WordChecker : MonoBehaviour
                 currentBoardIndex += 1;
             }
 
-            DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
+            //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
 
             //Unlock next Category
             if(currentBoardIndex >= currentLevelSize) {
@@ -194,7 +194,7 @@ public class WordChecker : MonoBehaviour
                     loadNextCategory = true;
 
                     if(nextBoardIndex <= 0) {
-                        DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
+                        //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
                     }
                 }
                 else {

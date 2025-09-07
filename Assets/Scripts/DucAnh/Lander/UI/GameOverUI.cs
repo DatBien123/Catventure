@@ -6,13 +6,17 @@ public class GameOverUI : MonoBehaviour {
 
 
 
+    [SerializeField] private Button replayButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private TextMeshProUGUI scoreTextMesh;
 
 
     private void Awake() {
+        replayButton.onClick.AddListener(() => {
+            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderGameScene);
+        });
         mainMenuButton.onClick.AddListener(() => {
-            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderMainMenuScene);
+            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.MainMenuScene);
         });
     }
 

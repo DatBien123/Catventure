@@ -26,7 +26,7 @@ public class PausedUI : MonoBehaviour {
             LanderGameManager.Instance.UnpauseGame();
         });
         mainMenuButton.onClick.AddListener(() => {
-            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderMainMenuScene);
+            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.MainMenuScene);
         });
     }
 
