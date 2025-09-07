@@ -13,22 +13,6 @@ MonoBehaviour:
   m_Name: GameLevelData
   m_EditorClassIdentifier: 
   data:
-  - categoryName: Food
+  - categoryName: 
     boardData:
-    - {fileID: 11400000, guid: 9375117bf89404240927da147e72d84d, type: 2}
-    - {fileID: 11400000, guid: 66437c922f102b547a4f7b6d46f1a262, type: 2}
-  - categoryName: Animals
-    boardData:
-    - {fileID: 11400000, guid: 1354e5d9129c4e24a9d93479a510f4d8, type: 2}
-  - categoryName: Sport
-    boardData:
-    - {fileID: 11400000, guid: f54518b3423fa4d40896cdd921e225cd, type: 2}
-  - categoryName: Hobbies
-    boardData:
-    - {fileID: 11400000, guid: 21b86283236b8224189d441200f9171a, type: 2}
-  - categoryName: Work
-    boardData:
-    - {fileID: 11400000, guid: db0cfe966c609df4baf01476d232c80f, type: 2}
-  - categoryName: Countries
-    boardData:
-    - {fileID: 11400000, guid: 9d0ff6388d8591f439d6013fb1fd0f8c, type: 2}
+    - {fileID: 11400000, guid: e11f8e85a0d4294499361934f1adfb79, type: 2}
