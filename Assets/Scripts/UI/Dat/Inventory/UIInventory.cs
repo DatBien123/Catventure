@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using static UnityEngine.UI.GridLayoutGroup;
 
@@ -45,6 +46,9 @@ public class UIInventory : MonoBehaviour
     public UIInventoryActions uiInventoryActions;
 
     private FilterType currentFilter = FilterType.Shirt;
+
+    public UnityEvent OnWear;
+    public UnityEvent OnTakeOff;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;
@@ -118,6 +122,7 @@ public class UIInventory : MonoBehaviour
     }
     public void Wear(ItemInstance ItemToWear)
     {
+        OnWear?.Invoke();
         //Luồng: Huỷ IsEquiped - Gán mới tham chiếu 
         if(ItemToWear.ItemStaticData as SO_Outfit)
         {
@@ -159,6 +164,8 @@ public class UIInventory : MonoBehaviour
     }
     public void TakeOff(ItemInstance ItemToTakeOff)
     {
+        OnTakeOff?.Invoke();
+
         ItemToTakeOff.IsEquiped = false;
 
         inventoryManager.owner.TakeOff(ItemToTakeOff.ItemStaticData.commonData.itemType, ItemToTakeOff.ItemStaticData.commonData.itemName);
