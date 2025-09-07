@@ -14554,6 +14554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1114994352}
   - component: {fileID: 1114994353}
+  - component: {fileID: 1114994354}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -14588,8 +14589,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992f20cd3220ee94483a1b3f6e80d0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoryPrefab: {fileID: 0}
+  StoryPrefab: {fileID: 4608366456529784197, guid: ae246580c05cf744ea7e55c2c98259a1, type: 3}
   Story: {fileID: 0}
+--- !u!114 &1114994354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114994351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881ff4d59e381f5408555aa50cdd0b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfStory: 8
 --- !u!1 &1147747045
 GameObject:
   m_ObjectHideFlags: 0
