@@ -14,6 +14,7 @@ public enum FilterType
     HandStuff,
     Hat,
     Consumable,
+    Wing
 
 }
 
@@ -30,6 +31,7 @@ public class UIInventory : MonoBehaviour
     public Button buttonHandStuff;
     public Button buttonGlasses;
     public Button buttonHat;
+    public Button buttonWing;
     public Button buttonConsumable;
 
     [Header("Interact Button")]
@@ -75,6 +77,7 @@ public class UIInventory : MonoBehaviour
         buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
 
         //Take off - Wear Register
         buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
@@ -149,11 +152,17 @@ public class UIInventory : MonoBehaviour
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Glasses)
         {
-            inventoryManager.owner.Shoes = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
+            inventoryManager.owner.Glasses = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.HandStuff)
         {
-            inventoryManager.owner.Trouser = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
+            inventoryManager.owner.HandStuff = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
+        }
+        else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Wing)
+        {
+            inventoryManager.owner.Wing = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true);
+            if((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip != null)
+            inventoryManager.owner.animator.CrossFadeInFixedTime((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip.name, 0.0f);
         }
 
         inventoryManager.owner.Wear(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName);
@@ -189,7 +198,8 @@ public class UIInventory : MonoBehaviour
             (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
             (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
-            (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) 
+            (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
+            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) 
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc

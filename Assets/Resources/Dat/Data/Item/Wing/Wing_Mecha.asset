@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fc2dd6969815e439efb9be5a840535, type: 3}
+  m_Name: Wing_Mecha
+  m_EditorClassIdentifier: 
+  commonData:
+    itemID: 2
+    itemName: Wing_Mecha
+    icon: {fileID: 21300000, guid: 59f13d9939f541349888024ec69134d4, type: 3}
+    description: A beautiful Mecha Wing
+    itemType: 5
+    isStackable: 0
+    maxQuantityAllowed: 0
+    price: 150000
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  outfitData:
+    Type: 5
+    equipClip: {fileID: -203655887218126122, guid: fe74a18c58f6ff047b516bf158979acc, type: 3}
