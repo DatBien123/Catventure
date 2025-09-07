@@ -112,7 +112,7 @@ public class LanderGameManager : MonoBehaviour {
 
         if (GetGameLevel() == null) {
             // No more levels
-            LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderGameOverScene);
+            //LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderGameOverScene);
         } else {
             // We still have more levels
             LanderSceneLoader.LoadScene(LanderSceneLoader.Scene.LanderGameScene);

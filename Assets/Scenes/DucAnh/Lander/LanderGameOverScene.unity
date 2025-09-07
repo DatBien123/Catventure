@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f2e77c51b680f45b32a55a37e45885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replayButton: {fileID: 277793251}
   mainMenuButton: {fileID: 1261239484}
   scoreTextMesh: {fileID: 588676834}
 --- !u!1 &588676832
