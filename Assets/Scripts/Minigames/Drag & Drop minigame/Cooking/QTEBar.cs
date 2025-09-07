@@ -10,8 +10,8 @@ public class QTEBar : MonoBehaviour
     public Transform pointA; // điểm A là điểm bắt đầu
     public Transform pointB; // điểm B là điểm cuối
     public RectTransform greenZone;
-    public RectTransform yellowZone1;
-    public RectTransform yellowZone2;
+    public RectTransform redZone;
+    public RectTransform yellowZone;
     public RectTransform pointerTransform; // cái thanh sẽ di chuyển qua lại để ta chơi và ấn đúng lúc
     public Transform targetPosition; // điểm đến tiếp theo của Pointer
     public float moveSpeed; // tốc độ di chuyển của Pointer ta có thể tăng lên sau mỗi lần ấn đúng
@@ -19,12 +19,22 @@ public class QTEBar : MonoBehaviour
     // Các thành UI của QTE
     // Thanh progress bar thể hiện qui trình nấu 
     public Slider cookingProgress;
-    bool canPress = true;
     public Button cookButton;
+    public UIButton QTEPressButton; // nút bấm để ta chơi QTE Bar
+    // các sự kiện báo cho lớp khác xử lý UI
     public Action onCookingCompleted;
     public static Action onPerfectZone;
     public static Action onGoodZone;
 
+    private void OnEnable()
+    {
+        UIEventSystem.Register("QTEPress", CheckSuccess);
+    }
+    private void OnDisable()
+    {
+        UIEventSystem.Unregister("QTEPress", CheckSuccess);
+
+    }
     private void Start()
     {
         cookingProgress.onValueChanged.AddListener(OnCookingProgressChanged);
@@ -55,11 +65,7 @@ public class QTEBar : MonoBehaviour
         else if (Vector3.Distance(pointerTransform.position, pointB.position) < 0.1f){
             targetPosition = pointA;    
         }
-        if (Input.GetKeyDown(KeyCode.Space) && canPress)
-        {
-            canPress = false;
-            CheckSuccess();
-            }
+
 
     }
 
@@ -73,9 +79,16 @@ public class QTEBar : MonoBehaviour
             AudioManager.instance.PlaySFX("Perfect Zone");
             // báo sự kiện cho nồi ở đây để nó chạy hiệu ứng
             onPerfectZone?.Invoke();
-            
+
+            Vector3 originalScale = pointerTransform.localScale;
+            Vector3 targetScale = originalScale - new Vector3(0.3f, 0.3f, 0.3f);
+
+            // Dùng Sequence để dễ thêm delay
+            DG.Tweening.Sequence seq = DOTween.Sequence();
+            seq.Append(pointerTransform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
+            seq.Append(pointerTransform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack));
         }
-        else if (RectTransformUtility.RectangleContainsScreenPoint(yellowZone1, pointerTransform.position, null) || RectTransformUtility.RectangleContainsScreenPoint(yellowZone2, pointerTransform.position, null))
+        else if (RectTransformUtility.RectangleContainsScreenPoint(yellowZone, pointerTransform.position, null))
         {
             AddCookingProgress(10, 0.5f);
             moveSpeed += 100;
@@ -83,18 +96,23 @@ public class QTEBar : MonoBehaviour
             // báo sự kiện cho nồi ở đây để nó chạy hiệu ứng
             onGoodZone?.Invoke();
 
+            Vector3 originalScale = pointerTransform.localScale;
+            Vector3 targetScale = originalScale - new Vector3(0.2f, 0.2f, 0.2f);
+
+            // Dùng Sequence để dễ thêm delay
+            DG.Tweening.Sequence seq = DOTween.Sequence();
+            seq.Append(pointerTransform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
+            seq.Append(pointerTransform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack));
+
         }
 
         else
         {
+            Debug.Log("Red Zone");
         }
-        Invoke(nameof(ResetPress), 1f);
 
     }
-    public void ResetPress()
-    {
-        canPress = true;
-    }
+
 
     public void SetupQTEBar()
     {
