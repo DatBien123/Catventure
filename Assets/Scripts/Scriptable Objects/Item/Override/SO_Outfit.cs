@@ -6,8 +6,8 @@ public enum EOutfitType
     None,
     Hat,
     Shirt,
-    Shoes,
-    Trouser
+    Glasses,
+    HandStuff
 }
 
 [System.Serializable]

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class Lander : MonoBehaviour {
 
     [SerializeField] private Joystick joystick;
-    [SerializeField] private Button leftButton;
-    [SerializeField] private Button upButton;
-    [SerializeField] private Button rightButton;
+    //[SerializeField] private Button leftButton;
+    //[SerializeField] private Button upButton;
+    //[SerializeField] private Button rightButton;
 
 
     private const float GRAVITY_NORMAL = 0.7f;
@@ -94,7 +94,6 @@ public class Lander : MonoBehaviour {
                     Input.GetKey(KeyCode.A) ||
                     Input.GetKey(KeyCode.D) ||
                     joystickDirection != Vector2.zero ||
-                    
                     new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) != Vector2.zero) {
                     // Pressing any input
                     ConsumeFuel();
@@ -131,6 +130,8 @@ public class Lander : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D) {
+        joystick.gameObject.SetActive(false);
+
         if (!collision2D.gameObject.TryGetComponent(out LandingPad landingPad)) {
             Debug.Log("Crashed on the Terrain!");
             OnLanded?.Invoke(this, new OnLandedEventArgs {

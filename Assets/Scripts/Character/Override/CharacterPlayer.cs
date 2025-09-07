@@ -84,6 +84,9 @@ public class CharacterPlayer : Character
                 }
                 //Active Hat by Name
                 HandStuffTransformRoot.Find(OutfitName).gameObject.SetActive(true);
+                if(HandStuffTransformRoot.Find(OutfitName).gameObject.GetComponent<Animator>())
+                    HandStuffTransformRoot.Find(OutfitName).gameObject.GetComponent<Animator>().CrossFadeInFixedTime(OutfitName + "_Active", .0f);
+
                 break;
         }
 
