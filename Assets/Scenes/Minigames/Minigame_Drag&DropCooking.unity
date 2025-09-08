@@ -19348,7 +19348,7 @@ MonoBehaviour:
   yellowZone: {fileID: 1532830325}
   pointerTransform: {fileID: 1994454442}
   targetPosition: {fileID: 2059098171}
-  moveSpeed: 200
+  moveSpeed: 500
   cookingProgress: {fileID: 1666717552}
   cookButton: {fileID: 1777445212}
   QTEPressButton: {fileID: 1329628292}
