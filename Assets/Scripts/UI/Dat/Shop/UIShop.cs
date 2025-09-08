@@ -18,6 +18,7 @@ public class UIShop : MonoBehaviour
     public Button buttonHandStuff;
     public Button buttonGlasses;
     public Button buttonHat;
+    public Button buttonWing;
     public Button buttonConsumable;
 
     [Header("Reference")]
@@ -30,7 +31,7 @@ public class UIShop : MonoBehaviour
     public TextMeshProUGUI Coin;
     public UIShopSlot CurrentUIShopSlotSelected;
     public List<UIShopSlot> uiShopSlots = new List<UIShopSlot>();
-    private FilterType currentFilter = FilterType.Shirt;
+    public FilterType currentFilter = FilterType.Shirt;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;
@@ -55,6 +56,7 @@ public class UIShop : MonoBehaviour
         buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
 
         RefreshShopUI();
     }
@@ -78,7 +80,8 @@ public class UIShop : MonoBehaviour
             (currentFilter == FilterType.Glasses && slot.commonData.itemType == ItemType.Glasses) ||
             (currentFilter == FilterType.HandStuff && slot.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.commonData.itemType == ItemType.Hat) ||
-            (currentFilter == FilterType.Consumable && slot.commonData.itemType == ItemType.Consumable)
+            (currentFilter == FilterType.Consumable && slot.commonData.itemType == ItemType.Consumable) ||
+            (currentFilter == FilterType.Wing && slot.commonData.itemType == ItemType.Wing)
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc

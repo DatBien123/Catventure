@@ -12,14 +12,16 @@ public class CharacterPlayer : Character
     [Header("Outfit Items")]
     public OutfitInstance Hat;
     public OutfitInstance Shirt;
-    public OutfitInstance Trouser;
-    public OutfitInstance Shoes;
+    public OutfitInstance HandStuff;
+    public OutfitInstance Glasses;
+    public OutfitInstance Wing;
 
     [Header("Equip Socket")]
     public Transform HatTransformRoot;
     public Transform ShirtTransformRoot;
     public Transform GlassesTransformRoot;
     public Transform HandStuffTransformRoot;
+    public Transform WingTransformRoot;
 
     [Header("Hat Transform Set")]
     public List<Transform> HatTransforms;
@@ -32,6 +34,9 @@ public class CharacterPlayer : Character
 
     [Header("HandStuff Transform Set")]
     public List<Transform> HandStuffTransforms;
+
+    [Header("Wing Transform Set")]
+    public List<Transform> WingTransforms;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -88,6 +93,17 @@ public class CharacterPlayer : Character
                     HandStuffTransformRoot.Find(OutfitName).gameObject.GetComponent<Animator>().CrossFadeInFixedTime(OutfitName + "_Active", .0f);
 
                 break;
+            case ItemType.Wing:
+                //Turn off all hat
+                foreach (Transform availableTransform in WingTransforms)
+                {
+                    availableTransform.gameObject.SetActive(false);
+                }
+                //Active Hat by Name
+                WingTransformRoot.Find(OutfitName).gameObject.SetActive(true);
+                if (WingTransformRoot.Find(OutfitName).gameObject.GetComponent<Animator>())
+                    WingTransformRoot.Find(OutfitName).gameObject.GetComponent<Animator>().CrossFadeInFixedTime(OutfitName + "_Active", .0f);
+                break;
         }
 
     }
@@ -115,6 +131,11 @@ public class CharacterPlayer : Character
 
                 //Active Hat by Name
                 HandStuffTransformRoot.Find(OutfitName).gameObject.SetActive(false);
+                break;
+            case ItemType.Wing:
+
+                //Active Hat by Name
+                WingTransformRoot.Find(OutfitName).gameObject.SetActive(false);
                 break;
         }
     }
