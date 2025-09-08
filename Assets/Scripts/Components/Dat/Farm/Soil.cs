@@ -1,9 +1,12 @@
 using FarmSystem;
 using NUnit.Framework;
-using UnityEngine;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using System;
+using UnityEditor.iOS;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace FarmSystem
 {
@@ -18,8 +21,9 @@ namespace FarmSystem
         Dry = 1 << 2,
         //....
     }
-    public class Soil : MonoBehaviour
+    public class Soil : MonoBehaviour, IPointerClickHandler
     {
+
         [Header("Components")]
         public SpriteRenderer spriteRenderer;
 
@@ -29,6 +33,9 @@ namespace FarmSystem
         [Header("Current Tree")]
         public Tree CurrentTree;
 
+        [Header("Reference")]
+        public FarmManager FarmManager;
+        public GameObject ToolbarCanvas;
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -49,19 +56,34 @@ namespace FarmSystem
         }
         #endregion
 
+        #region [OnClickEvent]
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            FarmManager.CurrentSoilSelected = this;
+            Debug.Log("Current Soil is: " + FarmManager.CurrentSoilSelected.gameObject.name);
+
+            ToolbarCanvas.SetActive(true);
+        }
+
+        #endregion
+
         #region [Actions]
-        public void PlantTree(Character planter, string treeName)
+        public void PlantTree(string treeName)
         {
             if ((SoilState & ESoilState.HasPlant) == 0)
             {
-                
+                SO_Tree loadedTreeData = Resources.Load<SO_Tree>($"Dat/Data/Tree/{treeName}");
+
+                CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Tree>();
+
+                AddState(ESoilState.HasPlant);
             }
         }
         public void Watering()
         {
 
         }
-        public void Harvest(Character harvester)
+        public void Harvest()
         {
             if (((SoilState & ESoilState.HasPlant) != 0)
                 && CurrentTree.TreeCurrentStage.isFinalStage)
@@ -79,6 +101,11 @@ namespace FarmSystem
                 RemoveState(ESoilState.HasPlant);
             }
         }
+
+
+
+
+
         #endregion
 
 

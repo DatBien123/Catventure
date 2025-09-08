@@ -40,6 +40,8 @@ using UnityEngine;
         public RewardData rewardData;
         [Header("Trạng thái của cây: ")]
         public List<TreeStageData> stageDatas;
+        [Header("Object")]
+        public GameObject TreeWorldInstance;
     }
 
     [CreateAssetMenu(fileName = "Tree Data", menuName = "Farm System/Data/Tree Data")]

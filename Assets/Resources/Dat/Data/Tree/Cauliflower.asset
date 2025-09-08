@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cc729b36ababc4c9b782feda82ed26, type: 3}
+  m_Name: Cauliflower
+  m_EditorClassIdentifier: 
+  data:
+    favoriteSeason: 0
+    rewardData:
+      Harvests: 0
+      ExpBonus: 0
+      SellPrice: 0
+    stageDatas:
+    - stageImage: {fileID: 21300000, guid: fa88627a4685efa48a28bddf24aa4e0d, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+    - stageImage: {fileID: 21300000, guid: 626fdd590fa81eb448ce8c0043f51726, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+    - stageImage: {fileID: 21300000, guid: 09ba31ac51fa0284cade36388c0a91ba, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+    - stageImage: {fileID: 21300000, guid: 3d732430870ba3344b794260bf80c7a6, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+    - stageImage: {fileID: 21300000, guid: d7dd866c1507ec14eae6e666e0df9bab, type: 3}
+      transitionTime: 3
+      isFinalStage: 1
+    TreeWorldInstance: {fileID: 4021238284811783530, guid: 62131d6d64819ee48a5de14c720eb12d, type: 3}
