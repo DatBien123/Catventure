@@ -3,10 +3,18 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour
 {
+    [Header("References")]
     public Soil CurrentSoilSelected;
+    public Sprite ScytheSprite;
 
-    public void PlanTreeToCurrentSoil(string treeName)
+    [Header("UI References")]
+    public GameObject CropsToolbar;
+    public GameObject HavestToolbar;
+    public GameObject RemoveToolbar;
+
+    public void RemoveCurrentTree()
     {
-        CurrentSoilSelected.PlantTree(treeName);
+        CurrentSoilSelected.DestroyCurrentTree();
     }
+
 }

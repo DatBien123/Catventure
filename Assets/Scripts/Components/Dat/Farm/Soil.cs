@@ -1,4 +1,4 @@
-using FarmSystem;
+﻿using FarmSystem;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,6 @@ namespace FarmSystem
 
         [Header("Reference")]
         public FarmManager FarmManager;
-        public GameObject ToolbarCanvas;
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -62,7 +61,27 @@ namespace FarmSystem
             FarmManager.CurrentSoilSelected = this;
             Debug.Log("Current Soil is: " + FarmManager.CurrentSoilSelected.gameObject.name);
 
-            ToolbarCanvas.SetActive(true);
+            FarmManager.gameObject.SetActive(true);
+
+            if (HasState(ESoilState.HasPlant) && !HasState(ESoilState.CanHarvest))
+            {
+                FarmManager.RemoveToolbar.SetActive(true);
+                FarmManager.HavestToolbar.SetActive(false);
+                FarmManager.CropsToolbar.SetActive(false);
+            }
+            else if(HasState(ESoilState.HasPlant) && HasState(ESoilState.CanHarvest))
+            {
+                FarmManager.RemoveToolbar.SetActive(false);
+                FarmManager.HavestToolbar.SetActive(true);
+                FarmManager.CropsToolbar.SetActive(false);
+            }
+            else if (!HasState(ESoilState.HasPlant))
+            {
+                FarmManager.RemoveToolbar.SetActive(false);
+                FarmManager.HavestToolbar.SetActive(false);
+                FarmManager.CropsToolbar.SetActive(true);
+            }
+
         }
 
         #endregion
@@ -77,18 +96,20 @@ namespace FarmSystem
                 CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Tree>();
 
                 AddState(ESoilState.HasPlant);
-            }
-        }
-        public void Watering()
-        {
 
+                ShowFloatingText("Trồng cây");
+            }
         }
         public void Harvest()
         {
             if (((SoilState & ESoilState.HasPlant) != 0)
                 && CurrentTree.TreeCurrentStage.isFinalStage)
             {
-                
+
+                DestroyCurrentTree();
+                RemoveState(ESoilState.CanHarvest);
+
+                ShowFloatingText("Thu hoạch");
             }
         }
         public void DestroyCurrentTree()
@@ -101,13 +122,32 @@ namespace FarmSystem
                 RemoveState(ESoilState.HasPlant);
             }
         }
-
-
-
-
-
         #endregion
 
+        #region [Debug]
+        [SerializeField] private string debugText;
+        void OnDrawGizmos()
+        {
+            if (!string.IsNullOrEmpty(debugText))
+            {
+                UnityEditor.Handles.Label(transform.position + Vector3.up * 1.5f, debugText);
+            }
+        }
 
+        [Header("Floating Text")]
+        public GameObject floatingTextPrefab; // assign prefab từ inspector
+
+        private void ShowFloatingText(string message)
+        {
+            if (floatingTextPrefab != null)
+            {
+                GameObject textObj = Instantiate(floatingTextPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+                textObj.GetComponent<TextMesh>().text = message;
+
+                Destroy(textObj, 2f); // auto xóa sau 2 giây
+            }
+        }
+
+        #endregion
     }
 }

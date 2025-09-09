@@ -45,7 +45,12 @@ using UnityEngine;
     }
 
     [CreateAssetMenu(fileName = "Tree Data", menuName = "Farm System/Data/Tree Data")]
-    public class SO_Tree : ScriptableObject
+    public class SO_Tree : SO_Item
     {
         public TreeData data;
+
+    public override void Use(Character character)
+    {
+        throw new System.NotImplementedException();
     }
+}
