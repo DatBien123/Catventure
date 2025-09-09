@@ -132,7 +132,7 @@ public class StoryGenerator : MonoBehaviour
             Story story = hit.collider.GetComponent<Story>();
             if (story != null)
             {
-                Debug.Log("Hit a Story: " + story.name);
+                Debug.Log("Hit a Story: " + story.StoryData.name);
                 CurrentStory = story; // gán vào biến CurrentStory
             }
             else

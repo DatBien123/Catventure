@@ -109,7 +109,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeColorIntensity: 1
-    - _EdgeWidth: 0.05
+    - _EdgeWidth: 0.185
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -137,8 +137,8 @@ Material:
     - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _DissolveDirection: {r: 0, g: 0.1, b: 0, a: 0}
-    - _DissolveOffest: {r: 0, g: -0.56, b: 0, a: 0}
-    - _EdgeColor: {r: 11.313708, g: 0.8633976, b: 0, a: 1}
+    - _DissolveOffest: {r: 0, g: -0.19, b: 0, a: 0}
+    - _EdgeColor: {r: 1.7411011, g: 0.029107794, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _NoiseUVSpeed: {r: 1, g: 1, b: 0, a: 0}
     - _Offest: {r: 0, g: 0, b: 0, a: 0}
