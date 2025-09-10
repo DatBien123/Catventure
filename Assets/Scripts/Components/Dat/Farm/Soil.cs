@@ -18,6 +18,9 @@ namespace FarmSystem
         CanHarvest = 1 << 1,
         //Others
         Dry = 1 << 2,
+        Wet = 1 << 3,
+        //
+        HavestedOrDigged = 1 << 4,
         //....
     }
     public class Soil : MonoBehaviour, IPointerClickHandler
@@ -26,7 +29,12 @@ namespace FarmSystem
         [Header("Components")]
         public SpriteRenderer spriteRenderer;
 
-        [Header("Current Soil Stage")]
+        [Header("Soil State")]
+        public Sprite DrySprite;
+        public Sprite WetSprite;
+        public Sprite HasPlantSprite;
+        public Sprite HavestedOrRemovePlantSprite;
+
         public ESoilState SoilState;
 
         [Header("Current Tree")]
@@ -37,6 +45,10 @@ namespace FarmSystem
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        public void Start()
+        {
+            AddState(ESoilState.Dry);
         }
 
         #region [State Manager]
@@ -62,23 +74,66 @@ namespace FarmSystem
 
             FarmManager.gameObject.SetActive(true);
 
-            if (HasState(ESoilState.HasPlant) && !HasState(ESoilState.CanHarvest))
-            {
-                FarmManager.RemoveToolbar.SetActive(true);
-                FarmManager.HavestToolbar.SetActive(false);
-                FarmManager.CropsToolbar.SetActive(false);
+            if (HasState(ESoilState.HasPlant)) {
+                // CÓ CÂY ------------------------- CHƯA THỂ THU HOẠCH
+                if (!HasState(ESoilState.CanHarvest))
+                // => Hiển thị ------------- Huỷ Cây
+                {
+                    FarmManager.RemoveToolbar.SetActive(true);
+                    FarmManager.HavestToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.WateringToolbar.SetActive(false);
+                    FarmManager.RestorationToolbar.SetActive(false);
+                }
+
+                // CÓ CÂY ------------------------- CÓ THỂ THU HOẠCH 
+                else
+                // => Hiển thị ------------ Thu Hoạch
+                {
+                    FarmManager.RemoveToolbar.SetActive(false);
+                    FarmManager.HavestToolbar.SetActive(true);
+                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.WateringToolbar.SetActive(false);
+                    FarmManager.RestorationToolbar.SetActive(false);
+
+                }
             }
-            else if(HasState(ESoilState.HasPlant) && HasState(ESoilState.CanHarvest))
+            // KHÔNG CÓ CÂY
+            else
             {
-                FarmManager.RemoveToolbar.SetActive(false);
-                FarmManager.HavestToolbar.SetActive(true);
-                FarmManager.CropsToolbar.SetActive(false);
-            }
-            else if (!HasState(ESoilState.HasPlant))
-            {
-                FarmManager.RemoveToolbar.SetActive(false);
-                FarmManager.HavestToolbar.SetActive(false);
-                FarmManager.CropsToolbar.SetActive(true);
+                // ĐẤT KHÔNG BỊ BỚI TUNG --- VÀ --- KHÔNG BỊ KHÔ
+                if (HasState(ESoilState.HavestedOrDigged))
+                // => Hiển thị ------------ Hồi Phục - Canh Tác Lại Đất
+                {
+                    FarmManager.RemoveToolbar.SetActive(false);
+                    FarmManager.HavestToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.WateringToolbar.SetActive(false);
+                    FarmManager.RestorationToolbar.SetActive(true);
+                }
+                // ĐẤT CHỈ BỊ KHÔ
+                else if (HasState(ESoilState.Dry))
+                // => Hiển thị ------------ Tưới Nước
+                {
+                    FarmManager.RemoveToolbar.SetActive(false);
+                    FarmManager.HavestToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.WateringToolbar.SetActive(true);
+                    FarmManager.RestorationToolbar.SetActive(false);
+                }
+
+                // ĐẤT BỊ BỚI TUNG
+                else if (HasState(ESoilState.Wet))
+                // => Hiển thị ------------ Hồi Phục - Canh Tác Lại Đất
+                {
+                    FarmManager.RemoveToolbar.SetActive(false);
+                    FarmManager.HavestToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.SetActive(true);
+                    FarmManager.WateringToolbar.SetActive(false);
+                    FarmManager.RestorationToolbar.SetActive(false);
+                }
+
+
             }
 
         }
@@ -96,8 +151,24 @@ namespace FarmSystem
 
                 AddState(ESoilState.HasPlant);
 
-                ShowFloatingText("Trồng cây");
+                spriteRenderer.sprite = HasPlantSprite;
             }
+        }
+        public void Restoration()
+        {
+            RemoveState(ESoilState.HavestedOrDigged);
+
+            AddState(ESoilState.Dry);
+
+            spriteRenderer.sprite = DrySprite;
+        }
+
+        public void Watering()
+        {
+            RemoveState(ESoilState.Dry);
+            AddState(ESoilState.Wet);
+
+            spriteRenderer.sprite = WetSprite;
         }
         public void Harvest()
         {
@@ -106,9 +177,8 @@ namespace FarmSystem
             {
 
                 DestroyCurrentTree();
-                RemoveState(ESoilState.CanHarvest);
 
-                ShowFloatingText("Thu hoạch");
+
             }
         }
         public void DestroyCurrentTree()
@@ -118,35 +188,17 @@ namespace FarmSystem
                 GameObject treeGO = CurrentTree.gameObject;
                 Destroy(treeGO);
                 CurrentTree = null;
+
                 RemoveState(ESoilState.HasPlant);
+                RemoveState(ESoilState.CanHarvest);
+                RemoveState(ESoilState.Wet);
+
+                AddState(ESoilState.Dry);
+                AddState(ESoilState.HavestedOrDigged);
+
+                spriteRenderer.sprite = HavestedOrRemovePlantSprite;
             }
         }
-        #endregion
-
-        #region [Debug]
-        [SerializeField] private string debugText;
-        void OnDrawGizmos()
-        {
-            if (!string.IsNullOrEmpty(debugText))
-            {
-                UnityEditor.Handles.Label(transform.position + Vector3.up * 1.5f, debugText);
-            }
-        }
-
-        [Header("Floating Text")]
-        public GameObject floatingTextPrefab; // assign prefab từ inspector
-
-        private void ShowFloatingText(string message)
-        {
-            if (floatingTextPrefab != null)
-            {
-                GameObject textObj = Instantiate(floatingTextPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
-                textObj.GetComponent<TextMesh>().text = message;
-
-                Destroy(textObj, 2f); // auto xóa sau 2 giây
-            }
-        }
-
         #endregion
     }
 }

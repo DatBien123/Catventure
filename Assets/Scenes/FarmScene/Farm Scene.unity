@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 8062835}
   - component: {fileID: 8062834}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Touch Background Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,9 +242,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39403303
@@ -452,11 +452,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 46173210}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &46173210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -546,9 +548,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 850, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66610640
@@ -817,11 +819,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 118233938}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &118233938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -899,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &141369703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1051,11 +1055,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 154750870}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &154750870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1349,11 +1355,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 169162815}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &169162815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1502,11 +1510,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 199040693}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &199040693
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1655,11 +1665,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 199230868}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &199230868
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1808,11 +1820,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 221778509}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &221778509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1961,11 +1975,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 244585206}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &244585206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2149,9 +2165,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1250, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290225377
@@ -2359,11 +2375,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 348548269}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &348548269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2521,11 +2539,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 353251994}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &353251996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2606,9 +2626,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1050, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383527594
@@ -2816,11 +2836,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 398989573}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &398989573
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2969,11 +2991,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 415040039}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &415040039
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3190,11 +3214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 457999915}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &457999915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3343,11 +3369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 497865805}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &497865805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3496,11 +3524,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 503682642}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &503682642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3724,11 +3754,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 547001942}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &547001942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3818,9 +3850,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 650, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674285269
@@ -4037,11 +4069,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 678017559}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &678017561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4088,6 +4122,82 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.12}
   m_EdgeRadius: 0
+--- !u!1 &699474021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699474022}
+  - component: {fileID: 699474024}
+  - component: {fileID: 699474023}
+  m_Layer: 5
+  m_Name: Watering
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &699474022
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699474021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1825519032}
+  m_Father: {fileID: 901395978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 79.5}
+  m_SizeDelta: {x: 150, y: 159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &699474023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699474021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &699474024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699474021}
+  m_CullTransparentMesh: 1
 --- !u!1 &701088438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,11 +4291,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 701088442}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &701088442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4360,9 +4472,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756421891
@@ -4570,11 +4682,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 776202783}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &776202783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4664,9 +4778,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1650, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781677763
@@ -4781,6 +4895,100 @@ MonoBehaviour:
     m_Bits: 64
   Ghost: {fileID: 125544032}
   FarmManager: {fileID: 901395979}
+--- !u!1 &801002143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801002144}
+  - component: {fileID: 801002146}
+  - component: {fileID: 801002145}
+  - component: {fileID: 801002147}
+  m_Layer: 5
+  m_Name: Pickaxe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &801002144
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801002143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1683267821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &801002145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801002143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b20127ceb2692794b862c0e573a5a610, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &801002146
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801002143}
+  m_CullTransparentMesh: 1
+--- !u!114 &801002147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801002143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079d06ce7f54f65489c3cd847abd8150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1709797818}
+  soilLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Ghost: {fileID: 125544032}
+  FarmManager: {fileID: 901395979}
 --- !u!1 &818715765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,11 +5082,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 818715769}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &818715769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5027,11 +5237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 865973979}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &865973979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5180,11 +5392,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 876246342}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &876246342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5333,11 +5547,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 884947793}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &884947793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5491,6 +5707,8 @@ RectTransform:
   - {fileID: 141369703}
   - {fileID: 1624959407}
   - {fileID: 158227352}
+  - {fileID: 699474022}
+  - {fileID: 1683267821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5512,9 +5730,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentSoilSelected: {fileID: 0}
   ScytheSprite: {fileID: 21300000, guid: e8593d347e75b6b4faf96699f52f63a3, type: 3}
+  CanSprite: {fileID: 21300000, guid: 31245631e64495041a3c6e57bc6a0129, type: 3}
+  PickaxeSprite: {fileID: 21300000, guid: b20127ceb2692794b862c0e573a5a610, type: 3}
   CropsToolbar: {fileID: 141369702}
   HavestToolbar: {fileID: 1624959406}
   RemoveToolbar: {fileID: 158227351}
+  WateringToolbar: {fileID: 699474021}
+  RestorationToolbar: {fileID: 1683267820}
 --- !u!1 &919647867
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,11 +5830,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 919647871}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &919647871
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5702,9 +5926,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1450, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962744356
@@ -5865,7 +6089,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 1100, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &969833519
 MonoBehaviour:
@@ -6121,11 +6345,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1073667558}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1073667558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6274,11 +6500,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1074805849}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1074805849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6368,9 +6596,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 2050, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122848126
@@ -6578,11 +6806,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1129180289}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1129180289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6731,11 +6961,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1149982924}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1149982924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6884,11 +7116,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1151228309}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1151228309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7144,11 +7378,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1253030815}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1253030815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7297,11 +7533,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1274821949}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1274821949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7450,11 +7688,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1327986149}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1327986149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7612,11 +7852,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1344559359}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &1344559361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7765,11 +8007,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1361302359}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &1361302361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7909,11 +8153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1409141180}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1409141180
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8062,11 +8308,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1457019850}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1457019850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8215,11 +8463,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1469555737}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1469555737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8309,9 +8559,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516826000
@@ -8519,11 +8769,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1517228802}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1517228802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8681,11 +8933,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1517875737}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &1517875739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8834,11 +9088,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1535969467}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!61 &1535969469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8978,11 +9234,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1595819835}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1595819835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9221,11 +9479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1601067901}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1601067901
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9450,11 +9710,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1654743242}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1654743242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9603,11 +9865,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1682417036}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1682417036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9663,6 +9927,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1683267820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683267821}
+  - component: {fileID: 1683267823}
+  - component: {fileID: 1683267822}
+  m_Layer: 5
+  m_Name: Restoration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1683267821
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683267820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 801002144}
+  m_Father: {fileID: 901395978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 75}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1683267822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683267820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1683267823
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683267820}
+  m_CullTransparentMesh: 1
 --- !u!1 &1709797816
 GameObject:
   m_ObjectHideFlags: 0
@@ -9910,11 +10250,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1755993752}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1755993752
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10063,11 +10405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1768301963}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1768301963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10123,6 +10467,100 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1825519031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825519032}
+  - component: {fileID: 1825519034}
+  - component: {fileID: 1825519033}
+  - component: {fileID: 1825519035}
+  m_Layer: 5
+  m_Name: Can
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1825519032
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825519031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699474022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1825519033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825519031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 31245631e64495041a3c6e57bc6a0129, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1825519034
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825519031}
+  m_CullTransparentMesh: 1
+--- !u!114 &1825519035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825519031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079d06ce7f54f65489c3cd847abd8150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1709797818}
+  soilLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Ghost: {fileID: 125544032}
+  FarmManager: {fileID: 901395979}
 --- !u!1 &1826338511
 GameObject:
   m_ObjectHideFlags: 0
@@ -10216,11 +10654,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1826338515}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1826338515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10289,7 +10729,7 @@ GameObject:
   - component: {fileID: 1874944493}
   - component: {fileID: 1874944492}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Touch Background Handle Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10471,11 +10911,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1919927069}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1919927069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10624,11 +11066,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1944464444}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1944464444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10777,11 +11221,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1952630649}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &1952630649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10930,11 +11376,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2000480652}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &2000480652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11083,11 +11531,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2047622007}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &2047622007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11236,11 +11686,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2048747059}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &2048747059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11389,11 +11841,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2084266093}
-  SoilState: 0
+  DrySprite: {fileID: 21300000, guid: 28cc75fa7a2ae4a4ab17664251bb98ea, type: 3}
+  WetSprite: {fileID: 21300000, guid: 3fdd7532646be624caee49244e8faf61, type: 3}
+  HasPlantSprite: {fileID: 21300000, guid: c2d5151cfaeaf98478c13a336ac06c50, type: 3}
+  HavestedOrRemovePlantSprite: {fileID: 21300000, guid: 863a3d6eb8a52304297c13966d2deb3d, type: 3}
+  SoilState: 4
   CurrentTree: {fileID: 0}
   FarmManager: {fileID: 901395979}
-  debugText: 
-  floatingTextPrefab: {fileID: 0}
 --- !u!212 &2084266093
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11483,9 +11937,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 969833518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1850, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127510287

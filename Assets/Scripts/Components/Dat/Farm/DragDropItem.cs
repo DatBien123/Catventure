@@ -24,14 +24,16 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     #region [Use Cases]
     public void SetupGhost()
     {
-        if(gameObject.name != "Scythe")
+        if(gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
         {
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
             Ghost.GetComponent<SpriteRenderer>().sprite = loadedTree.commonData.icon;
         }
         else
         {
-            Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.ScytheSprite;
+            if(gameObject.name == "Scythe")Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.ScytheSprite;
+            else if (gameObject.name == "Can") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.CanSprite;
+            else if (gameObject.name == "Pickaxe") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.PickaxeSprite;
         }
 
     }
@@ -72,9 +74,17 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 Soil soil = hit.GetComponent<Soil>();
                 if (soil != null)
                 {
-                    if (gameObject.name != "Scythe")
+                    if (gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
                         soil.PlantTree(gameObject.name);
-                    else soil.Harvest();
+                    else
+                    {
+                        if (gameObject.name == "Scythe")
+                            soil.Harvest();
+                        else if (gameObject.name == "Can")
+                            soil.Watering();
+                        else if (gameObject.name == "Pickaxe")
+                            soil.Restoration();
+                    }
 
                     isActionSucced = true;
                 }
