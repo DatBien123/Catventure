@@ -38,16 +38,20 @@ public class CharacterPlayer : Character
     [Header("Wing Transform Set")]
     public List<Transform> WingTransforms;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected override void Start()
+    {
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 
     public void Wear(ItemType itemType, string OutfitName)

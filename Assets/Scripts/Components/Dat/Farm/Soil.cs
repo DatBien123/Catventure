@@ -1,12 +1,8 @@
-﻿using FarmSystem;
-using NUnit.Framework;
+﻿
 using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.iOS;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace FarmSystem
 {

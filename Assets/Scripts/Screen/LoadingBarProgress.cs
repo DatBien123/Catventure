@@ -15,6 +15,7 @@ public class LoadingBarProgress : MonoBehaviour
     [Header("Loading bar")]
     public Slider loadingBarSlider;
     public float loadDuration = 5.0f;
+    public bool isEnableTransitionOnStart = false;
 
     public string sceneName;
     public ELoadType loadType;
@@ -25,8 +26,8 @@ public class LoadingBarProgress : MonoBehaviour
     }
     private void Start()
     {
-
-         StartLoadSceneNormal(sceneName, loadDuration);
+        if(isEnableTransitionOnStart)
+        StartLoadSceneNormal(sceneName);
     }
 
     Coroutine C_LoadScene;
@@ -47,18 +48,18 @@ public class LoadingBarProgress : MonoBehaviour
     //        yield return null;
     //    }
     //}
-    public void StartLoadSceneNormal(string sceneName, float duration)
+    public void StartLoadSceneNormal(string sceneName)
     {
         if (C_LoadScene != null) StopCoroutine(C_LoadScene);
-        C_LoadScene = StartCoroutine(LoadSceneNormal(sceneName, duration));
+        C_LoadScene = StartCoroutine(LoadSceneNormal(sceneName));
     }
-    IEnumerator LoadSceneNormal(string sceneName, float duration)
+    IEnumerator LoadSceneNormal(string sceneName)
     {
         float elapsedTime = 0.0f;
 
-        while (elapsedTime <= duration)
+        while (elapsedTime <= loadDuration)
         {
-            float rate = elapsedTime / duration;
+            float rate = elapsedTime / loadDuration;
             float progress = Mathf.Clamp01(rate / 0.9f);
             if(loadingBarSlider)
             loadingBarSlider.value = progress;

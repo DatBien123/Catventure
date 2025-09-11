@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 
     itemName: 
-    icon: {fileID: 21300000, guid: 2ba4ec3129ec6894f8ff1de7cf1ea7b7, type: 3}
+    icon: {fileID: 21300000, guid: 29f89253b5f2ceb43b5234f588ef8d4e, type: 3}
     description: 
     itemType: 4
     isStackable: 0
@@ -30,19 +30,13 @@ MonoBehaviour:
       ExpBonus: 0
       SellPrice: 0
     stageDatas:
-    - stageImage: {fileID: 21300000, guid: fa88627a4685efa48a28bddf24aa4e0d, type: 3}
+    - stageImage: {fileID: 21300000, guid: cebb1f96ea2df7741b501817628db107, type: 3}
       transitionTime: 3
       isFinalStage: 0
-    - stageImage: {fileID: 21300000, guid: fbfc8e9fcf84b5146941b5b75ab6f4fb, type: 3}
+    - stageImage: {fileID: 21300000, guid: 0cf92bb422dee044891f35ce6e2d0e86, type: 3}
       transitionTime: 3
       isFinalStage: 0
-    - stageImage: {fileID: 21300000, guid: ce06f8e0f16aab948895ed2d3cadbd69, type: 3}
-      transitionTime: 3
-      isFinalStage: 0
-    - stageImage: {fileID: 21300000, guid: d8b0fe06b3452fa4ba39d5100ffd1079, type: 3}
-      transitionTime: 3
-      isFinalStage: 0
-    - stageImage: {fileID: 21300000, guid: 9dfb1150996baba498d62148f15d1d9a, type: 3}
+    - stageImage: {fileID: 21300000, guid: 643754116ec921b4c944937eeabe807d, type: 3}
       transitionTime: 3
       isFinalStage: 1
     TreeWorldInstance: {fileID: 4257723086849568358, guid: 4a66baf9b876e544f8cbed53b25e4da6, type: 3}

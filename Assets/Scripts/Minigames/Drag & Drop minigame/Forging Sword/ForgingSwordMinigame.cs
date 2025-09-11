@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ForgingSwordMinigame : DragDropMinigame
