@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat_Beach
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 18
     itemName: Hat_Beach
     icon: {fileID: 21300000, guid: e05dff05fd0f0c747aced66c2d57c04f, type: 3}
     description: A beautiful Blue Hat

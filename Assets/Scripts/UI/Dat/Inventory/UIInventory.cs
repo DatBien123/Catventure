@@ -170,6 +170,9 @@ public class UIInventory : MonoBehaviour
         ItemToWear.IsEquiped = true;
 
         ShowActionButton(ItemToWear);
+
+        //Save Data
+        SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
     public void TakeOff(ItemInstance ItemToTakeOff)
     {
@@ -180,6 +183,9 @@ public class UIInventory : MonoBehaviour
         inventoryManager.owner.TakeOff(ItemToTakeOff.ItemStaticData.commonData.itemType, ItemToTakeOff.ItemStaticData.commonData.itemName);
 
         ShowActionButton(ItemToTakeOff);
+
+        //Save Data
+        SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
     #endregion
 

@@ -60,6 +60,8 @@ public class UIConfirm : MonoBehaviour
             UIShop.UpdateResourceUI();
             UIShop.UIYabis.UpdateResourceUI();
             UIShop.UIInventory.UpdateResourceUI();
+
+            SaveSystem.Save(UIShop.ShopManager.owner, UIShop.UIInventory.inventoryManager);
         }
         else
         {

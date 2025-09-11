@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,8 @@ public class CharacterPlayer : Character
     public int Coin = 100000;
     public int CurrentEnergy = 100;
     public int MaxEnergy = 300;
+
+    public Inventory Inventory;
 
     [Header("Outfit Items")]
     public OutfitInstance Hat;
@@ -41,6 +43,15 @@ public class CharacterPlayer : Character
     protected override void Awake()
     {
         base.Awake();
+        // Khởi tạo các outfit mặc định nếu chưa có
+        if (Hat == null) Hat = null; // Hoặc gán một OutfitInstance mặc định
+        if (Shirt == null) Shirt = null;
+        if (Glasses == null) Glasses = null;
+        if (HandStuff == null) HandStuff = null;
+        if (Wing == null) Wing = null;
+
+        SaveSystem.Load(this, Inventory);
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()

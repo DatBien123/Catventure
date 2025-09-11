@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Consumable_PurplePotato
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 1
+    itemID: 6
     itemName: PurplePotato
     icon: {fileID: 21300000, guid: 02acd02d5fec57a4e89659f0fbc18521, type: 3}
     description: A delicious Noodle

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat_Christmast
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 19
     itemName: Hat_Christmast
     icon: {fileID: 21300000, guid: 78f859e02e3d36b46b1241c48243d386, type: 3}
     description: A beautiful Green Hat

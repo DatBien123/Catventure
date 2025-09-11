@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shirt_Blue
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 24
     itemName: Shirt_Blue
     icon: {fileID: 21300000, guid: 835a072275372a84a8b61f580a8c97cc, type: 3}
     description: A beautiful Red Shirt
