@@ -19,7 +19,6 @@ public class UIBookSlotDetail : MonoBehaviour
 
     private void Awake()
     {
-        AudioSource = 
     }
     void Start()
     {
