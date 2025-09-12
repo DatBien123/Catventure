@@ -16,6 +16,7 @@ MonoBehaviour:
     ID: 
     Name: Pho
     Icon: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
-    description: 
+    description: "M\u1ED9t m\xF3n \u0103n ngon c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t"
     Type: 0
+    SpellClip: {fileID: 0}
     IsUnlocked: 0
