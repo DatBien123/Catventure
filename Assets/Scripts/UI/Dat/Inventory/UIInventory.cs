@@ -103,7 +103,7 @@ public class UIInventory : MonoBehaviour
         if(ItemToWear.ItemStaticData.commonData.itemType != ItemType.Consumable)
         {
             //Case 1: Outfit Equiped
-            if (ItemToWear.IsEquiped)
+            if (/*ItemToWear.IsEquiped && */ inventoryManager.owner.IsOutfitItemActive(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName))
             {
                 buttonTakeoff.gameObject.SetActive(true);
                 buttonWear.gameObject.SetActive(false);
@@ -156,11 +156,15 @@ public class UIInventory : MonoBehaviour
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.HandStuff)
         {
-            inventoryManager.owner.HandStuff = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
+            inventoryManager.owner.HandStuff = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true);
+
+            if ((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip != null)
+                inventoryManager.owner.animator.CrossFadeInFixedTime((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip.name, 0.0f);
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Wing)
         {
             inventoryManager.owner.Wing = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true);
+
             if((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip != null)
             inventoryManager.owner.animator.CrossFadeInFixedTime((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip.name, 0.0f);
         }

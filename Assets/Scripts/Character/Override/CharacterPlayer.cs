@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterPlayer : Character
 {
@@ -153,6 +154,42 @@ public class CharacterPlayer : Character
                 WingTransformRoot.Find(OutfitName).gameObject.SetActive(false);
                 break;
         }
+    }
+
+    public bool IsOutfitItemActive(ItemType itemType, string OutfitName)
+    {
+        bool result = false;
+
+        switch (itemType)
+        {
+            case ItemType.Hat:
+                
+                result = HatTransformRoot.Find(OutfitName).gameObject.activeInHierarchy ? true : false;
+
+                break;
+            case ItemType.Shirt:
+
+                result = ShirtTransformRoot.Find(OutfitName).gameObject.activeInHierarchy ? true : false;
+
+                break;
+            case ItemType.Glasses:
+
+                result = GlassesTransformRoot.Find(OutfitName).gameObject.activeInHierarchy ? true : false;
+
+                break;
+            case ItemType.HandStuff:
+
+                result = HandStuffTransformRoot.Find(OutfitName).gameObject.activeInHierarchy ? true : false;
+
+                break;
+            case ItemType.Wing:
+
+                result = WingTransformRoot.Find(OutfitName).gameObject.activeInHierarchy ? true : false;
+
+                break;
+        }
+
+        return result;
     }
 
 }

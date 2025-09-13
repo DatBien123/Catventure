@@ -183,7 +183,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDim: {r: 1, g: 1, b: 1, a: 0.85056}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorDimExtra: {r: 0.5018867, g: 0.07102164, b: 0.07102164, a: 0.85056}
+    - _ColorDimExtra: {r: 1, g: 1, b: 1, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _ColorGradient: {r: 1, g: 1, b: 1, a: 0.8352941}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
