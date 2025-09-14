@@ -1,10 +1,20 @@
 # ninja log v5
 74	3741	7792664193496863	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	2361f88843e45914
+4665	4865	7792664205095506	D:/Unity/Git Projects Clone/Catventure/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v464k2k/obj/arm64-v8a/libgame.so	ffa5ccce7aae84f1
 56	3786	7792664193824484	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	81564d88e3d2224b
-91	3869	7792664194858689	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b14edba96b9e55f8
 48	4002	7792664196302690	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	3b2f8205f716d995
+91	3869	7792664194858689	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b14edba96b9e55f8
+82	4629	7792664202732846	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1bf8966f89e3c795
 5	4032	7792664196464347	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	ca20cbb693988b68
 66	4448	7792664200795640	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	4c85db2d02163536
-82	4629	7792664202732846	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1bf8966f89e3c795
 40	4665	7792664202935490	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a5d8b39e2f012b27
-4665	4865	7792664205095506	D:/Unity/Git Projects Clone/Catventure/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v464k2k/obj/arm64-v8a/libgame.so	ffa5ccce7aae84f1
+21	1434	7794676975688450	build.ninja	7fde8f20aa7587ab
+78	3509	7794677013227190	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	cda9bbc75854ffe2
+57	3519	7794677013237197	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	56df4d5444354273
+46	3569	7794677013642827	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c6fc8bddfa90de6a
+91	3571	7794677013607928	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	8176f2358fda8e6f
+22	3639	7794677014322792	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9643f30e2c92283d
+36	3835	7794677016351550	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	fc1754446a891c3f
+110	3956	7794677017462039	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	1647adfaa11d9433
+64	4209	7794677019959041	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48a540f1b2c8c8f8
+4209	4436	7794677022545804	D:/Unity/Git Projects Clone/Catventure/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v464k2k/obj/arm64-v8a/libgame.so	9824cf7065e81dde
