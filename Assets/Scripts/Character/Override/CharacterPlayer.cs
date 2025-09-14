@@ -45,11 +45,11 @@ public class CharacterPlayer : Character
     {
         base.Awake();
         // Khởi tạo các outfit mặc định nếu chưa có
-        if (Hat == null) Hat = null; // Hoặc gán một OutfitInstance mặc định
-        if (Shirt == null) Shirt = null;
-        if (Glasses == null) Glasses = null;
-        if (HandStuff == null) HandStuff = null;
-        if (Wing == null) Wing = null;
+        //if (Hat == null) Hat = null; // Hoặc gán một OutfitInstance mặc định
+        //if (Shirt == null) Shirt = null;
+        //if (Glasses == null) Glasses = null;
+        //if (HandStuff == null) HandStuff = null;
+        //if (Wing == null) Wing = null;
 
         SaveSystem.Load(this, Inventory);
 

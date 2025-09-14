@@ -182,6 +182,27 @@ public class UIInventory : MonoBehaviour
     {
         OnTakeOff?.Invoke();
 
+        if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Shirt)
+        {
+            inventoryManager.owner.Shirt = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Hat)
+        {
+            inventoryManager.owner.Hat = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Glasses)
+        {
+            inventoryManager.owner.Glasses = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.HandStuff)
+        {
+            inventoryManager.owner.HandStuff = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Wing)
+        {
+            inventoryManager.owner.Wing = null;
+        }
+
         ItemToTakeOff.IsEquiped = false;
 
         inventoryManager.owner.TakeOff(ItemToTakeOff.ItemStaticData.commonData.itemType, ItemToTakeOff.ItemStaticData.commonData.itemName);
@@ -221,6 +242,9 @@ public class UIInventory : MonoBehaviour
             uiSlot.SetupSlot(invSlot);
             uiSlots.Add(uiSlot);
         }
+
+        buttonTakeoff.gameObject.SetActive(false);
+        buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
     }
