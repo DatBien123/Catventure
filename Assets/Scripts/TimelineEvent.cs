@@ -8,6 +8,17 @@ public class TimelineEvent : MonoBehaviour
     
     public ParticleSystem ParticleSystem;
 
+    public Material SkyboxSpaceMaterial;
+    public Material SkyboxMapMaterial;
+
+    [Header("Transform Origin")]
+    public Vector3 ZeraOriginPosition;
+    public Vector3 ZeraOriginRotation;
+    public Vector3 ZeraOriginScale;
+
+    [Header("References")]
+    public CharacterPlayer Zera;
+
     void OnEnable()
     {
         // Đăng ký event
@@ -26,6 +37,7 @@ public class TimelineEvent : MonoBehaviour
     {
         // Khi timeline bắt đầu play
         targetObject.SetActive(false);
+
         //gameObject.transform.position = CutSceneTransform.position;
         //gameObject.transform.rotation = CutSceneTransform.rotation;
         //gameObject.transform.localScale = CutSceneTransform.localScale;
@@ -36,14 +48,24 @@ public class TimelineEvent : MonoBehaviour
         // Khi timeline kết thúc (hoặc Stop)
         targetObject.SetActive(true);
 
-        //gameObject.transform.position = OriginTransform.position;
-        //gameObject.transform.rotation = OriginTransform.rotation;
-        //gameObject.transform.localScale = OriginTransform.localScale;
+        Zera.transform.position = ZeraOriginPosition;
+        Zera.transform.rotation = Quaternion.Euler(ZeraOriginRotation);
+        Zera.transform.localScale = ZeraOriginScale;
     }
 
     void OnPlayVFX()
     {
         ParticleSystem.gameObject.SetActive(true);
         ParticleSystem.Play();
+    }
+
+    void OnAssignMapMaterial()
+    {
+        RenderSettings.skybox = SkyboxMapMaterial;
+    }
+
+    void OnAssignSpaceMaterial()
+    {
+        RenderSettings.skybox = SkyboxSpaceMaterial;
     }
 }
