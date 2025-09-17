@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
+    public bool isFirstTimeLogin;
     public int Coin;
     public int CurrentEnergy;
     public int MaxEnergy;
@@ -45,6 +46,7 @@ public class SaveSystem : MonoBehaviour
     {
         PlayerData data = new PlayerData
         {
+            isFirstTimeLogin = player.isFirstTimeLogin,
             Coin = player.Coin,
             CurrentEnergy = player.CurrentEnergy,
             MaxEnergy = player.MaxEnergy,
@@ -88,6 +90,7 @@ public class SaveSystem : MonoBehaviour
         PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
         // Load dữ liệu nhân vật
+        player.isFirstTimeLogin = data.isFirstTimeLogin;
         player.Coin = data.Coin;
         player.CurrentEnergy = data.CurrentEnergy;
         player.MaxEnergy = data.MaxEnergy;

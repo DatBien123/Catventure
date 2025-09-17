@@ -9,6 +9,7 @@ public class CharacterPlayer : Character
     public int Coin = 100000;
     public int CurrentEnergy = 100;
     public int MaxEnergy = 300;
+    public bool isFirstTimeLogin = true;
 
     public Inventory Inventory;
 

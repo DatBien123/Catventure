@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingBarSlider: {fileID: 81957553}
-  loadDuration: 5
+  loadDuration: 3
   isEnableTransitionOnStart: 1
   sceneName: Main Menu Scene
   loadType: 1

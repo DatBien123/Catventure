@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 public class TimelineEvent : MonoBehaviour
 {
     public PlayableDirector director;   // Gán PlayableDirector vào đây
-    public GameObject targetObject;     // GameObject cần active/disable
+    public GameObject UIs;     // GameObject cần active/disable
     
     public ParticleSystem ParticleSystem;
 
@@ -19,6 +19,18 @@ public class TimelineEvent : MonoBehaviour
     [Header("References")]
     public CharacterPlayer Zera;
 
+    private void Start()
+    {
+        if (Zera.isFirstTimeLogin)
+        {
+            director.Play();
+        }
+        else
+        {
+            UIs.SetActive(true);
+        }
+
+    }
     void OnEnable()
     {
         // Đăng ký event
@@ -36,7 +48,7 @@ public class TimelineEvent : MonoBehaviour
     void OnTimelinePlay(PlayableDirector obj)
     {
         // Khi timeline bắt đầu play
-        targetObject.SetActive(false);
+        UIs.SetActive(false);
 
         //gameObject.transform.position = CutSceneTransform.position;
         //gameObject.transform.rotation = CutSceneTransform.rotation;
@@ -46,11 +58,14 @@ public class TimelineEvent : MonoBehaviour
     void OnTimelineStop(PlayableDirector obj)
     {
         // Khi timeline kết thúc (hoặc Stop)
-        targetObject.SetActive(true);
+        UIs.SetActive(true);
 
         Zera.transform.position = ZeraOriginPosition;
         Zera.transform.rotation = Quaternion.Euler(ZeraOriginRotation);
         Zera.transform.localScale = ZeraOriginScale;
+
+        Zera.isFirstTimeLogin = false;
+        SaveSystem.Save(Zera, Zera.Inventory);
     }
 
     void OnPlayVFX()
