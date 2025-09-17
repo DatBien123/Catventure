@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de183da58ecdc324986e421bd156e46b, type: 3}
+  m_Name: Dialogue Database
+  m_EditorClassIdentifier: 
+  Datas:
+  - Topic: First Time Open Game
+    SpeakerImage: {fileID: 21300000, guid: c9d962030255d684aa13e626674e6c9a, type: 3}
+    SpeakerName: Zera
+    DialogueLines:
+    - text: "\xD4i \u0111au \u0111\u1EA7u qu\xE1 !"
+    - text: "M\xECnh v\u1EEBa b\u1ECB r\u01A1i t\u1EF1 do sao ?"
+    - text: "\u0110\xE2y l\xE0 \u0111\xE2u ?"
+    - text: "H\xE3y th\u1EED m\u1EDF b\u1EA3n \u0111\u1ED3 l\xEAn xem n\xE0o !"
+    OnDialogueFinished:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
