@@ -5,8 +5,7 @@ public class TimelineEvent : MonoBehaviour
 {
     public PlayableDirector director;   // Gán PlayableDirector vào đây
     public GameObject UIs;     // GameObject cần active/disable
-    
-    public ParticleSystem ParticleSystem;
+   
 
     public Material SkyboxSpaceMaterial;
     public Material SkyboxMapMaterial;
@@ -66,12 +65,6 @@ public class TimelineEvent : MonoBehaviour
 
         Zera.isFirstTimeLogin = false;
         SaveSystem.Save(Zera, Zera.Inventory);
-    }
-
-    void OnPlayVFX()
-    {
-        ParticleSystem.gameObject.SetActive(true);
-        ParticleSystem.Play();
     }
 
     void OnAssignMapMaterial()
