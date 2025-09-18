@@ -2,6 +2,7 @@
 using System;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace FarmSystem
@@ -28,6 +29,16 @@ namespace FarmSystem
 
         public SpriteRenderer clodSpriteRenderer;
 
+        public SpriteRenderer treeHavestSpriteRenderer;
+
+        public SpriteRenderer plantTreeSpriteRenderer;
+
+        public SpriteRenderer removeTreeSpriteRenderer;
+
+        public SpriteRenderer wateringTreeSpriteRenderer;
+
+
+
         [Header("Soil State")]
         public Sprite DrySprite;
         public Sprite WetSprite;
@@ -40,10 +51,17 @@ namespace FarmSystem
         public Tree CurrentTree;
 
         [Header("Reference")]
+        public Animator Animator;
         public FarmManager FarmManager;
+
+        [Header("Events")]
+        public UnityEvent OnHavestEvent;
+        public UnityEvent OnPlantEvent;
+
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            Animator = GetComponent<Animator>();
         }
         public void Start()
         {
@@ -151,6 +169,7 @@ namespace FarmSystem
                 AddState(ESoilState.HasPlant);
 
                 spriteRenderer.sprite = HasPlantSprite;
+                Animator.CrossFadeInFixedTime("Soil Plant", 0.0f);
             }
         }
         public void Restoration()
@@ -162,6 +181,7 @@ namespace FarmSystem
                 AddState(ESoilState.Dry);
 
                 spriteRenderer.sprite = DrySprite;
+                Animator.CrossFadeInFixedTime("Soil Remove", 0.0f);
                 clodSpriteRenderer.sprite = null;
             }
         }
@@ -174,6 +194,7 @@ namespace FarmSystem
                 AddState(ESoilState.Wet);
 
                 spriteRenderer.sprite = WetSprite;
+                Animator.CrossFadeInFixedTime("Soil Watering", 0.0f);
                 if (clodSpriteRenderer.sprite != null)
                 {
                     clodSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.clodData.clodWetImage;
@@ -185,6 +206,8 @@ namespace FarmSystem
             if (((SoilState & ESoilState.HasPlant) != 0)
                 && CurrentTree.TreeCurrentStage.isFinalStage)
             {
+                treeHavestSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.stageImage;
+                Animator.CrossFadeInFixedTime("Soil Havest", 0.0f);
                 DestroyCurrentTree();
             }
         }

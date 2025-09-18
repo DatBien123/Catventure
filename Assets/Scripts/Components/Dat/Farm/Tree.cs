@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using DG.Tweening; // nhớ import DOTween
 
 namespace FarmSystem
 {
-
     public class Tree : MonoBehaviour
     {
         [Header("Components")]
@@ -19,16 +19,39 @@ namespace FarmSystem
         public TreeStageData TreeCurrentStage;
 
         Coroutine C_Growing;
+        private Tween idleTween;
+        public float idleTweenFactor = 1.3f;
+
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
         private void Start()
         {
             TreeDataTemporary = Instantiate(TreeDataOrigin);
             TreeCurrentStage = TreeDataTemporary.data.stageDatas[CurrentStageIndex];
             StartGrowing();
+
+            StartIdleAnimation();
         }
+
+        private void OnDisable()
+        {
+            if (idleTween != null) idleTween.Kill();
+        }
+
+        void StartIdleAnimation()
+        {
+            // giữ scale gốc
+            Vector3 baseScale = transform.localScale;
+
+            // tween scaleY lên một chút rồi xuống, lặp vô hạn
+            idleTween = transform.DOScaleY(baseScale.y * idleTweenFactor, 1f)
+                .SetLoops(-1, LoopType.Yoyo) // -1 = vô hạn, Yoyo = lên xuống
+                .SetEase(Ease.InOutSine);
+        }
+
         public void TransitionToNextStage()
         {
             if (!TreeCurrentStage.isFinalStage)
@@ -65,7 +88,7 @@ namespace FarmSystem
             {
                 StopCoroutine(C_Growing);
             }
-            StartCoroutine(Growing());
+            C_Growing = StartCoroutine(Growing());
         }
 
         IEnumerator Growing()
@@ -76,6 +99,5 @@ namespace FarmSystem
                 TransitionToNextStage();
             }
         }
-
     }
 }

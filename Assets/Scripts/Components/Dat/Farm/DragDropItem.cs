@@ -37,11 +37,13 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if(gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
         {
+            Ghost.gameObject.transform.localScale = 6*Vector3.one;
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
             Ghost.spriteRenderer.sprite = loadedTree.commonData.icon;
         }
         else
         {
+            Ghost.gameObject.transform.localScale = Vector3.one;
             if(gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
             else if (gameObject.name == "Can") Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
             else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
