@@ -37,6 +37,21 @@ namespace FarmSystem
                 TreeCurrentStage = TreeDataTemporary.data.stageDatas[CurrentStageIndex];
                 spriteRenderer.sprite = TreeCurrentStage.stageImage;
 
+                transform.localPosition = TreeCurrentStage.positionOffset;
+
+                if (TreeCurrentStage.clodData.clodWetImage && TreeCurrentStage.clodData.clodDryImage)
+                {
+                    if (transform.GetComponentInParent<Soil>().HasState(ESoilState.Dry))
+                    {
+                        transform.GetComponentInParent<Soil>().clodSpriteRenderer.sprite = TreeCurrentStage.clodData.clodDryImage;
+                    }
+                    else transform.GetComponentInParent<Soil>().clodSpriteRenderer.sprite = TreeCurrentStage.clodData.clodWetImage;
+                }
+                else
+                {
+                    transform.GetComponentInParent<Soil>().clodSpriteRenderer.sprite = null;
+                }
+
                 if (TreeCurrentStage.isFinalStage)
                 {
                     transform.GetComponentInParent<Soil>().AddState(ESoilState.CanHarvest);

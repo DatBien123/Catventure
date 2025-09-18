@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cc729b36ababc4c9b782feda82ed26, type: 3}
+  m_Name: Rice
+  m_EditorClassIdentifier: 
+  commonData:
+    itemID: 31
+    itemName: Rice
+    icon: {fileID: 21300000, guid: e2f5f4e68836d914ba07b424a9a9a3ae, type: 3}
+    description: 
+    itemType: 6
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 8000
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  data:
+    favoriteSeason: 0
+    rewardData:
+      Harvests: 0
+      ExpBonus: 0
+      SellPrice: 0
+    stageDatas:
+    - stageImage: {fileID: 21300000, guid: ed5d9f60da12d484a81a92cd849f3c50, type: 3}
+      clodData:
+        clodDryImage: {fileID: 0}
+        clodWetImage: {fileID: 0}
+      transitionTime: 5
+      isFinalStage: 0
+      positionOffset: {x: 0, y: 0, z: 0}
+    - stageImage: {fileID: 21300000, guid: a8bdf367639e5ec4da112ba9d6ad6082, type: 3}
+      clodData:
+        clodDryImage: {fileID: 21300000, guid: 08f0a974b44904943bbee90dc5c3396f, type: 3}
+        clodWetImage: {fileID: 21300000, guid: 51446ee6be3341f4b9909b081ebaf123, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+      positionOffset: {x: 0, y: 0.25, z: 0}
+    - stageImage: {fileID: 21300000, guid: 53f7fb2fd3b49f74ba46213f6f532ef8, type: 3}
+      clodData:
+        clodDryImage: {fileID: 21300000, guid: 08f0a974b44904943bbee90dc5c3396f, type: 3}
+        clodWetImage: {fileID: 21300000, guid: 51446ee6be3341f4b9909b081ebaf123, type: 3}
+      transitionTime: 3
+      isFinalStage: 0
+      positionOffset: {x: 0, y: 0.25, z: 0}
+    - stageImage: {fileID: 21300000, guid: 9c727c9b31b639f4683a41f31bfe59a7, type: 3}
+      clodData:
+        clodDryImage: {fileID: 21300000, guid: 08f0a974b44904943bbee90dc5c3396f, type: 3}
+        clodWetImage: {fileID: 21300000, guid: 51446ee6be3341f4b9909b081ebaf123, type: 3}
+      transitionTime: 3
+      isFinalStage: 1
+      positionOffset: {x: 0, y: 0.25, z: 0}
+    TreeWorldInstance: {fileID: 2368207048803686762, guid: 1109270536c4eb7449cec69f304aa2ad, type: 3}

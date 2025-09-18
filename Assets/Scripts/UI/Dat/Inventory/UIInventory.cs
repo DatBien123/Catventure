@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static UnityEngine.UI.GridLayoutGroup;
+
 
 public enum FilterType
 {
@@ -14,7 +13,8 @@ public enum FilterType
     HandStuff,
     Hat,
     Consumable,
-    Wing
+    Wing,
+    Crops
 
 }
 
@@ -33,6 +33,7 @@ public class UIInventory : MonoBehaviour
     public Button buttonHat;
     public Button buttonWing;
     public Button buttonConsumable;
+    public Button buttonCrops;
 
     [Header("Interact Button")]
     public Button buttonWear;
@@ -78,6 +79,7 @@ public class UIInventory : MonoBehaviour
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
         buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         //Take off - Wear Register
         buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
@@ -100,7 +102,7 @@ public class UIInventory : MonoBehaviour
     #region [Outfit Action]
     public void ShowActionButton(ItemInstance ItemToWear)
     {
-        if(ItemToWear.ItemStaticData.commonData.itemType != ItemType.Consumable)
+        if(ItemToWear.ItemStaticData.commonData.itemType != ItemType.Consumable && ItemToWear.ItemStaticData.commonData.itemType != ItemType.Crops)
         {
             //Case 1: Outfit Equiped
             if (/*ItemToWear.IsEquiped && */ inventoryManager.owner.IsOutfitItemActive(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName))
@@ -230,7 +232,8 @@ public class UIInventory : MonoBehaviour
             (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
             (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) 
+            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
+            (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc

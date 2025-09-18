@@ -11,15 +11,29 @@ using UnityEngine;
         Winter
     }
     [System.Serializable]
+    public struct ClodData
+    {
+        public Sprite clodDryImage;
+        public Sprite clodWetImage;
+    }
+
+    [System.Serializable]
     public struct TreeStageData
     {
         [Header("Mô tả hình ảnh của cây ở trạng thái này")]
         public Sprite stageImage;
+
+        [Header("Clod Data")]
+        public ClodData clodData;
+
         [Header("Thời gian cần để chuyển dịch sang trạng thái tiếp theo")]
         public float transitionTime;
+
         [Header("Có phải là trạng thái cuối cùng hay không ?")]
         [Tooltip("Phụ thuộc vào trạng thái cuối cùng để quyết định là có thu hoạch được hay không")]
         public bool isFinalStage;
+
+        public Vector3 positionOffset;
     }
     [System.Serializable]
     public struct RewardData

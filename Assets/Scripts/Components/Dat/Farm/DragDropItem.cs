@@ -12,14 +12,25 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public LayerMask soilLayer;
 
     [Header("References")]
-    public GameObject Ghost;
+    public Ghost Ghost;
     public FarmManager FarmManager;
 
     bool isActionSucced;
     private void Awake()
     {
-        if (mainCamera == null)
-            mainCamera = Camera.main;
+        // Tìm Camera
+        mainCamera = FindObjectOfType<Camera>();
+
+        // Tìm GameObject tên "Ghost"
+        Ghost = FindObjectOfType<Ghost>(true); // true = includeInactive
+
+        // Tìm component FarmManager
+        FarmManager = FindObjectOfType<FarmManager>();
+    }
+
+    private void Start()
+    {
+        
     }
     #region [Use Cases]
     public void SetupGhost()
@@ -27,13 +38,13 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if(gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
         {
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
-            Ghost.GetComponent<SpriteRenderer>().sprite = loadedTree.commonData.icon;
+            Ghost.spriteRenderer.sprite = loadedTree.commonData.icon;
         }
         else
         {
-            if(gameObject.name == "Scythe")Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.ScytheSprite;
-            else if (gameObject.name == "Can") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.CanSprite;
-            else if (gameObject.name == "Pickaxe") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.PickaxeSprite;
+            if(gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
+            else if (gameObject.name == "Can") Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
+            else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
         }
 
     }
@@ -45,7 +56,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // tạo ghost trong thế giới
         if (Ghost != null)
         {
-            Ghost.SetActive(true);
+            Ghost.gameObject.SetActive(true);
             Ghost.name = "Ghost - " + gameObject.name;
 
             SetupGhost();
@@ -95,7 +106,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (Ghost != null)
         {
-            Ghost.SetActive(false);
+            Ghost.gameObject.SetActive(false);
 
             if (isActionSucced)
             {

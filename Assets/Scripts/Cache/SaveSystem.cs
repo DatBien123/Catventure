@@ -117,6 +117,10 @@ public class SaveSystem : MonoBehaviour
             {
                 instance = new ConsumableInstance(item, itemData.Quantity);
             }
+            else if (itemData.ItemType == nameof(CropsInstance))
+            {
+                instance = new CropsInstance(item, itemData.Quantity);
+            }
             else
             {
                 instance = new ItemInstance(item, itemData.Quantity, itemData.IsEquiped);

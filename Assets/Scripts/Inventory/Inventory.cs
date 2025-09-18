@@ -54,6 +54,10 @@ public class Inventory : MonoBehaviour
             {
                 slots.Add(new InventorySlot(new ConsumableInstance(consumableInstance.ItemStaticData, addAmount)));
             }
+            else if(ItemInstance is CropsInstance cropsInstance)
+            {
+                slots.Add(new InventorySlot(new CropsInstance(cropsInstance.ItemStaticData, addAmount)));
+            }
             else
             {
                 slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, addAmount)));

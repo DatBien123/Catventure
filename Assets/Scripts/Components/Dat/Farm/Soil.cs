@@ -26,6 +26,8 @@ namespace FarmSystem
         [Header("Components")]
         public SpriteRenderer spriteRenderer;
 
+        public SpriteRenderer clodSpriteRenderer;
+
         [Header("Soil State")]
         public Sprite DrySprite;
         public Sprite WetSprite;
@@ -78,7 +80,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(true);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -89,7 +91,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(true);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
 
@@ -104,7 +106,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(true);
                 }
@@ -114,7 +116,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(true);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -125,7 +127,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(true);
+                    FarmManager.CropsToolbar.gameObject.SetActive(true);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -140,12 +142,12 @@ namespace FarmSystem
         #region [Actions]
         public void PlantTree(string treeName)
         {
-            if ((SoilState & ESoilState.HasPlant) == 0)
+            if ((SoilState & ESoilState.HasPlant) == 0 && (SoilState & ESoilState.Wet) != 0)
             {
                 SO_Tree loadedTreeData = Resources.Load<SO_Tree>($"Dat/Data/Tree/{treeName}");
 
                 CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Tree>();
-
+                CurrentTree.transform.localPosition = loadedTreeData.data.stageDatas[0].positionOffset;
                 AddState(ESoilState.HasPlant);
 
                 spriteRenderer.sprite = HasPlantSprite;
@@ -153,29 +155,37 @@ namespace FarmSystem
         }
         public void Restoration()
         {
-            RemoveState(ESoilState.HavestedOrDigged);
+            if ((SoilState & ESoilState.HasPlant) == 0)
+            {
+                RemoveState(ESoilState.HavestedOrDigged);
 
-            AddState(ESoilState.Dry);
+                AddState(ESoilState.Dry);
 
-            spriteRenderer.sprite = DrySprite;
+                spriteRenderer.sprite = DrySprite;
+                clodSpriteRenderer.sprite = null;
+            }
         }
 
         public void Watering()
         {
-            RemoveState(ESoilState.Dry);
-            AddState(ESoilState.Wet);
+            if ((SoilState & ESoilState.Dry) != 0)
+            {
+                RemoveState(ESoilState.Dry);
+                AddState(ESoilState.Wet);
 
-            spriteRenderer.sprite = WetSprite;
+                spriteRenderer.sprite = WetSprite;
+                if (clodSpriteRenderer.sprite != null)
+                {
+                    clodSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.clodData.clodWetImage;
+                }
+            }
         }
         public void Harvest()
         {
             if (((SoilState & ESoilState.HasPlant) != 0)
                 && CurrentTree.TreeCurrentStage.isFinalStage)
             {
-
                 DestroyCurrentTree();
-
-
             }
         }
         public void DestroyCurrentTree()
@@ -191,9 +201,10 @@ namespace FarmSystem
                 RemoveState(ESoilState.Wet);
 
                 AddState(ESoilState.Dry);
-                AddState(ESoilState.HavestedOrDigged);
+                //AddState(ESoilState.HavestedOrDigged);
 
                 spriteRenderer.sprite = HavestedOrRemovePlantSprite;
+                clodSpriteRenderer.sprite = null;
             }
         }
         #endregion
