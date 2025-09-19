@@ -40,6 +40,11 @@ public class AudioManager : MonoBehaviour
         if (s != null) s.source.Play();
         else return;
     }
+    public void StopSFX(string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s != null) s.source.Stop();
+        else return;
+    }
     public void PlayMusic(string name)
     {
         if (CheckIsMusicPlaying(name)) return;
@@ -62,6 +67,17 @@ public class AudioManager : MonoBehaviour
         foreach (Sound sound in sounds)
         {
             if (sound.type == SoundType.Music)
+            {
+                if (sound.source.isPlaying)
+                    sound.source.Stop();
+            }
+        }
+    }
+    public void StopAllSoundFX()
+    {
+        foreach (Sound sound in sounds)
+        {
+            if (sound.type == SoundType.SFX)
             {
                 if (sound.source.isPlaying)
                     sound.source.Stop();

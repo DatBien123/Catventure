@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: rice noodle
   m_EditorClassIdentifier: 
   ingredientName: rice noodle
-  icon: {fileID: 21300000, guid: a794de725ad36f84b9fb0aa6dd03c6d5, type: 3}
+  icon: {fileID: 21300000, guid: e88777673b2e6a24c83ba872a761d5d4, type: 3}
   pronunciation: {fileID: 8300000, guid: 570f38aa806ad6b4dba40fb5a3445086, type: 3}
+  processing:
+    cuttingData:
+      stepType: 0
+      requiredCuts: 0
+      icons: []
+      processSprite: {fileID: 0}
+    boilingStirringData:
+      stepType: 0
+      icon: {fileID: 0}
+      boilingTime: 0
+    assemblingData:
+      stepType: 7
+      icon: {fileID: 21300000, guid: 043040078f4f76d41837073f72da7cdf, type: 3}

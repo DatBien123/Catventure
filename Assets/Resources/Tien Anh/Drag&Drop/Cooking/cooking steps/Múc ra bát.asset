@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8098632802c11a4bb17b1f2b9161a4c, type: 3}
+  m_Name: "M\xFAc ra b\xE1t"
+  m_EditorClassIdentifier: 
+  stepName: 
+  stepType: 7
+  requiredIngredients:
+  - {fileID: 11400000, guid: e7355273d122d9b4fa9187271dd8972a, type: 2}
+  - {fileID: 11400000, guid: e20b8072862c9804785723855efa2482, type: 2}
+  - {fileID: 11400000, guid: b537ba605eecbd4499244ae51421b61f, type: 2}
+  - {fileID: 11400000, guid: 82f7e9ce36f2ed54fa44e8c4b2791983, type: 2}
+  - {fileID: 11400000, guid: e2fe0eb4073850742af6e88d80694a0d, type: 2}
+  instructionImage: {fileID: 0}
+  timeRequired: 0

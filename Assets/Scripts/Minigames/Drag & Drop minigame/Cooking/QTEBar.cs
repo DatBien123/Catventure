@@ -18,13 +18,14 @@ public class QTEBar : MonoBehaviour
 
     // Các thành UI của QTE
     // Thanh progress bar thể hiện qui trình nấu 
-    public Slider cookingProgress;
+    public CookingProgressBar cookingProgress;
     public Button cookButton;
     public UIButton QTEPressButton; // nút bấm để ta chơi QTE Bar
     // các sự kiện báo cho lớp khác xử lý UI
     public Action onCookingCompleted;
     public static Action onPerfectZone;
     public static Action onGoodZone;
+    private bool canPress = true;
 
     private void OnEnable()
     {
@@ -37,14 +38,14 @@ public class QTEBar : MonoBehaviour
     }
     private void Start()
     {
-        cookingProgress.onValueChanged.AddListener(OnCookingProgressChanged);
+        cookingProgress.slider.onValueChanged.AddListener(OnCookingProgressChanged);
     }
 
     private void OnCookingProgressChanged(float value)
     {
-        if (value >= cookingProgress.maxValue) // thường là 100
+        if (value >= cookingProgress.slider.maxValue) // thường là 100
         {
-            Debug.Log("🎉 Nấu xong rồi!");
+            //Debug.Log("🎉 Nấu xong rồi!");
             onCookingCompleted?.Invoke();
             // Gọi sự kiện thắng game, mở UI, vv...
         }
@@ -71,39 +72,48 @@ public class QTEBar : MonoBehaviour
 
     public void CheckSuccess()
     {
+        if (!canPress) return; // đang pause thì bỏ qua
+        Image pointerImage = pointerTransform.GetComponent<Image>();
+        Color originalColor = pointerImage.color;
         // khi người chơi bấm nút ta phải check Pointer hiện tại ở Green Zone, Yellow Zone hay là điểm đen
-        if(RectTransformUtility.RectangleContainsScreenPoint(greenZone, pointerTransform.position, null))
+        if (RectTransformUtility.RectangleContainsScreenPoint(greenZone, pointerTransform.position, null))
         {
-            AddCookingProgress(25, 0.5f);
+            cookingProgress.AddCookingProgress(25, 0.5f);
             moveSpeed += 100;
             AudioManager.instance.PlaySFX("Perfect Zone");
-            // báo sự kiện cho nồi ở đây để nó chạy hiệu ứng
             onPerfectZone?.Invoke();
 
-            Vector3 originalScale = pointerTransform.localScale;
-            Vector3 targetScale = originalScale - new Vector3(0.3f, 0.3f, 0.3f);
+            // DỪNG pointer trong 0.5s
+            StartCoroutine(PausePointer(0.5f));
 
-            // Dùng Sequence để dễ thêm delay
+            Vector3 originalScale = pointerTransform.localScale;
+            Vector3 targetScale = originalScale * 1.3f;
+
             DG.Tweening.Sequence seq = DOTween.Sequence();
-            seq.Append(pointerTransform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
-            seq.Append(pointerTransform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack));
+            seq.Append(pointerTransform.DOScale(targetScale, 0.2f).SetEase(Ease.OutBack));
+            seq.Join(pointerImage.DOColor(Color.green, 0.2f)); // đổi sang xanh
+            seq.AppendInterval(0.3f); // giữ xanh 0.5s
+            seq.Append(pointerTransform.DOScale(originalScale, 0.2f).SetEase(Ease.InOutSine));
+            seq.Join(pointerImage.DOColor(originalColor, 0.2f)); // trả lại màu gốc
         }
         else if (RectTransformUtility.RectangleContainsScreenPoint(yellowZone, pointerTransform.position, null))
         {
-            AddCookingProgress(10, 0.5f);
+            cookingProgress.AddCookingProgress(10, 0.5f);
             moveSpeed += 100;
             AudioManager.instance.PlaySFX("Good Zone");
-            // báo sự kiện cho nồi ở đây để nó chạy hiệu ứng
             onGoodZone?.Invoke();
 
-            Vector3 originalScale = pointerTransform.localScale;
-            Vector3 targetScale = originalScale - new Vector3(0.2f, 0.2f, 0.2f);
+            StartCoroutine(PausePointer(0.3f));
 
-            // Dùng Sequence để dễ thêm delay
+            Vector3 originalScale = pointerTransform.localScale;
+            Vector3 targetScale = originalScale * 1.1f;
+
             DG.Tweening.Sequence seq = DOTween.Sequence();
             seq.Append(pointerTransform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
+            seq.Join(pointerImage.DOColor(Color.yellow, 0.1f)); // đổi sang vàng
+            seq.AppendInterval(0.15f); // giữ vàng 0.3s
             seq.Append(pointerTransform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack));
-
+            seq.Join(pointerImage.DOColor(originalColor, 0.1f)); // trả lại màu gốc
         }
 
         else
@@ -119,20 +129,17 @@ public class QTEBar : MonoBehaviour
         gameObject.SetActive(true);
         cookButton.gameObject.GetComponent<Image>().DOFade(255f, 2f);
     }
-
-    public void AddCookingProgress(float amount, float duration)
+    private IEnumerator PausePointer(float duration)
     {
-        float targetValue = Mathf.Min(cookingProgress.value + amount, cookingProgress.maxValue);
-        cookingProgress.DOValue(targetValue, duration).SetEase(Ease.OutCubic);
+        float oldSpeed = moveSpeed;
+        moveSpeed = 0;
+        canPress = false; // khóa input
 
-        Vector3 originalScale = cookingProgress.transform.localScale;
-        Vector3 targetScale = originalScale + new Vector3(0.1f, 0.1f, 0.1f);
+        yield return new WaitForSeconds(duration);
 
-        // Dùng Sequence để dễ thêm delay
-        DG.Tweening.Sequence seq = DOTween.Sequence();
-        seq.Append(cookingProgress.transform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
-        seq.Append(cookingProgress.transform.DOScale(originalScale, 0.2f).SetEase(Ease.OutBack));
-        AudioManager.instance.PlaySFX("Button Pop Sound");
+        moveSpeed = oldSpeed;
+        canPress = true; // mở input lại
     }
-    
+
+
 }

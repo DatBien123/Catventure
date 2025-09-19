@@ -13,5 +13,23 @@ MonoBehaviour:
   m_Name: onion
   m_EditorClassIdentifier: 
   ingredientName: onion
-  icon: {fileID: 21300000, guid: e20a35517df2e8647ab93b49ab607908, type: 3}
+  icon: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
   pronunciation: {fileID: 8300000, guid: 2aa711f8dd862174384415d23df9cb7f, type: 3}
+  processing:
+    cuttingData:
+      stepType: 0
+      requiredCuts: 5
+      icons:
+      - {fileID: 21300000, guid: 2140e1ca5266b5b4199257152fdeb8f0, type: 3}
+      - {fileID: 21300000, guid: 614e7ea4f9aa4184ebd84354274c1317, type: 3}
+      - {fileID: 21300000, guid: d42843c99cf9fba4f82ae7d6e55de5f4, type: 3}
+      - {fileID: 21300000, guid: 3c9bdd13a7e250046af4584c253b7e61, type: 3}
+      - {fileID: 21300000, guid: 3d4fc1429906de44a91325199fd4376c, type: 3}
+      processSprite: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
+    boilingStirringData:
+      stepType: 5
+      icon: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
+      boilingTime: 0
+    assemblingData:
+      stepType: 7
+      icon: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
