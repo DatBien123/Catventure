@@ -1,4 +1,5 @@
-using FarmSystem;
+﻿using FarmSystem;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FarmManager : MonoBehaviour
@@ -18,7 +19,13 @@ public class FarmManager : MonoBehaviour
 
     [Header("References")]
     public CharacterPlayer CharacterPlayer;
+    public List<Soil> Soils;
 
+    private void Start()
+    {
+        // Load trạng thái nông trại khi vào scene
+        FarmSaveSystem.Load(this);
+    }
     public void RemoveCurrentTree()
     {
         CurrentSoilSelected.DestroyCurrentTree();

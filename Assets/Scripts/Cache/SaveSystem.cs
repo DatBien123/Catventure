@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using FarmSystem;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+
 
 [System.Serializable]
 public class PlayerData
@@ -10,6 +12,7 @@ public class PlayerData
     public int CurrentEnergy;
     public int MaxEnergy;
     public List<ItemInstanceData> InventoryItems;
+
     public OutfitInstanceData Hat;
     public OutfitInstanceData Shirt;
     public OutfitInstanceData Glasses;

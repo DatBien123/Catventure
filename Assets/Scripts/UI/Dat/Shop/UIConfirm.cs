@@ -48,13 +48,13 @@ public class UIConfirm : MonoBehaviour
     {
         if(UIShop.ShopManager.owner.Coin >= item.commonData.price)
         {
-            //Hien thi ui tuong ung
-            UIShop.ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
+            //UI
             Success_Popup.gameObject.SetActive(true);
             gameObject.SetActive(false);
 
             //Data
             UIShop.ShopManager.owner.Coin -= item.commonData.price;
+            UIShop.ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
 
             //Update Resource data cho cac giao dien khac
             UIShop.UpdateResourceUI();

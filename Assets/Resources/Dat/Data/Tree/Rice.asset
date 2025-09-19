@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 31
     itemName: Rice
-    icon: {fileID: 21300000, guid: e2f5f4e68836d914ba07b424a9a9a3ae, type: 3}
+    icon: {fileID: 21300000, guid: e0dac24bf5d76224c84ede7297c6ad62, type: 3}
     description: 
     itemType: 6
     isStackable: 1

@@ -37,14 +37,14 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if(gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
         {
-            Ghost.gameObject.transform.localScale = 6*Vector3.one;
+            Ghost.gameObject.transform.localScale = .1f*Vector3.one;
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
             Ghost.spriteRenderer.sprite = loadedTree.commonData.icon;
         }
         else
         {
             Ghost.gameObject.transform.localScale = Vector3.one;
-            if(gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
+            if (gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
             else if (gameObject.name == "Can") Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
             else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
         }
@@ -59,7 +59,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (Ghost != null)
         {
             Ghost.gameObject.SetActive(true);
-            Ghost.name = "Ghost - " + gameObject.name;
+            Ghost.name =  gameObject.name;
 
             SetupGhost();
 
@@ -80,6 +80,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             worldPos.z = 0; // giữ ghost trên mặt phẳng 2D
             Ghost.transform.position = worldPos;
 
+            bool result = true;
             // Kiểm tra va chạm Soil
             Collider2D hit = Physics2D.OverlapPoint(worldPos, soilLayer);
             if (hit != null)
@@ -88,7 +89,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 if (soil != null)
                 {
                     if (gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
-                        soil.PlantTree(gameObject.name);
+                        result = soil.PlantTree(Ghost.gameObject.name);
                     else
                     {
                         if (gameObject.name == "Scythe")
@@ -101,6 +102,11 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
                     isActionSucced = true;
                 }
+            }
+
+            if(result == false)
+            {
+                OnEndDrag(eventData);
             }
         }
     }

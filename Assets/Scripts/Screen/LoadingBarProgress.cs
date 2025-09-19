@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 [System.Serializable]
 public enum ELoadType
@@ -18,8 +19,8 @@ public class LoadingBarProgress : MonoBehaviour
     public bool isEnableTransitionOnStart = false;
 
     public string sceneName;
-    public ELoadType loadType;
 
+    public VideoPlayer videoPlayer;
     private void Awake()
     {
         //loadingBarSlider = GetComponent<Slider>();
@@ -57,6 +58,9 @@ public class LoadingBarProgress : MonoBehaviour
     {
         float elapsedTime = 0.0f;
 
+        videoPlayer.gameObject.SetActive(true);
+        videoPlayer.Play();
+
         while (elapsedTime <= loadDuration)
         {
             float rate = elapsedTime / loadDuration;
@@ -67,6 +71,7 @@ public class LoadingBarProgress : MonoBehaviour
             elapsedTime += Time.deltaTime;
                 yield return null;
         }
-       SceneManager.LoadScene(sceneName);
+        videoPlayer.Stop();
+        SceneManager.LoadScene(sceneName);
     }
 }
