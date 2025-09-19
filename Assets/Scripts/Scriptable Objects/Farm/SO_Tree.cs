@@ -44,6 +44,8 @@ using UnityEngine;
         public float ExpBonus;
         [Header("Tiền thu được sau khi bán (tính theo từng đơn vị của sản lượng): ")]
         public float SellPrice;
+
+    public SO_Consumable consumReward;
     }
     [System.Serializable]
     public struct TreeData

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 7
-    itemName: Tomato
-    icon: {fileID: 21300000, guid: c0ffb455724327c42816038f3499a6eb, type: 3}
+    itemName: Tomato Consum
+    icon: {fileID: 21300000, guid: 66eb9d4d69bd5ac43afed3e186b806dc, type: 3}
     description: A delicious Noodle
     itemType: 4
     isStackable: 1
