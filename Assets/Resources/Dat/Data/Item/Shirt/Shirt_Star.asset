@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shirt_Star
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 27
     itemName: Shirt_Star
     icon: {fileID: 21300000, guid: a361737cdfaad334fa57b38938f1d12e, type: 3}
     description: A beautiful Pink Shirt

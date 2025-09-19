@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static UnityEngine.UI.GridLayoutGroup;
+
 
 public enum FilterType
 {
@@ -14,7 +13,8 @@ public enum FilterType
     HandStuff,
     Hat,
     Consumable,
-    Wing
+    Wing,
+    Crops
 
 }
 
@@ -33,6 +33,7 @@ public class UIInventory : MonoBehaviour
     public Button buttonHat;
     public Button buttonWing;
     public Button buttonConsumable;
+    public Button buttonCrops;
 
     [Header("Interact Button")]
     public Button buttonWear;
@@ -78,6 +79,7 @@ public class UIInventory : MonoBehaviour
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
         buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         //Take off - Wear Register
         buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
@@ -100,10 +102,10 @@ public class UIInventory : MonoBehaviour
     #region [Outfit Action]
     public void ShowActionButton(ItemInstance ItemToWear)
     {
-        if(ItemToWear.ItemStaticData.commonData.itemType != ItemType.Consumable)
+        if(ItemToWear.ItemStaticData.commonData.itemType != ItemType.Consumable && ItemToWear.ItemStaticData.commonData.itemType != ItemType.Crops)
         {
             //Case 1: Outfit Equiped
-            if (ItemToWear.IsEquiped)
+            if (/*ItemToWear.IsEquiped && */ inventoryManager.owner.IsOutfitItemActive(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName))
             {
                 buttonTakeoff.gameObject.SetActive(true);
                 buttonWear.gameObject.SetActive(false);
@@ -156,11 +158,15 @@ public class UIInventory : MonoBehaviour
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.HandStuff)
         {
-            inventoryManager.owner.HandStuff = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true); ;
+            inventoryManager.owner.HandStuff = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true);
+
+            if ((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip != null)
+                inventoryManager.owner.animator.CrossFadeInFixedTime((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip.name, 0.0f);
         }
         else if (ItemToWear.ItemStaticData.commonData.itemType == ItemType.Wing)
         {
             inventoryManager.owner.Wing = new OutfitInstance(ItemToWear.ItemStaticData as SO_Outfit, 1, true);
+
             if((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip != null)
             inventoryManager.owner.animator.CrossFadeInFixedTime((ItemToWear.ItemStaticData as SO_Outfit).outfitData.equipClip.name, 0.0f);
         }
@@ -170,16 +176,43 @@ public class UIInventory : MonoBehaviour
         ItemToWear.IsEquiped = true;
 
         ShowActionButton(ItemToWear);
+
+        //Save Data
+        SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
     public void TakeOff(ItemInstance ItemToTakeOff)
     {
         OnTakeOff?.Invoke();
+
+        if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Shirt)
+        {
+            inventoryManager.owner.Shirt = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Hat)
+        {
+            inventoryManager.owner.Hat = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Glasses)
+        {
+            inventoryManager.owner.Glasses = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.HandStuff)
+        {
+            inventoryManager.owner.HandStuff = null;
+        }
+        else if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Wing)
+        {
+            inventoryManager.owner.Wing = null;
+        }
 
         ItemToTakeOff.IsEquiped = false;
 
         inventoryManager.owner.TakeOff(ItemToTakeOff.ItemStaticData.commonData.itemType, ItemToTakeOff.ItemStaticData.commonData.itemName);
 
         ShowActionButton(ItemToTakeOff);
+
+        //Save Data
+        SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
     #endregion
 
@@ -199,7 +232,8 @@ public class UIInventory : MonoBehaviour
             (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
             (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) 
+            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
+            (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc
@@ -211,6 +245,9 @@ public class UIInventory : MonoBehaviour
             uiSlot.SetupSlot(invSlot);
             uiSlots.Add(uiSlot);
         }
+
+        buttonTakeoff.gameObject.SetActive(false);
+        buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
     }

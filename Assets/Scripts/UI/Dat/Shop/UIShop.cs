@@ -20,6 +20,7 @@ public class UIShop : MonoBehaviour
     public Button buttonHat;
     public Button buttonWing;
     public Button buttonConsumable;
+    public Button buttonCrops;
 
     [Header("Reference")]
     public UIInventory UIInventory;
@@ -57,6 +58,7 @@ public class UIShop : MonoBehaviour
         buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
         buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
         buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         RefreshShopUI();
     }
@@ -81,7 +83,8 @@ public class UIShop : MonoBehaviour
             (currentFilter == FilterType.HandStuff && slot.commonData.itemType == ItemType.HandStuff) ||
             (currentFilter == FilterType.Hat && slot.commonData.itemType == ItemType.Hat) ||
             (currentFilter == FilterType.Consumable && slot.commonData.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Wing && slot.commonData.itemType == ItemType.Wing)
+            (currentFilter == FilterType.Wing && slot.commonData.itemType == ItemType.Wing) ||
+            (currentFilter == FilterType.Crops && slot.commonData.itemType == ItemType.Crops)
         );
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc

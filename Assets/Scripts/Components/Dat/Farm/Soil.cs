@@ -1,11 +1,8 @@
-﻿using FarmSystem;
-using NUnit.Framework;
+﻿
 using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace FarmSystem
 {
@@ -29,6 +26,18 @@ namespace FarmSystem
         [Header("Components")]
         public SpriteRenderer spriteRenderer;
 
+        public SpriteRenderer clodSpriteRenderer;
+
+        public SpriteRenderer treeHavestSpriteRenderer;
+
+        public SpriteRenderer plantTreeSpriteRenderer;
+
+        public SpriteRenderer removeTreeSpriteRenderer;
+
+        public SpriteRenderer wateringTreeSpriteRenderer;
+
+
+
         [Header("Soil State")]
         public Sprite DrySprite;
         public Sprite WetSprite;
@@ -41,14 +50,23 @@ namespace FarmSystem
         public Tree CurrentTree;
 
         [Header("Reference")]
+        public Animator Animator;
         public FarmManager FarmManager;
+        public DragDropItem DragDropItem;
+
+        [Header("Events")]
+        public UnityEvent OnHavestEvent;
+        public UnityEvent OnPlantEvent;
+
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            Animator = GetComponent<Animator>();
+            DragDropItem = GetComponent<DragDropItem>();
         }
         public void Start()
         {
-            AddState(ESoilState.Dry);
+            //AddState(ESoilState.Dry);
         }
 
         #region [State Manager]
@@ -81,7 +99,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(true);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -92,7 +110,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(true);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
 
@@ -107,7 +125,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(true);
                 }
@@ -117,7 +135,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(false);
+                    FarmManager.CropsToolbar.gameObject.SetActive(false);
                     FarmManager.WateringToolbar.SetActive(true);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -128,7 +146,7 @@ namespace FarmSystem
                 {
                     FarmManager.RemoveToolbar.SetActive(false);
                     FarmManager.HavestToolbar.SetActive(false);
-                    FarmManager.CropsToolbar.SetActive(true);
+                    FarmManager.CropsToolbar.gameObject.SetActive(true);
                     FarmManager.WateringToolbar.SetActive(false);
                     FarmManager.RestorationToolbar.SetActive(false);
                 }
@@ -141,44 +159,90 @@ namespace FarmSystem
         #endregion
 
         #region [Actions]
-        public void PlantTree(string treeName)
+        public bool PlantTree(string treeName)
         {
-            if ((SoilState & ESoilState.HasPlant) == 0)
+            if ((SoilState & ESoilState.HasPlant) == 0 && (SoilState & ESoilState.Wet) != 0)
             {
                 SO_Tree loadedTreeData = Resources.Load<SO_Tree>($"Dat/Data/Tree/{treeName}");
+                if (!FarmManager.CharacterPlayer.Inventory.CheckItemExist(loadedTreeData))
+                {
+                    return false;
+                }
 
                 CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Tree>();
-
+                CurrentTree.transform.localPosition = loadedTreeData.data.stageDatas[0].positionOffset;
                 AddState(ESoilState.HasPlant);
 
                 spriteRenderer.sprite = HasPlantSprite;
+
+                plantTreeSpriteRenderer.sprite = loadedTreeData.commonData.icon;
+                //plantTreeSpriteRenderer.gameObject.transform.localScale = new Vector3(-.03f, .03f, .03f);
+                Animator.CrossFadeInFixedTime("Soil Plant", 0.0f);
+
+                //Data
+                FarmManager.CharacterPlayer.Inventory.RemoveItem(loadedTreeData, 1);
+                Debug.Log( "Total " + loadedTreeData.name + " " + FarmManager.CharacterPlayer.Inventory.GetTotalQuantity(loadedTreeData));
+                FarmManager.CropsToolbar.RefreshCropsToolbar();
+
+                // Lưu trạng thái nông trại
+                FarmSaveSystem.Save(FarmManager);
+
+                // Lưu dữ liệu nhân vật (do thay đổi inventory)
+                SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
+
+                return FarmManager.CharacterPlayer.Inventory.GetTotalQuantity(loadedTreeData) > 0;
             }
+
+            return true;
         }
         public void Restoration()
         {
-            RemoveState(ESoilState.HavestedOrDigged);
+            if ((SoilState & ESoilState.HasPlant) == 0)
+            {
+                RemoveState(ESoilState.HavestedOrDigged);
 
-            AddState(ESoilState.Dry);
+                AddState(ESoilState.Dry);
 
-            spriteRenderer.sprite = DrySprite;
+                spriteRenderer.sprite = DrySprite;
+                Animator.CrossFadeInFixedTime("Soil Remove", 0.0f);
+                clodSpriteRenderer.sprite = null;
+
+                // Lưu trạng thái nông trại
+                FarmSaveSystem.Save(FarmManager);
+            }
         }
 
         public void Watering()
         {
-            RemoveState(ESoilState.Dry);
-            AddState(ESoilState.Wet);
+            if ((SoilState & ESoilState.Dry) != 0)
+            {
+                RemoveState(ESoilState.Dry);
+                AddState(ESoilState.Wet);
 
-            spriteRenderer.sprite = WetSprite;
+                spriteRenderer.sprite = WetSprite;
+                Animator.CrossFadeInFixedTime("Soil Watering", 0.0f);
+                if (clodSpriteRenderer.sprite != null)
+                {
+                    clodSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.clodData.clodWetImage;
+                }
+
+                // Lưu trạng thái nông trại
+                FarmSaveSystem.Save(FarmManager);
+            }
+
+
         }
         public void Harvest()
         {
             if (((SoilState & ESoilState.HasPlant) != 0)
                 && CurrentTree.TreeCurrentStage.isFinalStage)
             {
-
+                treeHavestSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.stageImage;
+                Animator.CrossFadeInFixedTime("Soil Havest", 0.0f);
                 DestroyCurrentTree();
 
-
+                // Lưu trạng thái nông trại
+                FarmSaveSystem.Save(FarmManager);
             }
         }
         public void DestroyCurrentTree()
@@ -194,9 +258,13 @@ namespace FarmSystem
                 RemoveState(ESoilState.Wet);
 
                 AddState(ESoilState.Dry);
-                AddState(ESoilState.HavestedOrDigged);
+                //AddState(ESoilState.HavestedOrDigged);
 
                 spriteRenderer.sprite = HavestedOrRemovePlantSprite;
+                clodSpriteRenderer.sprite = null;
+
+                // Lưu trạng thái nông trại
+                FarmSaveSystem.Save(FarmManager);
             }
         }
         #endregion

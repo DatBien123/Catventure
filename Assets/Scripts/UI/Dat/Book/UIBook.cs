@@ -11,6 +11,25 @@ public enum EBookFilterType
     Vocabulary,
     Temp
 }
+public struct GridLayoutData
+{
+    public int Left;
+    public int Right;
+    public int Top;
+    public int Bottom;
+    public Vector2 CellSize;
+    public Vector2 Spacing;
+
+    public GridLayoutData(int left, int right, int top, int bottom, Vector2 cellSize, Vector2 spacing)
+    {
+        Left = left;
+        Right = right;
+        Top = top;
+        Bottom = bottom;
+        CellSize = cellSize;
+        Spacing = spacing;
+    }
+}
 public class UIBook : MonoBehaviour
 {
     [Header("Filter Buttons")]
@@ -31,11 +50,19 @@ public class UIBook : MonoBehaviour
     public Sprite UnlockIconFood;
     public Sprite UnlockIconVolcabulary;
 
-    public Image[] Collections;
+    public UIBookSlot[] Collections;
 
     [Header("Reference")]
+    public UIBookSlotDetail BookSlotDetail;
     public BookManager BookManager;
     public Animator Animator;
+
+    public GridLayoutGroup LeftGridLayoutGroup;
+    public GridLayoutData CurrentLeftGridLayoutData;
+
+    public GridLayoutGroup RightGridLayoutGroup;
+    public GridLayoutData CurrentRightGridLayoutData;
+
 
     bool isFirstTimeOpen = false;
 
@@ -67,7 +94,7 @@ public class UIBook : MonoBehaviour
                 int count = 0;
                 for (int i = startIndex; i < endIndex; i++)
                 {
-                    Collections[count].sprite = BookManager.GetFoodCards()[i].Data.Icon;
+                    Collections[count].SetupBookSlot(BookManager.GetFoodCards()[i]);
                     count++;
                 }
 
@@ -75,10 +102,27 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIconFood;
+                        Collections[count].Image.sprite = UnlockIconFood;
                         count++;
                     }
                 }
+
+                //Layout Data
+                CurrentLeftGridLayoutData = new GridLayoutData(100, 0, 80, 0, new Vector2(170, 170), new Vector2(20, 50));
+                LeftGridLayoutGroup.padding.left = CurrentLeftGridLayoutData.Left;
+                LeftGridLayoutGroup.padding.right = CurrentLeftGridLayoutData.Right;
+                LeftGridLayoutGroup.padding.top = CurrentLeftGridLayoutData.Top;
+                LeftGridLayoutGroup.padding.bottom = CurrentLeftGridLayoutData.Bottom;
+                LeftGridLayoutGroup.cellSize = CurrentLeftGridLayoutData.CellSize;
+                LeftGridLayoutGroup.spacing = CurrentLeftGridLayoutData.Spacing;
+
+                CurrentRightGridLayoutData = new GridLayoutData(30, 0, 80, 0, new Vector2(170, 170), new Vector2(20, 50));
+                RightGridLayoutGroup.padding.left = CurrentRightGridLayoutData.Left;
+                RightGridLayoutGroup.padding.right = CurrentRightGridLayoutData.Right;
+                RightGridLayoutGroup.padding.top = CurrentRightGridLayoutData.Top;
+                RightGridLayoutGroup.padding.bottom = CurrentRightGridLayoutData.Bottom;
+                RightGridLayoutGroup.cellSize = CurrentRightGridLayoutData.CellSize;
+                RightGridLayoutGroup.spacing = CurrentRightGridLayoutData.Spacing;
 
                 break;
             case EBookFilterType.Vocabulary:
@@ -91,7 +135,7 @@ public class UIBook : MonoBehaviour
                  count = 0;
                 for (int i = startIndex; i < endIndex; i++)
                 {
-                    Collections[count].sprite = BookManager.GetVocabularyCards()[i].Data.Icon;
+                    Collections[count].SetupBookSlot(BookManager.GetVocabularyCards()[i]);
                     count++;
                 }
 
@@ -99,10 +143,28 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIconVolcabulary;
+                        Collections[count].Image.sprite = UnlockIconVolcabulary;
                         count++;
                     }
                 }
+
+                //Layout Data
+                CurrentLeftGridLayoutData = new GridLayoutData(130, 0, 65, 0, new Vector2(144, 209), new Vector2(35, 11));
+                LeftGridLayoutGroup.padding.left = CurrentLeftGridLayoutData.Left;
+                LeftGridLayoutGroup.padding.right = CurrentLeftGridLayoutData.Right;
+                LeftGridLayoutGroup.padding.top = CurrentLeftGridLayoutData.Top;
+                LeftGridLayoutGroup.padding.bottom = CurrentLeftGridLayoutData.Bottom;
+                LeftGridLayoutGroup.cellSize = CurrentLeftGridLayoutData.CellSize;
+                LeftGridLayoutGroup.spacing = CurrentLeftGridLayoutData.Spacing;
+
+                CurrentRightGridLayoutData = new GridLayoutData(40, 0, 65, 0, new Vector2(144, 209), new Vector2(35, 11));
+                RightGridLayoutGroup.padding.left = CurrentRightGridLayoutData.Left;
+                RightGridLayoutGroup.padding.right = CurrentRightGridLayoutData.Right;
+                RightGridLayoutGroup.padding.top = CurrentRightGridLayoutData.Top;
+                RightGridLayoutGroup.padding.bottom = CurrentRightGridLayoutData.Bottom;
+                RightGridLayoutGroup.cellSize = CurrentRightGridLayoutData.CellSize;
+                RightGridLayoutGroup.spacing = CurrentRightGridLayoutData.Spacing;
+
                 break;
             case EBookFilterType.Temp:
 
@@ -114,7 +176,7 @@ public class UIBook : MonoBehaviour
                  count = 0;
                 for (int i = startIndex; i < endIndex; i++)
                 {
-                    Collections[count].sprite = BookManager.GetTempCards()[i].Data.Icon;
+                    Collections[count].SetupBookSlot(BookManager.GetTempCards()[i]);
                     count++;
                 }
 
@@ -122,11 +184,26 @@ public class UIBook : MonoBehaviour
                 {
                     for (int i = count; i < 8; i++)
                     {
-                        Collections[count].sprite = UnlockIconTemp;
+                        Collections[count].Image.sprite = UnlockIconTemp;
                         count++;
                     }
                 }
+                //Layout Data
+                CurrentLeftGridLayoutData = new GridLayoutData(130, 0, 65, 0, new Vector2(144, 209), new Vector2(35, 11));
+                LeftGridLayoutGroup.padding.left = CurrentLeftGridLayoutData.Left;
+                LeftGridLayoutGroup.padding.right = CurrentLeftGridLayoutData.Right;
+                LeftGridLayoutGroup.padding.top = CurrentLeftGridLayoutData.Top;
+                LeftGridLayoutGroup.padding.bottom = CurrentLeftGridLayoutData.Bottom;
+                LeftGridLayoutGroup.cellSize = CurrentLeftGridLayoutData.CellSize;
+                LeftGridLayoutGroup.spacing = CurrentLeftGridLayoutData.Spacing;
 
+                CurrentRightGridLayoutData = new GridLayoutData(40, 0, 65, 0, new Vector2(144, 209), new Vector2(35, 11));
+                RightGridLayoutGroup.padding.left = CurrentRightGridLayoutData.Left;
+                RightGridLayoutGroup.padding.right = CurrentRightGridLayoutData.Right;
+                RightGridLayoutGroup.padding.top = CurrentRightGridLayoutData.Top;
+                RightGridLayoutGroup.padding.bottom = CurrentRightGridLayoutData.Bottom;
+                RightGridLayoutGroup.cellSize = CurrentRightGridLayoutData.CellSize;
+                RightGridLayoutGroup.spacing = CurrentRightGridLayoutData.Spacing;
 
                 break;
         }
@@ -160,7 +237,7 @@ public class UIBook : MonoBehaviour
         if (CurrentMaxCouplePage == 0) CurrentMaxCouplePage = 1; // ít nhất phải có 1 trang
 
         if(isFirstTimeOpen)
-        Animator.CrossFadeInFixedTime("Book_Open-Close", 0.0f);
+        Animator.CrossFadeInFixedTime(AnimationParams.BOOK_OPEN_AND_CLOSE, 0.0f);
 
         // Update UI highlight filter
         Food_Filter.GetComponent<RectTransform>().localScale =
@@ -182,7 +259,7 @@ public class UIBook : MonoBehaviour
         if (CurrentCouplePage < CurrentMaxCouplePage)
         {
             CurrentCouplePage += 1;
-            Animator.CrossFadeInFixedTime("Book_Flip_RTL", 0.0f);
+            Animator.CrossFadeInFixedTime(AnimationParams.BOOK_FLIP_RTL, 0.0f);
             RefreshBookUI();
         }
     }
@@ -191,7 +268,7 @@ public class UIBook : MonoBehaviour
         if (CurrentCouplePage > 1)
         {
             CurrentCouplePage -= 1;
-            Animator.CrossFadeInFixedTime("Book_Flip_LTR", 0.0f);
+            Animator.CrossFadeInFixedTime(AnimationParams.BOOK_FLIP_LTR, 0.0f);
             RefreshBookUI();
         }
     }

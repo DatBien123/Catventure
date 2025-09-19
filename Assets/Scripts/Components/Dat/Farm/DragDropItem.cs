@@ -12,28 +12,41 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public LayerMask soilLayer;
 
     [Header("References")]
-    public GameObject Ghost;
+    public Ghost Ghost;
     public FarmManager FarmManager;
 
     bool isActionSucced;
     private void Awake()
     {
-        if (mainCamera == null)
-            mainCamera = Camera.main;
+        // Tìm Camera
+        mainCamera = FindObjectOfType<Camera>();
+
+        // Tìm GameObject tên "Ghost"
+        Ghost = FindObjectOfType<Ghost>(true); // true = includeInactive
+
+        // Tìm component FarmManager
+        FarmManager = FindObjectOfType<FarmManager>();
+    }
+
+    private void Start()
+    {
+        
     }
     #region [Use Cases]
     public void SetupGhost()
     {
         if(gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
         {
+            Ghost.gameObject.transform.localScale = .1f*Vector3.one;
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
-            Ghost.GetComponent<SpriteRenderer>().sprite = loadedTree.commonData.icon;
+            Ghost.spriteRenderer.sprite = loadedTree.commonData.icon;
         }
         else
         {
-            if(gameObject.name == "Scythe")Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.ScytheSprite;
-            else if (gameObject.name == "Can") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.CanSprite;
-            else if (gameObject.name == "Pickaxe") Ghost.GetComponent<SpriteRenderer>().sprite = FarmManager.PickaxeSprite;
+            Ghost.gameObject.transform.localScale = Vector3.one;
+            if (gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
+            else if (gameObject.name == "Can") Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
+            else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
         }
 
     }
@@ -45,8 +58,8 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         // tạo ghost trong thế giới
         if (Ghost != null)
         {
-            Ghost.SetActive(true);
-            Ghost.name = "Ghost - " + gameObject.name;
+            Ghost.gameObject.SetActive(true);
+            Ghost.name =  gameObject.name;
 
             SetupGhost();
 
@@ -67,6 +80,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             worldPos.z = 0; // giữ ghost trên mặt phẳng 2D
             Ghost.transform.position = worldPos;
 
+            bool result = true;
             // Kiểm tra va chạm Soil
             Collider2D hit = Physics2D.OverlapPoint(worldPos, soilLayer);
             if (hit != null)
@@ -75,7 +89,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 if (soil != null)
                 {
                     if (gameObject.name != "Scythe" && gameObject.name != "Can" && gameObject.name != "Pickaxe")
-                        soil.PlantTree(gameObject.name);
+                        result = soil.PlantTree(Ghost.gameObject.name);
                     else
                     {
                         if (gameObject.name == "Scythe")
@@ -89,13 +103,18 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                     isActionSucced = true;
                 }
             }
+
+            if(result == false)
+            {
+                OnEndDrag(eventData);
+            }
         }
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (Ghost != null)
         {
-            Ghost.SetActive(false);
+            Ghost.gameObject.SetActive(false);
 
             if (isActionSucced)
             {

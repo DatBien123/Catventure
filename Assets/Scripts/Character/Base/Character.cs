@@ -4,17 +4,17 @@ public class Character : MonoBehaviour
 {
     public Animator animator;
 
-    public void Awake()
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    void Start()
+    protected virtual void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }

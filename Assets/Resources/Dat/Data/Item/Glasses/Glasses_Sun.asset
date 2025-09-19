@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Glasses_Sun
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 11
     itemName: Glasses_Sun
     icon: {fileID: 21300000, guid: 94083c9fb5246824381e9efe62474249, type: 3}
     description: A beautiful Round Glasses

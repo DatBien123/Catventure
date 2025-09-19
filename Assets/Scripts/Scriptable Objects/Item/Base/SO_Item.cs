@@ -8,7 +8,8 @@ public enum ItemType
     HandStuff,
     Hat,
     Consumable,
-    Wing
+    Wing,
+    Crops
 }
 [System.Serializable]
 public struct ItemData

@@ -15,6 +15,7 @@ public struct CardData
     public Sprite Icon;
     [TextArea] public string description;
     public CardType Type;
+    public AudioClip SpellClip;
     public bool IsUnlocked;
 }
 

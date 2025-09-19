@@ -1,0 +1,11 @@
+# ninja log v5
+57	3519	7794677013237197	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	56df4d5444354273
+78	3509	7794677013227190	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	cda9bbc75854ffe2
+4209	4436	7794677022545804	D:/Unity/Git Projects Clone/Catventure/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v464k2k/obj/arm64-v8a/libgame.so	9824cf7065e81dde
+46	3569	7794677013642827	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	c6fc8bddfa90de6a
+22	3639	7794677014322792	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9643f30e2c92283d
+91	3571	7794677013607928	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	8176f2358fda8e6f
+64	4209	7794677019959041	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48a540f1b2c8c8f8
+36	3835	7794677016351550	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	fc1754446a891c3f
+110	3956	7794677017462039	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	1647adfaa11d9433
+21	1434	7795637862910354	build.ninja	7fde8f20aa7587ab

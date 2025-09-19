@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat_Gentlemen
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 20
     itemName: Hat_Gentlemen
     icon: {fileID: 21300000, guid: 5a5d7670fa5427f4aa3683e5cafcbd95, type: 3}
     description: A beautiful Jojo Hat

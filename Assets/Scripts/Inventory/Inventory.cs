@@ -54,6 +54,10 @@ public class Inventory : MonoBehaviour
             {
                 slots.Add(new InventorySlot(new ConsumableInstance(consumableInstance.ItemStaticData, addAmount)));
             }
+            else if(ItemInstance is CropsInstance cropsInstance)
+            {
+                slots.Add(new InventorySlot(new CropsInstance(cropsInstance.ItemStaticData, addAmount)));
+            }
             else
             {
                 slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, addAmount)));
@@ -105,9 +109,14 @@ public class Inventory : MonoBehaviour
             .Sum(s => s.ItemInstance.Quantity);
     }
 
-    public bool CheckItemExist(SO_Item item, int quantity)
+    public bool CheckItemExist(SO_Item item)
     {
-        return GetTotalQuantity(item) >= quantity;
+        foreach(var slot in slots)
+        {
+            if(slot.ItemInstance.ItemStaticData.name == item.commonData.itemName) return true;
+
+        }
+        return false;
     }
 
     public void ClearItem(SO_Item item)

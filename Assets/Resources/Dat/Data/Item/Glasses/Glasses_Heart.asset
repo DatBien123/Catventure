@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Glasses_Heart
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 9
     itemName: Glasses_Heart
     icon: {fileID: 21300000, guid: b1f0b92f8cad1e44789223081d72862d, type: 3}
     description: A beautiful Heart Glasses

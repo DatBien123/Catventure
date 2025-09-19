@@ -29,6 +29,7 @@ Material:
   - DR_GRADIENT_ON
   - DR_OUTLINE_ON
   - DR_RIM_ON
+  - DR_SPECULAR_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _GRADIENTSPACE_WORLD
@@ -48,7 +49,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: eb168a2593ed97949b4d25e8fc65a111, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -143,7 +144,7 @@ Material:
     - _FlatRimLightAlign: 0
     - _FlatRimSize: 0
     - _FlatSpecularEdgeSmoothness: 0.075
-    - _FlatSpecularSize: 0.15
+    - _FlatSpecularSize: 0.182
     - _Flatness: 1
     - _FlatnessExtra: 0.456
     - _GlossMapScale: 1
@@ -178,7 +179,7 @@ Material:
     - _ShadowEdgeSizeExtra: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecularEnabled: 0
+    - _SpecularEnabled: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
@@ -196,17 +197,17 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.735849, g: 0.56924164, b: 0.36514768, a: 1}
+    - _BaseColor: {r: 0.81886786, g: 0.18398458, b: 0, a: 1}
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-    - _ColorDim: {r: 0.1092417, g: 0.7245477, b: 0.86415094, a: 0.85056}
+    - _ColorDim: {r: 0.81960785, g: 0.18431373, b: 0, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorDimExtra: {r: 0.90943396, g: 0.7310183, b: 0.1492844, a: 0.85056}
-    - _ColorDimSteps: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0.85056}
-    - _ColorGradient: {r: 1, g: 0.70402217, b: 0.2245282, a: 0.85056}
+    - _ColorDimExtra: {r: 1, g: 0.06666666, b: 0.1404534, a: 0.85056}
+    - _ColorDimSteps: {r: 0.81960785, g: 0.18431373, b: 0, a: 1}
+    - _ColorGradient: {r: 0.81960785, g: 0.007920113, b: 0, a: 1}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 29.933746, g: 4.461819, b: 4.461819, a: 1}
-    - _FlatSpecularColor: {r: 1, g: 0.9968554, b: 0.99433964, a: 0.85056}
+    - _FlatSpecularColor: {r: 1, g: 1, b: 1, a: 0.85056}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

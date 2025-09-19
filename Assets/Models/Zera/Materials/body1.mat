@@ -8,18 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: body1
-  m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
+  m_Shader: {fileID: 4800000, guid: f7e38193b7f064d7380403618fd8b69e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
   - DR_GRADIENT_ON
-  - DR_OUTLINE_ON
   - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
-  - _DETAILMAPBLENDINGMODE_MULTIPLY
-  - _GRADIENTSPACE_WORLD
-  - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
   m_InvalidKeywords:
   - _UNITYSHADOWMODE_NONE
@@ -244,7 +240,7 @@ Material:
     - _OutlineEnabled: 1
     - _OutlineScale: 1
     - _OutlineSpace: 0
-    - _OutlineWidth: 10
+    - _OutlineWidth: 3
     - _OverrideLightmapDir: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
@@ -309,7 +305,7 @@ Material:
     - _FlatSpecularColor: {r: 0.90188676, g: 0.5643862, b: 0.3726664, a: 0.85056}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.96981126, g: 0.8504524, b: 0.7154645, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
   m_BuildTextureStacks: []
