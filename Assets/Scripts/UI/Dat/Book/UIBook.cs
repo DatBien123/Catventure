@@ -40,6 +40,9 @@ public class UIBook : MonoBehaviour
     [Header("Navigator Buttons")]
     public Button Prev_Button;
     public Button Next_Button;
+    public Button Exit_Button;
+
+    public bool isButtonEnable = false;
 
     [Header("Current Filter")]
     public int CurrentCouplePage = 1;
@@ -53,6 +56,7 @@ public class UIBook : MonoBehaviour
     public UIBookSlot[] Collections;
 
     [Header("Reference")]
+    public GameObject parentObject;
     public UIBookSlotDetail BookSlotDetail;
     public BookManager BookManager;
     public Animator Animator;
@@ -74,7 +78,17 @@ public class UIBook : MonoBehaviour
 
         Prev_Button.onClick.AddListener(() => OnPreviousPage());
         Next_Button.onClick.AddListener(() => OnNextPage());
+        Exit_Button.onClick.AddListener(() => Exit());
     }
+    private void OnEnable()
+    {
+        Animator.CrossFadeInFixedTime("Book_Default", 0.0f);
+    }
+    private void OnDisable()
+    {
+    }
+
+
     private void Start()
     {
         FunctionTemp(EBookFilterType.Food);
@@ -83,6 +97,12 @@ public class UIBook : MonoBehaviour
     #region [Filter]
     public void RefreshBookUI()
     {
+        //Remove All Data of All Book Slot
+        foreach(UIBookSlot bookSlot in Collections)
+        {
+            bookSlot.RemoveDataBookSlot();
+        }
+
         switch (CurrentFilterType)
         {
             case EBookFilterType.Food:
@@ -271,6 +291,22 @@ public class UIBook : MonoBehaviour
             Animator.CrossFadeInFixedTime(AnimationParams.BOOK_FLIP_LTR, 0.0f);
             RefreshBookUI();
         }
+    }
+    #endregion
+
+    #region [Buttons]
+    public void Exit()
+    {
+        if(isButtonEnable)
+        parentObject.SetActive(false);
+    }
+    public void EnableButtons()
+    {
+        isButtonEnable = true;
+    }
+    public void DisableButtons()
+    {
+        isButtonEnable = false;
     }
     #endregion
 }

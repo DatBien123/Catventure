@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening; // Thêm namespace DOTween
+using DG.Tweening;
 
 public class StoryGenerator : MonoBehaviour
 {
@@ -58,7 +58,22 @@ public class StoryGenerator : MonoBehaviour
         if (Next_Button != null)
             Next_Button.onClick.AddListener(() => StartRotateStories(1));
     }
+    private void OnEnable()
+    {
+        Animator.CrossFadeInFixedTime("Story_Open", 0.0f);
+        StartShowStories(delayShowUpStories);
+    }
 
+    private void OnDisable()
+    {
+
+        Animator.CrossFadeInFixedTime("Story_Default", 0.0f);
+        Animator.gameObject.SetActive(false);
+        foreach (Story story in StoryList)
+        {
+            story.gameObject.SetActive(false);
+        }
+    }
     void Update()
     {
         // Xoay mượt về targetRotation (chỉ cần khi coroutine đang chạy)
@@ -177,7 +192,7 @@ public class StoryGenerator : MonoBehaviour
             GameObject storyObj = Instantiate(StoryPrefab.gameObject, pos, Quaternion.identity, transform);
             storyObj.transform.LookAt(transform.position);
             storyObj.transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
-
+      
             storyObj.GetComponent<Story>().SetupStory(StoryManager.Stories[i]);
             StartHoverAnimation(storyObj);
             storyObj.SetActive(false);
