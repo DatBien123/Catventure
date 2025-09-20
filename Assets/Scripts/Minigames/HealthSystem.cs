@@ -11,7 +11,7 @@ public class HealthSystem : MonoBehaviour
     public int currentHealth { get; private set; }
 
     public event Action<int, int> OnHealthChanged;
-    public event Action<bool> OnHealthZero ;
+    public event Action OnHealthZero ;
 
     public void SetupHealth(int maxHealth)
     {
@@ -25,7 +25,7 @@ public class HealthSystem : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         if(currentHealth <= 0) // máu về 0 rồi là GameOver 
         {
-            OnHealthZero?.Invoke(false); 
+            OnHealthZero?.Invoke(); 
         }    
     }
     public void HealHealth(int amount)

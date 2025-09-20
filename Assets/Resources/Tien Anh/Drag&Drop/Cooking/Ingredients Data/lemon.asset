@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: lemon
   m_EditorClassIdentifier: 
   ingredientName: lemon
-  icon: {fileID: 21300000, guid: e67543c125dcff6488aaa52d42d1feec, type: 3}
+  icon: {fileID: 21300000, guid: e9fa1888ea33023419f2ceeb5e78c8af, type: 3}
   pronunciation: {fileID: 8300000, guid: b3bfb92d37f9b824ba7499d1edfb6ef5, type: 3}
+  processing:
+    cuttingData:
+      stepType: 0
+      requiredCuts: 0
+      icons: []
+      processSprite: {fileID: 0}
+    boilingStirringData:
+      stepType: 5
+      icon: {fileID: 21300000, guid: e9fa1888ea33023419f2ceeb5e78c8af, type: 3}
+      boilingTime: 0
+    assemblingData:
+      stepType: 7
+      icon: {fileID: 21300000, guid: dfb831d197e972b40ae20a515ca75f1c, type: 3}

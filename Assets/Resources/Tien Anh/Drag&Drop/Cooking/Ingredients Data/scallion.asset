@@ -13,5 +13,22 @@ MonoBehaviour:
   m_Name: scallion
   m_EditorClassIdentifier: 
   ingredientName: scallion
-  icon: {fileID: 21300000, guid: 81809ebfb73917e4aad6bf100419c722, type: 3}
+  icon: {fileID: 21300000, guid: 3010740d83cbd5540bcce7edf41a5db8, type: 3}
   pronunciation: {fileID: 8300000, guid: b4086d99138f7d045bf343a923de5ba8, type: 3}
+  processing:
+    cuttingData:
+      stepType: 0
+      requiredCuts: 3
+      icons:
+      - {fileID: 21300000, guid: 79e5776ec50e6f047a492b8b42e8c150, type: 3}
+      - {fileID: 21300000, guid: 6b8f1d4772eba7a418a6af29b5c325fd, type: 3}
+      - {fileID: 21300000, guid: 69adb6aa00768344b8a28a278f56a8ed, type: 3}
+      - {fileID: 21300000, guid: c474294ee13ccb348bc539c2e0b846a4, type: 3}
+      processSprite: {fileID: 21300000, guid: 75c94fa34c1986a4bb4386fa3cdd4322, type: 3}
+    boilingStirringData:
+      stepType: 0
+      icon: {fileID: 0}
+      boilingTime: 0
+    assemblingData:
+      stepType: 7
+      icon: {fileID: 21300000, guid: 75c94fa34c1986a4bb4386fa3cdd4322, type: 3}

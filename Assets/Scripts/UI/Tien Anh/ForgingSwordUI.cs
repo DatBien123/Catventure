@@ -9,9 +9,9 @@ public class ForgingSwordUI : MonoBehaviour
     {
         Instance = this;
     }
-    public void Setup(CraftingRecipeSO recipe)
+    public void Setup(IngredientRecipeSO recipe)
     {
-        elementalBarUI.Init(recipe);
+        //elementalBarUI.Init(recipe);
 
     }
 

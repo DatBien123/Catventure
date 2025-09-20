@@ -1,7 +1,9 @@
 ﻿using TMPro;
 using System;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 // Hệ thống đếmn ngược thời gian trong mỗi minigame
 public class CountDownTimerSystem : MonoBehaviour
 {
@@ -10,13 +12,26 @@ public class CountDownTimerSystem : MonoBehaviour
     public bool keepingCountDown = false;
     public float second = 1f;
     public Text timerText; // Kéo Text vào đây trong Inspector
-    public Action<bool> OnTimeUp; // Sự kiện thông báo hết giờ
+    public Action OnTimeUp; // Sự kiện thông báo hết giờ
     public int lastDisplayedSeconds = -1;
+    
+
+    // Hệ thống đếm ngược 3 2 1 bắt đầu
+
+    public GameObject countdownUI; // object chứa text đếm ngược
+    public Text countdownText; // Text hiển thị số đếm ngược
+    public Color[] colors;
+    public System.Action OnCountdownComplete; // Gọi khi đếm xong
+
     private void Awake()
     {
         timeRemaining = timeStart;
     }
-
+    public void StartCountdown321()
+    {
+        gameObject.SetActive(true); 
+        StartCoroutine(CountdownRoutine321());
+    }
     private bool isRunning = true;
 
     void Update()
@@ -40,7 +55,7 @@ public class CountDownTimerSystem : MonoBehaviour
                 isRunning = false;
                 UpdateTimerDisplay();
                 // Gọi xử lý khi hết giờ ở đây
-                OnTimeUp?.Invoke(false);
+                OnTimeUp?.Invoke();
             }
         }
     }
@@ -80,5 +95,26 @@ public class CountDownTimerSystem : MonoBehaviour
     public float GetCompletionTime() // lấy ra thời gian hoàn thành minigame bằng lấy thời gian bắt đầu trừ đi thời gian còn lại
     {
         return timeStart - timeRemaining;
+    }
+    private IEnumerator CountdownRoutine321()
+    {
+        countdownUI.SetActive(true);
+
+        string[] countdowns = { "3", "2", "1", "Bắt đầu!" };
+        int i = 0;
+        foreach (string count in countdowns)
+        {
+            countdownText.text = count;
+            countdownText.transform.localScale = Vector3.zero;
+            countdownText.color = colors[i];
+            // Hiệu ứng phóng to ra (pop)
+            countdownText.transform.DOScale(1f, 0.4f).SetEase(Ease.OutBack);
+            i++;
+            yield return new WaitForSeconds(second);
+        }
+
+        countdownUI.SetActive(false);
+
+        OnCountdownComplete?.Invoke(); // Gọi sự kiện bắt đầu minigame
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ebc86ef9a6417d40859f0878b605e03, type: 3}
+  m_Name: "C\xF4ng th\u1EE9c n\u1EA5u Ph\u1EDF"
+  m_EditorClassIdentifier: 
+  recipeName: "Ph\u1EDF b\xF2"
+  steps:
+  - {fileID: 11400000, guid: 9120ba25dd2f93d4fadcd52917851bb2, type: 2}
+  - {fileID: 11400000, guid: 516380bb73bb4c848b59cfd63592edcd, type: 2}
+  - {fileID: 11400000, guid: e8194932742ec5147a374a5c4d552487, type: 2}
+  reward: 50
+  dishResult: {fileID: 11400000, guid: d6cf79fb1f3841c47a87c52f6bbfe81c, type: 2}

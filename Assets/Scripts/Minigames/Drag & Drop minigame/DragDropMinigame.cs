@@ -1,87 +1,24 @@
-﻿using DG.Tweening;
-using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Threading;
-public class DragDropMinigame : MonoBehaviour, IMinigame
+﻿using UnityEngine;
+
+public class DragDropMinigame : BaseMinigame
 {
-    public GameOverScreen gameOverScreen;
-    public VictoryRewardScreen victoryRewardScreen;
-    public Button tapToContinueButton; // Gán trong Inspector
-    public GameObject floatingTextPrefab;
-    public Canvas canvas;
-    [SerializeField] protected GameObject inputBlocker;
-    [SerializeField] protected HealthSystem health; // hệ thống máu
-    [SerializeField] protected CountDownTimerSystem countDownTimer;
-    // Tutorial của Drag & Drop minigame
-    public HandTutorial hand;
-
-    private void Awake()
+    public override void StartGame()
     {
-    }
-    public void Start()
-    {
-        StartGame();
+        base.StartGame();
+        Debug.Log("DragDropMinigame started!");
+        // logic khởi động riêng cho minigame kéo thả
     }
 
-    public virtual void StartGame()
+    public override void EndGame(bool success)
     {
-
+        Debug.Log($"DragDropMinigame ended. Success = {success}");
+        base.EndGame(success);
     }
-
-    public virtual void EndGame(bool success)
+    public override void GameOver()
     {
-        countDownTimer.StopCountDown();
-
+        base.GameOver();    
     }
 
 
-    public void GameOver()
-    {
-        gameOverScreen.Setup();
-    }
-    protected void ShowTapToContinue() // hàm xử lý bấm để tiếp tục
-    {
-    }
-    public void CorrectIngredientOrElemental(string ingredientName) // Khi cho nguyên liệu/ nguyên tố đúng
-    {
-        // TODO: Hiện feedback visual + audio
-        if (floatingTextPrefab != null)
-        {
-            //Debug.Log("Chạy floating text");
-            GameObject objectText = Instantiate(floatingTextPrefab, canvas.transform.position, Quaternion.identity, canvas.transform);
-            objectText.GetComponent<FloatingText>().SetText(ingredientName, Color.green);
-            Destroy(objectText, 1.5f); // Hủy sau 2 giây
-        }
-    }
 
-    public void WrongIngredientOrElemental() // khi cho nguyên liệu sai
-    {
-        health.DecreaseHealth(1);
-        // TODO: Hiện feedback sai
-        if (floatingTextPrefab != null)
-        {
-            //Debug.Log("Chạy floating text");
-            GameObject objectText = Instantiate(floatingTextPrefab, canvas.transform.position, Quaternion.identity, canvas.transform);
-            objectText.GetComponent<FloatingText>().SetText("WRONG", Color.red);
-            Destroy(objectText, 1.5f); // Hủy sau 2 giây
-        }
-    }
-    public virtual void PlayInstructionLine() // đoạn voice hướng dẫn khi chơi game
-    {
-        Debug.Log("Chạy âm thanh giới thiệu hướng dẫn");
-    }
-    public virtual void StartHandTutorial() // bàn tay hướng dẫn khi vào game
-    {
-
-    }
-
-
-    public void OnDestroy()
-    {
-        health.OnHealthZero -= EndGame;
-       
-        countDownTimer.OnTimeUp -= EndGame;
-    }
 }
