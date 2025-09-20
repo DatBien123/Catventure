@@ -25,7 +25,11 @@ public class UIBookSlot : MonoBehaviour
         CurrentCardData = card;
         Image.sprite = card.Data.Icon;
     }
-    
+    public void RemoveDataBookSlot()
+    {
+        CurrentCardData = null;
+        Image.sprite = null;
+    }
     public void ShowBookSlotInfo()
     {
         if(CurrentCardData != null)

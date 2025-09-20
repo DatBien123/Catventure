@@ -54,6 +54,7 @@ public class UIConfirm : MonoBehaviour
 
             //Data
             UIShop.ShopManager.owner.Coin -= item.commonData.price;
+
             UIShop.ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
 
             //Update Resource data cho cac giao dien khac

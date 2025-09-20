@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-using DG.Tweening; // nhớ import DOTween
+using DG.Tweening;
+using Unity.VisualScripting; // nhớ import DOTween
 
 namespace FarmSystem
 {
@@ -78,6 +79,11 @@ namespace FarmSystem
                 if (TreeCurrentStage.isFinalStage)
                 {
                     transform.GetComponentInParent<Soil>().AddState(ESoilState.CanHarvest);
+
+                    transform.GetComponentInParent<Soil>().canHavestIndicatorSpriteRenderer.sprite = TreeDataOrigin.data.rewardData.consumReward.commonData.icon;
+                    transform.GetComponentInParent<Soil>().canHavestIndicatorSpriteRenderer.gameObject.SetActive(true);
+
+                    transform.GetComponentInParent<Soil>().Animator.CrossFadeInFixedTime("Soil Can Havest Indicate", .0f);
                 }
             }
         }

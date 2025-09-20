@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class Story : MonoBehaviour
 {
@@ -6,7 +8,10 @@ public class Story : MonoBehaviour
 
     public MeshRenderer MeshRenderer;
 
+    public UnityEvent OnShowUp;
+    public UnityEvent OffShowUp;
 
+    Coroutine C_ShopUp;
     public void SetupStory(SO_Story story)
     {
         StoryData = story;
@@ -19,4 +24,25 @@ public class Story : MonoBehaviour
         Material.EnableKeyword("_METALLICGLOSSMAP"); // bật keyword để dùng map
     }
 
+    public void StartShowUp(float waitTime)
+    {
+        if(C_ShopUp != null) StopCoroutine(C_ShopUp);
+        C_ShopUp = StartCoroutine(ShowUp(waitTime));
+    }
+
+    IEnumerator ShowUp(float waitTime)
+    {
+
+        OnShowUp?.Invoke();
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < waitTime)
+        {
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        OffShowUp?.Invoke();
+    }
 }

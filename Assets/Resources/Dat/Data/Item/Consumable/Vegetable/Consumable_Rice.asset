@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 1
-    itemName: Rice
-    icon: {fileID: 21300000, guid: 14ad9aad65ed24541bb7595dfdb7db26, type: 3}
+    itemName: Rice Consum
+    icon: {fileID: 21300000, guid: 4f87993ade47e084b9f0476131ede462, type: 3}
     description: A delicious Fish Dish
     itemType: 4
     isStackable: 1
