@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Correct Ingredient
-    clip: {fileID: 8300000, guid: 07c581b70c0ec104a946b8da90578002, type: 3}
+    clip: {fileID: 8300000, guid: 5f2c894d88f64c541a15883daf453b95, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Cooking Background Music
     clip: {fileID: 8300000, guid: b0eb70721268c594dbcd5e42cf689c49, type: 3}
-    volume: 0.1
+    volume: 0.3
     pitch: 1
     loop: 0
     type: 0
@@ -180,6 +180,55 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Good Zone
     clip: {fileID: 8300000, guid: bb3ac16216b596b43b0de2ca4bc2a886, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Boiling Sound
+    clip: {fileID: 8300000, guid: 4c6cabb8d793bb44eb2e858028738f1e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    type: 1
+    source: {fileID: 0}
+  - name: Happy Sound
+    clip: {fileID: 8300000, guid: a841d50d88373dc45bdaacdfb01be2f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: CuttingStepMusic
+    clip: {fileID: 8300000, guid: 12edfeeedc8cb1a4ba47aba6397bf8e8, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    type: 0
+    source: {fileID: 0}
+  - name: KnifeSound
+    clip: {fileID: 8300000, guid: e7c711ffe7646ab43b94b7d1a930b07b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Chill music
+    clip: {fileID: 8300000, guid: 38e19bafff123f94eb947598b8349740, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    type: 0
+    source: {fileID: 0}
+  - name: Shine Sound
+    clip: {fileID: 8300000, guid: c6f60e663e0dbc248b512a8e1afda1de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Level Win
+    clip: {fileID: 8300000, guid: 47e6d8e7a393b80409dbec7e21399afc, type: 3}
     volume: 1
     pitch: 1
     loop: 0

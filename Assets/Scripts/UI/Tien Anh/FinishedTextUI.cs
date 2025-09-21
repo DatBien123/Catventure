@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class FinishedTextUI : MonoBehaviour
@@ -8,6 +8,7 @@ public class FinishedTextUI : MonoBehaviour
         GameObject parent = transform.parent.gameObject;
         parent.SetActive(true);
         AudioManager.instance.PlaySFX("Happy Sound");
+        Debug.Log("Chạy Happy Sound");
         RectTransform rt = gameObject.GetComponent<RectTransform>();
         rt.localScale = Vector3.zero;
         rt.DOScale(1.2f, 0.2f)

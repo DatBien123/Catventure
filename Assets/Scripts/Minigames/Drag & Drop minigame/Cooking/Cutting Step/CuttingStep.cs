@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 // Đây sẽ là lớp xử lý UI, Logic của minigame (công đoạn) Cắt
 // Ví dụ như là thái hành, thái thịt. Bản chất chúng cũng giống nhau là chỉ cắt nguyên liệu ra thành nhiều phần
@@ -23,7 +24,7 @@ public class CuttingStep : MonoBehaviour, ICookingStep
     public GameObject ingredients;
     [SerializeField]private List<GameObject> cuttedPieces;
     public VictoryRewardScreen victoryRewardScreen;
-    
+    public DragDropCookingMinigame dragDropCookingMinigame;
     public void OnEnable()
     {
         ArrowSwipeController.onCuttedIngredient += RegisterCut;
@@ -48,6 +49,7 @@ public class CuttingStep : MonoBehaviour, ICookingStep
     {
         SetupCuttingStep();
         stepUI.SetupUI(cookingStep);
+        dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(cookingStep.timeRequired);
         AudioManager.instance.PlayMusic("CuttingStepMusic");
         // Ban đầu bật hết các miếng lên (nguyên vẹn)
         foreach (var slice in slices)
@@ -88,12 +90,6 @@ public class CuttingStep : MonoBehaviour, ICookingStep
         }
         // gán cuttedIngredient bằng process Sprite
         cuttedIngredient = data.processSprite;
-    }
-
-    void Update()
-    {
-        //if (Input.GetMouseButtonDown(0)) RegisterCut();
-
     }
     void RegisterCut()
     {

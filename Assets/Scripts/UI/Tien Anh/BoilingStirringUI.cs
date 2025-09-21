@@ -13,7 +13,6 @@ public class BoilingStirringUI : MonoBehaviour
     public GameObject boiling; 
     public GameObject stirring;
 
-    public CountDownTimerSystem countdown321;
 
     public GameObject inputBlockerPanel;
     public GameObject circleArrowGuide;

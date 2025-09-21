@@ -1,126 +1,108 @@
-﻿//using NUnit.Framework;
-//using UnityEngine;
-//using System.Collections.Generic;
-//using System;
-//using DG.Tweening;
-//public class FitbMinigame : BaseMinigame
-//{
-//    [SerializeField] private GameOverScreen gameOverScreen;
-//    [SerializeField] private VictoryRewardScreen victoryRewardScreen;
-//    // khi bắt đầu game thì sẽ có một danh sách các câu hỏi cho 1 lần chơi
-//    [SerializeField] private FitbLevelData levelData;
-//    [SerializeField] private FitbUI fitbUI; // Fill in the blank User interface 
-//    [SerializeField] private int currentIndex = 0; // index tương ứng với câu hỏi hiện tại trong questions
-//    [SerializeField] private HealthSystem healthSystem; // hệ thống máu để xử lý game over
-//    [SerializeField] private GameObject inputBlockerPanel;
-//    public CountDownTimerSystem timer;
-//    [SerializeField] private int correctAnswers = 0;
+﻿using NUnit.Framework;
+using UnityEngine;
+using System.Collections.Generic;
+using System;
+using DG.Tweening;
+public class FitbMinigame : BaseMinigame
+{
+    // khi bắt đầu game thì sẽ có một danh sách các câu hỏi cho 1 lần chơi
+    [SerializeField] private FitbLevelData levelData;
+    [SerializeField] private FitbUI fitbUI; // Fill in the blank User interface 
+    [SerializeField] private int currentIndex = 0; // index tương ứng với câu hỏi hiện tại trong questions
+    [SerializeField] private int correctAnswers = 0;
 
-//    // UI
-//    public GameObject startMinigamePanel;
-//    public GameObject userInterface;
+    // UI
+    public GameObject startMinigamePanel;
+    public GameObject userInterface;
 
-//    public event Action<bool> OnGameEnd;
+    void Start()
+    {
+        startMinigamePanel.GetComponent<StartMinigamePanel>().Setup("ĐIỀN TỪ", null, null, levelData.timeRequired, levelData.reward);
 
-//    void Awake()
-//    {
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        UIEventSystem.Register("Start Game", StartGame);
 
-//    }
-//    void Start()
-//    {
-//        startMinigamePanel.GetComponent<StartMinigamePanel>().Setup("ĐIỀN TỪ",null,null, levelData.timeRequired, levelData.reward);
+    }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        UIEventSystem.Unregister("Start Game", StartGame);
+    }
+    public override void StartGame()
+    {
+        base.StartGame();
+        countDownTimer.SetTimeStart(levelData.timeRequired);
+        startMinigamePanel.SetActive(false);
+        userInterface.SetActive(true);
+        health.gameObject.SetActive(true);
+        countDownTimer.StartCountDown();
+        correctAnswers = 0;
+        AudioManager.instance.PlaySFX("Starting Minigame");
+        AudioManager.instance.PlayMusic("FITB Background Music");
+        currentIndex = 0;
+        ShowQuestion(currentIndex);
+    }
 
-//    }
-//    private void OnEnable()
-//    {
-//        // Ta sẽ đăng ký sự kiện cho các hàm UIEventSystem ở đây
-//        UIEventSystem.Register("Start Game", StartGame);
+    public override void EndGame(bool success)
+    {
+    base.EndGame(success);
+    //DOTween.KillAll(); // ✅ hủy toàn bộ delayed call khi end game
 
-//    }
-//    private void OnDisable()
-//    {
-//        UIEventSystem.Unregister("Start Game", StartGame);
-
-//    }
-//    public void StartGame()
-//    {
-//        timer.SetTimeStart(levelData.timeRequired);
-//        startMinigamePanel.SetActive(false);
-//        userInterface.SetActive(true);
-//        healthSystem.gameObject.SetActive(true);
-//        timer.StartCountDown();
-//        correctAnswers = 0;
-//        AudioManager.instance.PlaySFX("Starting Minigame");
-//        AudioManager.instance.PlayMusic("FITB Background Music");
-//        currentIndex = 0;
-//        ShowQuestion(currentIndex);
-//        timer.OnTimeUp += EndGame;
-//        healthSystem.OnHealthZero += EndGame;
-//    }
-
-//    public void EndGame(bool success)
-//    {
-//        // cứ end game là dừng biến đếm thời gian lại không cần biết thắng hay thua
-//        timer.StopCountDown();
-//        if (success)
-//        {
-//            victoryRewardScreen.ShowRewardFITB(levelData.reward);
-//        }
-//        else
-//        {
-//            Debug.Log("Người chơi đã thua");
-//            // gọi game over
-//            GameOver();
-//        }
-//    }
+    }
 
 
-//    public void GameOver()
-//    {
-//        gameOverScreen.Setup();
-//    }
-//    // Hàm này là để hiển thị ra câu hỏi, các đáp án và hình minh họa của question hiện tại trong danh sách Questions ở trên
-//    private void ShowQuestion(int currentIndex)
-//    {
-//        if (currentIndex < levelData.questions.Count)
-//        {
-//            inputBlockerPanel.SetActive(false);
-//            fitbUI.UpdateQuestionCounter(currentIndex + 1, levelData.questions.Count);
-//            fitbUI.DisplayQuestion(levelData.questions[currentIndex], OnAnswerSelected); // ta truyền vào hàm OnAnswerSelected để kiểm tra đáp án khi player ấn vào có đúng không
-//        }
-//        else
-//        {
-//            if (timer.IsEnoughTimeToWin())
-//            {
-//                EndGame(true); // ✅ Khi hết câu hỏi
-//            }
-//        }
-//    }
-//    void OnAnswerSelected(bool isCorrect)
-//    {
-//        inputBlockerPanel.SetActive(true);
-//        FITBQuestionSO currentQuestion = levelData.questions[currentIndex];
-//        currentIndex++;
-//        if (isCorrect)
-//        {
-//            correctAnswers++;
-//            fitbUI.ShowCorrectFeedback();
-//            //PlayVideoAfterAnswerQuestion(currentQuestion);
-//            inputBlockerPanel.SetActive(true);
-//            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
-//        }
-//        else
-//        {
-//            fitbUI.ShowWrongFeedback();
-//            healthSystem.DecreaseHealth(1);
-//            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
+    public override void GameOver()
+    {
+        base.GameOver();
+    }
+    // Hàm này là để hiển thị ra câu hỏi, các đáp án và hình minh họa của question hiện tại trong danh sách Questions ở trên
+    private void ShowQuestion(int currentIndex)
+    {
+        if (currentIndex < levelData.questions.Count)
+        {
+            inputBlocker.SetActive(false);
+            fitbUI.UpdateQuestionCounter(currentIndex + 1, levelData.questions.Count);
+            fitbUI.DisplayQuestion(levelData.questions[currentIndex], OnAnswerSelected); // ta truyền vào hàm OnAnswerSelected để kiểm tra đáp án khi player ấn vào có đúng không
+        }
+        else
+        {
+            if (countDownTimer.IsEnoughTimeToWin() && health.currentHealth > 0)
+            {
+                ShowRewardUI();
+            }
+        }
+    }
 
-//        }
+    private void ShowRewardUI()
+    {
+        inputBlocker.SetActive(false);
+        victoryRewardScreen.ShowRewardFITB(levelData.reward,3);
+    }
 
-//    }
-//    private void OnDestroy()
-//    {
-//        timer.OnTimeUp -= EndGame;
-//    }
+    void OnAnswerSelected(bool isCorrect)
+    {
+        FITBQuestionSO currentQuestion = levelData.questions[currentIndex];
+        currentIndex++;
+        if (isCorrect)
+        {
+            correctAnswers++;
+            fitbUI.ShowCorrectFeedback();
+            //PlayVideoAfterAnswerQuestion(currentQuestion);
+            inputBlocker.SetActive(true);
+            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
+        }
+        else
+        {
+            fitbUI.ShowWrongFeedback();
+            health.DecreaseHealth(1);
+            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
 
-//}
+        }
+
+    }
+
+
+}

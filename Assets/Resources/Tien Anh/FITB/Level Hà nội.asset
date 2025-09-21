@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3df4e2315e22a94f9d67866a79a0b1c, type: 2}
   - {fileID: 11400000, guid: c479530f8b8634f408c63e97c4bb1de3, type: 2}
   - {fileID: 11400000, guid: 6c133e4010f8338479cb2268008f689e, type: 2}
-  timeRequired: 120
+  timeRequired: 100
   reward: 100
   videoStart: {fileID: 0}
   videoEnd: {fileID: 0}

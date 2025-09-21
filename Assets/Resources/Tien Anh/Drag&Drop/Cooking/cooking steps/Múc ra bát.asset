@@ -21,4 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82f7e9ce36f2ed54fa44e8c4b2791983, type: 2}
   - {fileID: 11400000, guid: e2fe0eb4073850742af6e88d80694a0d, type: 2}
   instructionImage: {fileID: 0}
-  timeRequired: 0
+  timeRequired: 100

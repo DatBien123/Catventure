@@ -33,7 +33,6 @@ public class CookingManager : MonoBehaviour
         }
 
         CookingStepSO step = currentRecipe.steps[currentStepIndex];
-        Debug.Log("Bắt đầu công đoạn: " + step.stepName);
 
         // Tùy stepType mà load minigame tương ứng
         switch (step.stepType)
