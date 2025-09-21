@@ -5,7 +5,7 @@ using Unity.VisualScripting; // nhớ import DOTween
 
 namespace FarmSystem
 {
-    public class Tree : MonoBehaviour
+    public class Crops : MonoBehaviour
     {
         [Header("Components")]
         public SpriteRenderer spriteRenderer;

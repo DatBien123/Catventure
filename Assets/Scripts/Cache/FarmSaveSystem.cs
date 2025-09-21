@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using FarmSystem;
-using Tree = FarmSystem.Tree;
+using Crops = FarmSystem.Crops;
 
 [System.Serializable]
 public class FarmData
@@ -109,7 +109,7 @@ public class FarmSaveSystem : MonoBehaviour
                 }
 
                 // Tạo cây
-                soil.CurrentTree = Instantiate(treeData.data.TreeWorldInstance, soil.transform).GetComponent<Tree>();
+                soil.CurrentTree = Instantiate(treeData.data.TreeWorldInstance, soil.transform).GetComponent<Crops>();
                 soil.CurrentTree.transform.localPosition = treeData.data.stageDatas[soilData.CurrentStageIndex].positionOffset;
                 soil.CurrentTree.TreeDataOrigin = treeData;
                 soil.CurrentTree.TreeDataTemporary = Instantiate(treeData);

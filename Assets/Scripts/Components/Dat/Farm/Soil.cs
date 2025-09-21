@@ -49,7 +49,7 @@ namespace FarmSystem
         public ESoilState SoilState;
 
         [Header("Current Tree")]
-        public Tree CurrentTree;
+        public Crops CurrentTree;
 
         [Header("Reference")]
         public Animator Animator;
@@ -171,7 +171,7 @@ namespace FarmSystem
                     return false;
                 }
 
-                CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Tree>();
+                CurrentTree = Instantiate(loadedTreeData.data.TreeWorldInstance, transform).GetComponent<Crops>();
                 CurrentTree.transform.localPosition = loadedTreeData.data.stageDatas[0].positionOffset;
                 AddState(ESoilState.HasPlant);
 
