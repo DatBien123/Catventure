@@ -78,7 +78,7 @@ public class TutorialIndicator : MonoBehaviour
         IndicatorAnimator.CrossFadeInFixedTime("Tap", 0.0f);
 
         Indicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TapOffset.PositionOffset;
-        TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
+        //TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
 
         while (!TutorialManager.AllowNextStep)
         {
@@ -121,7 +121,7 @@ public class TutorialIndicator : MonoBehaviour
 
         IndicatorAnimator.CrossFadeInFixedTime("Drag", 0.0f);
 
-        TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
+        //TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
         RectTransform indicatorRT = Indicator.GetComponent<RectTransform>();
 
         while (!TutorialManager.AllowNextStep)

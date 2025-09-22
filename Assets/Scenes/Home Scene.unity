@@ -14325,7 +14325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &866324993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14342,10 +14342,10 @@ RectTransform:
   - {fileID: 2067577934}
   m_Father: {fileID: 1293667428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 200}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 1600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866324994
 MonoBehaviour:
@@ -14366,7 +14366,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -14393,7 +14393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 068bb615e6fea5f419afc4656c911966, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17805,13 +17805,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053913436}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1293667428}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 360}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 210, y: -20}
@@ -28558,7 +28558,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1952073808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33297,88 +33297,130 @@ MonoBehaviour:
       TutorialSteps:
       - stepName: Yabis Tap
         InteractType: 0
-        isShowIndicator: 1
+        isShowIndicator: 0
         TapOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: -180}
           ScaleOffset: {x: 1, y: 1, z: 1}
         DragOffsets: []
-        isShowTutContent: 0
-        ImageTutContent: {fileID: 0}
-        TutContent: 
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        TutContent: "Tr\u01B0\u1EDBc ti\xEAn, h\xE3y th\u1EED b\u1EA5m v\xE0o \u0111\u1ED3ng
+          h\u1ED3 Yabis tr\u01B0\u1EDBc !"
         TutContentOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
-          ScaleOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 1, y: 1, z: 1}
         TargetButton: {fileID: 1547664326}
         isStepCompleted: 0
-      - stepName: 
+      - stepName: Tap Random
         InteractType: 2
-        isShowIndicator: 1
+        isShowIndicator: 0
         TapOffset:
           PositionOffset: {x: -180, y: 250, z: 0}
           RotationOffset: {x: 0, y: 0, z: -180}
           ScaleOffset: {x: 1, y: 1, z: 1}
         DragOffsets: []
-        isShowTutContent: 0
-        ImageTutContent: {fileID: 0}
-        TutContent: 
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "\u0110\xE2y l\xE0 giao di\u1EC7n t\u1ED5ng th\u1EC3 c\u1EE7a
+          \u0111\u1ED3ng h\u1ED3 Yabis nh\xE9 b\u1EA1n !"
         TutContentOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
-        TargetButton: {fileID: 1547664326}
+        TargetButton: {fileID: 0}
         isStepCompleted: 0
-      - stepName: 
+      - stepName: Tui do Random
         InteractType: 2
-        isShowIndicator: 1
+        isShowIndicator: 0
         TapOffset:
-          PositionOffset: {x: 210, y: 250, z: 0}
+          PositionOffset: {x: -180, y: 250, z: 0}
           RotationOffset: {x: 0, y: 0, z: -180}
           ScaleOffset: {x: 1, y: 1, z: 1}
         DragOffsets: []
-        isShowTutContent: 0
-        ImageTutContent: {fileID: 0}
-        TutContent: 
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "Ph\u1EA7n n\xE0y l\xE0 t\xFAi \u0111\u1ED3. B\u1EA1n c\xF3 th\u1EC3
+          l\u01B0u tr\u1EEF nh\u1EEFng item m\xE0 b\u1EA1n ki\u1EBFm \u0111\u01B0\u1EE3c
+          v\xE0o \u0111\u1EA5y !"
         TutContentOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
-        TargetButton: {fileID: 1547664326}
+        TargetButton: {fileID: 1101753297}
         isStepCompleted: 0
-      - stepName: 
+      - stepName: Book  Random
         InteractType: 2
-        isShowIndicator: 1
+        isShowIndicator: 0
         TapOffset:
-          PositionOffset: {x: 210, y: -20, z: 0}
+          PositionOffset: {x: -180, y: 250, z: 0}
           RotationOffset: {x: 0, y: 0, z: -180}
           ScaleOffset: {x: 1, y: 1, z: 1}
         DragOffsets: []
-        isShowTutContent: 0
-        ImageTutContent: {fileID: 0}
-        TutContent: 
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "C\xF2n \u0111\xE2y l\xE0 n\u01A1i \u0111\u1EC3 ch\u1EE9a nh\u1EEFng
+          \u0111i\u1EC1u tuy\u1EC7t v\u1EDDi m\xE0 ch\u0169ng ta c\xF3 th\u1EC3 s\u01B0u
+          t\u1EA7m \u0111\u01B0\u1EE3c khi kh\xE1m ph\xE1 !"
         TutContentOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
-        TargetButton: {fileID: 1547664326}
+        TargetButton: {fileID: 1704392434}
         isStepCompleted: 0
-      - stepName: 
+      - stepName: Shop Random
         InteractType: 2
-        isShowIndicator: 1
+        isShowIndicator: 0
         TapOffset:
-          PositionOffset: {x: -180, y: -20, z: 0}
+          PositionOffset: {x: -180, y: 250, z: 0}
           RotationOffset: {x: 0, y: 0, z: -180}
           ScaleOffset: {x: 1, y: 1, z: 1}
         DragOffsets: []
-        isShowTutContent: 0
-        ImageTutContent: {fileID: 0}
-        TutContent: 
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "\u0110\xE2y l\xE0 c\u1EEDa h\xE0ng di \u0111\u1ED9ng !"
         TutContentOffset:
           PositionOffset: {x: 0, y: 0, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
-        TargetButton: {fileID: 1547664326}
+        TargetButton: {fileID: 1819321887}
+        isStepCompleted: 0
+      - stepName: Story Random
+        InteractType: 2
+        isShowIndicator: 0
+        TapOffset:
+          PositionOffset: {x: -180, y: 250, z: 0}
+          RotationOffset: {x: 0, y: 0, z: -180}
+          ScaleOffset: {x: 1, y: 1, z: 1}
+        DragOffsets: []
+        isShowTutContent: 1
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "V\xE0 cu\u1ED1i c\xF9ng l\xE0 cu\u1ED1n truy\u1EC7n \u0111\u1EC3
+          l\u01B0u tr\u1EE9 th\xF4ng tin c\u1EE7a t\u1EEBng v\xF9ng !"
+        TutContentOffset:
+          PositionOffset: {x: 0, y: 0, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
+        TargetButton: {fileID: 1930253490}
+        isStepCompleted: 0
+      - stepName: Exit Tap
+        InteractType: 0
+        isShowIndicator: 1
+        TapOffset:
+          PositionOffset: {x: -180, y: 250, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 360}
+          ScaleOffset: {x: 1, y: 1, z: 1}
+        DragOffsets: []
+        isShowTutContent: 0
+        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        TutContent: "V\xE0 cu\u1ED1i c\xF9ng l\xE0 cu\u1ED1n truy\u1EC7n \u0111\u1EC3
+          l\u01B0u tr\u1EE9 th\xF4ng tin c\u1EE7a t\u1EEBng v\xF9ng !"
+        TutContentOffset:
+          PositionOffset: {x: 0, y: 0, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
+        TargetButton: {fileID: 1061241339}
         isStepCompleted: 0
       isPartCompleted: 0
   currentPart:
@@ -33407,6 +33449,8 @@ MonoBehaviour:
   currentStepIndex: 0
   AllowNextStep: 0
   TutorialBackground: {fileID: 1293667431}
+  HighlightPulseDuration: 1
+  HighlightScaleMultiplier: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!1 &1773422794
 GameObject:
   m_ObjectHideFlags: 0
@@ -34871,10 +34915,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 866324993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -100}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837492187
 MonoBehaviour:
@@ -38319,10 +38363,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 866324993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 587.5, y: -100}
-  m_SizeDelta: {x: 800, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067577935
 MonoBehaviour:
@@ -38373,10 +38417,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

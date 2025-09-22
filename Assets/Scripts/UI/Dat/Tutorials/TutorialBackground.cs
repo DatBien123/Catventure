@@ -13,10 +13,12 @@ public class TutorialBackground : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Clicked To Tutorial Background");
+        if(TutorialManager.currentStep.InteractType == ETutorialType.TapRandom)
             TutorialManager.AllowNextStep = true;
 
     }
