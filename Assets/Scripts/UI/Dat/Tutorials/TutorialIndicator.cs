@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using System.Collections;
 using Unity.VisualScripting;
 
-[System.Serializable]
-public enum EIndicateType
-{
-    Drag,
-    Tap
-}
 
 [System.Serializable]
 public enum ETutorialState
@@ -22,6 +16,10 @@ public class TutorialIndicator : MonoBehaviour
     public ETutorialState TutorialState = ETutorialState.None;
     [Header("References")]
     public GameObject Indicator;
+    public TutorialContent TutContentIndicator;
+
+    public Animator IndicatorAnimator;
+
     public TutorialManager TutorialManager;
 
     private void Start()
@@ -42,13 +40,13 @@ public class TutorialIndicator : MonoBehaviour
         {
             if (TutorialState != ETutorialState.Showing)
             {
-                if (TutorialManager.currentPart.TutorialSteps[TutorialManager.currentStepIndex].InteractType == ETutorialType.Tap)
+                if (TutorialManager.currentStep.InteractType == ETutorialType.Tap || TutorialManager.currentStep.InteractType == ETutorialType.TapRandom)
                 {
-                    StartIndicateTap(TutorialManager.currentPart.TutorialSteps[TutorialManager.currentStepIndex].TapOffset);
+                    StartIndicateTap(TutorialManager.currentStep);
                 }
-                else if (TutorialManager.currentPart.TutorialSteps[TutorialManager.currentStepIndex].InteractType == ETutorialType.Drag)
+                else if (TutorialManager.currentStep.InteractType == ETutorialType.Drag)
                 {
-                    StartIndicateDrag(TutorialManager.currentPart.TutorialSteps[TutorialManager.currentStepIndex].DragOffsets);
+                    StartIndicateDrag(TutorialManager.currentStep);
                 }
             }
             yield return null;
@@ -59,26 +57,36 @@ public class TutorialIndicator : MonoBehaviour
 
     #region [Indicate Tap]
     Coroutine C_IndicateTap;
-    public void StartIndicateTap(IndicatorOffset indicatorOffset)
+    public void StartIndicateTap(TutorialStep tutorialStep)
     {
         if(C_IndicateTap != null)StopCoroutine(C_IndicateTap);
-        C_IndicateDrag = StartCoroutine(ShowIndicatorTap(indicatorOffset));
+        C_IndicateDrag = StartCoroutine(ShowIndicatorTap(tutorialStep));
     }
-    IEnumerator ShowIndicatorTap(IndicatorOffset indicatorOffset)
+    IEnumerator ShowIndicatorTap(TutorialStep tutorialStep)
     {
         TutorialState = ETutorialState.Showing;
         TutorialManager.AllowNextStep = false;
 
         Debug.Log("Go here");
         //Set Up
-        Indicator.gameObject.SetActive(true);
-        Indicator.GetComponent<RectTransform>().anchoredPosition = indicatorOffset.PositionOffset;
+        if(TutorialManager.currentStep.isShowIndicator) Indicator.gameObject.SetActive(true);
+        if (TutorialManager.currentStep.isShowTutContent) TutContentIndicator.gameObject.SetActive(true);
+
+        //Data Setup
+        TutContentIndicator.SetupTutorialContent(TutorialManager.currentStep);
+
+        IndicatorAnimator.CrossFadeInFixedTime("Tap", 0.0f);
+
+        Indicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TapOffset.PositionOffset;
+        TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
 
         while (!TutorialManager.AllowNextStep)
         {
             yield return null;
         }
         Indicator.gameObject.SetActive(false);
+        TutContentIndicator.gameObject.SetActive(false);
+
         TutorialState = ETutorialState.Hiding;
         TutorialManager.OnNextTutorialStep();
     }
@@ -90,15 +98,15 @@ public class TutorialIndicator : MonoBehaviour
     public float LoopDelay = 0.5f;    // Thời gian chờ trước khi lặp lại animation (để người chơi có thời gian làm theo)
 
     Coroutine C_IndicateDrag;
-    public void StartIndicateDrag(List<IndicatorOffset> sequence)
+    public void StartIndicateDrag(TutorialStep tutorialStep)
     {
         if (C_IndicateDrag != null) StopCoroutine(C_IndicateDrag);
-        C_IndicateDrag = StartCoroutine(ShowIndicatorDrag(sequence));
+        C_IndicateDrag = StartCoroutine(ShowIndicatorDrag(tutorialStep));
     }
 
-    IEnumerator ShowIndicatorDrag(List<IndicatorOffset> sequence)
+    IEnumerator ShowIndicatorDrag(TutorialStep tutorialStep)
     {
-        if (sequence == null || sequence.Count < 2)
+        if (tutorialStep.DragOffsets == null || tutorialStep.DragOffsets.Count < 2)
         {
             Debug.LogWarning("Drag sequence needs at least 2 points!");
             yield break;
@@ -108,16 +116,21 @@ public class TutorialIndicator : MonoBehaviour
         TutorialManager.AllowNextStep = false;
 
         // Set Up ban đầu
-        Indicator.gameObject.SetActive(true);
+        if (TutorialManager.currentStep.isShowIndicator) Indicator.gameObject.SetActive(true);
+        if (TutorialManager.currentStep.isShowTutContent) TutContentIndicator.gameObject.SetActive(true);
+
+        IndicatorAnimator.CrossFadeInFixedTime("Drag", 0.0f);
+
+        TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
         RectTransform indicatorRT = Indicator.GetComponent<RectTransform>();
 
         while (!TutorialManager.AllowNextStep)
         {
             // Di chuyển qua từng đoạn trong sequence
-            for (int i = 0; i < sequence.Count - 1; i++)
+            for (int i = 0; i < tutorialStep.DragOffsets.Count - 1; i++)
             {
-                IndicatorOffset start = sequence[i];
-                IndicatorOffset end = sequence[i + 1];
+                TransformOffset start = tutorialStep.DragOffsets[i];
+                TransformOffset end = tutorialStep.DragOffsets[i + 1];
 
                 // Vị trí, rotation, scale ban đầu
                 indicatorRT.anchoredPosition = start.PositionOffset;
@@ -160,6 +173,7 @@ public class TutorialIndicator : MonoBehaviour
 
         // Hoàn thành step
         Indicator.gameObject.SetActive(false);
+        TutContentIndicator.gameObject.SetActive(false);
         TutorialState = ETutorialState.Hiding;
         TutorialManager.OnNextTutorialStep();
     }
