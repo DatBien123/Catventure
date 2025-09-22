@@ -46,11 +46,11 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
 
     public void StartStep()
     {
+        dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(step.timeRequired);
         CanvasGroup canvasGroupBowl = bowl.GetComponent<CanvasGroup>();
         canvasGroupBowl.alpha = 0;
         RectTransform rtBowl = bowl.GetComponent<RectTransform>();
         Vector2 originalPosBowl = rtBowl.anchoredPosition;
-
         rtBowl.anchoredPosition = originalPosBowl + new Vector2(0, 200f);
         DG.Tweening.Sequence sq1 = DOTween.Sequence();
         sq1.Append(canvasGroupBowl.DOFade(1f, 0.2f));

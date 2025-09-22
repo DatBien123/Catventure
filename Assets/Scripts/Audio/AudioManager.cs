@@ -38,7 +38,13 @@ public class AudioManager : MonoBehaviour
         //            danh sách sound, từng sound trong danh sách và so sánh từng sound.name trong danh sách với biến tham số name
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s != null) s.source.Play();
-        else return;
+        else
+        {
+            Debug.Log("Không tìm thấy SFX" + name);
+            return;
+
+        }
+
     }
     public void StopSFX(string name) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -51,7 +57,11 @@ public class AudioManager : MonoBehaviour
         StopAllMusic(); // dừng tất cả trước
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s != null) s.source.Play();
-        else return;
+        else
+        {
+            Debug.Log("Không tìm thấy music" + name);
+            return;
+        }
     }
     public bool CheckIsMusicPlaying(string musicName)
     {

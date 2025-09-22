@@ -15,13 +15,17 @@ public class VictoryRewardScreen : MonoBehaviour
     public Sprite[] emptyStarSprites;
     public GameObject[] stars;
     public Transform starParent; // object parrent để sinh các object con star  vào trong đó
-    public void ShowRewardFITB(float reward)
+    public void ShowRewardFITB(float reward, int star)
     {
+        numberStar = star;  
         this.gameObject.SetActive(true);
         AudioManager.instance.PlaySFX("Minigame Completed");
         itemImage.gameObject.SetActive(false);
         this.reward = reward;
-        rewardText.text = $"PHẦN THƯỞNG: {this.reward} XU";
+        rewardText.text = $"PHẦN THƯỞNG: {this.reward}";
+        StartCoroutine(SpawnStars());
+        Debug.Log("Sinh ra ngôi sao");
+
     }
     public void ShowRewardDragDrop(Sprite itemSprite, string itemName, float reward, int star)
     {

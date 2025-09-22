@@ -9,4 +9,12 @@ public class EffectSprite : MonoBehaviour
         Destroy(gameObject, lifeTime);
 
     }
+    public void ShowShortEffect()
+    {
+
+    }
+    public void OnEffectEnd()
+    {
+        Destroy(gameObject);
+    }
 }

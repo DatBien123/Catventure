@@ -10,6 +10,9 @@ public class AnswerButtonEffect : MonoBehaviour
     [SerializeField] private Image bigWrongCheckMark;
     [SerializeField] private Image smallWrongCheckMark;
     [SerializeField] private CanvasGroup canvasGroup;
+    public GameObject confettiEffect;
+
+
 
     public void ResetEffects()
     {
@@ -28,8 +31,14 @@ public class AnswerButtonEffect : MonoBehaviour
 
         Sequence s = DOTween.Sequence();
         s.Append(bigCorrectCheckMark.rectTransform.DOAnchorPosY(200f, 1f).SetEase(Ease.OutQuad))
+                     .InsertCallback(0.5f, () =>
+                     {
+                         GameObject effect = Instantiate(confettiEffect, gameObject.transform);
+                     })
          .Join(bigCorrectCheckMark.DOFade(0f, 3f));
 
+        s.OnComplete(() => {
+        });
         smallCorrectCheckMark.gameObject.SetActive(true);
         smallCorrectCheckMark.DOFade(0.5f, 0.3f);
     }

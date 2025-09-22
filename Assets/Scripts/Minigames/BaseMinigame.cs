@@ -40,7 +40,10 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
         {
         }
         else
+        {
+            inputBlocker.SetActive(false);
             gameOverScreen?.Setup();
+        }
     }
 
     public virtual void GameOver()
