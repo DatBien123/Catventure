@@ -227,7 +227,7 @@ MonoBehaviour:
   loadDuration: 3
   isEnableTransitionOnStart: 1
   sceneName: Main Menu Scene
-  videoPlayer: {fileID: 0}
+  videoPlayer: {fileID: 1395276230}
 --- !u!1 &194474532
 GameObject:
   m_ObjectHideFlags: 0
