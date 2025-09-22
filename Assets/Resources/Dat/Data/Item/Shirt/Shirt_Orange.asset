@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 26
-    itemName: Shirt_Orange
+    itemName: "\xC1o Cam"
     icon: {fileID: 21300000, guid: b7f0328f507ee1b45a68a4a05032bcc5, type: 3}
     description: A beautiful Pink Shirt
     itemType: 0

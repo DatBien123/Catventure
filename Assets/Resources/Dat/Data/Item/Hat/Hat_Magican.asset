@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 21
-    itemName: Hat_Magican
+    itemName: "M\u0169 Ph\xE1p S\u01B0"
     icon: {fileID: 21300000, guid: fa06b471d1cd50c49b9d89cf172e713a, type: 3}
     description: A beautiful Kid Hat
     itemType: 3

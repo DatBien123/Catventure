@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 11
-    itemName: Glasses_Sun
+    itemName: "K\xEDnh R\xE2m"
     icon: {fileID: 21300000, guid: 94083c9fb5246824381e9efe62474249, type: 3}
     description: A beautiful Round Glasses
     itemType: 1

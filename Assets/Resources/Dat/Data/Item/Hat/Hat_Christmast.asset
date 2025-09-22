@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 19
-    itemName: Hat_Christmast
+    itemName: "M\u0169 Gi\xE1ng Sinh"
     icon: {fileID: 21300000, guid: 78f859e02e3d36b46b1241c48243d386, type: 3}
     description: A beautiful Green Hat
     itemType: 3

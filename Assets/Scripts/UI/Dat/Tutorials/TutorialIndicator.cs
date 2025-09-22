@@ -15,11 +15,8 @@ public class TutorialIndicator : MonoBehaviour
 {
     public ETutorialState TutorialState = ETutorialState.None;
     [Header("References")]
-    public GameObject Indicator;
+
     public TutorialContent TutContentIndicator;
-
-    public Animator IndicatorAnimator;
-
     public TutorialManager TutorialManager;
 
     private void Start()
@@ -69,23 +66,28 @@ public class TutorialIndicator : MonoBehaviour
 
         Debug.Log("Go here");
         //Set Up
-        if(TutorialManager.currentStep.isShowIndicator) Indicator.gameObject.SetActive(true);
-        if (TutorialManager.currentStep.isShowTutContent) TutContentIndicator.gameObject.SetActive(true);
+        if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator)
+        {
+            TutorialManager.currentStep.Indicator.gameObject.SetActive(true);
+            TutorialManager.currentStep.Indicator.GetComponent<Animator>().CrossFadeInFixedTime("Tap", 0.0f);
+        }
+        if (TutorialManager.currentStep.isShowTutContent)
+        {
+            TutContentIndicator.gameObject.SetActive(true);
+            //Data Setup
+            TutContentIndicator.SetupTutorialContent(TutorialManager.currentStep);
+            TutContentIndicator.RectTransform.anchoredPosition = TutorialManager.currentStep.TutContentOffset.PositionOffset;
+            TutContentIndicator.RectTransform.sizeDelta = TutorialManager.currentStep.SizeOffset;
 
-        //Data Setup
-        TutContentIndicator.SetupTutorialContent(TutorialManager.currentStep);
+        }
 
-        IndicatorAnimator.CrossFadeInFixedTime("Tap", 0.0f);
-
-        Indicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TapOffset.PositionOffset;
-        //TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
 
         while (!TutorialManager.AllowNextStep)
         {
             yield return null;
         }
-        Indicator.gameObject.SetActive(false);
-        TutContentIndicator.gameObject.SetActive(false);
+        if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator) TutorialManager.currentStep.Indicator.gameObject.SetActive(false);
+        if (TutorialManager.currentStep.isShowTutContent && TutContentIndicator)TutContentIndicator.gameObject.SetActive(false);
 
         TutorialState = ETutorialState.Hiding;
         TutorialManager.OnNextTutorialStep();
@@ -106,76 +108,77 @@ public class TutorialIndicator : MonoBehaviour
 
     IEnumerator ShowIndicatorDrag(TutorialStep tutorialStep)
     {
-        if (tutorialStep.DragOffsets == null || tutorialStep.DragOffsets.Count < 2)
-        {
-            Debug.LogWarning("Drag sequence needs at least 2 points!");
-            yield break;
-        }
+        //if (tutorialStep.DragOffsets == null || tutorialStep.DragOffsets.Count < 2)
+        //{
+        //    Debug.LogWarning("Drag sequence needs at least 2 points!");
+        //    yield break;
+        //}
 
-        TutorialState = ETutorialState.Showing;
-        TutorialManager.AllowNextStep = false;
+        //TutorialState = ETutorialState.Showing;
+        //TutorialManager.AllowNextStep = false;
 
-        // Set Up ban đầu
-        if (TutorialManager.currentStep.isShowIndicator) Indicator.gameObject.SetActive(true);
-        if (TutorialManager.currentStep.isShowTutContent) TutContentIndicator.gameObject.SetActive(true);
+        //// Set Up ban đầu
+        //if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator) TutorialManager.currentStep.Indicator.gameObject.SetActive(true);
+        //if (TutorialManager.currentStep.isShowTutContent && TutorialManager.currentStep.TutContentIndicator) TutorialManager.currentStep.TutContentIndicator.gameObject.SetActive(true);
 
-        IndicatorAnimator.CrossFadeInFixedTime("Drag", 0.0f);
+        //IndicatorAnimator.CrossFadeInFixedTime("Drag", 0.0f);
 
-        //TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
-        RectTransform indicatorRT = Indicator.GetComponent<RectTransform>();
+        ////TutContentIndicator.GetComponent<RectTransform>().anchoredPosition = tutorialStep.TutContentOffset.PositionOffset;
+        //RectTransform indicatorRT = Indicator.GetComponent<RectTransform>();
 
-        while (!TutorialManager.AllowNextStep)
-        {
-            // Di chuyển qua từng đoạn trong sequence
-            for (int i = 0; i < tutorialStep.DragOffsets.Count - 1; i++)
-            {
-                TransformOffset start = tutorialStep.DragOffsets[i];
-                TransformOffset end = tutorialStep.DragOffsets[i + 1];
+        //while (!TutorialManager.AllowNextStep)
+        //{
+        //    // Di chuyển qua từng đoạn trong sequence
+        //    for (int i = 0; i < tutorialStep.DragOffsets.Count - 1; i++)
+        //    {
+        //        TransformOffset start = tutorialStep.DragOffsets[i];
+        //        TransformOffset end = tutorialStep.DragOffsets[i + 1];
 
-                // Vị trí, rotation, scale ban đầu
-                indicatorRT.anchoredPosition = start.PositionOffset;
-                indicatorRT.localRotation = Quaternion.Euler(start.RotationOffset);
-                indicatorRT.localScale = start.ScaleOffset;
+        //        // Vị trí, rotation, scale ban đầu
+        //        indicatorRT.anchoredPosition = start.PositionOffset;
+        //        indicatorRT.localRotation = Quaternion.Euler(start.RotationOffset);
+        //        indicatorRT.localScale = start.ScaleOffset;
 
-                float elapsedTime = 0f;
+        //        float elapsedTime = 0f;
 
-                while (elapsedTime < DragDuration)
-                {
-                    elapsedTime += Time.deltaTime;
-                    float t = elapsedTime / DragDuration;
+        //        while (elapsedTime < DragDuration)
+        //        {
+        //            elapsedTime += Time.deltaTime;
+        //            float t = elapsedTime / DragDuration;
 
-                    // Lerp vị trí
-                    indicatorRT.anchoredPosition = Vector2.Lerp(start.PositionOffset, end.PositionOffset, t);
+        //            // Lerp vị trí
+        //            indicatorRT.anchoredPosition = Vector2.Lerp(start.PositionOffset, end.PositionOffset, t);
 
-                    // Lerp rotation (nếu cần xoay ngón tay theo hướng)
-                    Vector3 startRot = start.RotationOffset;
-                    Vector3 endRot = end.RotationOffset;
-                    indicatorRT.localRotation = Quaternion.Euler(Vector3.Lerp(startRot, endRot, t));
+        //            // Lerp rotation (nếu cần xoay ngón tay theo hướng)
+        //            Vector3 startRot = start.RotationOffset;
+        //            Vector3 endRot = end.RotationOffset;
+        //            indicatorRT.localRotation = Quaternion.Euler(Vector3.Lerp(startRot, endRot, t));
 
-                    // Lerp scale (nếu cần hiệu ứng scale)
-                    indicatorRT.localScale = Vector2.Lerp(start.ScaleOffset, end.ScaleOffset, t);
+        //            // Lerp scale (nếu cần hiệu ứng scale)
+        //            indicatorRT.localScale = Vector2.Lerp(start.ScaleOffset, end.ScaleOffset, t);
 
-                    // (Tùy chọn) Kiểm tra input drag của người chơi ở đây (xem phần dưới)
-                    CheckPlayerDragInput(); // Gọi để phát hiện nếu người chơi làm theo
+        //            // (Tùy chọn) Kiểm tra input drag của người chơi ở đây (xem phần dưới)
+        //            CheckPlayerDragInput(); // Gọi để phát hiện nếu người chơi làm theo
 
-                    yield return null;
-                }
+        //            yield return null;
+        //        }
 
-                // Đảm bảo đến đúng vị trí cuối đoạn
-                indicatorRT.anchoredPosition = end.PositionOffset;
-                indicatorRT.localRotation = Quaternion.Euler(end.RotationOffset);
-                indicatorRT.localScale = end.ScaleOffset;
-            }
+        //        // Đảm bảo đến đúng vị trí cuối đoạn
+        //        indicatorRT.anchoredPosition = end.PositionOffset;
+        //        indicatorRT.localRotation = Quaternion.Euler(end.RotationOffset);
+        //        indicatorRT.localScale = end.ScaleOffset;
+        //    }
 
-            // Chờ một chút trước khi lặp lại animation
-            yield return new WaitForSeconds(LoopDelay);
-        }
+        //    // Chờ một chút trước khi lặp lại animation
+        //    yield return new WaitForSeconds(LoopDelay);
+        //}
 
-        // Hoàn thành step
-        Indicator.gameObject.SetActive(false);
-        TutContentIndicator.gameObject.SetActive(false);
-        TutorialState = ETutorialState.Hiding;
-        TutorialManager.OnNextTutorialStep();
+        //// Hoàn thành step
+        //if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator) TutorialManager.currentStep.Indicator.gameObject.SetActive(false);
+        //if (TutorialManager.currentStep.isShowTutContent && TutorialManager.currentStep.TutContentIndicator) TutorialManager.currentStep.TutContentIndicator.gameObject.SetActive(false);
+        //TutorialState = ETutorialState.Hiding;
+        //TutorialManager.OnNextTutorialStep();
+        yield return null;
     }
     #endregion
 

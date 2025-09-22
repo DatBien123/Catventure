@@ -36,6 +36,8 @@ namespace FarmSystem
 
         public SpriteRenderer wateringTreeSpriteRenderer;
 
+        public SpriteRenderer canHavestBorderSpriteRenderer;
+
         public SpriteRenderer canHavestIndicatorSpriteRenderer;
 
 
@@ -241,6 +243,7 @@ namespace FarmSystem
             {
                 treeHavestSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.stageImage;
                 canHavestIndicatorSpriteRenderer.gameObject.SetActive(false);
+                canHavestBorderSpriteRenderer.gameObject.SetActive(false);
                 Animator.CrossFadeInFixedTime("Soil Havest", 0.0f);
 
                 FarmManager.CharacterPlayer.Inventory.AddItem(new CropsInstance(CurrentTree.TreeDataOrigin.data.rewardData.consumReward, CurrentTree.TreeDataOrigin.data.rewardData.Harvests));

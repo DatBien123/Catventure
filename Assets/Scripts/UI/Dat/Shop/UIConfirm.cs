@@ -34,12 +34,12 @@ public class UIConfirm : MonoBehaviour
     public void SetupItemInfo(SO_Item item)
     {
         Icon.sprite = item.commonData.icon;
-        Name.text = item.name;
+        Name.text = item.commonData.itemName;
         Description.text = item.commonData.description;
         Price.text = item.commonData.price.ToString();
 
         Success_Icon.sprite = item.commonData.icon;
-        Success_Name.text = item.name;
+        Success_Name.text = item.commonData.itemName;
 
         Fail_Icon.sprite = item.commonData.icon;
         Fail_Price.text = Mathf.Abs(item.commonData.price - UIShop.ShopManager.owner.Coin).ToString();

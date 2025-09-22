@@ -21,6 +21,8 @@ public struct TutorialStep
 
     public bool isShowIndicator;
 
+    public GameObject Indicator;
+
     public TransformOffset TapOffset;
 
     public List<TransformOffset> DragOffsets;
@@ -29,14 +31,19 @@ public struct TutorialStep
 
     public bool isShowTutContent;
 
+    //public GameObject TutContentIndicator;
+
     public Sprite ImageTutContent;
 
     [TextArea] public string TutContent;
 
     public TransformOffset TutContentOffset;
 
+    public Vector2 SizeOffset;
+
     [Header("Target Button (Optional)")] // Thêm này để reference trực tiếp
     public UnityEngine.UI.Button TargetButton; // Kéo thả button từ Hierarchy vào Editor
+    public bool isHightlightButton;
 
     public bool isStepCompleted;
 
@@ -136,7 +143,7 @@ public class TutorialManager : MonoBehaviour
         }
 
         // Áp dụng animation highlight cho button được enable
-        if (enabledButton != null)
+        if (enabledButton != null && currentStep.isHightlightButton)
         {
             StartButtonHighlightAnimation(enabledButton);
         }
@@ -172,7 +179,7 @@ public class TutorialManager : MonoBehaviour
     // Hàm dừng animation highlight
     private void StopButtonHighlightAnimation()
     {
-        if (currentHighlightTween != null)
+        if (currentHighlightTween != null && currentStep.isHightlightButton)
         {
             currentStep.TargetButton.GetComponent<RectTransform>().localScale = Vector3.one;
             currentHighlightTween.Kill();

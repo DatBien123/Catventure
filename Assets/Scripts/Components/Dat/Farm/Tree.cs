@@ -82,6 +82,7 @@ namespace FarmSystem
 
                     transform.GetComponentInParent<Soil>().canHavestIndicatorSpriteRenderer.sprite = TreeDataOrigin.data.rewardData.consumReward.commonData.icon;
                     transform.GetComponentInParent<Soil>().canHavestIndicatorSpriteRenderer.gameObject.SetActive(true);
+                    transform.GetComponentInParent<Soil>().canHavestBorderSpriteRenderer.gameObject.SetActive(true);
 
                     transform.GetComponentInParent<Soil>().Animator.CrossFadeInFixedTime("Soil Can Havest Indicate", .0f);
                 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 10
-    itemName: Glasses_Orange
+    itemName: "K\xEDnh Cam"
     icon: {fileID: 21300000, guid: b303c8213e3426944b398b9f52b25489, type: 3}
     description: A beautiful Unshape Glasses
     itemType: 1

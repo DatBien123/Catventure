@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 13
-    itemName: HandStuff_Lolipop
+    itemName: "C\xE2y K\u1EB9o M\xFAt"
     icon: {fileID: 21300000, guid: a0771058416355741926ca39d47f9c77, type: 3}
     description: A beautiful Ap chong Glasses
     itemType: 2

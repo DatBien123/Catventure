@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 12
-    itemName: Glasses_ThugLife
+    itemName: "K\xEDnh D\xE2n Ch\u01A1i"
     icon: {fileID: 21300000, guid: 90ec60bc195ffec4d9050e60a064811c, type: 3}
     description: A beautiful Start Glasses
     itemType: 1

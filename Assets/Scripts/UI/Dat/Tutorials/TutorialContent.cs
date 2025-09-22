@@ -7,6 +7,7 @@ public class TutorialContent : MonoBehaviour
     [Header("Components")]
     public Image Image;
     public TextMeshProUGUI Content;
+    public RectTransform RectTransform;
 
     [Header("References")]
     public TutorialManager TutorialManager;
