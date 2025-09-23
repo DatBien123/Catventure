@@ -61,6 +61,7 @@ public struct TutorialPart
 {
     public string TutorialName;
     public List<TutorialStep> TutorialSteps;
+    public bool isDisableAllButtons;
     public bool isPartCompleted;
 }
 
@@ -106,11 +107,34 @@ public class TutorialManager : MonoBehaviour
         currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
         currentStep = currentPart.TutorialSteps[currentStepIndex];
 
-        // Disable tất cả button trừ target nếu là Tap
-        if (isApplyTutorials && currentStep.InteractType == ETutorialType.Tap)
+        //Data reader
+        TutorialSaveSystem.Load(this);
+
+        var tutPart = tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == currentPart.TutorialName);
+        currentPart.isPartCompleted = tutPart.isPartCompleted;
+        //Data reader
+
+        if (!currentPart.isPartCompleted)
         {
-            DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+            if (currentPart.isDisableAllButtons) DisableAllButtons();
+
+            if (currentStep.InteractType == ETutorialType.TapRandom)
+            {
+                TutorialBackground.SetCanReceiveTouch(true);
+            }
+            else
+            {
+                TutorialBackground.SetCanReceiveTouch(false);
+            }
+
+
+            // Disable tất cả button trừ target nếu là Tap
+            if (isApplyTutorials && currentStep.InteractType == ETutorialType.Tap)
+            {
+                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+            }
         }
+
     }
 
     // Hàm disable tất cả button trừ target (dựa trên reference hoặc tên)
@@ -157,7 +181,13 @@ public class TutorialManager : MonoBehaviour
             btn.interactable = true;
         }
     }
-
+    public void DisableAllButtons()
+    {
+        foreach (Button btn in allButtons)
+        {
+            btn.interactable = false;
+        }
+    }
     // Hàm bắt đầu animation highlight cho button (sử dụng DOTween để pulse scale)
     private void StartButtonHighlightAnimation(Button targetButton)
     {
@@ -192,6 +222,7 @@ public class TutorialManager : MonoBehaviour
         // Dừng animation highlight trước khi chuyển part
         StopButtonHighlightAnimation();
 
+
         if (currentTutorialIndex < tutorialDatabase.TutorialParts.Count - 1)
         {
             currentTutorialIndex++;
@@ -223,6 +254,7 @@ public class TutorialManager : MonoBehaviour
             // Tutorial hoàn thành, enable lại tất cả
             EnableAllButtons();
             isApplyTutorials = false; // (Tùy chọn) Tắt tutorial
+            TutorialBackground.SetCanReceiveTouch(false);
         }
     }
 
@@ -230,6 +262,7 @@ public class TutorialManager : MonoBehaviour
     {
         // Dừng animation highlight trước khi chuyển step
         StopButtonHighlightAnimation();
+
 
         if (currentStepIndex < currentPart.TutorialSteps.Count - 1)
         {
@@ -253,10 +286,13 @@ public class TutorialManager : MonoBehaviour
             else
             {
                 EnableAllButtons(); // Enable cho Drag hoặc loại khác
+                if (currentPart.isDisableAllButtons) DisableAllButtons();
             }
         }
         else
         {
+            currentPart.isPartCompleted = true;
+            TutorialSaveSystem.Save(this, currentPart); // Lưu khi hoàn thành part
             OnNextTutorialPart();
         }
     }

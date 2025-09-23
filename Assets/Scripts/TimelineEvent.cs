@@ -16,6 +16,7 @@ public class TimelineEvent : MonoBehaviour
     public Vector3 ZeraOriginScale;
 
     [Header("References")]
+    public Dialogue Dialogue;
     public CharacterPlayer Zera;
 
     private void Start()
@@ -48,10 +49,6 @@ public class TimelineEvent : MonoBehaviour
     {
         // Khi timeline bắt đầu play
         UIs.SetActive(false);
-
-        //gameObject.transform.position = CutSceneTransform.position;
-        //gameObject.transform.rotation = CutSceneTransform.rotation;
-        //gameObject.transform.localScale = CutSceneTransform.localScale;
     }
 
     void OnTimelineStop(PlayableDirector obj)
@@ -63,6 +60,12 @@ public class TimelineEvent : MonoBehaviour
         Zera.transform.rotation = Quaternion.Euler(ZeraOriginRotation);
         Zera.transform.localScale = ZeraOriginScale;
 
+        //Dialogue
+        DialogueData dialogueData = Dialogue.DialogueDataBase.Find(dialogueData => dialogueData.Topic == "First Time Open Game");
+        Dialogue.UIDialogue.SetCurrentDialogueData(dialogueData);
+
+
+        //Data
         Zera.isFirstTimeLogin = false;
         SaveSystem.Save(Zera, Zera.Inventory);
     }

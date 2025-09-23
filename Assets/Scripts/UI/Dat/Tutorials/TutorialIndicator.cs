@@ -19,9 +19,27 @@ public class TutorialIndicator : MonoBehaviour
     public TutorialContent TutContentIndicator;
     public TutorialManager TutorialManager;
 
+    private void Awake()
+    {
+    }
     private void Start()
     {
-        StartShowTutorials();
+        TutorialSaveSystem.Load(TutorialManager);
+
+        var tutPart = TutorialManager.tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == TutorialManager.currentPart.TutorialName);
+        TutorialManager.currentPart.isPartCompleted = tutPart.isPartCompleted;
+
+        Debug.Log("Current Tut State is: " + TutorialManager.currentPart.isPartCompleted);
+
+        if (!TutorialManager.currentPart.isPartCompleted)
+        {
+            TutorialManager.TutorialBackground.gameObject.SetActive(true);
+            StartShowTutorials();
+        }
+        else
+        {
+            TutorialManager.TutorialBackground.gameObject.SetActive(false);
+        }
     }
 
     Coroutine C_ShowTutorial;
@@ -108,6 +126,37 @@ public class TutorialIndicator : MonoBehaviour
 
     IEnumerator ShowIndicatorDrag(TutorialStep tutorialStep)
     {
+        TutorialState = ETutorialState.Showing;
+        TutorialManager.AllowNextStep = false;
+
+        Debug.Log("Go here");
+        //Set Up
+        if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator)
+        {
+            TutorialManager.currentStep.Indicator.gameObject.SetActive(true);
+            TutorialManager.currentStep.Indicator.GetComponent<Animator>().CrossFadeInFixedTime("Drag", 0.0f);
+        }
+        if (TutorialManager.currentStep.isShowTutContent)
+        {
+            TutContentIndicator.gameObject.SetActive(true);
+            //Data Setup
+            TutContentIndicator.SetupTutorialContent(TutorialManager.currentStep);
+            TutContentIndicator.RectTransform.anchoredPosition = TutorialManager.currentStep.TutContentOffset.PositionOffset;
+            TutContentIndicator.RectTransform.sizeDelta = TutorialManager.currentStep.SizeOffset;
+
+        }
+
+
+        while (!TutorialManager.AllowNextStep)
+        {
+            yield return null;
+        }
+        if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator) TutorialManager.currentStep.Indicator.gameObject.SetActive(false);
+        if (TutorialManager.currentStep.isShowTutContent && TutContentIndicator) TutContentIndicator.gameObject.SetActive(false);
+
+        TutorialState = ETutorialState.Hiding;
+        TutorialManager.OnNextTutorialStep();
+
         //if (tutorialStep.DragOffsets == null || tutorialStep.DragOffsets.Count < 2)
         //{
         //    Debug.LogWarning("Drag sequence needs at least 2 points!");

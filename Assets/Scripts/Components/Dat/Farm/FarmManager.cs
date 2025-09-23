@@ -18,6 +18,7 @@ public class FarmManager : MonoBehaviour
     public GameObject RestorationToolbar;
 
     [Header("References")]
+    public TutorialManager TutorialManager;
     public CharacterPlayer CharacterPlayer;
     public List<Soil> Soils;
 

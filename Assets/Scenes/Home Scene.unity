@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 16bc8a9d5451ca44d8f70575adbece3a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -19598,6 +19598,7 @@ GameObject:
   - component: {fileID: 1121701439}
   - component: {fileID: 1121701438}
   - component: {fileID: 1121701437}
+  - component: {fileID: 1121701441}
   - component: {fileID: 1121701440}
   m_Layer: 0
   m_Name: Dialogue Canvas
@@ -19707,6 +19708,7 @@ MonoBehaviour:
   NextDialogueLine: {fileID: 10990586}
   CanPressNext: 1
   Animator: {fileID: 890513391}
+  Dialogue: {fileID: 0}
   CurrentDialogueData:
     Topic: 
     SpeakerImage: {fileID: 0}
@@ -19718,9 +19720,32 @@ MonoBehaviour:
   CurrentDialogueLine:
     text: 
   CurrentDialogueLineIndex: 0
-  DialogueEvents:
-  - EventName: First Time Open Game
-    Event:
+  delay: 0.02
+--- !u!114 &1121701441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121701435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d715d73ebe7364abdd2b357fe846cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 6764709}
+  UIDialogue: {fileID: 1121701440}
+  DialogueDataBase:
+  - Topic: First Time Open Game
+    SpeakerImage: {fileID: 21300000, guid: f5fce54740bc90d4f92bd228db02e53e, type: 3}
+    SpeakerName: 
+    DialogueLines:
+    - text: "\xD4i \u0111au \u0111\u1EA7u qu\xE1 !"
+    - text: "M\xECnh v\u1EEBa b\u1ECB r\u01A1i t\u1EF1 do sao ?"
+    - text: "\u0110\xE2y l\xE0 \u0111\xE2u?"
+    - text: "M\u1ECDi th\u1EE9 tr\xF4ng th\u1EADt k\xEC l\u1EA1!"
+    - text: "H\xE3y th\u1EED m\u1EDF b\u1EA3n \u0111\u1ED3 l\xEAn xem n\xE0o !"
+    OnDialogueFinished:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1518216932}
@@ -19735,7 +19760,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  delay: 0.02
+        - m_Target: {fileID: 1767757607}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &1126791608
 GameObject:
   m_ObjectHideFlags: 0
@@ -27973,37 +28009,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506454327}
   m_CullTransparentMesh: 1
---- !u!1 &1507319922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1507319923}
-  m_Layer: 0
-  m_Name: ---------------------- DIALOGUE  -----------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1507319923
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507319922}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73581, y: 0, z: -13.58224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507579465
 GameObject:
   m_ObjectHideFlags: 0
@@ -29704,37 +29709,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610925378}
   m_CullTransparentMesh: 1
---- !u!1 &1615745300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1615745301}
-  m_Layer: 0
-  m_Name: ------------------------------------------------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1615745301
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615745300}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73581, y: 0, z: -13.58224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1617433019
 GameObject:
   m_ObjectHideFlags: 0
@@ -32382,6 +32356,7 @@ MonoBehaviour:
   ZeraOriginPosition: {x: -24.514734, y: 2096.8357, z: 2.7342894}
   ZeraOriginRotation: {x: 358.461, y: 8.22342, z: 359.1704}
   ZeraOriginScale: {x: 88.4, y: 100, z: 100}
+  Dialogue: {fileID: 1121701441}
   Zera: {fileID: 6764709}
 --- !u!320 &1721340518
 PlayableDirector:
@@ -33381,13 +33356,14 @@ GameObject:
   - component: {fileID: 1767757609}
   - component: {fileID: 1767757612}
   - component: {fileID: 1767757613}
+  - component: {fileID: 1767757614}
   m_Layer: 0
   m_Name: Tutorial Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1767757608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33675,10 +33651,12 @@ MonoBehaviour:
         TargetButton: {fileID: 248625021}
         isHightlightButton: 0
         isStepCompleted: 0
+      isDisableAllButtons: 0
       isPartCompleted: 0
   currentPart:
     TutorialName: 
     TutorialSteps: []
+    isDisableAllButtons: 0
     isPartCompleted: 0
   currentTutorialIndex: 0
   currentStep:
@@ -33707,6 +33685,19 @@ MonoBehaviour:
   TutorialBackground: {fileID: 1293667431}
   HighlightPulseDuration: 1
   HighlightScaleMultiplier: {x: 1.1, y: 1.1, z: 1.1}
+--- !u!114 &1767757614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767757607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df4e639c9c456b43af97e2f9b0ed051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFileName: tutorialData.json
 --- !u!1 &1773422794
 GameObject:
   m_ObjectHideFlags: 0
@@ -35171,9 +35162,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 866324993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837492187
@@ -36151,53 +36142,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
   m_PrefabInstance: {fileID: 1544754645}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1913968459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1913968460}
-  - component: {fileID: 1913968461}
-  m_Layer: 0
-  m_Name: Dialogue Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1913968460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913968459}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73581, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1913968461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913968459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d715d73ebe7364abdd2b357fe846cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 6764709}
-  UIDialogue: {fileID: 1121701440}
-  DialogueDataBase: {fileID: 11400000, guid: a5caca0f1dbd73844858a67ff96f9516, type: 2}
 --- !u!1 &1926069449
 GameObject:
   m_ObjectHideFlags: 0
@@ -38619,9 +38563,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 866324993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 850, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067577935
@@ -41213,9 +41157,6 @@ SceneRoots:
   - {fileID: 556613857}
   - {fileID: 1350636020}
   - {fileID: 543450653701857141}
-  - {fileID: 1507319923}
-  - {fileID: 1615745301}
-  - {fileID: 1913968460}
   - {fileID: 1281288028}
   - {fileID: 1465415430}
   - {fileID: 482546681}
