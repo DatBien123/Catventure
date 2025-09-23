@@ -1,13 +1,9 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Lander : MonoBehaviour {
 
     [SerializeField] private Joystick joystick;
-    //[SerializeField] private Button leftButton;
-    //[SerializeField] private Button upButton;
-    //[SerializeField] private Button rightButton;
 
 
     private const float GRAVITY_NORMAL = 0.7f;
