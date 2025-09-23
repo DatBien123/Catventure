@@ -140,6 +140,19 @@ public class FarmSaveSystem : MonoBehaviour
                 if (soil.CurrentTree.TreeCurrentStage.isFinalStage && !soil.HasState(ESoilState.CanHarvest))
                 {
                     soil.AddState(ESoilState.CanHarvest);
+                    soil.canHavestIndicatorSpriteRenderer.sprite = soil.CurrentTree.TreeDataOrigin.data.rewardData.consumReward.commonData.icon;
+                    soil.canHavestIndicatorSpriteRenderer.gameObject.SetActive(true);
+                    soil.canHavestBorderSpriteRenderer.gameObject.SetActive(true);
+
+                    soil.Animator.CrossFadeInFixedTime("Soil Can Havest Indicate", .0f);
+                }
+                else if (soil.CurrentTree.TreeCurrentStage.isFinalStage && soil.HasState(ESoilState.CanHarvest))
+                {
+                    soil.canHavestIndicatorSpriteRenderer.sprite = soil.CurrentTree.TreeDataOrigin.data.rewardData.consumReward.commonData.icon;
+                    soil.canHavestIndicatorSpriteRenderer.gameObject.SetActive(true);
+                    soil.canHavestBorderSpriteRenderer.gameObject.SetActive(true);
+
+                    soil.Animator.CrossFadeInFixedTime("Soil Can Havest Indicate", .0f);
                 }
 
                 // Khởi động lại coroutine Growing nếu chưa ở giai đoạn cuối

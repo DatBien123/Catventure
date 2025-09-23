@@ -40,12 +40,30 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             Ghost.gameObject.transform.localScale = .1f*Vector3.one;
             SO_Tree loadedTree = Resources.Load<SO_Tree>($"Dat/Data/Tree/{gameObject.name}");
             Ghost.spriteRenderer.sprite = loadedTree.commonData.icon;
+            if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo Cây trồng")
+            {
+                FarmManager.TutorialManager.AllowNextStep = true;
+            }
         }
         else
         {
             Ghost.gameObject.transform.localScale = Vector3.one;
-            if (gameObject.name == "Scythe")Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
-            else if (gameObject.name == "Can") Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
+            if (gameObject.name == "Scythe")
+            {
+                Ghost.spriteRenderer.sprite = FarmManager.ScytheSprite;
+                if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo liềm")
+                {
+                    FarmManager.TutorialManager.AllowNextStep = true;
+                }
+            }
+            else if (gameObject.name == "Can")
+            {
+                Ghost.spriteRenderer.sprite = FarmManager.CanSprite;
+                if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo Can nước")
+                {
+                    FarmManager.TutorialManager.AllowNextStep = true;
+                }
+            }
             else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
         }
 

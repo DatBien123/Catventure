@@ -7,12 +7,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[System.Serializable]
-public struct DialogueEvent
-{
-    public string EventName;
-    public UnityEvent Event;
-}
 public class UIDialogue : MonoBehaviour
 {
 
@@ -27,13 +21,11 @@ public class UIDialogue : MonoBehaviour
 
     [Header("References")]
     public Animator Animator;
+    public Dialogue Dialogue;
 
     public DialogueData CurrentDialogueData;
     public DialogueLine CurrentDialogueLine;
     public int CurrentDialogueLineIndex = 0;
-
-    [Header("Dialogue Events")]
-    public List<DialogueEvent> DialogueEvents;
 
     private void Awake()
     {
@@ -77,7 +69,7 @@ public class UIDialogue : MonoBehaviour
         CurrentDialogueLineIndex = 0;
         Animator.gameObject.SetActive(false);
 
-        DialogueEvents.Find(Event => (Event.EventName == CurrentDialogueData.Topic)).Event?.Invoke();
+        CurrentDialogueData.OnDialogueFinished?.Invoke();
     }
 
     #region [Typer Writer Text Effect]

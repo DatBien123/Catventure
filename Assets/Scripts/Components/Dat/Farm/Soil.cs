@@ -36,6 +36,8 @@ namespace FarmSystem
 
         public SpriteRenderer wateringTreeSpriteRenderer;
 
+        public SpriteRenderer canHavestBorderSpriteRenderer;
+
         public SpriteRenderer canHavestIndicatorSpriteRenderer;
 
 
@@ -89,6 +91,19 @@ namespace FarmSystem
         #region [OnClickEvent]
         public void OnPointerClick(PointerEventData eventData)
         {
+            //Tuts
+            if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo liềm")
+            {
+                if (!HasState(ESoilState.CanHarvest))
+                    return;
+            }
+            if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo Cây trồng")
+            {
+                if (!HasState(ESoilState.CanHarvest))
+                    return;
+            }
+            //Tuts
+
             FarmManager.CurrentSoilSelected = this;
             Debug.Log("Current Soil is: " + FarmManager.CurrentSoilSelected.gameObject.name);
 
@@ -156,6 +171,24 @@ namespace FarmSystem
 
             }
 
+            //Tuts
+            if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Chạm vào ô đất khô bất kì")
+            {
+                if (HasState(ESoilState.Dry))
+                    FarmManager.TutorialManager.AllowNextStep = true;
+            }
+            else if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Chạm vào ô đất ướt bất kì")
+            {
+                if (HasState(ESoilState.Wet))
+                    FarmManager.TutorialManager.AllowNextStep = true;
+            }
+            else if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Chạm vào ô đất có cây Thu hoạch được")
+            {
+                if(HasState(ESoilState.CanHarvest))
+                FarmManager.TutorialManager.AllowNextStep = true;
+            }
+            //Tuts
+
         }
 
         #endregion
@@ -191,6 +224,15 @@ namespace FarmSystem
 
                 // Lưu dữ liệu nhân vật (do thay đổi inventory)
                 SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
+
+                //Tuts
+                if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Trồng cây lên đất")
+                {
+                    //Transform tutIndicator = transform.Find("Tut Indicator");
+                    //if (tutIndicator)
+                        FarmManager.TutorialManager.AllowNextStep = true;
+                }
+                //Tuts
 
                 return FarmManager.CharacterPlayer.Inventory.GetTotalQuantity(loadedTreeData) > 0;
             }
@@ -230,6 +272,15 @@ namespace FarmSystem
 
                 // Lưu trạng thái nông trại
                 FarmSaveSystem.Save(FarmManager);
+
+                //Tuts
+                if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Tưới nước cho đất")
+                {
+                    Transform tutIndicator = transform.Find("Tut Indicator");
+                    if (tutIndicator)
+                    FarmManager.TutorialManager.AllowNextStep = true;
+                }
+                //Tuts
             }
 
 
@@ -241,6 +292,7 @@ namespace FarmSystem
             {
                 treeHavestSpriteRenderer.sprite = CurrentTree.TreeCurrentStage.stageImage;
                 canHavestIndicatorSpriteRenderer.gameObject.SetActive(false);
+                canHavestBorderSpriteRenderer.gameObject.SetActive(false);
                 Animator.CrossFadeInFixedTime("Soil Havest", 0.0f);
 
                 FarmManager.CharacterPlayer.Inventory.AddItem(new CropsInstance(CurrentTree.TreeDataOrigin.data.rewardData.consumReward, CurrentTree.TreeDataOrigin.data.rewardData.Harvests));
@@ -254,6 +306,14 @@ namespace FarmSystem
                 SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
                 // Lưu trạng thái nông trại
                 FarmSaveSystem.Save(FarmManager);
+
+                //Tuts
+                if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Thu hoạch")
+                {
+                    FarmManager.TutorialManager.AllowNextStep = true;
+                }
+                //Tuts
+
             }
         }
         public void DestroyCurrentTree()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 3
-    itemName: Hot pot
+    itemName: "\u0110\u0129a C\xE1"
     icon: {fileID: 21300000, guid: 59352a0eeb74e4e42a2410c4e5685172, type: 3}
     description: A Hotpot dish
     itemType: 4

@@ -1,18 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+
+[System.Serializable]
+public struct DialogueLine
+{
+    [TextArea] public string text;
+}
+
+[System.Serializable]
+public struct DialogueData
+{
+    public string Topic;
+    public Sprite SpeakerImage;
+    public string SpeakerName;
+    public List<DialogueLine> DialogueLines;
+
+    public UnityEvent OnDialogueFinished;
+
+}
 public class Dialogue : MonoBehaviour
 {
     [Header("References")]
     public CharacterPlayer Player;
     public UIDialogue UIDialogue;
-    public SO_DialogueDataBase DialogueDataBase;
 
-    private void Start()
-    {
-        if (Player.isFirstTimeLogin)
-        {
-            DialogueData dialogueData = DialogueDataBase.Datas.Find(dialogueData => dialogueData.Topic == "First Time Open Game");
-            UIDialogue.SetCurrentDialogueData(dialogueData);
-        }
-    }
+    public List<DialogueData> DialogueDataBase;
 }

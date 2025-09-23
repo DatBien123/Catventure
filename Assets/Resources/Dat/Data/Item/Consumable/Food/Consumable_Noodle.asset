@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonData:
     itemID: 5
-    itemName: Noodle
+    itemName: "B\xE1t Ph\u1EDF"
     icon: {fileID: 21300000, guid: fc3c164f93b728848ae9f794c453aa23, type: 3}
     description: A delicious Noodle
     itemType: 4

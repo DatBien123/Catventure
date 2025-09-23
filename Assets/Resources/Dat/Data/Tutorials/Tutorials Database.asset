@@ -18,25 +18,19 @@ MonoBehaviour:
       TutorialName: First Time Plau
       TutorialSteps:
       - stepName: Yabis Tap
-        InteractType: 1
+        InteractType: 0
         TapOffset:
-          PositionOffset: {x: -200, y: -300}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 0, y: 0}
-        DragOffsets:
-        - PositionOffset: {x: -200, y: -300}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 1, y: 1}
-        - PositionOffset: {x: 200, y: -300}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 1, y: 1}
+          PositionOffset: {x: -200, y: -300, z: 0}
+          RotationOffset: {x: 0, y: 0, z: -180}
+          ScaleOffset: {x: 0, y: 0, z: 0}
+        DragOffsets: []
         isStepCompleted: 0
       - stepName: Trophy Tap
         InteractType: 0
         TapOffset:
-          PositionOffset: {x: 200, y: -300}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 0, y: 0}
+          PositionOffset: {x: 200, y: -300, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
         DragOffsets: []
         isStepCompleted: 0
       isPartCompleted: 0
@@ -46,9 +40,9 @@ MonoBehaviour:
       - stepName: 
         InteractType: 0
         TapOffset:
-          PositionOffset: {x: 0, y: 0}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 0, y: 0}
+          PositionOffset: {x: 0, y: 0, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
         DragOffsets: []
         isStepCompleted: 0
       isPartCompleted: 0
@@ -58,9 +52,9 @@ MonoBehaviour:
       - stepName: 
         InteractType: 0
         TapOffset:
-          PositionOffset: {x: 0, y: 0}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 0, y: 0}
+          PositionOffset: {x: 0, y: 0, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
         DragOffsets: []
         isStepCompleted: 0
       isPartCompleted: 0
@@ -70,9 +64,9 @@ MonoBehaviour:
       - stepName: 
         InteractType: 0
         TapOffset:
-          PositionOffset: {x: 0, y: 0}
-          RotationOffset: {x: 0, y: 0}
-          ScaleOffset: {x: 0, y: 0}
+          PositionOffset: {x: 0, y: 0, z: 0}
+          RotationOffset: {x: 0, y: 0, z: 0}
+          ScaleOffset: {x: 0, y: 0, z: 0}
         DragOffsets: []
         isStepCompleted: 0
       isPartCompleted: 0
