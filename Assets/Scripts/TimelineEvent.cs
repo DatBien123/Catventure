@@ -5,7 +5,7 @@ public class TimelineEvent : MonoBehaviour
 {
     public PlayableDirector director;   // Gán PlayableDirector vào đây
     public GameObject UIs;     // GameObject cần active/disable
-   
+    public GameObject HomeCanvas;
 
     public Material SkyboxSpaceMaterial;
     public Material SkyboxMapMaterial;
@@ -28,6 +28,7 @@ public class TimelineEvent : MonoBehaviour
         else
         {
             UIs.SetActive(true);
+            HomeCanvas.SetActive(true);
         }
 
     }

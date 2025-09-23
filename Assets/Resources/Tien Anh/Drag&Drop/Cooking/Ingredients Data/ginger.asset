@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: ginger
   m_EditorClassIdentifier: 
-  itemName: Ginger
+  commonData:
+    itemID: 39
+    itemName: 
+    icon: {fileID: 21300000, guid: c76ab5f5b6341e048a8563ff55227745, type: 3}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 2
+  ingredientName: 
   icon: {fileID: 21300000, guid: c76ab5f5b6341e048a8563ff55227745, type: 3}
   pronunciation: {fileID: 8300000, guid: dcbbd3e0ba2221a4eb1266c1854a85fb, type: 3}
   processing:
@@ -25,4 +38,6 @@ MonoBehaviour:
       stepType: 5
       icon: {fileID: 21300000, guid: c76ab5f5b6341e048a8563ff55227745, type: 3}
       boilingTime: 0
-  itemType: 0
+    assemblingData:
+      stepType: 0
+      icon: {fileID: 0}

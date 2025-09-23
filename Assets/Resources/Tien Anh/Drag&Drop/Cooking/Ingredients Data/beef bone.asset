@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: beef bone
   m_EditorClassIdentifier: 
-  itemName: Beef bone
+  commonData:
+    itemID: 35
+    itemName: 
+    icon: {fileID: 21300000, guid: d34f3fe2ac238d94d80bd639268e856b, type: 3}
+    description: "X\u01B0\u01A1ng b\xF2 "
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 1
+  ingredientName: 
   icon: {fileID: 21300000, guid: d34f3fe2ac238d94d80bd639268e856b, type: 3}
   pronunciation: {fileID: 8300000, guid: a394d0400c4993c4581f2158977c0703, type: 3}
   processing:
@@ -25,4 +38,6 @@ MonoBehaviour:
       stepType: 5
       icon: {fileID: 21300000, guid: d34f3fe2ac238d94d80bd639268e856b, type: 3}
       boilingTime: 0
-  itemType: 1
+    assemblingData:
+      stepType: 0
+      icon: {fileID: 0}

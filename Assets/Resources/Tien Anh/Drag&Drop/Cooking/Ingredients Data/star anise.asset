@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: star anise
   m_EditorClassIdentifier: 
-  itemName: "hoa h\u1ED3i"
+  commonData:
+    itemID: 45
+    itemName: 
+    icon: {fileID: 0}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 2
+  ingredientName: 
   icon: {fileID: 21300000, guid: 3bbede39b94cafb4089a8d00e51db6b8, type: 3}
   pronunciation: {fileID: 8300000, guid: d96da7b23fc8b9941b1a0d5f72984c81, type: 3}
   processing:
@@ -25,4 +38,6 @@ MonoBehaviour:
       stepType: 5
       icon: {fileID: 21300000, guid: 3bbede39b94cafb4089a8d00e51db6b8, type: 3}
       boilingTime: 0
-  itemType: 1
+    assemblingData:
+      stepType: 0
+      icon: {fileID: 0}

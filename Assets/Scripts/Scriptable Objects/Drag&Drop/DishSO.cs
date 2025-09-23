@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "DishSO", menuName = "Scriptable Objects/DishSO")]
-public class DishSO : ScriptableObject
+public class DishSO : SO_Consumable
 {
     public string dishName; // tên của món ăn
     public Sprite icon; // Hình ảnh của món ăn

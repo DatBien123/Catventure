@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Consumable_Halo
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 4
+    itemID: 3
     itemName: Bim bim
     icon: {fileID: 21300000, guid: ef8171545dc856945a7550d63ce72b83, type: 3}
     description: A Hotpot dish

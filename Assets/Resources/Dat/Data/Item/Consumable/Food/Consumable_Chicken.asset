@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Consumable_Chicken
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 2
+    itemID: 1
     itemName: "\u0110\u0129a Th\u1ECBt G\xE0"
     icon: {fileID: 21300000, guid: 1e25077c295743845b7fabd608571cfc, type: 3}
     description: A candy dish

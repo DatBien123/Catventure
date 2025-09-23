@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81553316f2a428649bbaf0c580bfbe99, type: 3}
   m_Name: egg fried rice
   m_EditorClassIdentifier: 
+  commonData:
+    itemID: 33
+    itemName: "C\u01A1m chi\xEAn tr\u1EE9ng"
+    icon: {fileID: 21300000, guid: 57f166cb6b3d9f94cbacf1f2b024c6bf, type: 3}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 1
   dishName: Egg Fried Rice
   icon: {fileID: 21300000, guid: 57f166cb6b3d9f94cbacf1f2b024c6bf, type: 3}
   dishDescription: Egg fried rice is a popular dish made from cold rice and eggs,

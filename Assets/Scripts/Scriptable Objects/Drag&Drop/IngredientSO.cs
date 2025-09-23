@@ -34,7 +34,7 @@ public class IngredientAssemblingData
 }
 
 [CreateAssetMenu(fileName = "IngredientSO", menuName = "Scriptable Objects/Ingredient")]
-public class IngredientSO : ScriptableObject
+public class IngredientSO : SO_Consumable
 {
     public string ingredientName; // tên tiếng Anh
     public Sprite icon; // hình ảnh

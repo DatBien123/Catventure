@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81553316f2a428649bbaf0c580bfbe99, type: 3}
   m_Name: Pho
   m_EditorClassIdentifier: 
+  commonData:
+    itemID: 34
+    itemName: "Ph\u1EDF"
+    icon: {fileID: 21300000, guid: 445478a0554114e4482df030d43caee8, type: 3}
+    description: "M\u1ED9t b\xE1t ph\u1EDF b\xF2"
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 1
   dishName: "Ph\u1EDF"
   icon: {fileID: 21300000, guid: 445478a0554114e4482df030d43caee8, type: 3}
   dishDescription: 

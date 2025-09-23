@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "C\xE0 chua"
   m_EditorClassIdentifier: 
   commonData:
-    itemID: 32
+    itemID: 30
     itemName: "C\xE0 chua"
     icon: {fileID: 21300000, guid: bbeb5197bba321a4f87a9b85869a47df, type: 3}
     description: 

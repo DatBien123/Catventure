@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: onion
   m_EditorClassIdentifier: 
+  commonData:
+    itemID: 41
+    itemName: 
+    icon: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 2
   ingredientName: onion
   icon: {fileID: 21300000, guid: f4dddc89c88de21418225e4d997666b4, type: 3}
   pronunciation: {fileID: 8300000, guid: 2aa711f8dd862174384415d23df9cb7f, type: 3}

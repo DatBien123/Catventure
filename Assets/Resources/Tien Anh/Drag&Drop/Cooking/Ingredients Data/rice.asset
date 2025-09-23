@@ -12,6 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: rice
   m_EditorClassIdentifier: 
+  commonData:
+    itemID: 43
+    itemName: 
+    icon: {fileID: 21300000, guid: 82d3bcfb5a49c6e41984d8bfc470e400, type: 3}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 1
   ingredientName: rice
   icon: {fileID: 21300000, guid: 82d3bcfb5a49c6e41984d8bfc470e400, type: 3}
   pronunciation: {fileID: 8300000, guid: 886062cbdb323bf4eaf5094953ed92f8, type: 3}
+  processing:
+    cuttingData:
+      stepType: 0
+      requiredCuts: 0
+      icons: []
+      processSprite: {fileID: 0}
+    boilingStirringData:
+      stepType: 0
+      icon: {fileID: 0}
+      boilingTime: 0
+    assemblingData:
+      stepType: 0
+      icon: {fileID: 0}

@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdea4fdda9ab9941b2176fac9297cee, type: 3}
   m_Name: scallion
   m_EditorClassIdentifier: 
+  commonData:
+    itemID: 44
+    itemName: 
+    icon: {fileID: 21300000, guid: 3010740d83cbd5540bcce7edf41a5db8, type: 3}
+    description: 
+    itemType: 4
+    isStackable: 1
+    maxQuantityAllowed: 100
+    price: 0
+  displayData:
+    descriptionColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumableData:
+    ConsumableType: 2
   ingredientName: scallion
   icon: {fileID: 21300000, guid: 3010740d83cbd5540bcce7edf41a5db8, type: 3}
   pronunciation: {fileID: 8300000, guid: b4086d99138f7d045bf343a923de5ba8, type: 3}
