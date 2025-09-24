@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 15
     itemName: "C\xE2y \u0110\u0169a Ph\xE9p"
     icon: {fileID: 21300000, guid: a0771058416355741926ca39d47f9c77, type: 3}
-    description: A beautiful Ap chong Glasses
+    description: "\"M\u1ED9t c\xE2y \u0111\u0169a nh\u1ECF g\u1ECDn nh\u01B0ng \u0111\u1EA7y
+      ph\xE9p m\xE0u, ho\xE0n h\u1EA3o cho nh\u1EEFng ph\xE1p s\u01B0 t\u1EADp s\u1EF1"
     itemType: 2
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 100000
+    price: 1000
+    sellPrice: 500
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

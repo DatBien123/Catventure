@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 18
     itemName: "M\u0169 Bi\u1EC3n"
     icon: {fileID: 21300000, guid: e05dff05fd0f0c747aced66c2d57c04f, type: 3}
-    description: A beautiful Blue Hat
+    description: "Chi\u1EBFc m\u0169 m\xE1t m\u1EBB ho\xE0n h\u1EA3o cho nh\u1EEFng
+      ng\xE0y d\xE0i d\u1EA1o ch\u01A1i ngo\xE0i n\u1EAFng"
     itemType: 3
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 250000
+    price: 140
+    sellPrice: 70
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

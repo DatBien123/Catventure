@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 19
     itemName: "M\u0169 Gi\xE1ng Sinh"
     icon: {fileID: 21300000, guid: 78f859e02e3d36b46b1241c48243d386, type: 3}
-    description: A beautiful Green Hat
+    description: "Chi\u1EBFc m\u0169 \u0111\u1ECF r\u1EF1c mang kh\xF4ng kh\xED l\u1EC5
+      h\u1ED9i \u0111\u1EBFn v\u1EDBi b\u1EA1n quanh n\u0103m"
     itemType: 3
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 230000
+    price: 200
+    sellPrice: 100
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

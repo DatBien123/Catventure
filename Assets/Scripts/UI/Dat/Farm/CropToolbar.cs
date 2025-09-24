@@ -21,7 +21,10 @@ public class CropToolbar : MonoBehaviour
         pooler = new ObjectPooler<CropToolbarSlot>();
         pooler.Initialize(this, poolCount, CropSlotToolbarPrefab, CropToolbarTransformParent);
     }
-
+    private void OnEnable()
+    {
+        RefreshCropsToolbar();
+    }
     private void Start()
     {
         RefreshCropsToolbar();

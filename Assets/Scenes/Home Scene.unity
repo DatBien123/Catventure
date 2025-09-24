@@ -319,8 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5866666021907563791}
-  Coin: 10000000
-  CurrentEnergy: 100
+  Coin: 100
+  CurrentEnergy: 300
   MaxEnergy: 300
   isFirstTimeLogin: 1
   Inventory: {fileID: 1763101998}
@@ -7822,6 +7822,7 @@ MonoBehaviour:
   Increase_Button: {fileID: 1356437270}
   Ok_Button: {fileID: 676696085}
   UIItemDetail: {fileID: 51745024}
+  TutorialManager: {fileID: 0}
   CurrentPickerAction: 0
   quantity: 0
   totalQuantity: 0
@@ -8021,6 +8022,7 @@ MonoBehaviour:
   Increase_Button: {fileID: 1813998295}
   Ok_Button: {fileID: 104700624}
   UIItemDetail: {fileID: 1099630724}
+  TutorialManager: {fileID: 0}
   CurrentPickerAction: 0
   quantity: 0
   totalQuantity: 0
@@ -20825,7 +20827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1099630719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21971,7 +21973,7 @@ MonoBehaviour:
   DialogueDataBase:
   - Topic: First Time Open Game
     SpeakerImage: {fileID: 21300000, guid: f5fce54740bc90d4f92bd228db02e53e, type: 3}
-    SpeakerName: 
+    SpeakerName: Zera
     DialogueLines:
     - text: "\xD4i \u0111au \u0111\u1EA7u qu\xE1 !"
     - text: "M\xECnh v\u1EEBa b\u1ECB r\u01A1i t\u1EF1 do sao ?"
@@ -23983,8 +23985,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Zera
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
+  m_sharedMaterial: {fileID: -5472703575166507583, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24008,10 +24010,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -32619,6 +32621,7 @@ MonoBehaviour:
   buttonWing: {fileID: 2004615590}
   buttonConsumable: {fileID: 509606442}
   buttonCrops: {fileID: 0}
+  TutorialManager: {fileID: 1767757613}
   UIInventory: {fileID: 1763101999}
   UIItemDetail: {fileID: 1099630724}
   UIYabis: {fileID: 1878245985}
@@ -32926,7 +32929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.45882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -36168,6 +36171,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   UIYabis: {fileID: 1878245985}
+  UIFarm: {fileID: 0}
   poolCount: 100
 --- !u!114 &1763102000
 MonoBehaviour:
@@ -36668,6 +36672,7 @@ MonoBehaviour:
   currentStepIndex: 0
   AllowNextStep: 0
   TutorialBackground: {fileID: 1293667431}
+  BackgroundTouchHandle: {fileID: 0}
   HighlightPulseDuration: 1
   HighlightScaleMultiplier: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!114 &1767757614
@@ -39354,14 +39359,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8b1efacf9a14020449b74f1a5367f19d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39782,7 +39787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 105d9a81097ae624a8ca7ac5f3a2afae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

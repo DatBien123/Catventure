@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 24
     itemName: "\xC1o Xanh Bi\u1EBFc"
     icon: {fileID: 21300000, guid: 835a072275372a84a8b61f580a8c97cc, type: 3}
-    description: A beautiful Red Shirt
+    description: "Chi\u1EBFc \xE1o m\xE0u xanh bi\u1EBFc d\u1ECBu m\u1EAFt gi\xFAp
+      b\u1EA1n lu\xF4n c\u1EA3m th\u1EA5y d\u1EC5 ch\u1ECBu c\u1EA3 ng\xE0y"
     itemType: 0
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 1000
+    price: 220
+    sellPrice: 110
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

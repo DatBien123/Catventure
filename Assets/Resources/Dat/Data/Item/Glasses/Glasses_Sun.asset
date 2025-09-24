@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 11
     itemName: "K\xEDnh R\xE2m"
     icon: {fileID: 21300000, guid: 94083c9fb5246824381e9efe62474249, type: 3}
-    description: A beautiful Round Glasses
+    description: "Chi\u1EBFc k\xEDnh r\xE2m c\u1EF1c ch\u1EA5t gi\xFAp b\u1EA1n b\u1EA3o
+      v\u1EC7 \u0111\xF4i m\u1EAFt v\xE0 tr\xF4ng th\u1EADt s\xE0nh \u0111i\u1EC7u"
     itemType: 1
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 100000
+    price: 450
+    sellPrice: 200
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

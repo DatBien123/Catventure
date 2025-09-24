@@ -167,6 +167,6 @@ public class UIAmountPicker : MonoBehaviour
         TotalMoney.text = (UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.price * quantity).ToString();
 
         if (CurrentPickerAction == EPickerAction.Sell) TotalMoney.text = "Sell Price: " + (UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity).ToString();
-        else if (CurrentPickerAction == EPickerAction.Buy) TotalMoney.text = "Total Price: " + (UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity).ToString();
+        else if (CurrentPickerAction == EPickerAction.Buy) TotalMoney.text = "Total Price: " + (UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.price * quantity).ToString();
     }
 }

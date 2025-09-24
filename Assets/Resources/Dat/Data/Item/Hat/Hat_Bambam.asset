@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 17
     itemName: "M\u0169 Bambam"
     icon: {fileID: 21300000, guid: 59f13d9939f541349888024ec69134d4, type: 3}
-    description: A beautiful Red Hat
+    description: "Chi\u1EBFc m\u0169 ng\u1ED9 ngh\u0129nh gi\xFAp b\u1EA1n tr\xF4ng
+      \u0111\xE1ng y\xEAu h\u01A1n bao gi\u1EDD h\u1EBFt"
     itemType: 3
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 150000
+    price: 120
+    sellPrice: 60
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

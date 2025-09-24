@@ -16,12 +16,14 @@ MonoBehaviour:
     itemID: 1
     itemName: "\u0110\u0129a Th\u1ECBt G\xE0"
     icon: {fileID: 21300000, guid: 1e25077c295743845b7fabd608571cfc, type: 3}
-    description: A candy dish
+    description: "M\xF3n th\u1ECBt g\xE0 th\u01A1m ngon gi\xFAp b\u1EA1n c\xF3 th\xEAm
+      n\u0103ng l\u01B0\u1EE3ng \u0111\u1EC3 l\xE0m vi\u1EC7c v\xE0 vui ch\u01A1i
+      c\u1EA3 ng\xE0y!"
     itemType: 4
     isStackable: 1
     maxQuantityAllowed: 100
-    price: 10000
-    sellPrice: 2000
+    price: 180
+    sellPrice: 90
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   ConsumableData:

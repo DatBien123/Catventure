@@ -72,13 +72,22 @@ public class UIConfirm : MonoBehaviour
         }
         else
         {
-            Debug.Log("Item is not Outfit");
-            UIShop.UIItemDetail.UIMountPicker.gameObject.SetActive(true);
-            UIShop.UIItemDetail.UIMountPicker.SetupAmountPicker(new ItemInstance(item, 1), EPickerAction.Buy);
 
-            if (UIShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && UIShop.TutorialManager.currentStep.stepName == "Mua hạt giống")
+            if (UIShop.ShopManager.owner.Coin >= item.commonData.price)
             {
-                UIShop.TutorialManager.ApplyNextStep("Mua hạt giống");
+                Debug.Log("Item is not Outfit");
+                UIShop.UIItemDetail.UIMountPicker.gameObject.SetActive(true);
+                UIShop.UIItemDetail.UIMountPicker.SetupAmountPicker(new ItemInstance(item, 1), EPickerAction.Buy);
+
+                if (UIShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && UIShop.TutorialManager.currentStep.stepName == "Mua hạt giống")
+                {
+                    UIShop.TutorialManager.ApplyNextStep("Mua hạt giống");
+                }
+            }
+            else
+            {
+                Fail_Popup.gameObject.SetActive(true);
+                gameObject.SetActive(false);
             }
         }
     }

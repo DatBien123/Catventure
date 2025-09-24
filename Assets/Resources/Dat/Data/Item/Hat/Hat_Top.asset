@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 22
     itemName: "M\u0169 D\xE0i"
     icon: {fileID: 21300000, guid: fa06b471d1cd50c49b9d89cf172e713a, type: 3}
-    description: A beautiful Kid Hat
+    description: "Chi\u1EBFc m\u0169 d\xE0i ng\u1ED9 ngh\u0129nh gi\xFAp b\u1EA1n
+      n\u1ED5i b\u1EADt v\xE0 tr\xF4ng th\u1EADt \u0111\u1ED9c \u0111\xE1o"
     itemType: 3
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 250000
+    price: 180
+    sellPrice: 90
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 10
     itemName: "K\xEDnh Cam"
     icon: {fileID: 21300000, guid: b303c8213e3426944b398b9f52b25489, type: 3}
-    description: A beautiful Unshape Glasses
+    description: "Chi\u1EBFc k\xEDnh r\u1EF1c r\u1EE1 m\xE0u cam gi\xFAp b\u1EA1n
+      n\u1ED5i b\u1EADt gi\u1EEFa \u0111\xE1m \u0111\xF4ng!"
     itemType: 1
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 100000
+    price: 300
+    sellPrice: 150
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:
