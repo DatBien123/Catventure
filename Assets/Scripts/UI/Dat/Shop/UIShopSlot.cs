@@ -35,27 +35,6 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
         priceText.text = item.commonData.price.ToString();
     }
 
-    //public void OnPointerDown(PointerEventData eventData)
-    //{
-    //    //Loop through all these slots of inventory
-    //    //Deselect All
-    //    foreach (var uiShop in uiShop.uiShopSlots)
-    //    {
-    //        uiShop.isSelected = false;
-    //    }
-
-    //    uiShop.CurrentUIShopSlotSelected = this;
-    //    isSelected = true;
-
-    //    uiShop.UIConfirmPurchase.SetupItemInfo(item);
-    //    uiShop.UIConfirmPurchase.gameObject.SetActive(true);
-        
-    //    //ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
-
-    //    Debug.Log("Show Item Confirm: " +  item.name);
-
-    //}
-
     public void OnPointerClick(PointerEventData eventData)
     {
         //Loop through all these slots of inventory
@@ -70,6 +49,7 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
 
         uiShop.UIConfirmPurchase.SetupItemInfo(item);
         uiShop.UIConfirmPurchase.gameObject.SetActive(true);
+        uiShop.UIItemDetail.SetupItemDetail(new ItemInstance(item, 1));
 
         //ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
 

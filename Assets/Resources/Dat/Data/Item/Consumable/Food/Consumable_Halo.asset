@@ -21,7 +21,9 @@ MonoBehaviour:
     isStackable: 1
     maxQuantityAllowed: 100
     price: 55000
+    sellPrice: 2000
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   ConsumableData:
     ConsumableType: 1
+    energyRestore: 2

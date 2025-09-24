@@ -46,12 +46,15 @@ public class UIInventory : MonoBehaviour
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
 
     public UIInventorySlot currentInventorySlotSelected;
-    public UIInventoryActions uiInventoryActions;
+    public UIItemDetail UIItemDetail;
 
-    private FilterType currentFilter = FilterType.Shirt;
+    public FilterType currentFilter = FilterType.Shirt;
 
     public UnityEvent OnWear;
     public UnityEvent OnTakeOff;
+
+    [Header("References")]
+    public UIYabis UIYabis;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;
@@ -73,22 +76,23 @@ public class UIInventory : MonoBehaviour
     private void Start()
     {
         //Filter Register
-        buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
-        buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
-        buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
-        buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
-        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
-        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
-        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
+        if(buttonShirt != null) buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
+        if (buttonGlasses != null) buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
+        if (buttonHandStuff != null) buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
+        if (buttonHat != null) buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
+        if (buttonConsumable != null) buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        if (buttonWing != null) buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        if (buttonCrops != null) buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         //Take off - Wear Register
-        buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
-        buttonWear.onClick.AddListener(() => Wear(currentInventorySlotSelected.slotData.ItemInstance));
+
+        if (buttonTakeoff != null) buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
+        if (buttonWear != null) buttonWear.onClick.AddListener(() => Wear(currentInventorySlotSelected.slotData.ItemInstance));
 
         RefreshUI();
 
-        buttonTakeoff.gameObject.SetActive(false);
-        buttonWear.gameObject.SetActive(false);
+        if (buttonTakeoff != null) buttonTakeoff.gameObject.SetActive(false);
+        if (buttonWear != null) buttonWear.gameObject.SetActive(false);
 
     }
     #region [Filter]
@@ -107,21 +111,30 @@ public class UIInventory : MonoBehaviour
             //Case 1: Outfit Equiped
             if (/*ItemToWear.IsEquiped && */ inventoryManager.owner.IsOutfitItemActive(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName))
             {
-                buttonTakeoff.gameObject.SetActive(true);
-                buttonWear.gameObject.SetActive(false);
+                if(buttonTakeoff != null)
+                    buttonTakeoff.gameObject.SetActive(true);
+                if (buttonWear != null)
+                    buttonWear.gameObject.SetActive(false);
             }
             else
             {
-                buttonWear.gameObject.SetActive(true);
-                buttonTakeoff.gameObject.SetActive(false);
+                if (buttonWear != null)
+                    buttonWear.gameObject.SetActive(true);
+                if (buttonTakeoff != null)
+                    buttonTakeoff.gameObject.SetActive(false);
             }
             //Case 2: Outfit Unequiped
         }
         else
         {
             //Only Now (Test)
-            buttonTakeoff.gameObject.SetActive(false);
-            buttonWear.gameObject.SetActive(false);
+            if (buttonTakeoff != null)
+                buttonTakeoff.gameObject.SetActive(false);
+            if (buttonWear != null)
+                buttonWear.gameObject.SetActive(false);
+
+            UIItemDetail.gameObject.SetActive(true);
+            UIItemDetail.SetupItemDetail(currentInventorySlotSelected.slotData.ItemInstance);
         }
 
     }
@@ -245,9 +258,10 @@ public class UIInventory : MonoBehaviour
             uiSlot.SetupSlot(invSlot);
             uiSlots.Add(uiSlot);
         }
-
+        if(buttonTakeoff != null)
         buttonTakeoff.gameObject.SetActive(false);
-        buttonWear.gameObject.SetActive(false);
+        if (buttonWear != null)
+            buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
     }

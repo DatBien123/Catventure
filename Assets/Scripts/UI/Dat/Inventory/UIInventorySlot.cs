@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPointerDownHandler
+public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPointerClickHandler
 {
 
     [Header("UI Components")]
@@ -34,7 +34,7 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         backGroundImage = GetComponent<Image>();
     }
     #region [Interaction]
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         //Loop through all these slots of inventory
         //Deselect All

@@ -24,6 +24,7 @@ public class UIShop : MonoBehaviour
 
     [Header("Reference")]
     public UIInventory UIInventory;
+    public UIItemDetail UIItemDetail;
     public UIYabis UIYabis;
     public UIConfirm UIConfirmPurchase;
 
@@ -45,20 +46,17 @@ public class UIShop : MonoBehaviour
     {
         pooler = new ObjectPooler<UIShopSlot>();
         pooler.Initialize(this, poolCount, ShopSlotPrefab, ShopContentParent);
-
-
     }
     void Start()
     {
-
         //Filter Register
-        buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
-        buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
-        buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
-        buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
-        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
-        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
-        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
+        if(buttonShirt != null) buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
+        if (buttonGlasses != null) buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
+        if (buttonHandStuff != null) buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
+        if (buttonHat != null) buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
+        if (buttonConsumable != null) buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        if (buttonWing != null) buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        if (buttonCrops != null) buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         RefreshShopUI();
     }

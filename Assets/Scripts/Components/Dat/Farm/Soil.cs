@@ -222,8 +222,8 @@ namespace FarmSystem
                 // Lưu trạng thái nông trại
                 FarmSaveSystem.Save(FarmManager);
 
-                // Lưu dữ liệu nhân vật (do thay đổi inventory)
-                SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
+                //// Lưu dữ liệu nhân vật (do thay đổi inventory)
+                //SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
 
                 //Tuts
                 if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Trồng cây lên đất")
@@ -302,8 +302,8 @@ namespace FarmSystem
 
                 //Data
 
-                // Lưu dữ liệu nhân vật (do thay đổi inventory)
-                SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
+                //// Lưu dữ liệu nhân vật (do thay đổi inventory)
+                //SaveSystem.Save(FarmManager.CharacterPlayer, FarmManager.CharacterPlayer.Inventory);
                 // Lưu trạng thái nông trại
                 FarmSaveSystem.Save(FarmManager);
 

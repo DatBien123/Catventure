@@ -43,32 +43,39 @@ public class UIConfirm : MonoBehaviour
 
         Fail_Icon.sprite = item.commonData.icon;
         Fail_Price.text = Mathf.Abs(item.commonData.price - UIShop.ShopManager.owner.Coin).ToString();
+
     }
     public void Buy(SO_Item item)
     {
-        if(UIShop.ShopManager.owner.Coin >= item.commonData.price)
+        if(item is SO_Outfit)
         {
-            //UI
-            Success_Popup.gameObject.SetActive(true);
-            gameObject.SetActive(false);
+            if (UIShop.ShopManager.owner.Coin >= item.commonData.price)
+            {
+                //UI
+                Success_Popup.gameObject.SetActive(true);
+                gameObject.SetActive(false);
 
-            //Data
-            UIShop.ShopManager.owner.Coin -= item.commonData.price;
+                //Data
+                UIShop.ShopManager.TryBuy(new ItemInstance(item, 1, false));
 
-            UIShop.ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
+                //Update Resource data cho cac giao dien khac
+                if (UIShop.UIYabis)
+                    UIShop.UIYabis.UpdateResourceUI();
 
-            //Update Resource data cho cac giao dien khac
-            UIShop.UpdateResourceUI();
-            UIShop.UIYabis.UpdateResourceUI();
-            UIShop.UIInventory.UpdateResourceUI();
+            }
+            else
+            {
+                Fail_Popup.gameObject.SetActive(true);
+                gameObject.SetActive(false);
+            }
 
-            SaveSystem.Save(UIShop.ShopManager.owner, UIShop.UIInventory.inventoryManager);
+            Debug.Log("Item is Outfit");
         }
         else
         {
-            Fail_Popup.gameObject.SetActive(true);
-            gameObject.SetActive(false);
+            Debug.Log("Item is not Outfit");
+            UIShop.UIItemDetail.UIMountPicker.gameObject.SetActive(true);
+            UIShop.UIItemDetail.UIMountPicker.SetupAmountPicker(new ItemInstance(item, 1), EPickerAction.Buy);
         }
-
     }
 }
