@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -37,9 +37,10 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //Loop through all these slots of inventory
-        //Deselect All
-        foreach (var uiShop in uiShop.uiShopSlots)
+        if (uiShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && uiShop.TutorialManager.currentStep.stepName == "Rời khỏi Cửa hàng Hạt giống") return;
+            //Loop through all these slots of inventory
+            //Deselect All
+            foreach (var uiShop in uiShop.uiShopSlots)
         {
             uiShop.isSelected = false;
         }
@@ -54,5 +55,10 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
         //ShopManager.Inventory.AddItem(new ItemInstance(item, 1, false));
 
         Debug.Log("Show Item Confirm: " + item.name);
+
+        if(uiShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && uiShop.TutorialManager.currentStep.stepName == "Chọn một Hạt giống bất kì")
+        {
+            uiShop.TutorialManager.ApplyNextStep("Chọn một Hạt giống bất kì");
+        }
     }
 }

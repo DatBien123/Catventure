@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +27,7 @@ public class UIAmountPicker : MonoBehaviour
 
     [Header("References")]
     public UIItemDetail UIItemDetail;
+    public TutorialManager TutorialManager;
 
     [Header("Data")]
     public EPickerAction CurrentPickerAction;
@@ -110,7 +111,12 @@ public class UIAmountPicker : MonoBehaviour
             UIItemDetail.UIInventory.inventoryManager.owner.Coin += UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity;
             UIItemDetail.UIInventory.inventoryManager.RemoveItem(UIItemDetail.CurrentItemInstance.ItemStaticData, quantity);
 
+            if(UIItemDetail.UIInventory.UIYabis)
             UIItemDetail.UIInventory.UIYabis.UpdateResourceUI();
+
+            if (UIItemDetail.UIInventory.UIFarm)
+                UIItemDetail.UIInventory.UIFarm.UpdateResourceUI();
+
             UIItemDetail.UIInventory.RefreshUI();
 
         }
@@ -119,7 +125,20 @@ public class UIAmountPicker : MonoBehaviour
             UIItemDetail.UIInventory.inventoryManager.owner.Coin -= UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.price * quantity;
             UIItemDetail.UIInventory.inventoryManager.AddItem( new ItemInstance(UIItemDetail.CurrentItemInstance.ItemStaticData, quantity, false));
 
+            if (UIItemDetail.UIInventory.UIYabis)
             UIItemDetail.UIInventory.UIYabis.UpdateResourceUI();
+
+            if (UIItemDetail.UIInventory.UIFarm)
+                UIItemDetail.UIInventory.UIFarm.UpdateResourceUI();
+
+            if(TutorialManager != null)
+            {
+                if (TutorialManager.currentPart.TutorialName == "Farm Tutorial" && TutorialManager.currentStep.stepName == "Mua")
+                {
+                    TutorialManager.ApplyNextStep("Mua");
+                }
+            }
+
         }
         else if(CurrentPickerAction == EPickerAction.Use)
         {
@@ -128,7 +147,12 @@ public class UIAmountPicker : MonoBehaviour
             if (UIItemDetail.UIInventory.inventoryManager.owner.CurrentEnergy >= UIItemDetail.UIInventory.inventoryManager.owner.MaxEnergy) UIItemDetail.UIInventory.inventoryManager.owner.CurrentEnergy = UIItemDetail.UIInventory.inventoryManager.owner.MaxEnergy;
             UIItemDetail.UIInventory.inventoryManager.RemoveItem(UIItemDetail.CurrentItemInstance.ItemStaticData, quantity);
 
-            UIItemDetail.UIInventory.UIYabis.UpdateResourceUI();
+            if (UIItemDetail.UIInventory.UIYabis)
+                UIItemDetail.UIInventory.UIYabis.UpdateResourceUI();
+
+            if (UIItemDetail.UIInventory.UIFarm)
+                UIItemDetail.UIInventory.UIFarm.UpdateResourceUI();
+
             UIItemDetail.UIInventory.RefreshUI();
         }
 

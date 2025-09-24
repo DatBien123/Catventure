@@ -55,6 +55,7 @@ public class UIInventory : MonoBehaviour
 
     [Header("References")]
     public UIYabis UIYabis;
+    public UIFarm UIFarm;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;

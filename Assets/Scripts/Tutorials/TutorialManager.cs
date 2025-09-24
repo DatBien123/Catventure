@@ -92,6 +92,8 @@ public class TutorialManager : MonoBehaviour
 
     public TutorialBackground TutorialBackground;
 
+    public BackgroundTouchHandle BackgroundTouchHandle;
+
     [Header("Button Highlight Animation")]
     public float HighlightPulseDuration = 1.0f; // Thời gian cho một chu kỳ pulse
     public Vector3 HighlightScaleMultiplier = new Vector3(1.1f, 1.1f, 1.1f); // Scale lên bao nhiêu (ví dụ: 1.1 lần)
@@ -126,13 +128,17 @@ public class TutorialManager : MonoBehaviour
             {
                 TutorialBackground.SetCanReceiveTouch(false);
             }
-
-
             // Disable tất cả button trừ target nếu là Tap
             if (isApplyTutorials && currentStep.InteractType == ETutorialType.Tap)
             {
                 DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
             }
+
+            isApplyTutorials = true;
+        }
+        else
+        {
+            isApplyTutorials = false;
         }
 
     }

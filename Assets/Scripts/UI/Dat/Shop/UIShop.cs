@@ -23,6 +23,7 @@ public class UIShop : MonoBehaviour
     public Button buttonCrops;
 
     [Header("Reference")]
+    public TutorialManager TutorialManager;
     public UIInventory UIInventory;
     public UIItemDetail UIItemDetail;
     public UIYabis UIYabis;

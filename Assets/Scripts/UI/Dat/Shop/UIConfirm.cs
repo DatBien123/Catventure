@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,7 +68,6 @@ public class UIConfirm : MonoBehaviour
                 Fail_Popup.gameObject.SetActive(true);
                 gameObject.SetActive(false);
             }
-
             Debug.Log("Item is Outfit");
         }
         else
@@ -76,6 +75,11 @@ public class UIConfirm : MonoBehaviour
             Debug.Log("Item is not Outfit");
             UIShop.UIItemDetail.UIMountPicker.gameObject.SetActive(true);
             UIShop.UIItemDetail.UIMountPicker.SetupAmountPicker(new ItemInstance(item, 1), EPickerAction.Buy);
+
+            if (UIShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && UIShop.TutorialManager.currentStep.stepName == "Mua hạt giống")
+            {
+                UIShop.TutorialManager.ApplyNextStep("Mua hạt giống");
+            }
         }
     }
 }
