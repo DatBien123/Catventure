@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 9
     itemName: "K\xEDnh Tr\xE1i Tim"
-    icon: {fileID: 21300000, guid: b1f0b92f8cad1e44789223081d72862d, type: 3}
+    icon: {fileID: 21300000, guid: ce5db93c56699e84d9293c3825d14588, type: 3}
     description: "Chi\u1EBFc k\xEDnh xinh x\u1EAFn h\xECnh tr\xE1i tim, ho\xE0n h\u1EA3o
       \u0111\u1EC3 th\u1EC3 hi\u1EC7n s\u1EF1 \u0111\xE1ng y\xEAu c\u1EE7a b\u1EA1n!"
     itemType: 1

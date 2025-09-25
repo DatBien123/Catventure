@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 2657017}
   - component: {fileID: 2657016}
   - component: {fileID: 2657022}
+  - component: {fileID: 2657023}
   m_Layer: 0
   m_Name: Tutorial Canvas
   m_TagString: Untagged
@@ -410,7 +411,7 @@ MonoBehaviour:
         TutContent: "Gi\u1EDD th\xEC h\xE3y r\u1EDDi kh\u1ECFi C\u1EEDa h\xE0ng H\u1EA1t
           gi\u1ED1ng n\xE0o !"
         TutContentOffset:
-          PositionOffset: {x: 0, y: -50, z: 0}
+          PositionOffset: {x: 0, y: -500, z: 0}
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
         SizeOffset: {x: 1000, y: 200}
@@ -796,6 +797,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFileName: tutorialData.json
+--- !u!114 &2657023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf260a3620cb3c541a71fa069502953a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceResolution: {x: 1600, y: 900}
+  scaler: {fileID: 2657019}
 --- !u!1 &8062832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,6 +2469,7 @@ GameObject:
   - component: {fileID: 98206816}
   - component: {fileID: 98206815}
   - component: {fileID: 98206819}
+  - component: {fileID: 98206820}
   m_Layer: 5
   m_Name: Farm Canvas
   m_TagString: Untagged
@@ -2559,6 +2575,20 @@ MonoBehaviour:
   owner: {fileID: 458238556}
   UIShop: {fileID: 1035004321}
   UIInventory: {fileID: 832806031}
+--- !u!114 &98206820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98206814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf260a3620cb3c541a71fa069502953a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceResolution: {x: 1600, y: 900}
+  scaler: {fileID: 98206816}
 --- !u!1 &105754906
 GameObject:
   m_ObjectHideFlags: 0
@@ -21960,6 +21990,7 @@ GameObject:
   - component: {fileID: 832806032}
   - component: {fileID: 832806031}
   - component: {fileID: 832806030}
+  - component: {fileID: 832806036}
   m_Layer: 5
   m_Name: Inventory Canvas
   m_TagString: Untagged
@@ -22105,6 +22136,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &832806036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832806029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf260a3620cb3c541a71fa069502953a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceResolution: {x: 1600, y: 900}
+  scaler: {fileID: 832806033}
 --- !u!1 &834402336
 GameObject:
   m_ObjectHideFlags: 0
@@ -26171,6 +26216,7 @@ GameObject:
   - component: {fileID: 1035004322}
   - component: {fileID: 1035004321}
   - component: {fileID: 1035004320}
+  - component: {fileID: 1035004326}
   m_Layer: 5
   m_Name: Shop Canvas
   m_TagString: Untagged
@@ -26319,6 +26365,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1035004326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035004319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf260a3620cb3c541a71fa069502953a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceResolution: {x: 1600, y: 900}
+  scaler: {fileID: 1035004323}
 --- !u!1 &1035067265
 GameObject:
   m_ObjectHideFlags: 0

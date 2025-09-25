@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 16
     itemName: "C\xE2y Tr\u01B0\u1EE3ng Ph\xE9p"
-    icon: {fileID: 21300000, guid: a0771058416355741926ca39d47f9c77, type: 3}
+    icon: {fileID: 21300000, guid: 6e389fe2e9054f1459e07d9b93dbb04a, type: 3}
     description: "Chi\u1EBFc tr\u01B0\u1EE3ng m\u1EA1nh m\u1EBD ch\u1EE9a \u0111\u1EA7y
       n\u0103ng l\u01B0\u1EE3ng ph\xE9p thu\u1EADt, s\u1EB5n s\xE0ng cho m\u1ECDi
       th\u1EED th\xE1ch"

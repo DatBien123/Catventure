@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 10
     itemName: "K\xEDnh Cam"
-    icon: {fileID: 21300000, guid: b303c8213e3426944b398b9f52b25489, type: 3}
+    icon: {fileID: 21300000, guid: 5f84eda13478e664fa6c6623602e3b43, type: 3}
     description: "Chi\u1EBFc k\xEDnh r\u1EF1c r\u1EE1 m\xE0u cam gi\xFAp b\u1EA1n
       n\u1ED5i b\u1EADt gi\u1EEFa \u0111\xE1m \u0111\xF4ng!"
     itemType: 1

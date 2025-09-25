@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 20
     itemName: "M\u0169 Qu\xFD \xD4ng"
-    icon: {fileID: 21300000, guid: 5a5d7670fa5427f4aa3683e5cafcbd95, type: 3}
+    icon: {fileID: 21300000, guid: 8bed18db816b35144aefaefb648b3de3, type: 3}
     description: "Chi\u1EBFc m\u0169 thanh l\u1ECBch gi\xFAp b\u1EA1n tr\u1EDF th\xE0nh
       m\u1ED9t qu\xFD \xF4ng l\u1ECBch l\xE3m th\u1EF1c th\u1EE5"
     itemType: 3
