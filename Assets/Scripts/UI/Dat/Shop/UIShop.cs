@@ -68,14 +68,14 @@ public class UIShop : MonoBehaviour
     }
     public void RefreshShopUI()
     {
-        // Xoá hết UI Slot cũ
+        // 1. Free slot cũ
         foreach (var slot in uiShopSlots)
         {
             pooler.Free(slot);
         }
         uiShopSlots.Clear();
 
-        // Lọc dữ liệu inventory theo filter
+        // 2. Lọc dữ liệu theo filter
         var filteredSlots = ShopManager.slots.Where(slot =>
             (currentFilter == FilterType.Shirt && slot.commonData.itemType == ItemType.Shirt) ||
             (currentFilter == FilterType.Glasses && slot.commonData.itemType == ItemType.Glasses) ||
@@ -84,21 +84,34 @@ public class UIShop : MonoBehaviour
             (currentFilter == FilterType.Consumable && slot.commonData.itemType == ItemType.Consumable) ||
             (currentFilter == FilterType.Wing && slot.commonData.itemType == ItemType.Wing) ||
             (currentFilter == FilterType.Crops && slot.commonData.itemType == ItemType.Crops)
-        );
+        ).ToList();
 
-        // Tạo UI Slot mới dựa trên dữ liệu đã lọc
-        foreach (var invSlot in filteredSlots)
+        // ✅ 3. Sắp xếp theo giá tăng dần
+        filteredSlots.Sort((a, b) => a.commonData.price.CompareTo(b.commonData.price));
+
+        // 👉 Nếu muốn giảm dần (giá cao nhất trước): 
+        // filteredSlots.Sort((a, b) => b.commonData.price.CompareTo(a.commonData.price));
+
+        // ✅ 4. Tạo UI Slot theo thứ tự đã sắp xếp
+        for (int i = 0; i < filteredSlots.Count; i++)
         {
+            var invSlot = filteredSlots[i];
             UIShopSlot uiSlot = pooler.GetNew();
             uiSlot.item = invSlot;
-
             uiSlot.Setup(invSlot);
+
+            // Đảm bảo thứ tự trong Hierarchy khớp với sắp xếp
+            uiSlot.transform.SetSiblingIndex(i);
+
             uiShopSlots.Add(uiSlot);
         }
 
         UpdateResourceUI();
 
+        // 👇 Ép Unity rebuild layout để UI hiển thị đúng thứ tự mới
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)ShopContentParent);
     }
+
 
     public void UpdateResourceUI()
     {

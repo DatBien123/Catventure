@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StrapBuckle
+    second: {fileID: 2100000, guid: b7baddbea162e204ea23173b1f4262ad, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: 3duBrynnHatLogoTheBoss_DF_bamba

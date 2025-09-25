@@ -9,6 +9,7 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
     [Header("UI Components")]
     public Image iconImage;
     public TextMeshProUGUI quantityText;
+    public GameObject EquipedImage;
 
     [Header("UI Description")]
     public string Name;
@@ -65,6 +66,14 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         Type = "(" + slot.ItemInstance.ItemStaticData.commonData.itemType.ToString() + ")";
         Description = slot.ItemInstance.ItemStaticData.commonData.description;
 
+        if(slot.ItemInstance.IsEquiped == true)
+        {
+            EquipedImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            EquipedImage.gameObject.SetActive(false);
+        }
     }
     public void ClearSlot()
     {

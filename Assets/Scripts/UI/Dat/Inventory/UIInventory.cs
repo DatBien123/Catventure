@@ -191,6 +191,7 @@ public class UIInventory : MonoBehaviour
 
         ShowActionButton(ItemToWear);
 
+        RefreshUI();
         //Save Data
         SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
@@ -225,6 +226,8 @@ public class UIInventory : MonoBehaviour
 
         ShowActionButton(ItemToTakeOff);
 
+        RefreshUI();
+
         //Save Data
         SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
@@ -240,15 +243,18 @@ public class UIInventory : MonoBehaviour
         uiSlots.Clear();
 
         // Lọc dữ liệu inventory theo filter
-        var filteredSlots = inventoryManager.slots.Where(slot =>
-            (currentFilter == FilterType.Shirt && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shirt) ||
-            (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
-            (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
-            (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
-            (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
-            (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
-        );
+        var filteredSlots = inventoryManager.slots
+            .Where(slot =>
+                (currentFilter == FilterType.Shirt && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shirt) ||
+                (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
+                (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
+                (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
+                (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
+                (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
+                (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
+            )
+            // 👇 Sắp xếp theo giá tăng dần
+            .OrderBy(slot => slot.ItemInstance.ItemStaticData.commonData.price);
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc
         foreach (var invSlot in filteredSlots)
@@ -259,13 +265,15 @@ public class UIInventory : MonoBehaviour
             uiSlot.SetupSlot(invSlot);
             uiSlots.Add(uiSlot);
         }
-        if(buttonTakeoff != null)
-        buttonTakeoff.gameObject.SetActive(false);
+
+        if (buttonTakeoff != null)
+            buttonTakeoff.gameObject.SetActive(false);
         if (buttonWear != null)
             buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
     }
+
 
     public void UpdateResourceUI()
     {
