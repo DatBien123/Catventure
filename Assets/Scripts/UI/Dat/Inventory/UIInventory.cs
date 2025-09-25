@@ -46,12 +46,16 @@ public class UIInventory : MonoBehaviour
     public List<UIInventorySlot> uiSlots = new List<UIInventorySlot>();
 
     public UIInventorySlot currentInventorySlotSelected;
-    public UIInventoryActions uiInventoryActions;
+    public UIItemDetail UIItemDetail;
 
-    private FilterType currentFilter = FilterType.Shirt;
+    public FilterType currentFilter = FilterType.Shirt;
 
     public UnityEvent OnWear;
     public UnityEvent OnTakeOff;
+
+    [Header("References")]
+    public UIYabis UIYabis;
+    public UIFarm UIFarm;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;
@@ -73,22 +77,23 @@ public class UIInventory : MonoBehaviour
     private void Start()
     {
         //Filter Register
-        buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
-        buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
-        buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
-        buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
-        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
-        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
-        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
+        if(buttonShirt != null) buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
+        if (buttonGlasses != null) buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
+        if (buttonHandStuff != null) buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
+        if (buttonHat != null) buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
+        if (buttonConsumable != null) buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        if (buttonWing != null) buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        if (buttonCrops != null) buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         //Take off - Wear Register
-        buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
-        buttonWear.onClick.AddListener(() => Wear(currentInventorySlotSelected.slotData.ItemInstance));
+
+        if (buttonTakeoff != null) buttonTakeoff.onClick.AddListener(() => TakeOff(currentInventorySlotSelected.slotData.ItemInstance));
+        if (buttonWear != null) buttonWear.onClick.AddListener(() => Wear(currentInventorySlotSelected.slotData.ItemInstance));
 
         RefreshUI();
 
-        buttonTakeoff.gameObject.SetActive(false);
-        buttonWear.gameObject.SetActive(false);
+        if (buttonTakeoff != null) buttonTakeoff.gameObject.SetActive(false);
+        if (buttonWear != null) buttonWear.gameObject.SetActive(false);
 
     }
     #region [Filter]
@@ -107,21 +112,30 @@ public class UIInventory : MonoBehaviour
             //Case 1: Outfit Equiped
             if (/*ItemToWear.IsEquiped && */ inventoryManager.owner.IsOutfitItemActive(ItemToWear.ItemStaticData.commonData.itemType, ItemToWear.ItemStaticData.commonData.itemName))
             {
-                buttonTakeoff.gameObject.SetActive(true);
-                buttonWear.gameObject.SetActive(false);
+                if(buttonTakeoff != null)
+                    buttonTakeoff.gameObject.SetActive(true);
+                if (buttonWear != null)
+                    buttonWear.gameObject.SetActive(false);
             }
             else
             {
-                buttonWear.gameObject.SetActive(true);
-                buttonTakeoff.gameObject.SetActive(false);
+                if (buttonWear != null)
+                    buttonWear.gameObject.SetActive(true);
+                if (buttonTakeoff != null)
+                    buttonTakeoff.gameObject.SetActive(false);
             }
             //Case 2: Outfit Unequiped
         }
         else
         {
             //Only Now (Test)
-            buttonTakeoff.gameObject.SetActive(false);
-            buttonWear.gameObject.SetActive(false);
+            if (buttonTakeoff != null)
+                buttonTakeoff.gameObject.SetActive(false);
+            if (buttonWear != null)
+                buttonWear.gameObject.SetActive(false);
+
+            UIItemDetail.gameObject.SetActive(true);
+            UIItemDetail.SetupItemDetail(currentInventorySlotSelected.slotData.ItemInstance);
         }
 
     }
@@ -177,6 +191,7 @@ public class UIInventory : MonoBehaviour
 
         ShowActionButton(ItemToWear);
 
+        RefreshUI();
         //Save Data
         SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
@@ -211,6 +226,8 @@ public class UIInventory : MonoBehaviour
 
         ShowActionButton(ItemToTakeOff);
 
+        RefreshUI();
+
         //Save Data
         SaveSystem.Save(inventoryManager.owner, inventoryManager);
     }
@@ -226,15 +243,18 @@ public class UIInventory : MonoBehaviour
         uiSlots.Clear();
 
         // Lọc dữ liệu inventory theo filter
-        var filteredSlots = inventoryManager.slots.Where(slot =>
-            (currentFilter == FilterType.Shirt && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shirt) ||
-            (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
-            (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
-            (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
-            (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
-            (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
-            (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
-        );
+        var filteredSlots = inventoryManager.slots
+            .Where(slot =>
+                (currentFilter == FilterType.Shirt && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Shirt) ||
+                (currentFilter == FilterType.Glasses && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Glasses) ||
+                (currentFilter == FilterType.HandStuff && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.HandStuff) ||
+                (currentFilter == FilterType.Hat && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Hat) ||
+                (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
+                (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
+                (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
+            )
+            // 👇 Sắp xếp theo giá tăng dần
+            .OrderBy(slot => slot.ItemInstance.ItemStaticData.commonData.price);
 
         // Tạo UI Slot mới dựa trên dữ liệu đã lọc
         foreach (var invSlot in filteredSlots)
@@ -246,11 +266,14 @@ public class UIInventory : MonoBehaviour
             uiSlots.Add(uiSlot);
         }
 
-        buttonTakeoff.gameObject.SetActive(false);
-        buttonWear.gameObject.SetActive(false);
+        if (buttonTakeoff != null)
+            buttonTakeoff.gameObject.SetActive(false);
+        if (buttonWear != null)
+            buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
     }
+
 
     public void UpdateResourceUI()
     {

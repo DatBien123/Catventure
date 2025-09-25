@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 28
     itemName: "\xC1o V\xE0ng"
     icon: {fileID: 21300000, guid: dce539ae0ebea9e4e8eb07f8ce59abc2, type: 3}
-    description: A beautiful Pink Shirt
+    description: "Chi\u1EBFc \xE1o v\xE0ng t\u01B0\u01A1i t\u1EAFn mang \u0111\u1EBFn
+      ni\u1EC1m vui v\xE0 s\u1EE9c s\u1ED1ng r\u1ED9n r\xE0ng"
     itemType: 0
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 1000
+    price: 280
+    sellPrice: 140
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

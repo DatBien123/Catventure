@@ -15,12 +15,14 @@ MonoBehaviour:
   commonData:
     itemID: 8
     itemName: "K\xEDnh Cyclops"
-    icon: {fileID: 21300000, guid: a0771058416355741926ca39d47f9c77, type: 3}
-    description: A beautiful Ap chong Glasses
+    icon: {fileID: 21300000, guid: 1084c49b43389824ca2b42a2b0426cb4, type: 3}
+    description: "Chi\u1EBFc k\xEDnh m\u1ED9t m\u1EAFt th\u1EADt ng\u1EA7u gi\xFAp
+      b\u1EA1n tr\xF4ng nh\u01B0 m\u1ED9t nh\xE0 kh\xE1m ph\xE1 b\xED \u1EA9n!"
     itemType: 1
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 100000
+    price: 600
+    sellPrice: 300
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

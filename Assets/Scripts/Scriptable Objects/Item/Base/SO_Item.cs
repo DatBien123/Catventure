@@ -22,6 +22,7 @@ public struct ItemData
     public bool isStackable;
     public int maxQuantityAllowed;
     public int price;
+    public int sellPrice;
 }
 [System.Serializable]
 public struct ItemDisplayData
@@ -35,5 +36,8 @@ public abstract class SO_Item : ScriptableObject, IUsable
 {
     public ItemData commonData;
     public ItemDisplayData displayData;
-    public abstract void Use(Character character);
+
+    public abstract void Buy(CharacterPlayer character);
+    public abstract void Sell(CharacterPlayer character);
+    public abstract void Use(CharacterPlayer character);
 }

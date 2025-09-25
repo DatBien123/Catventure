@@ -16,11 +16,13 @@ MonoBehaviour:
     itemID: 25
     itemName: "\xC1o Xanh L\u1EE5c"
     icon: {fileID: 21300000, guid: 780c1fb164ff1fe4d8e7c569880b5698, type: 3}
-    description: A beautiful Blue Shirt
+    description: "Chi\u1EBFc \xE1o xanh l\u1EE5c mang c\u1EA3m gi\xE1c t\u01B0\u01A1i
+      m\xE1t c\u1EE7a thi\xEAn nhi\xEAn \u0111\u1EBFn g\u1EA7n b\u1EA1n h\u01A1n"
     itemType: 0
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 1000
+    price: 220
+    sellPrice: 110
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

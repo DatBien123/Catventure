@@ -23,7 +23,17 @@ public class SO_Outfit : SO_Item
 {
     public OutfitData outfitData;
 
-    public override void Use(Character character)
+    public override void Buy(CharacterPlayer character)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Sell(CharacterPlayer character)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Use(CharacterPlayer character)
     {
         character.animator.CrossFadeInFixedTime(outfitData.equipClip.name, .2f);
     }

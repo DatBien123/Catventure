@@ -15,12 +15,15 @@ MonoBehaviour:
   commonData:
     itemID: 23
     itemName: "M\u0169 Ph\xF9 Thu\u1EF7"
-    icon: {fileID: 21300000, guid: fa06b471d1cd50c49b9d89cf172e713a, type: 3}
-    description: A beautiful Kid Hat
+    icon: {fileID: 21300000, guid: 6e9bbf71ccd1bb44e991f25d881993ae, type: 3}
+    description: "Chi\u1EBFc m\u0169 c\u1ED5 \u0111i\u1EC3n c\u1EE7a c\xE1c ph\xF9
+      th\u1EE7y, ch\u1EE9a \u0111\u1EF1ng nhi\u1EC1u \u0111i\u1EC1u b\xED \u1EA9n
+      b\xEAn trong"
     itemType: 3
     isStackable: 0
     maxQuantityAllowed: 0
-    price: 250000
+    price: 400
+    sellPrice: 200
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   outfitData:

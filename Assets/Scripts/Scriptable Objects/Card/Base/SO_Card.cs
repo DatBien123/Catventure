@@ -23,5 +23,21 @@ public struct CardData
 public abstract class SO_Card : ScriptableObject, IUsable
 {
     public CardData Data;
+
+    public void Buy(CharacterPlayer character)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Sell(CharacterPlayer character)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public abstract void Use(Character character);
+
+    public void Use(CharacterPlayer character)
+    {
+        throw new System.NotImplementedException();
+    }
 }

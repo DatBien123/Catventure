@@ -8,17 +8,13 @@ public class Shop : MonoBehaviour
 
     public Inventory Inventory;
 
-    public void TryBuy(ItemInstance ItemInstance)
+    public void TryBuy(ItemInstance itemInstance)
     {
-        //if (playerGold >= ItemInstance.ItemStaticData.commonData.price)
-        //{
-        //    playerGold -= ItemInstance.ItemStaticData.commonData.price;
-        //    Inventory.AddItem(ItemInstance); // hoặc quantity tuỳ bạn
-        //    Debug.Log("Đã mua: " + ItemInstance.ItemStaticData.commonData.itemName);
-        //}
-        //else
-        //{
-        //    Debug.Log("Không đủ tiền!");
-        //}
+        owner.Coin -= itemInstance.ItemStaticData.commonData.price;
+
+        Inventory.AddItem(new ItemInstance(itemInstance.ItemStaticData, 1, false));
+
+        SaveSystem.Save(owner, Inventory);
+
     }
 }

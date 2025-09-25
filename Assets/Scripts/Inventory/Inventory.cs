@@ -65,6 +65,8 @@ public class Inventory : MonoBehaviour
 
             remain -= addAmount;
         }
+
+        SaveSystem.Save(owner, this);
     }
     #endregion
 
@@ -98,6 +100,8 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+
+        SaveSystem.Save(owner, this);
     }
     #endregion
 

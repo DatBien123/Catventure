@@ -6,6 +6,9 @@ public class UIYabis : MonoBehaviour
     [Header("References")]
     public CharacterPlayer owner;
 
+    public UIShop UIShop;
+    public UIInventory UIInventory;
+
     [Header("Data")]
     public TextMeshProUGUI Energy;
     public TextMeshProUGUI Coin;
@@ -25,5 +28,8 @@ public class UIYabis : MonoBehaviour
     {
         Energy.text = owner.CurrentEnergy.ToString() + " / " + owner.MaxEnergy.ToString();
         Coin.text = owner.Coin.ToString();
+
+        UIShop.UpdateResourceUI();
+        UIInventory.UpdateResourceUI();
     }
 }

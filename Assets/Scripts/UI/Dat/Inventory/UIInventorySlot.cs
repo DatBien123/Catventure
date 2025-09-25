@@ -3,12 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPointerDownHandler
+public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPointerClickHandler
 {
 
     [Header("UI Components")]
     public Image iconImage;
     public TextMeshProUGUI quantityText;
+    public GameObject EquipedImage;
 
     [Header("UI Description")]
     public string Name;
@@ -34,7 +35,7 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         backGroundImage = GetComponent<Image>();
     }
     #region [Interaction]
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         //Loop through all these slots of inventory
         //Deselect All
@@ -65,6 +66,14 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
         Type = "(" + slot.ItemInstance.ItemStaticData.commonData.itemType.ToString() + ")";
         Description = slot.ItemInstance.ItemStaticData.commonData.description;
 
+        if(slot.ItemInstance.IsEquiped == true)
+        {
+            EquipedImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            EquipedImage.gameObject.SetActive(false);
+        }
     }
     public void ClearSlot()
     {

@@ -16,12 +16,16 @@ MonoBehaviour:
     itemID: 7
     itemName: "Qu\u1EA3 C\xE0 chua"
     icon: {fileID: 21300000, guid: 66eb9d4d69bd5ac43afed3e186b806dc, type: 3}
-    description: A delicious Noodle
+    description: "M\u1ED9t qu\u1EA3 c\xE0 chua \u0111\u1ECF m\u1ECDng, t\u01B0\u01A1i
+      ngon gi\xFAp m\xF3n \u0103n th\xEAm ph\u1EA7n h\u1EA5p d\u1EABn v\xE0 b\u1ED5
+      d\u01B0\u1EE1ng!"
     itemType: 4
     isStackable: 1
     maxQuantityAllowed: 100
-    price: 35000
+    price: 35
+    sellPrice: 18
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   ConsumableData:
     ConsumableType: 2
+    energyRestore: 2

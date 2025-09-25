@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Minigame_Drag&DropCooking.unity
     guid: 4984476a95da34f4f92be5e527193c8f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Minigames/Minigame_Drag&DropForgingSword.unity
     guid: b6bf40f14ca09894fbdecc943cd8f5cf
   - enabled: 1

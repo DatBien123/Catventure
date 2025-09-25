@@ -1,0 +1,35 @@
+using TMPro;
+using UnityEngine;
+
+public class UIFarm : MonoBehaviour
+{
+    [Header("References")]
+    public CharacterPlayer owner;
+
+    public UIShop UIShop;
+    public UIInventory UIInventory;
+
+    //[Header("Data")]
+    //public TextMeshProUGUI Energy;
+    //public TextMeshProUGUI Coin;
+
+    void Start()
+    {
+        //Energy.text = owner.CurrentEnergy.ToString() + " / " + owner.MaxEnergy.ToString();
+        //Coin.text = owner.Coin.ToString();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public void UpdateResourceUI()
+    {
+        //Energy.text = owner.CurrentEnergy.ToString() + " / " + owner.MaxEnergy.ToString();
+        //Coin.text = owner.Coin.ToString();
+
+        UIShop.UpdateResourceUI();
+        UIInventory.UpdateResourceUI();
+    }
+}

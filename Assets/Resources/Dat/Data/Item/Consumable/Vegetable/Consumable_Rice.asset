@@ -16,12 +16,15 @@ MonoBehaviour:
     itemID: 6
     itemName: "G\u1EA1o"
     icon: {fileID: 21300000, guid: 4f87993ade47e084b9f0476131ede462, type: 3}
-    description: A delicious Fish Dish
+    description: "Ngu\u1ED3n th\u1EF1c ph\u1EA9m quan tr\u1ECDng \u0111\u1EC3 n\u1EA5u
+      n\xEAn nh\u1EEFng b\u1EEFa \u0103n ngon l\xE0nh m\u1ED7i ng\xE0y!"
     itemType: 4
     isStackable: 1
     maxQuantityAllowed: 100
-    price: 30000
+    price: 40
+    sellPrice: 20
   displayData:
     descriptionColor: {r: 0, g: 0, b: 0, a: 0}
   ConsumableData:
     ConsumableType: 2
+    energyRestore: 2

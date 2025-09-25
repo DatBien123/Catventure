@@ -23,7 +23,9 @@ public class UIShop : MonoBehaviour
     public Button buttonCrops;
 
     [Header("Reference")]
+    public TutorialManager TutorialManager;
     public UIInventory UIInventory;
+    public UIItemDetail UIItemDetail;
     public UIYabis UIYabis;
     public UIConfirm UIConfirmPurchase;
 
@@ -45,20 +47,17 @@ public class UIShop : MonoBehaviour
     {
         pooler = new ObjectPooler<UIShopSlot>();
         pooler.Initialize(this, poolCount, ShopSlotPrefab, ShopContentParent);
-
-
     }
     void Start()
     {
-
         //Filter Register
-        buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
-        buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
-        buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
-        buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
-        buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
-        buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
-        buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
+        if(buttonShirt != null) buttonShirt.onClick.AddListener(() => ChangeFilter(FilterType.Shirt));
+        if (buttonGlasses != null) buttonGlasses.onClick.AddListener(() => ChangeFilter(FilterType.Glasses));
+        if (buttonHandStuff != null) buttonHandStuff.onClick.AddListener(() => ChangeFilter(FilterType.HandStuff));
+        if (buttonHat != null) buttonHat.onClick.AddListener(() => ChangeFilter(FilterType.Hat));
+        if (buttonConsumable != null) buttonConsumable.onClick.AddListener(() => ChangeFilter(FilterType.Consumable));
+        if (buttonWing != null) buttonWing.onClick.AddListener(() => ChangeFilter(FilterType.Wing));
+        if (buttonCrops != null) buttonCrops.onClick.AddListener(() => ChangeFilter(FilterType.Crops));
 
         RefreshShopUI();
     }
@@ -69,14 +68,14 @@ public class UIShop : MonoBehaviour
     }
     public void RefreshShopUI()
     {
-        // Xoá hết UI Slot cũ
+        // 1. Free slot cũ
         foreach (var slot in uiShopSlots)
         {
             pooler.Free(slot);
         }
         uiShopSlots.Clear();
 
-        // Lọc dữ liệu inventory theo filter
+        // 2. Lọc dữ liệu theo filter
         var filteredSlots = ShopManager.slots.Where(slot =>
             (currentFilter == FilterType.Shirt && slot.commonData.itemType == ItemType.Shirt) ||
             (currentFilter == FilterType.Glasses && slot.commonData.itemType == ItemType.Glasses) ||
@@ -85,21 +84,34 @@ public class UIShop : MonoBehaviour
             (currentFilter == FilterType.Consumable && slot.commonData.itemType == ItemType.Consumable) ||
             (currentFilter == FilterType.Wing && slot.commonData.itemType == ItemType.Wing) ||
             (currentFilter == FilterType.Crops && slot.commonData.itemType == ItemType.Crops)
-        );
+        ).ToList();
 
-        // Tạo UI Slot mới dựa trên dữ liệu đã lọc
-        foreach (var invSlot in filteredSlots)
+        // ✅ 3. Sắp xếp theo giá tăng dần
+        filteredSlots.Sort((a, b) => a.commonData.price.CompareTo(b.commonData.price));
+
+        // 👉 Nếu muốn giảm dần (giá cao nhất trước): 
+        // filteredSlots.Sort((a, b) => b.commonData.price.CompareTo(a.commonData.price));
+
+        // ✅ 4. Tạo UI Slot theo thứ tự đã sắp xếp
+        for (int i = 0; i < filteredSlots.Count; i++)
         {
+            var invSlot = filteredSlots[i];
             UIShopSlot uiSlot = pooler.GetNew();
             uiSlot.item = invSlot;
-
             uiSlot.Setup(invSlot);
+
+            // Đảm bảo thứ tự trong Hierarchy khớp với sắp xếp
+            uiSlot.transform.SetSiblingIndex(i);
+
             uiShopSlots.Add(uiSlot);
         }
 
         UpdateResourceUI();
 
+        // 👇 Ép Unity rebuild layout để UI hiển thị đúng thứ tự mới
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)ShopContentParent);
     }
+
 
     public void UpdateResourceUI()
     {
