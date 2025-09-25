@@ -9,19 +9,6 @@ public class CraftingItemBarUI : MonoBehaviour
     public GameObject iconPrefab;
     public Transform iconContainer;
     private Dictionary<IngredientSO, GameObject> craftingItemIcons = new();
-
-
-    //public void Init(IngredientRecipeSO recipe)
-    //{
-    //    // lặp qua các nguyên liệu cần để sinh ra object con trong ingredient bar
-    //    foreach(IngredientSO ingredient in recipe.requiredItems)
-    //    {
-    //        GameObject icon = Instantiate(iconPrefab, iconContainer);
-    //        icon.GetComponentInChildren<Image>().sprite = ingredient.icon;
-    //        icon.GetComponent<CanvasGroup>().alpha = 0.3f;
-    //        craftingItemIcons.Add(ingredient, icon);
-    //    }
-    //}
     public void InitBar(CookingStepSO step)
     {
         // lặp qua các nguyên liệu cần để sinh ra object con trong ingredient bar

@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class KnifeUIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private Vector3 originalPosition;
-
+    private Vector2 originalPosition;
     private RectTransform rectTransform;
+    [SerializeField] private Canvas canvas;
+    private bool canDrag = true; // 👉 mặc định cho phép kéo
 
     [Header("Sprites")]
     public Sprite knifeIdle;
     public Sprite knifeActive;
     private Image image;
-    private bool canDrag = true; // 👉 mặc định cho phép kéo
 
 
     [Header("Controller")]
@@ -20,10 +20,12 @@ public class KnifeUIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     void Start()
     {
+
         rectTransform = GetComponent<RectTransform>();
+        originalPosition = rectTransform.anchoredPosition;
+        canvas = gameObject.GetComponentInParent<Canvas>();
         image = GetComponent<Image>();
         image.sprite = knifeIdle;
-        originalPosition = rectTransform.anchoredPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -50,7 +52,7 @@ public class KnifeUIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (!canDrag) return; // chặn
 
-        transform.position = eventData.position; // Dao đi theo tay/chuột
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -58,7 +60,7 @@ public class KnifeUIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (!canDrag) return; // chặn
 
         swipeController.OnKnifeDragEnd();
-        transform.position = originalPosition;
+        rectTransform.anchoredPosition = originalPosition;
         image.sprite = knifeIdle;
     }
     public void SetCanDrag(bool value)

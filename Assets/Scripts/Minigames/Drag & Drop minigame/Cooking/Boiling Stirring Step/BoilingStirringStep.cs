@@ -147,11 +147,13 @@ public class BoilingStirringStep : MonoBehaviour, ICookingStep
             });
         
         RectTransform rt = pot.gameObject.GetComponent<RectTransform>();
-        rt.DOLocalMove(new Vector3(0f,rt.position.y,0f), 1f);
-        quickTimeEventBar.SetupQTEBar();
+        rt.DOLocalMove(new Vector3(0f, rt.position.y, 0f), 1f).OnComplete(() => {
+            quickTimeEventBar.SetupQTEBar();
+        });
     }
     public void BoilingComplete()
     {
+        Debug.Log("Nấu nước đã xong đến khuấy");
         pot.CookingComplete();
         BoilingStirringUI.Instance.userInterface.SetActive(true);
         BoilingStirringUI.Instance.itemCraftingHolder.SetActive(false);

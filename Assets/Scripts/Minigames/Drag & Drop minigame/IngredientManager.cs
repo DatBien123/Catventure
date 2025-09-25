@@ -40,30 +40,6 @@ public class IngredientManager : MonoBehaviour
         }
         
     }
-    //public void InitForgingSword(IngredientRecipeSO recipe)
-    //{
-    //    // Tạo bản sao của danh sách nguyên liệu để shuffle mà không làm ảnh hưởng đến dữ liệu gốc
-    //    List<IngredientSO> shuffledElementals = new List<IngredientSO>(recipe.requiredItems);
-
-    //    // Shuffle danh sách bằng Fisher-Yates
-    //    for (int i = shuffledElementals.Count - 1; i > 0; i--)
-    //    {
-    //        int j = Random.Range(0, i + 1);
-    //        IngredientSO temp = shuffledElementals[i];
-    //        shuffledElementals[i] = shuffledElementals[j];
-    //        shuffledElementals[j] = temp;
-    //    }
-
-    //    for(int i = 0; i < shuffledElementals.Count; i++)
-    //    {
-    //        IngredientSO elemental = shuffledElementals[i];
-    //        GameObject elementalObject = Instantiate(ingredientPrefab, ingredientsSlotsPosition[i].position, Quaternion.identity, ingredientsContainer);
-    //        Image image = elementalObject.GetComponentInChildren<Image>();
-    //        image.sprite = elemental.icon;
-    //        elementalObject.GetComponentInChildren<Ingredient>().ingredientData = elemental;
-    //        ForgingSwordMinigame.Instance.elementals.Add(elementalObject);
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()

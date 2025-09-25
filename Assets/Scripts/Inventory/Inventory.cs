@@ -113,7 +113,7 @@ public class Inventory : MonoBehaviour
     {
         foreach(var slot in slots)
         {
-            if(slot.ItemInstance.ItemStaticData.name == item.commonData.itemName) return true;
+            if(slot.ItemInstance.ItemStaticData.commonData.itemName == item.commonData.itemName) return true;
 
         }
         return false;

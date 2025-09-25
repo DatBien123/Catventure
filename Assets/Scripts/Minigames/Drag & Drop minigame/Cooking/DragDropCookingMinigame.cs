@@ -4,7 +4,7 @@ public class DragDropCookingMinigame : DragDropMinigame
 {
     public CookingManager cookingManager;
     public CookingRecipeSO recipe; // công thức món ăn ta muốn nấu 
-
+    public CharacterPlayer zera;
      protected override void OnEnable()
     {
         base.OnEnable();
@@ -16,8 +16,14 @@ public class DragDropCookingMinigame : DragDropMinigame
     }
     public void Start()
     {
-        StartGame();
+        //StartGame();
         
+    }
+    public void Setup(CookingRecipeSO p_recipe)
+    {
+        Debug.Log("Setup"); 
+        recipe = p_recipe;
+        StartGame();
     }
     public override void StartGame()
     {
@@ -38,6 +44,7 @@ public class DragDropCookingMinigame : DragDropMinigame
     }
     public void ShowRewardUI()
     {
+        zera.Inventory.AddItem(new ItemInstance(recipe.dishResult, 1 , false));
         victoryRewardScreen.ShowRewardDragDrop(recipe.dishResult.icon, recipe.dishResult.dishName, recipe.reward,3);
     }
 

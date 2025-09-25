@@ -7,7 +7,7 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
 {
     private Button button;
     public string actionName; // ta sẽ gõ tên cụ thể công dụng của Button này vô. "Pause", "Mute Sound",...
-    private bool isClicked = false; // đã bấm hay chưa?
+    private bool canClick = true; // kiểm tra có thể bấm hay không
     public bool canKeepPress;
     private void Awake()
     {
@@ -16,8 +16,8 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isClicked) return; // nếu đã bấm rồi thì bỏ qua
-        isClicked = true;      // đánh dấu đã bấm
+        if (!canClick) return; // nếu đã bấm rồi thì bỏ qua
+        canClick = false;      // đánh dấu đã bấm
         if (canKeepPress) StartCoroutine(ResetPress());
         ClickEffect(OnClick);
     }
@@ -45,6 +45,6 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
     private IEnumerator ResetPress()
     {
         yield return new WaitForSeconds(1.5f);
-        isClicked = false;
+        canClick = true;
     }
 }

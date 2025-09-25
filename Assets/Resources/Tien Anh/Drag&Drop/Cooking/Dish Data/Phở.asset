@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81553316f2a428649bbaf0c580bfbe99, type: 3}
-  m_Name: Pho
+  m_Name: "Ph\u1EDF"
   m_EditorClassIdentifier: 
   commonData:
     itemID: 34
@@ -27,4 +27,12 @@ MonoBehaviour:
     ConsumableType: 1
   dishName: "Ph\u1EDF"
   icon: {fileID: 21300000, guid: 445478a0554114e4482df030d43caee8, type: 3}
-  dishDescription: 
+  dishDescription: "M\xF3n \u0103n c\u1ED5 truy\u1EC1n c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t
+    Nam. Ph\u1EDF l\xE0 m\xF3n \u0103n r\u1EA5t th\u01A1m ngon v\xE0 b\u1ED5 d\u01B0\u1EE1ng.
+    M\u1ED9t b\u1EEFa s\xE1ng tuy\u1EC7t v\u1EDDi!"
+  ingredients:
+  - ingredient: {fileID: 11400000, guid: ea06afeaa5c14b040844b9fac30ad4d8, type: 2}
+    requiredAmount: 3
+  - ingredient: {fileID: 11400000, guid: 5da2a3cba0c2a1545b8fc89b1e301df5, type: 2}
+    requiredAmount: 2
+  recipe: {fileID: 11400000, guid: ac64fc5136697c84eabf523cd15d09f6, type: 2}
