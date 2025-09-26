@@ -23,6 +23,9 @@ public class FoodSelection : MonoBehaviour
     [Header("Popup")]
     [SerializeField] private PopUpUI popupUI;
 
+    [Header("References")]
+    public TutorialManager tutorialManager;
+
     public void OnEnable()
     {
         UIEventSystem.Register("Cook",Cook);
@@ -38,7 +41,7 @@ public class FoodSelection : MonoBehaviour
         foreach (DishSO food in allFoods) {
             GameObject item = Instantiate(foodItemPrefab, contentTransform);
             FoodItemUI foodItemUI = item.GetComponent<FoodItemUI>();
-            foodItemUI.Setup(food, OnFoodItemClicked);
+            foodItemUI.Setup(food, OnFoodItemClicked, tutorialManager);
             foods.Add(foodItemUI);
         }
         // Auto chọn món đầu tiên khi mở

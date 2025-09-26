@@ -13,10 +13,20 @@ public class FoodItemUI : MonoBehaviour
 
     private bool isSelected = false;
     private Action<DishSO, FoodItemUI> OnSelected;
-    // Hàm Setup khi spawn ra
-    public void Setup(DishSO data, Action<DishSO, FoodItemUI> callback)
+
+    public TutorialManager TutorialManager;
+    public void Start()
     {
-        foodData = data;    
+    }
+    // Hàm Setup khi spawn ra
+    public void Setup(DishSO data, Action<DishSO, FoodItemUI> callback, TutorialManager tutorialManager)
+    {
+        if(TutorialManager == null)
+        {
+            TutorialManager = tutorialManager;
+        }
+
+        foodData = data;
         icon.sprite = foodData.icon;   
         nameText.text = foodData.dishName;
         OnSelected = callback;  
@@ -25,6 +35,12 @@ public class FoodItemUI : MonoBehaviour
     // Khi ta bấm vào Item trong Food Selection
     public void OnClick()
     {
+        if (TutorialManager.currentPart.TutorialName == "Cooking Tutorial" && TutorialManager.currentStep.stepName == "Chọn món")
+        {
+            TutorialManager.ApplyNextStep("Chọn món");
+            return;
+
+        }
         // Gọi sang Food Selection UI để cập nhật
         // FoodSelectionUI. show thông tin gì đó truyền food data vào
         OnSelected?.Invoke(foodData,this);

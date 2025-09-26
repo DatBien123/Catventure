@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingBarSlider: {fileID: 81957553}
-  loadDuration: 3
+  loadDuration: 5
   isEnableTransitionOnStart: 1
   sceneName: Main Menu Scene
   videoPlayer: {fileID: 1395276230}
@@ -1228,7 +1228,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395276229}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4ac86329b57c7ac41b20a8af648d6846, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 10459f0f68510194d989ad8b65e8569f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1240,14 +1240,16 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 0.75
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1

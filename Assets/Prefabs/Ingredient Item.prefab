@@ -69,7 +69,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 13ab8164215246d41a375f8c64f2b31e, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7813212396664900479}
   amountText: {fileID: 5216377616452038957}
+  foodSelection: {fileID: 0}
 --- !u!1 &6603485659251884045
 GameObject:
   m_ObjectHideFlags: 0

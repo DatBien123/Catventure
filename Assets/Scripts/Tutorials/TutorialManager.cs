@@ -92,7 +92,6 @@ public class TutorialManager : MonoBehaviour
 
     public TutorialBackground TutorialBackground;
 
-    public BackgroundTouchHandle BackgroundTouchHandle;
 
     [Header("Button Highlight Animation")]
     public float HighlightPulseDuration = 1.0f; // Thời gian cho một chu kỳ pulse
@@ -149,6 +148,10 @@ public class TutorialManager : MonoBehaviour
         foreach (Button btn in allButtons)
         {
             btn.interactable = false; // Disable tất cả trước
+
+            //Button Cua tien anh
+            UIButton uiButton = btn.GetComponent<UIButton>();
+            if (uiButton) uiButton.canClick = false;
         }
 
         // Enable button mục tiêu
@@ -156,6 +159,11 @@ public class TutorialManager : MonoBehaviour
         if (targetButton != null)
         {
             targetButton.interactable = true;
+
+            //Button Cua tien anh
+            UIButton uiButton = targetButton.GetComponent<UIButton>();
+            if (uiButton) uiButton.canClick = true;
+
             enabledButton = targetButton;
         }
         else if (!string.IsNullOrEmpty(targetButtonName))
@@ -164,6 +172,12 @@ public class TutorialManager : MonoBehaviour
             if (target != null)
             {
                 target.interactable = true;
+
+                //Button Cua tien anh
+                UIButton uiButton = target.GetComponent<UIButton>();
+                if (uiButton) uiButton.canClick = true;
+
+
                 enabledButton = target;
             }
             else
@@ -185,6 +199,9 @@ public class TutorialManager : MonoBehaviour
         foreach (Button btn in allButtons)
         {
             btn.interactable = true;
+            //Button Cua tien anh
+            UIButton uiButton = btn.GetComponent<UIButton>();
+            if (uiButton) uiButton.canClick = true;
         }
     }
     public void DisableAllButtons()
@@ -192,6 +209,9 @@ public class TutorialManager : MonoBehaviour
         foreach (Button btn in allButtons)
         {
             btn.interactable = false;
+            //Button Cua tien anh
+            UIButton uiButton = btn.GetComponent<UIButton>();
+            if (uiButton) uiButton.canClick = false;
         }
     }
     // Hàm bắt đầu animation highlight cho button (sử dụng DOTween để pulse scale)

@@ -11,6 +11,7 @@ public class PopUpUI : MonoBehaviour
     [SerializeField] private Button okButton;
     [SerializeField] private GameObject buttonGroupConfirm;
     [SerializeField] private GameObject buttonGroupOk;
+    [SerializeField] private TutorialManager tutorialManager;
 
     private Action onYes;
     private Action onNo;
@@ -32,6 +33,10 @@ public class PopUpUI : MonoBehaviour
         noButton.onClick.RemoveAllListeners();
 
         yesButton.onClick.AddListener(() => {
+            if (tutorialManager.currentPart.TutorialName == "Cooking Tutorial" && tutorialManager.currentStep.stepName == "Xác nhận nấu")
+            {
+                tutorialManager.ApplyNextStep("Xác nhận nấu");
+            }
             onYes?.Invoke();
             Hide();
         });

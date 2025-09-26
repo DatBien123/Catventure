@@ -7,12 +7,11 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
 {
     private Button button;
     public string actionName; // ta sẽ gõ tên cụ thể công dụng của Button này vô. "Pause", "Mute Sound",...
-    private bool canClick = true; // kiểm tra có thể bấm hay không
+    public bool canClick = true; // kiểm tra có thể bấm hay không
     public bool canKeepPress;
     private void Awake()
     {
         button = GetComponent<Button>();
-
     }
     public void OnPointerClick(PointerEventData eventData)
     {
