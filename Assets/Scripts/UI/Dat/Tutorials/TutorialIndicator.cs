@@ -134,7 +134,7 @@ public class TutorialIndicator : MonoBehaviour
         if (TutorialManager.currentStep.isShowIndicator && TutorialManager.currentStep.Indicator)
         {
             TutorialManager.currentStep.Indicator.gameObject.SetActive(true);
-            TutorialManager.currentStep.Indicator.GetComponent<Animator>().CrossFadeInFixedTime("Drag", 0.0f);
+            TutorialManager.currentStep.Indicator.GetComponent<Animator>().CrossFadeInFixedTime("Drag " + TutorialManager.currentStep.DragDirection, 0.0f);
         }
         if (TutorialManager.currentStep.isShowTutContent)
         {

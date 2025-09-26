@@ -27,6 +27,8 @@ public struct TutorialStep
 
     public List<TransformOffset> DragOffsets;
 
+    public string DragDirection;
+
     [Header("Tutorial Content")]
 
     public bool isShowTutContent;
