@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FixSwordGameManager : MonoBehaviour
@@ -25,7 +26,14 @@ public class FixSwordGameManager : MonoBehaviour
 
     public void CheckWin() {
         if (currentPoints >= pointsTowin) {
-            UIWinPanel.gameObject.SetActive(true);
+            StartCoroutine(OpenWinPanel());
         }
     }
+
+    IEnumerator OpenWinPanel() {
+        yield return new WaitForSeconds(1.0f);
+        UIWinPanel.gameObject.SetActive(true);
+    }
+
+
 }

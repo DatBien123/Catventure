@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: efba9b4ab81a32c45b79aa1dabd4b38f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,6 +175,11 @@ MonoBehaviour:
   completeClip: {fileID: 8300000, guid: 944ef1e405c54214a9b3701c2428847c, type: 3}
   correctRotationZ: 0
   rotateSpeed: 50
+  defaultMat: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  spriteRenderer: {fileID: 7038857124771748119}
+  pulseSpeed: 2
+  minGlow: -2
+  maxGlow: 0
 --- !u!82 &5709999089052267542
 AudioSource:
   m_ObjectHideFlags: 0
