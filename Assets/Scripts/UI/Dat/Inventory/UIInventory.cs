@@ -54,6 +54,7 @@ public class UIInventory : MonoBehaviour
     public UnityEvent OnTakeOff;
 
     [Header("References")]
+    public CoinFlush CoinFlush;
     public UIYabis UIYabis;
     public UIFarm UIFarm;
 

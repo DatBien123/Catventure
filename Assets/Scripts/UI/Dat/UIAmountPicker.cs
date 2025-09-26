@@ -119,6 +119,7 @@ public class UIAmountPicker : MonoBehaviour
 
             UIItemDetail.UIInventory.RefreshUI();
 
+            UIItemDetail.UIInventory.CoinFlush.StartCoinEffect();
         }
         else if( CurrentPickerAction == EPickerAction.Buy)
         {

@@ -22,6 +22,14 @@ public class CoinFlush : MonoBehaviour
         // StartCoinEffect();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("Hello");
+            StartCoinEffect();
+        }
+    }
     public void StartCoinEffect()
     {
         StartCoroutine(SpawnAndAnimateCoins());
