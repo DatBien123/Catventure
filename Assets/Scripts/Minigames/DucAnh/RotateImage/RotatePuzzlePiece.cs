@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RotatePuzzlePiece : MonoBehaviour {
     [SerializeField] private AudioSource audioSource;
@@ -8,12 +9,27 @@ public class RotatePuzzlePiece : MonoBehaviour {
     [SerializeField] private float correctRotationZ;
     [SerializeField] private float rotateSpeed = 5f;
 
-    private bool isCurrentLayer;
+    [SerializeField] private Material defaultMat;
+    [SerializeField] private Renderer spriteRenderer;
+    private Color startColor = Color.white;
+    private Color endColor = Color.gray;
+    private float changeDuration = 1f;
+
     private bool rotating;
     private bool completed;
 
+    private float randomRotationZ;
+
+    private void Awake() {
+        randomRotationZ = Random.Range(correctRotationZ - 10f + 360f, correctRotationZ + 10f);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, randomRotationZ);
+
+        StartCoroutine(LerpColor());
+    }
+
     void Update() {
         if (completed) return;
+
         if (!rotating) return;
 
         if (rotating) {
@@ -23,6 +39,7 @@ public class RotatePuzzlePiece : MonoBehaviour {
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
         }
+
     }
 
     private void OnMouseDown() {
@@ -46,10 +63,23 @@ public class RotatePuzzlePiece : MonoBehaviour {
         float difference = Mathf.DeltaAngle(currentZ, correctRotationZ);
 
         if (Mathf.Abs(difference) <= 5f) {
+            StopCoroutine(LerpColor());
+            spriteRenderer.material = defaultMat;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, correctRotationZ); 
             audioSource.PlayOneShot(completeClip);
             completed = true;
             DongSonDrumPatternGameManager.Instance.AddPoint();
+        }
+    }
+
+    IEnumerator LerpColor() {
+        while (!completed) {
+            // t goes 0 → 1 → 0 over time
+            float t = Mathf.PingPong(Time.time / changeDuration, 1f);
+
+            spriteRenderer.material.color = Color.Lerp(startColor, endColor, t);
+
+            yield return null;
         }
     }
 

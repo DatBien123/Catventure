@@ -4,6 +4,8 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
 {
     [SerializeField] private DragToSlotPuzzleSlot _slot;
 
+    [SerializeField] private ParticleSystem _particleSystem;
+
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _pickupClip;
     [SerializeField] private AudioClip _dropClip;
@@ -41,6 +43,7 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
         if (Vector2.Distance(transform.position, _slot.transform.position) < 0.5f)
         {
             transform.position = _slot.transform.position;
+            _particleSystem.Play();
             _slot.PlacedCorrectly();
             FixSwordGameManager.Instance.AddPoint();
 
