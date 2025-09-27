@@ -55,6 +55,7 @@ public class UIInventory : MonoBehaviour
 
     [Header("References")]
     public CoinFlush CoinFlush;
+    public CoinFlush EnegyFlush;
     public UIYabis UIYabis;
     public UIFarm UIFarm;
 
@@ -68,6 +69,14 @@ public class UIInventory : MonoBehaviour
     private void OnEnable()
     {
         RefreshUI();
+    }
+
+    private void OnDisable()
+    {
+        if(CoinFlush != null)
+        CoinFlush.StopCoinEffect();
+        if (EnegyFlush != null)
+        EnegyFlush.StopCoinEffect();
     }
     private void Awake()
     {
@@ -264,6 +273,7 @@ public class UIInventory : MonoBehaviour
             uiSlot.slotData = invSlot;
 
             uiSlot.SetupSlot(invSlot);
+            uiSlot.Outline.enabled = false;
             uiSlots.Add(uiSlot);
         }
 

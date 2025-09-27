@@ -6,8 +6,8 @@ public class CoinFlush : MonoBehaviour
 {
     [Header("Settings")]
     public RectTransform moneyCounter; // Kéo UI counter vào đây
-    public GameObject coinPrefab; // Prefab coin Image
-    public int numCoins = 10; // Số coin rơi
+    public Coin coinPrefab; // Prefab coin Image
+    //public int numCoins = 10; // Số coin rơi
     public Vector2 spawnArea = new Vector2(800, 600); // Vùng spawn (pixels, tùy resolution)
     public float fallDuration = 1f; // Thời gian rơi
     public float flyDuration = 0.5f; // Thời gian bay vào counter
@@ -15,32 +15,45 @@ public class CoinFlush : MonoBehaviour
 
     private Canvas canvas;
 
+    #region [ Pool ]
+    [SerializeField] protected int poolCount = 10;
+    protected ObjectPooler<Coin> pooler { get; private set; }
+    //protected GameObject poolParent;
+
+    #endregion
+
+    private void Awake()
+    {
+        pooler = new ObjectPooler<Coin>();
+        pooler.Initialize(this, poolCount, coinPrefab, transform);
+    }
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
         // Gọi effect khi cần (ví dụ: từ script khác)
         // StartCoinEffect();
     }
-
-    private void Update()
+    public void StartCoinEffect(int numCoins)
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        StartCoroutine(SpawnAndAnimateCoins(numCoins));
+    }
+
+    public void StopCoinEffect()
+    {
+        foreach (Transform child in transform)
         {
-            Debug.Log("Hello");
-            StartCoinEffect();
+            pooler.Free(child.GetComponent<Coin>());
         }
     }
-    public void StartCoinEffect()
+    private IEnumerator SpawnAndAnimateCoins(int numCoins)
     {
-        StartCoroutine(SpawnAndAnimateCoins());
-    }
-
-    private IEnumerator SpawnAndAnimateCoins()
-    {
+        numCoins = Mathf.Clamp(numCoins, 1, 10); 
         for (int i = 0; i < numCoins; i++)
         {
             // Spawn coin tại vị trí ngẫu nhiên cao (rơi từ trên)
-            RectTransform coinRect = Instantiate(coinPrefab, transform).GetComponent<RectTransform>();
+            RectTransform coinRect = pooler.GetNew().GetComponent<RectTransform>();
+            coinRect.localScale = Vector3.one;
+
             Vector2 spawnPos = new Vector2(
                 Random.Range(-spawnArea.x / 2, spawnArea.x / 2),
                 Random.Range(spawnArea.y / 2, spawnArea.y) // Cao để rơi xuống
@@ -52,6 +65,8 @@ public class CoinFlush : MonoBehaviour
 
             yield return new WaitForSeconds(delayBetweenCoins);
         }
+
+
     }
 
     private IEnumerator AnimateFall(RectTransform coin, float duration)
@@ -99,10 +114,44 @@ public class CoinFlush : MonoBehaviour
         }
 
         // Xóa coin sau khi bay xong
-        Destroy(coin.gameObject);
+        pooler.Free(coin.GetComponent<Coin>());
+
+        // Chạy animation zoom cho counter
+        StartCoroutine(AnimateCounterZoom());
 
         // Cập nhật counter (ví dụ: tăng tiền)
         //UpdateMoneyCounter(1); // Thay bằng logic thực
+    }
+    private IEnumerator AnimateCounterZoom()
+    {
+        float zoomDuration = 0.3f; // Thời gian zoom
+        Vector3 originalScale = Vector3.one; // Lưu scale gốc
+        Vector3 zoomScale = originalScale * 1.2f; // Zoom to 120%
+
+        // Zoom to lớn
+        float elapsed = 0f;
+        while (elapsed < zoomDuration / 2)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / (zoomDuration / 2);
+            t = Mathf.SmoothStep(0f, 1f, t); // Smooth easing
+            moneyCounter.localScale = Vector3.Lerp(originalScale, zoomScale, t);
+            yield return null;
+        }
+
+        // Thu nhỏ về kích thước ban đầu
+        elapsed = 0f;
+        while (elapsed < zoomDuration / 2)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / (zoomDuration / 2);
+            t = Mathf.SmoothStep(0f, 1f, t); // Smooth easing
+            moneyCounter.localScale = Vector3.Lerp(zoomScale, originalScale, t);
+            yield return null;
+        }
+
+        // Đảm bảo scale chính xác về gốc
+        moneyCounter.localScale = originalScale;
     }
 
     //private void UpdateMoneyCounter(int amount)

@@ -119,7 +119,10 @@ public class UIAmountPicker : MonoBehaviour
 
             UIItemDetail.UIInventory.RefreshUI();
 
-            UIItemDetail.UIInventory.CoinFlush.StartCoinEffect();
+            if(UIItemDetail.UIInventory.CoinFlush)
+            UIItemDetail.UIInventory.CoinFlush.StartCoinEffect(
+                Mathf.CeilToInt(UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity / 10f)
+            );
         }
         else if( CurrentPickerAction == EPickerAction.Buy)
         {
@@ -155,6 +158,11 @@ public class UIAmountPicker : MonoBehaviour
                 UIItemDetail.UIInventory.UIFarm.UpdateResourceUI();
 
             UIItemDetail.UIInventory.RefreshUI();
+
+            if(UIItemDetail.UIInventory.EnegyFlush)
+            UIItemDetail.UIInventory.EnegyFlush.StartCoinEffect(
+    Mathf.CeilToInt((UIItemDetail.CurrentItemInstance.ItemStaticData as SO_Consumable).ConsumableData.energyRestore * quantity / 10f)
+);
         }
 
         UIItemDetail.gameObject.SetActive(false);
