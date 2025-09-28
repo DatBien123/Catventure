@@ -15,7 +15,7 @@ MonoBehaviour:
   commonData:
     itemID: 5
     itemName: "C\xE2y H\xE0nh l\xE1"
-    icon: {fileID: 21300000, guid: dfc8fa5d4bbed304ab6d5037db2f3756, type: 3}
+    icon: {fileID: 21300000, guid: 8dbc2b96161f5d140bb7feccb8c168dd, type: 3}
     description: "Nguy\xEAn li\u1EC7u quen thu\u1ED9c gi\xFAp c\xE1c m\xF3n \u0103n
       th\xEAm \u0111\u1EADm \u0111\xE0 v\xE0 h\u1EA5p d\u1EABn h\u01A1n!"
     itemType: 4

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,14 @@ public class UIBookSlotDetail : MonoBehaviour
 
     private void Awake()
     {
+    }
+
+    private void OnEnable()
+    {
+        transform.localScale = Vector3.zero; // Start from zero scale
+        transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
+            .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
+            .OnComplete(() => transform.DOScale(1f, 0.2f)); // Settle back to 1f
     }
     void Start()
     {
