@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public abstract class BaseMinigame : MonoBehaviour, IMinigame
@@ -12,6 +13,7 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     [SerializeField] protected VictoryRewardScreen victoryRewardScreen;
     [SerializeField] protected Button tapToContinueButton;
     [SerializeField] public GameObject inputBlocker;
+    [SerializeField] private PopUpUI popupUI;
 
     public event System.Action<bool> OnGameEnd;
 
@@ -19,12 +21,17 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     {
         if (health != null) health.OnHealthZero += OnHealthDepleted;
         if (countDownTimer != null) countDownTimer.OnTimeUp += OnTimeUp;
+        UIEventSystem.Register("Exit Game", ExitGame);
+        UIEventSystem.Register("Replay", Replay);
     }
 
     protected virtual void OnDisable()
     {
         if (health != null) health.OnHealthZero -= OnHealthDepleted;
         if (countDownTimer != null) countDownTimer.OnTimeUp -= OnTimeUp;
+        UIEventSystem.Unregister("Exit Game", ExitGame);
+        UIEventSystem.Unregister("Replay", Replay);
+
     }
 
     public virtual void StartGame()
@@ -62,4 +69,25 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     // tiện để các minigame con truy cập
     public HealthSystem GetHealthSystem() => health;
     public CountDownTimerSystem GetCountDownSystem() => countDownTimer;
+    public void ExitGame()
+    {
+        // Thoát game về home menu
+        Debug.Log("Quay về home menu");
+        popupUI.ShowConfirm(
+        "MENU",
+        "Bạn muốn về Home Menu sao?",
+        yesCallback: () => {
+            Debug.Log("Về Home Menu");
+            AudioManager.instance.StopAllSounds();
+            SceneManager.LoadScene("Home Scene");
+    },
+        noCallback: () => {
+    }
+        );
+
+    }
+    public virtual void Replay()
+    {
+        
+    }
 }

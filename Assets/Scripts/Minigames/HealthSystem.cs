@@ -23,10 +23,10 @@ public class HealthSystem : MonoBehaviour
         currentHealth = Mathf.Max(currentHealth - amount, 0);
         // báo sự kiện giảm máu để cập nhật UI
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        if(currentHealth <= 0) // máu về 0 rồi là GameOver 
+        if (currentHealth <= 0) // máu về 0 rồi là GameOver 
         {
-            OnHealthZero?.Invoke(); 
-        }    
+            OnHealthZero?.Invoke();
+        }
     }
     public void HealHealth(int amount)
     {

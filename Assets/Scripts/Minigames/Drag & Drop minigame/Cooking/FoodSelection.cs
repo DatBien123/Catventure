@@ -78,8 +78,8 @@ public class FoodSelection : MonoBehaviour
                 "Bạn có muốn nấu món " + currentFood.dishName + " không?",
                 yesCallback: () => {
                     // Thực hiện nấu
-                    foreach (var req in currentFood.ingredients)
-                        zera.Inventory.RemoveItem(req.ingredient, req.requiredAmount);
+                    //foreach (var req in currentFood.ingredients)
+                    //    zera.Inventory.RemoveItem(req.ingredient, req.requiredAmount);
 
                     dragDropCookingMinigame.Setup(currentFood.recipe);
                     foodSelectionUI.gameObject.SetActive(false);

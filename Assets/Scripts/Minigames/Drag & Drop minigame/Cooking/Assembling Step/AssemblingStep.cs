@@ -15,6 +15,8 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
     public GameObject bowl;
     public List<GameObject> ingredients;
     public GameObject blinkEffect;
+    public GameObject smokeWhispEffect;
+
 
     public DragDropCookingMinigame dragDropCookingMinigame;
 
@@ -57,6 +59,9 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
         sq1.Join(rtBowl.DOAnchorPosY(originalPosBowl.y - 15f, 0.3f).SetEase(Ease.OutCubic));
         sq1.AppendCallback(() =>
         {
+            GameObject effect = Instantiate(smokeWhispEffect, assemblingUI.transform);
+            RectTransform rt = effect.GetComponent<RectTransform>();
+            rt.anchoredPosition = new Vector2(0, 200f);
             AudioManager.instance.PlaySFX("Button Pop Sound");
         });
         sq1.Append(rtBowl.DOAnchorPosY(originalPosBowl.y, 0.15f).SetEase(Ease.OutBack));

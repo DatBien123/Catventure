@@ -37,6 +37,7 @@ public class QTEBar : MonoBehaviour
     private void Start()
     {
         cookingProgress.slider.onValueChanged.AddListener(OnCookingProgressChanged);
+        QTEPressButton.SetDelayTime(1.5f);
     }
 
     private void OnCookingProgressChanged(float value)

@@ -25,6 +25,19 @@ public class FoodSelectionUI : MonoBehaviour
         foodSelection.currentFood = foodData;   
         foodNameText.text = foodData.dishName;
 
+        int ownedNumber = 0;
+
+        // Kiểm tra item có tồn tại không
+        if (foodSelection.zera.Inventory.CheckItemExist(foodData))
+        {
+            ownedNumber = foodSelection.zera.Inventory.GetTotalQuantity(foodData);
+        }
+        else
+        {
+            ownedNumber = 0;
+        }
+        ownedNumberText.text = $"SỞ HỮU: {ownedNumber}";
+
         foodImage.sprite = foodData.icon;
         foodDescriptionText.text = foodData.dishDescription;
 

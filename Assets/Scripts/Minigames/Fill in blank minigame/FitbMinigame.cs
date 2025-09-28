@@ -89,6 +89,7 @@ public class FitbMinigame : BaseMinigame
         if (isCorrect)
         {
             correctAnswers++;
+            fitbUI.FillBlankWithAnswer(currentQuestion.correctAnswer);
             fitbUI.ShowCorrectFeedback();
             //PlayVideoAfterAnswerQuestion(currentQuestion);
             inputBlocker.SetActive(true);

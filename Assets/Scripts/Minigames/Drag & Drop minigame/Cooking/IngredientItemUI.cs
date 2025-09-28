@@ -13,7 +13,6 @@ public class IngredientItemUI : MonoBehaviour
     public void Setup(IngredientRequirement req)
     {
         icon.sprite = req.ingredient.commonData.icon;
-        Debug.Log(req.ingredient.commonData.itemName);
         int ownedNumber = 0;
 
         // Kiểm tra item có tồn tại không

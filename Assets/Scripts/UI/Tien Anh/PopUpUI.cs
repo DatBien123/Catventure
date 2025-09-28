@@ -33,9 +33,12 @@ public class PopUpUI : MonoBehaviour
         noButton.onClick.RemoveAllListeners();
 
         yesButton.onClick.AddListener(() => {
-            if (tutorialManager.currentPart.TutorialName == "Cooking Tutorial" && tutorialManager.currentStep.stepName == "Xác nhận nấu")
+            if (tutorialManager != null)
             {
-                tutorialManager.ApplyNextStep("Xác nhận nấu");
+                if (tutorialManager.currentPart.TutorialName == "Cooking Tutorial" && tutorialManager.currentStep.stepName == "Xác nhận nấu")
+                {
+                    tutorialManager.ApplyNextStep("Xác nhận nấu");
+                }
             }
             onYes?.Invoke();
             Hide();

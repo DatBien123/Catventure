@@ -52,8 +52,7 @@ public class CookingManager : MonoBehaviour
     }
     public void CompleteStep()
     {
-        AudioManager.instance.StopAllSoundFX();
-        AudioManager.instance.StopAllMusic();
+        AudioManager.instance.StopAllSounds();
 
         currentStepIndex++;
         LoadStep();
