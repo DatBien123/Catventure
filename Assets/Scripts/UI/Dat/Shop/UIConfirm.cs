@@ -47,6 +47,11 @@ public class UIConfirm : MonoBehaviour
     }
     public void Buy(SO_Item item)
     {
+        if(UIShop.AudioManager != null)
+        {
+            UIShop.AudioManager.PlaySFX("Apply");
+        }
+
         if(item is SO_Outfit)
         {
             if (UIShop.ShopManager.owner.Coin >= item.commonData.price)

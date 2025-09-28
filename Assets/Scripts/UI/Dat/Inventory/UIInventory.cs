@@ -58,6 +58,7 @@ public class UIInventory : MonoBehaviour
     public CoinFlush EnegyFlush;
     public UIYabis UIYabis;
     public UIFarm UIFarm;
+    public AudioManager AudioManager;
 
     #region [ Pool ]
     [SerializeField] protected int poolCount = 100;
@@ -109,6 +110,10 @@ public class UIInventory : MonoBehaviour
     #region [Filter]
     public void ChangeFilter(FilterType filter)
     {
+        if(AudioManager != null)
+        {
+            AudioManager.PlaySFX("Filter");
+        }
         currentFilter = filter;
         RefreshUI();
     }
@@ -151,6 +156,11 @@ public class UIInventory : MonoBehaviour
     }
     public void Wear(ItemInstance ItemToWear)
     {
+        if (AudioManager != null)
+        {
+            AudioManager.PlaySFX("Wear");
+        }
+
         OnWear?.Invoke();
         //Luồng: Huỷ IsEquiped - Gán mới tham chiếu 
         if(ItemToWear.ItemStaticData as SO_Outfit)
@@ -207,6 +217,10 @@ public class UIInventory : MonoBehaviour
     }
     public void TakeOff(ItemInstance ItemToTakeOff)
     {
+        if (AudioManager != null)
+        {
+            AudioManager.PlaySFX("Take Off");
+        }
         OnTakeOff?.Invoke();
 
         if (ItemToTakeOff.ItemStaticData.commonData.itemType == ItemType.Shirt)

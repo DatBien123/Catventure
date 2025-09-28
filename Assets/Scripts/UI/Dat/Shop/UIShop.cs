@@ -28,6 +28,7 @@ public class UIShop : MonoBehaviour
     public UIItemDetail UIItemDetail;
     public UIYabis UIYabis;
     public UIConfirm UIConfirmPurchase;
+    public AudioManager AudioManager;
 
     [Header("Data")]
     public TextMeshProUGUI Energy;
@@ -63,6 +64,10 @@ public class UIShop : MonoBehaviour
     }
     public void ChangeFilter(FilterType filter)
     {
+        if (AudioManager != null)
+        {
+            AudioManager.PlaySFX("Filter");
+        }
         currentFilter = filter;
         RefreshShopUI();
     }

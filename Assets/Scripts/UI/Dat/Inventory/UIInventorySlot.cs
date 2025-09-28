@@ -43,7 +43,12 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
     {
         //Loop through all these slots of inventory
         //Deselect All
-        foreach(var uiSlot in uiInventory.uiSlots)
+        if (uiInventory.AudioManager != null)
+        {
+            uiInventory.AudioManager.PlaySFX("Choose Item");
+        }
+
+        foreach (var uiSlot in uiInventory.uiSlots)
         {
             uiSlot.isSelected = false;
             uiSlot.Outline.enabled = false;

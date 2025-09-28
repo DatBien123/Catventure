@@ -84,6 +84,10 @@ public class StoryGenerator : MonoBehaviour
     #region [Interact]
     void StartRotateStories(int direction)
     {
+        if(StoryManager.AudioManager != null)
+        {
+            StoryManager.AudioManager.PlaySFX("Click Map Home");
+        }
         if (StoryManager == null) return;
         if (C_RotateStories == null)
             C_RotateStories = StartCoroutine(RotateStories(direction));
@@ -175,6 +179,10 @@ public class StoryGenerator : MonoBehaviour
         {
             Debug.LogWarning("StoryManager hoặc StoryPrefab bị null");
             return;
+        }
+        if (StoryManager.AudioManager != null)
+        {
+            StoryManager.AudioManager.PlaySFX("Book Flip");
         }
 
         int count = StoryManager.Stories.Count;

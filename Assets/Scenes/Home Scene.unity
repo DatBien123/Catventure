@@ -1007,8 +1007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -668.3352}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -907.978}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28139808
 MonoBehaviour:
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_text: 12000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5472703575166507583, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1858,6 +1858,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &45777999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,6 +2196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetUI: {fileID: 51745019}
+  AudioManager: {fileID: 1247360657}
 --- !u!1 &67519987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2458,8 +2471,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650, y: -77.07298}
-  m_SizeDelta: {x: 1000, y: 154.14597}
+  m_AnchoredPosition: {x: 650, y: -89.07103}
+  m_SizeDelta: {x: 1000, y: 178.14206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85822183
 MonoBehaviour:
@@ -2579,7 +2592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -47.941647}
+  m_AnchoredPosition: {x: 200, y: -67.20217}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91964187
@@ -4793,6 +4806,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &168956322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6112,6 +6137,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Apply
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236988033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6865,7 +6902,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -1008.85864}
+  m_SizeDelta: {x: 0, y: -1557.8804}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &255126306
 MonoBehaviour:
@@ -7619,7 +7656,7 @@ MonoBehaviour:
   m_text: "Mua h\xE0ng th\u1EA5t b\u1EA1i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5472703575166507583, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8760,8 +8797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -126.371826}
-  m_SizeDelta: {x: 250, y: 252.74365}
+  m_AnchoredPosition: {x: 150, y: -178.78142}
+  m_SizeDelta: {x: 250, y: 357.56284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350543589
 MonoBehaviour:
@@ -8916,6 +8953,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Map Home
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &354771680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9051,7 +9100,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278762086
+    rgba: 4278761914
   m_fontColor: {r: 0.7294118, g: 0.72713816, b: 0.031372562, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -9366,6 +9415,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Map Home
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &387719111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9611,7 +9672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 100, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413570304
@@ -9927,6 +9988,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &432637870
@@ -11042,8 +11115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1200, y: -594.4293}
-  m_SizeDelta: {x: 800, y: 1188.8586}
+  m_AnchoredPosition: {x: 1200, y: -868.9402}
+  m_SizeDelta: {x: 800, y: 1737.8804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475227185
 MonoBehaviour:
@@ -11849,8 +11922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -900.1018}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -1216.7867}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509606446
 MonoBehaviour:
@@ -14153,7 +14226,7 @@ MonoBehaviour:
   m_text: Ok
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5472703575166507583, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16154,8 +16227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -552.4519}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -753.57367}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790479063
 MonoBehaviour:
@@ -16455,7 +16528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -369.66824}
+  m_AnchoredPosition: {x: 340, y: -894.09485}
   m_SizeDelta: {x: 395, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825911537
@@ -17244,7 +17317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 50, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880445197
@@ -17955,7 +18028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -47.941647}
+  m_AnchoredPosition: {x: 200, y: -67.20217}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942322629
@@ -18298,8 +18371,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -320.6853}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -444.765}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947621314
 MonoBehaviour:
@@ -18880,7 +18953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 187.5, y: -47.941647}
+  m_AnchoredPosition: {x: 187.5, y: -67.20217}
   m_SizeDelta: {x: 100, y: 51.333973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961740375
@@ -20828,6 +20901,18 @@ MonoBehaviour:
           m_StringArgument: Exit Tap
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1061241340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21227,6 +21312,7 @@ MonoBehaviour:
   BookSlotDetail: {fileID: 280063526}
   BookManager: {fileID: 1069763082}
   Animator: {fileID: 1069763081}
+  AudioManager: {fileID: 1247360657}
   LeftGridLayoutGroup: {fileID: 500502940}
   RightGridLayoutGroup: {fileID: 1181834732}
 --- !u!1 &1074295122
@@ -21662,6 +21748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetUI: {fileID: 1099630718}
+  AudioManager: {fileID: 1247360657}
 --- !u!1001 &1100546304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21927,6 +22014,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Function Yabis
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1101753298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22025,7 +22124,7 @@ MonoBehaviour:
   m_text: "C\xF2n thi\u1EBFu: "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -5472703575166507583, guid: 1d707d9898c7181418eb0b7e28860416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -22447,6 +22546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881ff4d59e381f5408555aa50cdd0b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1247360657}
   Stories:
   - {fileID: 11400000, guid: ebef00d4064b91f4f8f5943ee3613dce, type: 2}
   - {fileID: 11400000, guid: d8cad8691fc3c17408a19f0423008ce6, type: 2}
@@ -23353,7 +23453,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1101753295}
   - {fileID: 1704392433}
@@ -23363,7 +23463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1032.5, y: -369.66824}
+  m_AnchoredPosition: {x: 1032.5, y: -894.09485}
   m_SizeDelta: {x: 850, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160284930
@@ -24686,6 +24786,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Map Home
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1209449647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24894,7 +25006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 75, y: 51.333973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220091290
@@ -25217,7 +25329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 100, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238187046
@@ -25705,12 +25817,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: ================== Home =================
+    clip: {fileID: 8300000, guid: 5089864b0a5e5cd4cb2dd2d1a9b296f2, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
-    type: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Click Function Home
+    clip: {fileID: 8300000, guid: 43aee00a6c213cd46b58670d982d2da3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Click Map Home
+    clip: {fileID: 8300000, guid: 488d46b9a683f3b40a57e7165742191c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: ================== Yabis ==================
+    clip: {fileID: 8300000, guid: 5089864b0a5e5cd4cb2dd2d1a9b296f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Click Function Yabis
+    clip: {fileID: 8300000, guid: 5089864b0a5e5cd4cb2dd2d1a9b296f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Close
+    clip: {fileID: 8300000, guid: 5ed78397e81da554ab0786d13a382eb2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: ================== Inventory ==================
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Choose Item
+    clip: {fileID: 8300000, guid: 8e7cc9cf5125bfb42be125193168240a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Wear
+    clip: {fileID: 8300000, guid: f5619949c5a7e6048917b2c0d37af1ec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Take Off
+    clip: {fileID: 8300000, guid: 8e7cc9cf5125bfb42be125193168240a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Use
+    clip: {fileID: 8300000, guid: dda4ac956b9c1d647b00c35a652f8225, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Sell
+    clip: {fileID: 8300000, guid: 28fb6c35d3afe754fb1f6f22b75a4168, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Buy
+    clip: {fileID: 8300000, guid: 488d46b9a683f3b40a57e7165742191c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Increase & Decrease
+    clip: {fileID: 8300000, guid: 8e7cc9cf5125bfb42be125193168240a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Apply
+    clip: {fileID: 8300000, guid: 8e7cc9cf5125bfb42be125193168240a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Filter
+    clip: {fileID: 8300000, guid: d672d908f5b66e345a077a4974edc096, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: ================== Book ==================
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
+    source: {fileID: 0}
+  - name: Book Flip
+    clip: {fileID: 8300000, guid: 45f98c1cc35068546843e5b3ae153d9d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    type: 1
     source: {fileID: 0}
 --- !u!4 &1247360658
 Transform:
@@ -26492,8 +26723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 950, y: -499.0217}
-  m_SizeDelta: {x: 1300, y: 998.0434}
+  m_AnchoredPosition: {x: 950, y: -666.99445}
+  m_SizeDelta: {x: 1300, y: 1333.9889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261769672
 MonoBehaviour:
@@ -27942,8 +28173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -436.5686}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -599.1693}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324541340
 MonoBehaviour:
@@ -29476,8 +29707,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650, y: -576.0947}
-  m_SizeDelta: {x: 1200, y: 843.89746}
+  m_AnchoredPosition: {x: 650, y: -756.06555}
+  m_SizeDelta: {x: 1200, y: 1155.8469}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387562514
 MonoBehaviour:
@@ -31033,6 +31264,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1491712044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31105,7 +31348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -47.941647}
+  m_AnchoredPosition: {x: 200, y: -67.20217}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495502574
@@ -31760,7 +32003,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507579465}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1507579468
 Camera:
   m_ObjectHideFlags: 0
@@ -32545,6 +32788,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Yabis Tap
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Function Home
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1547664327
@@ -33550,6 +33805,7 @@ MonoBehaviour:
   UIItemDetail: {fileID: 1099630724}
   UIYabis: {fileID: 1878245985}
   UIConfirmPurchase: {fileID: 1099630720}
+  AudioManager: {fileID: 1247360657}
   Energy: {fileID: 1294522935}
   Coin: {fileID: 456018703}
   CurrentUIShopSlotSelected: {fileID: 0}
@@ -33950,7 +34206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175, y: -47.941647}
+  m_AnchoredPosition: {x: 175, y: -67.20217}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636102105
@@ -34869,6 +35125,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1659458928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35075,6 +35343,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Apply
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1673711124
@@ -35488,6 +35768,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1691482547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35879,6 +36171,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Function Yabis
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1704392435
@@ -36303,6 +36607,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Map Home
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1717230985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36607,8 +36923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -594.4293}
-  m_SizeDelta: {x: 800, y: 1188.8586}
+  m_AnchoredPosition: {x: 400, y: -868.9402}
+  m_SizeDelta: {x: 800, y: 1737.8804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730521957
 MonoBehaviour:
@@ -36803,7 +37119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737906085
@@ -36878,7 +37194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -47.941647}
+  m_AnchoredPosition: {x: 185, y: -67.20217}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740886816
@@ -37238,6 +37554,7 @@ MonoBehaviour:
   EnegyFlush: {fileID: 1645508492}
   UIYabis: {fileID: 1878245985}
   UIFarm: {fileID: 0}
+  AudioManager: {fileID: 1247360657}
   poolCount: 100
 --- !u!114 &1763102000
 MonoBehaviour:
@@ -37869,6 +38186,18 @@ MonoBehaviour:
           m_StringArgument: Minigame_Drag&DropCooking
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Buy
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1773422797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38025,8 +38354,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -499.0217}
-  m_SizeDelta: {x: 300, y: 998.0434}
+  m_AnchoredPosition: {x: 150, y: -666.99445}
+  m_SizeDelta: {x: 300, y: 1333.9889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783312292
 MonoBehaviour:
@@ -39145,6 +39474,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Function Yabis
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1819321888
@@ -40836,6 +41177,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247360657}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Click Function Yabis
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1930253491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41381,7 +41734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -47.941647}
+  m_AnchoredPosition: {x: 100, y: -67.20217}
   m_SizeDelta: {x: 100, y: 22.36434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963909204
@@ -42164,8 +42517,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -784.2185}
-  m_SizeDelta: {x: 300, y: 95.88329}
+  m_AnchoredPosition: {x: 150, y: -1062.3824}
+  m_SizeDelta: {x: 300, y: 134.40434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004615594
 MonoBehaviour:

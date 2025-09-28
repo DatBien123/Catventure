@@ -53,18 +53,30 @@ public class UIItemDetail : MonoBehaviour
 
     public void Use()
     {
+        if(UIInventory.AudioManager != null)
+        {
+            UIInventory.AudioManager.PlaySFX("Choose Item");
+        }
         UIMountPicker.gameObject.SetActive(true);
         UIMountPicker.SetupAmountPicker(CurrentItemInstance, EPickerAction.Use);
     }
 
     public void Sell()
     {
+        if (UIInventory.AudioManager != null)
+        {
+            UIInventory.AudioManager.PlaySFX("Choose Item");
+        }
         UIMountPicker.gameObject.SetActive(true);
         UIMountPicker.SetupAmountPicker(CurrentItemInstance, EPickerAction.Sell);
     }
 
     public void Buy()
     {
+        if (UIInventory.AudioManager != null)
+        {
+            UIInventory.AudioManager.PlaySFX("Buy");
+        }
         UIMountPicker.gameObject.SetActive(true);
         UIMountPicker.SetupAmountPicker(CurrentItemInstance, EPickerAction.Buy);
     }

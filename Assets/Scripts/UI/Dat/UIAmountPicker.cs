@@ -80,6 +80,11 @@ public class UIAmountPicker : MonoBehaviour
     #region [Actions]
     public void Decrease()
     {
+        if(UIItemDetail.UIInventory.AudioManager != null)
+        {
+            UIItemDetail.UIInventory.AudioManager.PlaySFX("Increase & Decrease");
+        }
+
         quantity -= 1;
         if(quantity < 1)
         {
@@ -93,6 +98,11 @@ public class UIAmountPicker : MonoBehaviour
     }
     public void Increase()
     {
+        if (UIItemDetail.UIInventory.AudioManager != null)
+        {
+            UIItemDetail.UIInventory.AudioManager.PlaySFX("Increase & Decrease");
+        }
+
         quantity += 1;
         if (quantity > totalQuantity)
         {
@@ -123,6 +133,11 @@ public class UIAmountPicker : MonoBehaviour
             UIItemDetail.UIInventory.CoinFlush.StartCoinEffect(
                 Mathf.CeilToInt(UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity / 10f)
             );
+
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Sell");
+            }
         }
         else if( CurrentPickerAction == EPickerAction.Buy)
         {
@@ -141,6 +156,11 @@ public class UIAmountPicker : MonoBehaviour
                 {
                     TutorialManager.ApplyNextStep("Mua");
                 }
+            }
+
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Buy");
             }
 
         }
@@ -163,6 +183,11 @@ public class UIAmountPicker : MonoBehaviour
             UIItemDetail.UIInventory.EnegyFlush.StartCoinEffect(
     Mathf.CeilToInt((UIItemDetail.CurrentItemInstance.ItemStaticData as SO_Consumable).ConsumableData.energyRestore * quantity / 10f)
 );
+
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Use");
+            }
         }
 
         UIItemDetail.gameObject.SetActive(false);
