@@ -60,6 +60,7 @@ public class UIBook : MonoBehaviour
     public UIBookSlotDetail BookSlotDetail;
     public BookManager BookManager;
     public Animator Animator;
+    public AudioManager AudioManager;
 
     public GridLayoutGroup LeftGridLayoutGroup;
     public GridLayoutData CurrentLeftGridLayoutData;
@@ -236,6 +237,11 @@ public class UIBook : MonoBehaviour
     {
         if (CurrentFilterType == FilterType) return;
 
+        if(AudioManager != null)
+        {
+            AudioManager.PlaySFX("Filter");
+        }
+
         CurrentFilterType = FilterType;
         CurrentCouplePage = 1; // reset về trang 1 mỗi khi đổi filter
 
@@ -278,6 +284,10 @@ public class UIBook : MonoBehaviour
     {
         if (CurrentCouplePage < CurrentMaxCouplePage)
         {
+            if (AudioManager != null)
+            {
+                AudioManager.PlaySFX("Book Flip");
+            }
             CurrentCouplePage += 1;
             Animator.CrossFadeInFixedTime(AnimationParams.BOOK_FLIP_RTL, 0.0f);
             RefreshBookUI();
@@ -287,6 +297,10 @@ public class UIBook : MonoBehaviour
     {
         if (CurrentCouplePage > 1)
         {
+            if(AudioManager != null)
+            {
+                AudioManager.PlaySFX("Book Flip");
+            }
             CurrentCouplePage -= 1;
             Animator.CrossFadeInFixedTime(AnimationParams.BOOK_FLIP_LTR, 0.0f);
             RefreshBookUI();
@@ -297,8 +311,14 @@ public class UIBook : MonoBehaviour
     #region [Buttons]
     public void Exit()
     {
-        if(isButtonEnable)
-        parentObject.SetActive(false);
+        if (isButtonEnable)
+        {
+            if (AudioManager != null)
+            {
+                AudioManager.PlaySFX("Close");
+            }
+            parentObject.SetActive(false);
+        }
     }
     public void EnableButtons()
     {

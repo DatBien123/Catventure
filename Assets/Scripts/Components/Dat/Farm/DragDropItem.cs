@@ -67,6 +67,11 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             else if (gameObject.name == "Pickaxe") Ghost.spriteRenderer.sprite = FarmManager.PickaxeSprite;
         }
 
+        if(FarmManager.AudioManager != null)
+        {
+            FarmManager.AudioManager.PlaySFX("Apply");
+        }
+
     }
     #endregion
 

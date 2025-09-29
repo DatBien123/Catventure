@@ -80,6 +80,11 @@ public class UIAmountPicker : MonoBehaviour
     #region [Actions]
     public void Decrease()
     {
+        if(UIItemDetail.UIInventory.AudioManager != null)
+        {
+            UIItemDetail.UIInventory.AudioManager.PlaySFX("Increase & Decrease");
+        }
+
         quantity -= 1;
         if(quantity < 1)
         {
@@ -93,6 +98,11 @@ public class UIAmountPicker : MonoBehaviour
     }
     public void Increase()
     {
+        if (UIItemDetail.UIInventory.AudioManager != null)
+        {
+            UIItemDetail.UIInventory.AudioManager.PlaySFX("Increase & Decrease");
+        }
+
         quantity += 1;
         if (quantity > totalQuantity)
         {
@@ -119,7 +129,15 @@ public class UIAmountPicker : MonoBehaviour
 
             UIItemDetail.UIInventory.RefreshUI();
 
-            UIItemDetail.UIInventory.CoinFlush.StartCoinEffect();
+            if(UIItemDetail.UIInventory.CoinFlush)
+            UIItemDetail.UIInventory.CoinFlush.StartCoinEffect(
+                Mathf.CeilToInt(UIItemDetail.CurrentItemInstance.ItemStaticData.commonData.sellPrice * quantity / 10f)
+            );
+
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Sell");
+            }
         }
         else if( CurrentPickerAction == EPickerAction.Buy)
         {
@@ -140,6 +158,11 @@ public class UIAmountPicker : MonoBehaviour
                 }
             }
 
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Buy");
+            }
+
         }
         else if(CurrentPickerAction == EPickerAction.Use)
         {
@@ -155,6 +178,16 @@ public class UIAmountPicker : MonoBehaviour
                 UIItemDetail.UIInventory.UIFarm.UpdateResourceUI();
 
             UIItemDetail.UIInventory.RefreshUI();
+
+            if(UIItemDetail.UIInventory.EnegyFlush)
+            UIItemDetail.UIInventory.EnegyFlush.StartCoinEffect(
+    Mathf.CeilToInt((UIItemDetail.CurrentItemInstance.ItemStaticData as SO_Consumable).ConsumableData.energyRestore * quantity / 10f)
+);
+
+            if (UIItemDetail.UIInventory.AudioManager != null)
+            {
+                UIItemDetail.UIInventory.AudioManager.PlaySFX("Use");
+            }
         }
 
         UIItemDetail.gameObject.SetActive(false);

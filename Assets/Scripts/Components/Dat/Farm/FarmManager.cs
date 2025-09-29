@@ -20,12 +20,19 @@ public class FarmManager : MonoBehaviour
     [Header("References")]
     public TutorialManager TutorialManager;
     public CharacterPlayer CharacterPlayer;
+    public AudioManager AudioManager;
     public List<Soil> Soils;
+
 
     private void Start()
     {
         // Load trạng thái nông trại khi vào scene
         FarmSaveSystem.Load(this);
+
+        if(AudioManager != null)
+        {
+            AudioManager.PlaySFX("Background Music");
+        }
     }
     public void RemoveCurrentTree()
     {

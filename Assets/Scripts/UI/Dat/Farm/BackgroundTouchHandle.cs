@@ -11,5 +11,8 @@ public class BackgroundTouchHandle : MonoBehaviour, IPointerClickHandler
         if (FarmManager.TutorialManager.isApplyTutorials) return;
         Debug.Log("Touched EMPTY background panel");
         FarmManager.gameObject.SetActive(false);
+
+        if(FarmManager.AudioManager != null)
+        FarmManager.AudioManager.PlaySFX("Close");
     }
 }

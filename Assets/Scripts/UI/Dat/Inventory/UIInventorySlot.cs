@@ -9,6 +9,8 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
     [Header("UI Components")]
     public Image iconImage;
     public TextMeshProUGUI quantityText;
+    public Outline Outline;
+
     public GameObject EquipedImage;
 
     [Header("UI Description")]
@@ -33,19 +35,28 @@ public class UIInventorySlot : MonoBehaviour,IObjectPool<UIInventorySlot>, IPoin
     {
         uiInventory = GameObject.FindAnyObjectByType<UIInventory>();
         backGroundImage = GetComponent<Image>();
+
+        Outline.enabled = false;
     }
     #region [Interaction]
     public void OnPointerClick(PointerEventData eventData)
     {
         //Loop through all these slots of inventory
         //Deselect All
-        foreach(var uiSlot in uiInventory.uiSlots)
+        if (uiInventory.AudioManager != null)
+        {
+            uiInventory.AudioManager.PlaySFX("Choose Item");
+        }
+
+        foreach (var uiSlot in uiInventory.uiSlots)
         {
             uiSlot.isSelected = false;
+            uiSlot.Outline.enabled = false;
         }
         uiInventory.currentInventorySlotSelected = this;
         uiInventory.ShowActionButton(this.slotData.ItemInstance);
         isSelected = true;
+        Outline.enabled = true;
     }
     #endregion
     public void SetupSlot(InventorySlot slot)

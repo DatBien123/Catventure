@@ -47,6 +47,11 @@ public class UIConfirm : MonoBehaviour
     }
     public void Buy(SO_Item item)
     {
+        if(UIShop.AudioManager != null)
+        {
+            UIShop.AudioManager.PlaySFX("Apply");
+        }
+
         if(item is SO_Outfit)
         {
             if (UIShop.ShopManager.owner.Coin >= item.commonData.price)
@@ -61,6 +66,7 @@ public class UIConfirm : MonoBehaviour
                 //Update Resource data cho cac giao dien khac
                 if (UIShop.UIYabis)
                     UIShop.UIYabis.UpdateResourceUI();
+
 
             }
             else

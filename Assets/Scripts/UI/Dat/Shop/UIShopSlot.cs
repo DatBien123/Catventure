@@ -37,6 +37,11 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (uiShop.AudioManager != null)
+        {
+            uiShop.AudioManager.PlaySFX("Choose Item");
+        }
+
         if (uiShop.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && uiShop.TutorialManager.currentStep.stepName == "Rời khỏi Cửa hàng Hạt giống") return;
             //Loop through all these slots of inventory
             //Deselect All
