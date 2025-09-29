@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragDropCookingMinigame : DragDropMinigame
 {
@@ -9,10 +10,13 @@ public class DragDropCookingMinigame : DragDropMinigame
     {
         base.OnEnable();
         cookingManager.onFinishCooking += ShowRewardUI;
+        UIEventSystem.Register("Quit",Quit);
     }
     protected override void OnDisable() {
         base.OnDisable();
         cookingManager.onFinishCooking -= ShowRewardUI;
+        UIEventSystem.Unregister("Quit", Quit);
+
     }
     public void Start()
     {
@@ -44,8 +48,26 @@ public class DragDropCookingMinigame : DragDropMinigame
     }
     public void ShowRewardUI()
     {
+        countDownTimer.StopCountDown();
+        foreach (var req in recipe.dishResult.ingredients)
+        {
+            zera.Inventory.RemoveItem(req.ingredient, req.requiredAmount);
+        }
         zera.Inventory.AddItem(new ItemInstance(recipe.dishResult, 1 , false));
         victoryRewardScreen.ShowRewardDragDrop(recipe.dishResult.icon, recipe.dishResult.dishName, recipe.reward,3);
+    }
+    public override void Replay()
+    {
+        base.Replay();
+        AudioManager.instance.StopAllSounds();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Quit()
+    {
+        AudioManager.instance.StopAllSounds();
+        SceneManager.LoadScene("Home Scene");
+
     }
 
 }

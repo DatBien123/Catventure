@@ -25,6 +25,6 @@ public class StartMinigamePanel : MonoBehaviour
         itemResult.sprite = sprite;
         itemNameText.text = this.itemName;
         timeRequiredText.text = $"THỜI GIAN: {timeRequired}S";
-        rewardText.text = $"PHẦN THƯỞNG: {reward} XU";
+        rewardText.text = $"PHẦN THƯỞNG: {reward}";
     }
 }

@@ -9,8 +9,20 @@ public class AudioManager : MonoBehaviour
     [Header("------Audio Clip------")]
     public Sound[] sounds;
 
+    private bool isMuted = false;  // trạng thái mute chung
+    private float savedVolume = 1f; // lưu lại âm lượng cũ để mở lại
+
     public static AudioManager instance;
 
+    public void OnEnable()
+    {
+        UIEventSystem.Register("Toggle Mute", ToggleMute);
+    }
+    public void OnDisable()
+    {
+        UIEventSystem.Unregister("Toggle Mute", ToggleMute);
+
+    }
     public void Awake()
     {
         if (instance != null && instance != this)
@@ -94,9 +106,37 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    public void StopAllSounds()
+    {
+        foreach (Sound sound in sounds)
+        {
+
+                if (sound.source.isPlaying)
+                    sound.source.Stop();
+        }
+    }
     public void PlayPronunciation(AudioClip clip)
     {
         if (clip == null) return;
         AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+    }
+
+    public void ToggleMute()
+    {
+        isMuted = !isMuted;
+
+        if (isMuted)
+        {
+            savedVolume = AudioListener.volume; // lưu âm lượng hiện tại
+            AudioListener.volume = 0f;          // tắt toàn bộ âm thanh
+        }
+        else
+        {
+            AudioListener.volume = savedVolume; // khôi phục lại âm lượng cũ
+        }
+    }
+    public bool IsMuted()
+    {
+        return isMuted;
     }
 }

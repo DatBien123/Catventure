@@ -9,6 +9,7 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
     public string actionName; // ta sẽ gõ tên cụ thể công dụng của Button này vô. "Pause", "Mute Sound",...
     public bool canClick = true; // kiểm tra có thể bấm hay không
     public bool canKeepPress;
+    private float delayTime = 0.5f; // thời gian delay giữa mỗi lần bấm để xử lý cho các button phải bấm lại liên tục 
     private void Awake()
     {
         button = GetComponent<Button>();
@@ -43,7 +44,11 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator ResetPress()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(delayTime);
         canClick = true;
+    }
+    public void SetDelayTime(float delayTime)
+    {
+        this.delayTime = delayTime; 
     }
 }

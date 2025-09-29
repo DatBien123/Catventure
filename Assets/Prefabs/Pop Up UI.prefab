@@ -217,6 +217,7 @@ MonoBehaviour:
   okButton: {fileID: 4856918698518213267}
   buttonGroupConfirm: {fileID: 7054891295499424522}
   buttonGroupOk: {fileID: 1985790689532411899}
+  tutorialManager: {fileID: 0}
 --- !u!1 &1803367750729353494
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n c\xF3 mu\u1ED1n n\u1EA5u m\xF3n Ph\u1EDF kh\xF4ng?"
+  m_Text: 
 --- !u!1 &7054891295499424522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,4 +1006,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "X\xE1c nh\u1EADn n\u1EA5u"
+  m_Text: 

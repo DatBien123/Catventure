@@ -46,7 +46,7 @@ public class BoilingStirringStep : MonoBehaviour, ICookingStep
         dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(step.timeRequired);
         //BoilingStirringUI.Instance.userInterface.SetActive(true);
         //health.gameObject.SetActive(true);
-        AudioManager.instance.PlayMusic("Cooking Background Music");
+        AudioManager.instance.PlayMusic("Cooking Background Music"); 
         Invoke(nameof(PlayInstructionLine), 1f);
         BoilingStirringUI.Instance.Setup(step);
         pot.Init(step);
@@ -94,6 +94,7 @@ public class BoilingStirringStep : MonoBehaviour, ICookingStep
     }
     public void StartHandTutorial()
     {
+        hand.gameObject.SetActive(true);   
         dragDropCookingMinigame.inputBlocker.SetActive(true); // ✅ Chặn tương tác
         hand.PlayHandCookingTutorial(() =>
         {

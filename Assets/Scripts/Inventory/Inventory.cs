@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
                     slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, 1)));
                 }
             }
+            SaveSystem.Save(owner, this);
             return;
         }
 
@@ -37,7 +38,7 @@ public class Inventory : MonoBehaviour
 
                 slot.Add(addAmount);
                 remain -= addAmount;
-
+                SaveSystem.Save(owner, this);
                 if (remain <= 0) return;
             }
         }
