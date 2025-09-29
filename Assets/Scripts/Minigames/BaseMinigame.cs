@@ -23,6 +23,7 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
         if (countDownTimer != null) countDownTimer.OnTimeUp += OnTimeUp;
         UIEventSystem.Register("Exit Game", ExitGame);
         UIEventSystem.Register("Replay", Replay);
+        UIEventSystem.Register("Back To Home Menu", BackToHomeMenu);
     }
 
     protected virtual void OnDisable()
@@ -31,7 +32,7 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
         if (countDownTimer != null) countDownTimer.OnTimeUp -= OnTimeUp;
         UIEventSystem.Unregister("Exit Game", ExitGame);
         UIEventSystem.Unregister("Replay", Replay);
-
+        UIEventSystem.Unregister("Back To Home Menu", BackToHomeMenu);
     }
 
     public virtual void StartGame()
@@ -77,9 +78,7 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
         "MENU",
         "Bạn muốn về Home Menu sao?",
         yesCallback: () => {
-            Debug.Log("Về Home Menu");
-            AudioManager.instance.StopAllSounds();
-            SceneManager.LoadScene("Home Scene");
+            BackToHomeMenu();
     },
         noCallback: () => {
     }
@@ -90,4 +89,11 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     {
         
     }
+    public void BackToHomeMenu()
+    {
+        Debug.Log("Về Home Menu");
+        AudioManager.instance.StopAllSounds();
+        SceneManager.LoadScene("Home Scene");
+    }
+
 }
