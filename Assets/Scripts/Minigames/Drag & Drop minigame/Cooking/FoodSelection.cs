@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FoodSelection : MonoBehaviour
 {
@@ -29,10 +30,14 @@ public class FoodSelection : MonoBehaviour
     public void OnEnable()
     {
         UIEventSystem.Register("Cook",Cook);
+        UIEventSystem.Register("Back To Home Menu", BackToHomeMenu);
+
     }
     public void OnDisable()
     {
         UIEventSystem.Unregister("Cook", Cook);
+        UIEventSystem.Unregister("Back To Home Menu", BackToHomeMenu);
+
     }
     void Start()
     {
@@ -113,5 +118,9 @@ public class FoodSelection : MonoBehaviour
 
         // cập nhật panel bên phải
         foodSelectionUI.ShowFoodInformation(dish);
+    }
+    public void BackToHomeMenu()
+    {
+        SceneManager.LoadScene("Home Scene");
     }
 }

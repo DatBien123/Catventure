@@ -13,7 +13,7 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     [SerializeField] protected VictoryRewardScreen victoryRewardScreen;
     [SerializeField] protected Button tapToContinueButton;
     [SerializeField] public GameObject inputBlocker;
-    [SerializeField] private PopUpUI popupUI;
+    [SerializeField] protected PopUpUI popupUI;
 
     public event System.Action<bool> OnGameEnd;
 
@@ -70,30 +70,22 @@ public abstract class BaseMinigame : MonoBehaviour, IMinigame
     // tiện để các minigame con truy cập
     public HealthSystem GetHealthSystem() => health;
     public CountDownTimerSystem GetCountDownSystem() => countDownTimer;
-    public void ExitGame()
+    public virtual void ExitGame()
     {
-        // Thoát game về home menu
-        Debug.Log("Quay về home menu");
-        popupUI.ShowConfirm(
-        "MENU",
-        "Bạn muốn về Home Menu sao?",
-        yesCallback: () => {
-            BackToHomeMenu();
-    },
-        noCallback: () => {
-    }
-        );
-
     }
     public virtual void Replay()
     {
-        
+        AudioManager.instance.StopAllSounds();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void GoToScene(string sceneName)
+    {
+        AudioManager.instance.StopAllSounds();
+        SceneManager.LoadScene(sceneName);
     }
     public void BackToHomeMenu()
     {
-        Debug.Log("Về Home Menu");
-        AudioManager.instance.StopAllSounds();
-        SceneManager.LoadScene("Home Scene");
+        GoToScene("Home Scene");
     }
 
 }
