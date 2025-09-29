@@ -67,6 +67,7 @@ public class UIConfirm : MonoBehaviour
                 if (UIShop.UIYabis)
                     UIShop.UIYabis.UpdateResourceUI();
 
+
             }
             else
             {

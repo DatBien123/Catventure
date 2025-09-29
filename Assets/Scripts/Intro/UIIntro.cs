@@ -1,4 +1,6 @@
+using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class UIIntro : MonoBehaviour
@@ -9,15 +11,15 @@ public class UIIntro : MonoBehaviour
 
     public float delayTime = 3.0f;
 
+    public TextMeshProUGUI Text;
+
     void Start()
     {
         StartIntro();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Text.transform.localScale = Vector3.zero; // Start from zero scale
+        Text.transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
+            .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
+            .OnComplete(() => Text.transform.DOScale(1f, 0.2f)); // Settle back to 1f
     }
 
     public void StartIntro()
