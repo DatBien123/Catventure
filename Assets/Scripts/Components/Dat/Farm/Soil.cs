@@ -91,6 +91,7 @@ namespace FarmSystem
         #region [OnClickEvent]
         public void OnPointerClick(PointerEventData eventData)
         {
+
             //Tuts
             if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Kéo liềm")
             {
@@ -104,6 +105,11 @@ namespace FarmSystem
             }
             //Tuts
 
+            if(FarmManager.AudioManager != null)
+            {
+                FarmManager.AudioManager.PlaySFX("Choose Item");
+            }
+            
             FarmManager.CurrentSoilSelected = this;
             Debug.Log("Current Soil is: " + FarmManager.CurrentSoilSelected.gameObject.name);
 
@@ -234,6 +240,11 @@ namespace FarmSystem
                 }
                 //Tuts
 
+                if (FarmManager.AudioManager != null)
+                {
+                    FarmManager.AudioManager.PlaySFX("Plant");
+                }
+
                 return FarmManager.CharacterPlayer.Inventory.GetTotalQuantity(loadedTreeData) > 0;
             }
 
@@ -281,6 +292,11 @@ namespace FarmSystem
                     FarmManager.TutorialManager.AllowNextStep = true;
                 }
                 //Tuts
+
+                if (FarmManager.AudioManager != null)
+                {
+                    FarmManager.AudioManager.PlaySFX("Watering");
+                }
             }
 
 
@@ -313,6 +329,11 @@ namespace FarmSystem
                     FarmManager.TutorialManager.AllowNextStep = true;
                 }
                 //Tuts
+
+                if (FarmManager.AudioManager != null)
+                {
+                    FarmManager.AudioManager.PlaySFX("Harvest");
+                }
 
             }
         }
