@@ -3292,9 +3292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ad7898b38b75a47b47da0b160c7200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: 
+  actionName: Back To Home Menu
   canClick: 1
-  canKeepPress: 0
+  canKeepPress: 1
 --- !u!114 &4466996594877241241
 MonoBehaviour:
   m_ObjectHideFlags: 0

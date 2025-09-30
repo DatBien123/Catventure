@@ -97,12 +97,27 @@ public class FitbMinigame : BaseMinigame
         }
         else
         {
+            inputBlocker.SetActive(true);
             fitbUI.ShowWrongFeedback();
             health.DecreaseHealth(1);
             DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
 
         }
-
+    }
+    public override void ExitGame()
+    {
+        base.ExitGame();
+        // Thoát game về home menu
+        Debug.Log("Quay về Home Menu");
+        popupUI.ShowConfirm(
+        "MENU",
+        "Bạn muốn về Home Menu sao?",
+        yesCallback: () => {
+            GoToScene("Home Scene");
+        },
+        noCallback: () => {
+        }
+        );
     }
 
 

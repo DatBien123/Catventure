@@ -10,12 +10,10 @@ public class DragDropCookingMinigame : DragDropMinigame
     {
         base.OnEnable();
         cookingManager.onFinishCooking += ShowRewardUI;
-        UIEventSystem.Register("Quit",Quit);
     }
     protected override void OnDisable() {
         base.OnDisable();
         cookingManager.onFinishCooking -= ShowRewardUI;
-        UIEventSystem.Unregister("Quit", Quit);
 
     }
     public void Start()
@@ -59,15 +57,23 @@ public class DragDropCookingMinigame : DragDropMinigame
     public override void Replay()
     {
         base.Replay();
-        AudioManager.instance.StopAllSounds();
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void Quit()
+    public override void ExitGame()
     {
-        AudioManager.instance.StopAllSounds();
-        SceneManager.LoadScene("Home Scene");
-
+        base.ExitGame();
+        // Thoát game về home menu
+        Debug.Log("Quay về chọn món");
+        popupUI.ShowConfirm(
+        "MENU",
+        "Bạn muốn về Menu chọn món sao?",
+        yesCallback: () => {
+            GoToScene("Minigame_Drag&DropCooking");
+        },
+        noCallback: () => {
+        }
+        );
     }
+    
+
 
 }

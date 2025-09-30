@@ -9,8 +9,8 @@ public class AudioManager : MonoBehaviour
     [Header("------Audio Clip------")]
     public Sound[] sounds;
 
-    private bool isMuted = false;  // trạng thái mute chung
-    private float savedVolume = 1f; // lưu lại âm lượng cũ để mở lại
+    private static bool isMuted = false;
+    private static float savedVolume = 1f;
 
     public static AudioManager instance;
 
@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -41,6 +40,15 @@ public class AudioManager : MonoBehaviour
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }
+    }
+
+
+    private void Start()
+    {
+        if (isMuted)
+            AudioListener.volume = 0f;
+        else
+            AudioListener.volume = savedVolume;
     }
     public void PlaySFX(string name)
     {
@@ -127,12 +135,12 @@ public class AudioManager : MonoBehaviour
 
         if (isMuted)
         {
-            savedVolume = AudioListener.volume; // lưu âm lượng hiện tại
-            AudioListener.volume = 0f;          // tắt toàn bộ âm thanh
+            savedVolume = AudioListener.volume;
+            AudioListener.volume = 0f;
         }
         else
         {
-            AudioListener.volume = savedVolume; // khôi phục lại âm lượng cũ
+            AudioListener.volume = savedVolume;
         }
     }
     public bool IsMuted()

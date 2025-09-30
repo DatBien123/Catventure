@@ -5221,6 +5221,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -260
       objectReference: {fileID: 0}
+    - target: {fileID: 3736638604920484647, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+      propertyPath: actionName
+      value: Back To Home Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 3793608152295554335, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       propertyPath: m_Name
       value: UI Canvas
