@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public bool isDestroyOnLoad = false;
+
     public void OnEnable()
     {
         UIEventSystem.Register("Toggle Mute", ToggleMute);
@@ -32,7 +34,7 @@ public class AudioManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        if(!isDestroyOnLoad)DontDestroyOnLoad(gameObject);
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();

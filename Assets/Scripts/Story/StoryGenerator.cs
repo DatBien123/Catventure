@@ -16,6 +16,10 @@ public class StoryGenerator : MonoBehaviour
     public Button Prev_Button;
     public Button Next_Button;
 
+    public Button Read_Button;
+    public Button Prev_Story;
+    public Button Next_Story;
+
     [Header("Circle Settings")]
     public float radius = 5f; // bán kính vòng tròn
     public float radiusFactor = 16;
@@ -27,7 +31,6 @@ public class StoryGenerator : MonoBehaviour
     public float rotationDuration = 0.5f; // thời gian xoay (giây)
     private Quaternion targetRotation; // rotation mục tiêu
 
-    public Story CurrentStory;
 
     public float delayShowUp = .5f;
     public float delayShowUpStories = .5f;
@@ -57,6 +60,15 @@ public class StoryGenerator : MonoBehaviour
 
         if (Next_Button != null)
             Next_Button.onClick.AddListener(() => StartRotateStories(1));
+
+        if(Read_Button != null) 
+            Read_Button.onClick.AddListener(() => Read());
+
+        if (Prev_Story != null)
+            Prev_Story.onClick.AddListener(() => OnPrevStoryPage());
+
+        if (Next_Story != null)
+            Next_Story.onClick.AddListener(() => OnNextStoryPage());
     }
     private void OnEnable()
     {
@@ -92,7 +104,6 @@ public class StoryGenerator : MonoBehaviour
         if (C_RotateStories == null)
             C_RotateStories = StartCoroutine(RotateStories(direction));
     }
-
     IEnumerator RotateStories(int direction)
     {
         if (StoryManager.Stories.Count == 0) yield break;
@@ -120,6 +131,20 @@ public class StoryGenerator : MonoBehaviour
         CheckStoryInFront();
     }
 
+    public void Read()
+    {
+        StoryManager.StartPlayStory(StoryManager.CurrentStory.StoryData);
+    }
+
+    public void OnPrevStoryPage()
+    {
+        StoryManager.OnPreviousStoryPage();
+    }
+
+    public void OnNextStoryPage()
+    {
+        StoryManager.OnNextStoryPage();
+    }
     #endregion
 
     #region [Positioned Stories]
@@ -159,7 +184,7 @@ public class StoryGenerator : MonoBehaviour
             if (story != null)
             {
                 Debug.Log("Chạm vào Story: " + (story.StoryData != null ? story.StoryData.name : "StoryData bị null"));
-                CurrentStory = story;
+               StoryManager.CurrentStory = story;
             }
             else
             {

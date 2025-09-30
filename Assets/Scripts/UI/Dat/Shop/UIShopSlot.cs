@@ -8,10 +8,12 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
     public Image itemIcon;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI priceText;
+    public GameObject ownedIndicate;
     public SO_Item item;
 
     [Header("On Interact")]
     public bool isSelected;
+    public bool isOwned;
 
     [Header("References")]
     public UIShop uiShop;
@@ -33,6 +35,20 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
         itemIcon.sprite = item.commonData.icon;
         nameText.text = item.commonData.itemName;
         priceText.text = item.commonData.price.ToString();
+
+        if(shopItem as SO_Outfit)
+        {
+            if (uiShop.UIInventory.inventoryManager.CheckItemExist(shopItem))
+            {
+                ownedIndicate.gameObject.SetActive(true);
+                isOwned = true;
+            }
+            else
+            {
+                ownedIndicate.gameObject.SetActive(false);
+                isOwned = false;
+            }
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -49,6 +65,8 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
         {
             uiShop.isSelected = false;
         }
+
+        if (isOwned) return;
 
         uiShop.CurrentUIShopSlotSelected = this;
         isSelected = true;

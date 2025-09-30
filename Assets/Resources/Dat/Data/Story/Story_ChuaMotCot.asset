@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     ID: 
-    Name: "Truy\u1EC7n Ch\xF9a M\u1ED9t C\u1ED9t"
-    Icon: {fileID: 2800000, guid: 229496e98de71114abd3bf8d1593f1ca, type: 3}
+    Name: "Truy\u1EC7n H\xE0 N\u1ED9i"
+    Icon: {fileID: 2800000, guid: 97efef1135439284ca18eb51bdcbf9d3, type: 3}
     description: 
     IsUnlocked: 0
+    StoryPageDatas:
+    - VideoClip: {fileID: 32900000, guid: 8d0db6cf8f1b18e40beba13973f03d98, type: 3}
+      StoryAudioClip: {fileID: 8300000, guid: 76df89df750fb364f8e1cd679df7f9ef, type: 3}
+    - VideoClip: {fileID: 32900000, guid: 4b4a50b2e5a4f7c4389ed0bc85fb290e, type: 3}
+      StoryAudioClip: {fileID: 8300000, guid: 76df89df750fb364f8e1cd679df7f9ef, type: 3}
+    - VideoClip: {fileID: 32900000, guid: 39fa1c47682cabe49a00cf2c13647110, type: 3}
+      StoryAudioClip: {fileID: 8300000, guid: 76df89df750fb364f8e1cd679df7f9ef, type: 3}

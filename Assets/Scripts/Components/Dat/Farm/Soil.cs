@@ -287,8 +287,8 @@ namespace FarmSystem
                 //Tuts
                 if (FarmManager.TutorialManager.currentPart.TutorialName == "Farm Tutorial" && FarmManager.TutorialManager.currentStep.stepName == "Tưới nước cho đất")
                 {
-                    Transform tutIndicator = transform.Find("Tut Indicator");
-                    if (tutIndicator)
+                    //Transform tutIndicator = transform.Find("Tut Indicator");
+                    //if (tutIndicator)
                     FarmManager.TutorialManager.AllowNextStep = true;
                 }
                 //Tuts

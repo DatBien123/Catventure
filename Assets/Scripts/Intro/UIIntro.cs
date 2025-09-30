@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class UIIntro : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class UIIntro : MonoBehaviour
 
     public TextMeshProUGUI Text;
 
+    public VideoPlayer videoPlayer;
     void Start()
     {
         StartIntro();
@@ -21,7 +23,6 @@ public class UIIntro : MonoBehaviour
             .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
             .OnComplete(() => Text.transform.DOScale(1f, 0.2f)); // Settle back to 1f
     }
-
     public void StartIntro()
     {
         if(C_StartIntro != null)StopCoroutine(C_StartIntro);

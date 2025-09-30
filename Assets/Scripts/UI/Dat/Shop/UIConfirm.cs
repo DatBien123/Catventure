@@ -47,15 +47,17 @@ public class UIConfirm : MonoBehaviour
     }
     public void Buy(SO_Item item)
     {
-        if(UIShop.AudioManager != null)
-        {
-            UIShop.AudioManager.PlaySFX("Apply");
-        }
+
 
         if(item is SO_Outfit)
         {
             if (UIShop.ShopManager.owner.Coin >= item.commonData.price)
             {
+                if (UIShop.AudioManager != null)
+                {
+                    UIShop.AudioManager.PlaySFX("Buy");
+                }
+
                 //UI
                 Success_Popup.gameObject.SetActive(true);
                 gameObject.SetActive(false);
@@ -67,7 +69,7 @@ public class UIConfirm : MonoBehaviour
                 if (UIShop.UIYabis)
                     UIShop.UIYabis.UpdateResourceUI();
 
-
+                UIShop.RefreshShopUI();
             }
             else
             {
@@ -78,6 +80,10 @@ public class UIConfirm : MonoBehaviour
         }
         else
         {
+            if (UIShop.AudioManager != null)
+            {
+                UIShop.AudioManager.PlaySFX("Apply");
+            }
 
             if (UIShop.ShopManager.owner.Coin >= item.commonData.price)
             {

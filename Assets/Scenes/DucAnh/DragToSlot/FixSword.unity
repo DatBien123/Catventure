@@ -2263,6 +2263,7 @@ MonoBehaviour:
           RotationOffset: {x: 0, y: 0, z: 0}
           ScaleOffset: {x: 0, y: 0, z: 0}
         DragOffsets: []
+        DragDirection: 
         isShowTutContent: 1
         ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
         TutContent: "\u0110\xE2y l\xE0 n\xF4ng tr\u1EA1i c\u1EE7a ch\xFAng ta"
@@ -2292,6 +2293,7 @@ MonoBehaviour:
       RotationOffset: {x: 0, y: 0, z: 0}
       ScaleOffset: {x: 0, y: 0, z: 0}
     DragOffsets: []
+    DragDirection: 
     isShowTutContent: 0
     ImageTutContent: {fileID: 0}
     TutContent: 

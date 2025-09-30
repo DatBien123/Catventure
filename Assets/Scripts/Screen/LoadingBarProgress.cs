@@ -27,8 +27,20 @@ public class LoadingBarProgress : MonoBehaviour
     }
     private void Start()
     {
-        if(isEnableTransitionOnStart)
+        if(videoPlayer != null)
+        {
+            videoPlayer.Prepare();
+            videoPlayer.prepareCompleted += OnPrepared;
+        }
+
+
+        if (isEnableTransitionOnStart)
         StartLoadSceneNormal(sceneName);
+    }
+
+    void OnPrepared(VideoPlayer vp)
+    {
+        vp.Play();
     }
 
     Coroutine C_LoadScene;
@@ -59,7 +71,7 @@ public class LoadingBarProgress : MonoBehaviour
         float elapsedTime = 0.0f;
 
         videoPlayer.gameObject.SetActive(true);
-        videoPlayer.Play();
+        //videoPlayer.Play();
 
         while (elapsedTime <= loadDuration)
         {
