@@ -31,7 +31,6 @@ public class StoryGenerator : MonoBehaviour
     public float rotationDuration = 0.5f; // thời gian xoay (giây)
     private Quaternion targetRotation; // rotation mục tiêu
 
-
     public float delayShowUp = .5f;
     public float delayShowUpStories = .5f;
     public float waitTimeShowUpStory = .5f;
@@ -61,8 +60,8 @@ public class StoryGenerator : MonoBehaviour
         if (Next_Button != null)
             Next_Button.onClick.AddListener(() => StartRotateStories(1));
 
-        if(Read_Button != null) 
-            Read_Button.onClick.AddListener(() => Read());
+        if (Read_Button != null)
+            Read_Button.onClick.AddListener(() => StartReadStory());
 
         if (Prev_Story != null)
             Prev_Story.onClick.AddListener(() => OnPrevStoryPage());
@@ -78,7 +77,6 @@ public class StoryGenerator : MonoBehaviour
 
     private void OnDisable()
     {
-
         Animator.CrossFadeInFixedTime("Story_Default", 0.0f);
         Animator.gameObject.SetActive(false);
         foreach (Story story in StoryList)
@@ -96,7 +94,7 @@ public class StoryGenerator : MonoBehaviour
     #region [Interact]
     void StartRotateStories(int direction)
     {
-        if(StoryManager.AudioManager != null)
+        if (StoryManager.AudioManager != null)
         {
             StoryManager.AudioManager.PlaySFX("Click Map Home");
         }
@@ -131,11 +129,80 @@ public class StoryGenerator : MonoBehaviour
         CheckStoryInFront();
     }
 
-    public void Read()
+    Coroutine C_ReadStory;
+    void StartReadStory()
     {
-        StoryManager.StartPlayStory(StoryManager.CurrentStory.StoryData);
+        if (C_ReadStory != null) StopCoroutine(C_ReadStory);
+        C_ReadStory = StartCoroutine(ReadStory());
     }
 
+    Vector3 originalPosition;
+    Quaternion originalRotation;
+    IEnumerator ReadStory()
+    {
+        if (StoryManager.CurrentStory == null)
+        {
+            Debug.LogWarning("CurrentStory is null");
+            yield break;
+        }
+
+        // Store original position and rotation
+        originalPosition = StoryManager.CurrentStory.transform.position;
+        originalRotation = StoryManager.CurrentStory.transform.rotation;
+
+        // Stop any existing hover animation
+        StoryManager.CurrentStory.gameObject.transform.DOKill();
+
+        // Calculate target position: slightly in front of the camera
+        Vector3 targetPosition = Camera.transform.position + Camera.transform.forward * 1f;
+
+        // Calculate target rotation: rotate 90 degrees on Z-axis relative to current rotation
+        Quaternion targetRotation = StoryManager.CurrentStory.transform.rotation * Quaternion.Euler(0f, 0f, 180f);
+
+        // Animate movement and rotation using DOTween
+        StoryManager.CurrentStory.transform.DOMove(targetPosition, 0.5f).SetEase(Ease.InOutSine);
+        StoryManager.CurrentStory.transform.DORotateQuaternion(targetRotation, 0.5f).SetEase(Ease.InOutSine);
+
+        // Wait for animations to complete
+        yield return new WaitForSeconds(0.5f);
+
+        // Start playing the story
+        StoryManager.StartPlayStory(StoryManager.CurrentStory.StoryData);
+
+        //// Animate back to original position and rotation
+        //StoryManager.CurrentStory.transform.DOMove(originalPosition, 0.5f).SetEase(Ease.InOutSine);
+        //StoryManager.CurrentStory.transform.DORotateQuaternion(originalRotation, 0.5f).SetEase(Ease.InOutSine);
+
+        //// Wait for return animations to complete
+        //yield return new WaitForSeconds(0.5f);
+
+        //// Restart hover animation
+        //StartHoverAnimation(StoryManager.CurrentStory.gameObject);
+    }
+    Coroutine C_StopReadStory;
+    public void StartStopReadStory()
+    {
+        if (C_StopReadStory != null) StopCoroutine(C_StopReadStory);
+        C_StopReadStory = StartCoroutine(StopReadStory());
+    }
+    IEnumerator StopReadStory()
+    {
+        if (StoryManager.CurrentStory == null)
+        {
+            Debug.LogWarning("CurrentStory is null");
+            yield break;
+        }
+
+        // Animate back to original position and rotation
+        StoryManager.CurrentStory.transform.DOMove(originalPosition, 0.5f).SetEase(Ease.InOutSine);
+        StoryManager.CurrentStory.transform.DORotateQuaternion(originalRotation, 0.5f).SetEase(Ease.InOutSine);
+
+        // Wait for return animations to complete
+        yield return new WaitForSeconds(0.5f);
+
+        // Restart hover animation
+        StartHoverAnimation(StoryManager.CurrentStory.gameObject);
+    }
     public void OnPrevStoryPage()
     {
         StoryManager.OnPreviousStoryPage();
@@ -184,7 +251,7 @@ public class StoryGenerator : MonoBehaviour
             if (story != null)
             {
                 Debug.Log("Chạm vào Story: " + (story.StoryData != null ? story.StoryData.name : "StoryData bị null"));
-               StoryManager.CurrentStory = story;
+                StoryManager.CurrentStory = story;
             }
             else
             {
@@ -225,7 +292,7 @@ public class StoryGenerator : MonoBehaviour
             GameObject storyObj = Instantiate(StoryPrefab.gameObject, pos, Quaternion.identity, transform);
             storyObj.transform.LookAt(transform.position);
             storyObj.transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
-      
+
             storyObj.GetComponent<Story>().SetupStory(StoryManager.Stories[i]);
             StartHoverAnimation(storyObj);
             storyObj.SetActive(false);

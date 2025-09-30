@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 using UnityEngine.UI;
-using System;
 
+public enum EStoryType
+{
+    None = 0,
+    Navigate
+}
 public class StoryManager : MonoBehaviour
 {
     public List<SO_Story> Stories = new List<SO_Story>();
@@ -17,39 +20,14 @@ public class StoryManager : MonoBehaviour
     [Header("References")]
     public GameObject StoryPanel;
     public StoryGenerator StoryGenerator;
-    public VideoPlayer VideoPlayer;
+    public Image StoryImage;
     public AudioManager AudioManager;
     public Image ImageLayer;
-
+    public Sound CurrentSound;
     private void Awake()
     {
-        StoryGenerator = GetComponent<StoryGenerator>();
-    }
-
-    private void Start()
-    {
-        StartCoroutine(PreloadAllClips());
-        VideoPlayer.loopPointReached += OnVideoFinished;
-    }
-
-    private void OnVideoFinished(VideoPlayer source)
-    {
-        StartCoroutine(FadeInImageLayer());
-        StartCoroutine(FadeOutImageLayer());
-    }
-
-    IEnumerator PreloadAllClips()
-    {
-        foreach (var story in Stories)
-        {
-            foreach (var storyPageData in story.Data.StoryPageDatas)
-            {
-                VideoPlayer.clip = storyPageData.VideoClip;
-                VideoPlayer.Prepare();
-                yield return new WaitUntil(() => VideoPlayer.isPrepared);
-                Debug.Log($"{storyPageData.VideoClip.name} đã sẵn sàng phát!");
-            }
-        }
+        CurrentSound = new Sound();
+        CurrentSound.source = gameObject.AddComponent<AudioSource>();
     }
 
     Coroutine C_PlayStory;
@@ -67,22 +45,41 @@ public class StoryManager : MonoBehaviour
         CurrentIndex = 0;
         CurrentStoryPageData = storyData.Data.StoryPageDatas[CurrentIndex];
 
+        yield return StartCoroutine(FadeInImageLayer());
+        yield return StartCoroutine(FadeOutImageLayer());
+
         while (isPlayingStory)
         {
             isApplyNextPage = false;
-            VideoPlayer.clip = CurrentStoryPageData.VideoClip;
-            yield return StartCoroutine(FadeInImageLayer());
-            VideoPlayer.Play();
-            yield return new WaitForSeconds(.5f);
-            yield return StartCoroutine(FadeOutImageLayer());
+            //yield return new WaitForSeconds(.5f);
+            StoryImage.sprite = CurrentStoryPageData.StoryImage;
+            CurrentSound.source.clip = CurrentStoryPageData.StoryAudioClip;
+            CurrentSound.source.volume = 1;
+            CurrentSound.source.pitch = 1;
+            CurrentSound.source.loop = false;
+            CurrentSound.source.Play();
+
             Debug.Log($"phát!");
-            yield return new WaitWhile(() => isApplyNextPage == false);
+            //yield return new WaitWhile(() => isApplyNextPage == false);
+            yield return new WaitForSeconds(CurrentStoryPageData.StoryAudioClip.length);
+
+            if (CurrentStoryPageData.isDelay)
+            {
+                yield return StartCoroutine(FadeInImageLayer());
+                OnNextStoryPage();
+                yield return StartCoroutine(FadeOutImageLayer());
+            }
+            else {
+                OnNextStoryPage();
+            }
+
             // Fade in and out ImageLayer
         }
         yield return StartCoroutine(FadeInImageLayer());
-        yield return StartCoroutine(FadeOutImageLayer());
-        VideoPlayer.Stop();
         StoryPanel.SetActive(false);
+        StoryImage.sprite = null;
+        StoryGenerator.StartStopReadStory();
+
     }
 
     private IEnumerator FadeInImageLayer()
@@ -132,6 +129,7 @@ public class StoryManager : MonoBehaviour
         if (CurrentIndex < CurrentStory.StoryData.Data.StoryPageDatas.Count)
         {
             CurrentStoryPageData = CurrentStory.StoryData.Data.StoryPageDatas[CurrentIndex];
+            StoryImage.sprite = CurrentStoryPageData.StoryImage;
             isApplyNextPage = true;
         }
         else
@@ -147,6 +145,7 @@ public class StoryManager : MonoBehaviour
         if (CurrentIndex >= 0)
         {
             CurrentStoryPageData = CurrentStory.StoryData.Data.StoryPageDatas[CurrentIndex];
+            StoryImage.sprite = CurrentStoryPageData.StoryImage;
             isApplyNextPage = true;
         }
     }
