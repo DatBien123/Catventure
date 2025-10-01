@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.39607844, g: 0.23137255, b: 0.23137255, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -78,9 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 
 --- !u!1 &6376191333570768541
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +307,7 @@ MonoBehaviour:
   nameText: {fileID: 1593908796032172693}
   foodData: {fileID: 0}
   outline: {fileID: 4295133537300958950}
+  TutorialManager: {fileID: 0}
 --- !u!114 &3870570626811085397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: 
+  canClick: 1
   canKeepPress: 1
 --- !u!114 &4295133537300958950
 MonoBehaviour:

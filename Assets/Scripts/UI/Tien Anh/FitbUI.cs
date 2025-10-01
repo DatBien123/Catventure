@@ -67,20 +67,31 @@ public class FitbUI : MonoBehaviour
             button.Setup(answer, (string selectedAnswer) =>
             {
                 bool isCorrect = selectedAnswer == question.correctAnswer;
-
-                foreach (var btn in answerButtons)
+                if (isCorrect) // TRẢ LỜI ĐÚNG
                 {
-                    if (btn == button)
+                    foreach (var btn in answerButtons)
                     {
-                        if (isCorrect) btn.effect.ShowCorrectEffect();
-                        else btn.effect.ShowWrongEffect();
-                    }
-                    else
-                    {
-                        if (btn.answerText == question.correctAnswer)
-                            btn.effect.ShowOnlySmallCheck();
+                        if (btn == button)
+                        {
+                            btn.effect.ShowCorrectEffect();
+                        }
                         else
-                            btn.effect.FadeOut();
+                        {
+                            if (btn.answerText == question.correctAnswer)
+                                btn.effect.ShowOnlySmallCheck();
+                            else
+                                btn.effect.FadeOut();
+                        }
+                    }
+                }
+                else // TRẢ LỜI SAI
+                {
+                    foreach (var btn in answerButtons)
+                    {
+                        if (btn == button)
+                        {
+                            btn.effect.ShowWrongEffect();
+                        }
                     }
                 }
 
@@ -106,6 +117,7 @@ public class FitbUI : MonoBehaviour
             answerButtons[i].gameObject.SetActive(false);
         }
     }
+
     public void UpdateQuestionCounter(int currentQuestion, int totalQuestions)
     {
         questionCounterText.text = $"{currentQuestion}/{totalQuestions}";

@@ -33,7 +33,7 @@ public class AnswerButtonEffect : MonoBehaviour
         s.Append(bigCorrectCheckMark.rectTransform.DOAnchorPosY(200f, 1f).SetEase(Ease.OutQuad))
                      .InsertCallback(0.5f, () =>
                      {
-                         GameObject effect = Instantiate(confettiEffect, gameObject.transform);
+                         //GameObject effect = Instantiate(confettiEffect, gameObject.transform);
                      })
          .Join(bigCorrectCheckMark.DOFade(0f, 3f));
 

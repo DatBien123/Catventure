@@ -12,7 +12,7 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
     public CookingStepSO step;
     public GameObject assemblingUI;
     public GameObject interactableObjects;
-    public GameObject bowl;
+    public GameObject foodPrefab;
     public List<GameObject> ingredients;
     public GameObject blinkEffect;
     public GameObject smokeWhispEffect;
@@ -44,14 +44,26 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
         AudioManager.instance.PlayMusic("Chill music");
         gameObject.SetActive(true);
         dragDropCookingMinigame.GetCountDownSystem().StartCountdown321();
+        // Sinh ra bát phở để tương tác ở đây rồi gán
+        GameObject foodPrefabUI = Instantiate(dragDropCookingMinigame.recipe.dishResult.foodPrefab, assemblingUI.transform);
+
+        // Đặt ngay phía TRÊN "Ingredients"
+        Transform ingredients = assemblingUI.transform.Find("Ingredients");
+        if (ingredients != null)
+        {
+            int targetIndex = ingredients.GetSiblingIndex();
+            foodPrefabUI.transform.SetSiblingIndex(targetIndex);
+        }
+
+        foodPrefab = foodPrefabUI;
     }
 
     public void StartStep()
     {
         dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(step.timeRequired);
-        CanvasGroup canvasGroupBowl = bowl.GetComponent<CanvasGroup>();
+        CanvasGroup canvasGroupBowl = foodPrefab.GetComponent<CanvasGroup>();
         canvasGroupBowl.alpha = 0;
-        RectTransform rtBowl = bowl.GetComponent<RectTransform>();
+        RectTransform rtBowl = foodPrefab.GetComponent<RectTransform>();
         Vector2 originalPosBowl = rtBowl.anchoredPosition;
         rtBowl.anchoredPosition = originalPosBowl + new Vector2(0, 200f);
         DG.Tweening.Sequence sq1 = DOTween.Sequence();
@@ -151,7 +163,7 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
         HideInteractableObjects();
 
 
-        RectTransform rt = bowl.GetComponent<RectTransform>();
+        RectTransform rt = foodPrefab.GetComponent<RectTransform>();
         Sequence sequence = DOTween.Sequence();
         sequence.Append(rt.DOScale(rt.localScale + new Vector3(0.2f, 0.2f, 0.2f), 1f));
         sequence.OnComplete(() => {

@@ -9,6 +9,20 @@ public class Bowl : MonoBehaviour, IDropIngredientTarget
     public List<GameObject> ingredientsInBowl;
     public AssemblingStep assemblingStep;
 
+    public void Start()
+    {
+        Transform current = gameObject.transform;
+
+        // Lấy cha trực tiếp
+        Transform parent = current.parent;
+
+        // Lấy cha của cha
+        Transform grandParent = current.parent.parent;
+
+        // Nếu muốn lấy GameObject thay vì Transform
+        GameObject grandParentObj = current.parent.parent.gameObject;
+        assemblingStep = grandParentObj.GetComponent<AssemblingStep>(); 
+    }
     public void AcceptIngredient(Ingredient ingredient)
     {
         ingredient.gameObject.SetActive(false); 
@@ -56,10 +70,6 @@ public class Bowl : MonoBehaviour, IDropIngredientTarget
         }
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
