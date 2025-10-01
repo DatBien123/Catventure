@@ -69,15 +69,12 @@ public class FitbMinigame : BaseMinigame
         }
         else
         {
-            if (countDownTimer.IsEnoughTimeToWin() && health.currentHealth > 0)
-            {
-                ShowRewardUI();
-            }
         }
     }
 
     private void ShowRewardUI()
     {
+        EndGame(true);
         inputBlocker.SetActive(false);
         victoryRewardScreen.ShowRewardFITB(levelData.reward,3);
     }
@@ -85,25 +82,52 @@ public class FitbMinigame : BaseMinigame
     void OnAnswerSelected(bool isCorrect)
     {
         FITBQuestionSO currentQuestion = levelData.questions[currentIndex];
-        currentIndex++;
         if (isCorrect)
         {
+            currentIndex++;
             correctAnswers++;
             fitbUI.FillBlankWithAnswer(currentQuestion.correctAnswer);
             fitbUI.ShowCorrectFeedback();
             //PlayVideoAfterAnswerQuestion(currentQuestion);
             inputBlocker.SetActive(true);
-            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
+            DOVirtual.DelayedCall(3f, () =>
+            {
+
+                VideoManager.instance.PlayVideo(currentQuestion.correctAnswerVideo, () =>
+                {
+                    if (!IsGameWin())  // kiểm tra trước khi gọi
+                    {
+                        VideoManager.instance.videoPanel.SetActive(false);  
+                        ShowQuestion(currentIndex);
+                    }
+                    else
+                    {
+                        ShowRewardUI();
+                    }
+                });
+            });
+
+ 
         }
         else
         {
             inputBlocker.SetActive(true);
             fitbUI.ShowWrongFeedback();
             health.DecreaseHealth(1);
-            DOVirtual.DelayedCall(3f, () => ShowQuestion(currentIndex));
-
+            DOVirtual.DelayedCall(3f, () =>
+            {
+                if (!IsGameOver())  // kiểm tra trước khi gọi
+                {
+                    VideoManager.instance.PlayVideo(currentQuestion.wrongAnswerVideo, () =>
+                    {
+                        VideoManager.instance.videoPanel.SetActive(false);
+                        ShowQuestion(currentIndex);
+                    });
+                }
+            });
         }
     }
+
     public override void ExitGame()
     {
         base.ExitGame();
@@ -118,6 +142,16 @@ public class FitbMinigame : BaseMinigame
         noCallback: () => {
         }
         );
+    }
+    // Ví dụ mấy hàm kiểm tra này
+    bool IsGameOver()
+    {
+        return health.currentHealth == 0;
+    }
+
+    bool IsGameWin()
+    {
+        return currentIndex >= levelData.questions.Count && countDownTimer.IsEnoughTimeToWin() && health.currentHealth > 0;
     }
 
 

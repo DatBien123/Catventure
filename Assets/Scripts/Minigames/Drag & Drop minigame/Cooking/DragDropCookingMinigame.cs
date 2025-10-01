@@ -46,6 +46,7 @@ public class DragDropCookingMinigame : DragDropMinigame
     }
     public void ShowRewardUI()
     {
+        EndGame(true);
         countDownTimer.StopCountDown();
         foreach (var req in recipe.dishResult.ingredients)
         {

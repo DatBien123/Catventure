@@ -38,3 +38,4 @@ MonoBehaviour:
   - ingredient: {fileID: 11400000, guid: 5da2a3cba0c2a1545b8fc89b1e301df5, type: 2}
     requiredAmount: 2
   recipe: {fileID: 11400000, guid: ac64fc5136697c84eabf523cd15d09f6, type: 2}
+  foodPrefab: {fileID: 4413861252958015587, guid: b41267632e7208541a11c526746ae41a, type: 3}
