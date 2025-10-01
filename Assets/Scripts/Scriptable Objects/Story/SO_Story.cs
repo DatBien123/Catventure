@@ -18,8 +18,11 @@ public struct StoryData
 [System.Serializable]
 public struct StoryPageData
 {
-    public VideoClip VideoClip;
+    public Sprite StoryImage;
     public AudioClip StoryAudioClip;
+
+    public bool isDelay;
+    public float delayTime;
 }
 [CreateAssetMenu(fileName = "Story Data", menuName = "Story/Story Data")]
 public class SO_Story : ScriptableObject

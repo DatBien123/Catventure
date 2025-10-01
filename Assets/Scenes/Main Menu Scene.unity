@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &589223289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f535fb84c16e5c24484268bb75cb85f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBarSlider: {fileID: 589223291}
+  loadingBarSlider: {fileID: 0}
   loadDuration: 3
   isEnableTransitionOnStart: 1
   sceneName: Home Scene
@@ -1116,6 +1116,7 @@ GameObject:
   - component: {fileID: 1042136121}
   - component: {fileID: 1042136125}
   - component: {fileID: 1042136126}
+  - component: {fileID: 1042136127}
   m_Layer: 5
   m_Name: Main Menu Canvas
   m_TagString: Untagged
@@ -1172,8 +1173,8 @@ Canvas:
   m_GameObject: {fileID: 1042136120}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1744047477}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1239,6 +1240,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   referenceResolution: {x: 1600, y: 900}
   scaler: {fileID: 1042136122}
+--- !u!114 &1042136127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042136120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888901c2bd6919d4daf76019b7e86e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Maps:
+  - {fileID: 1993334523}
+  - {fileID: 258514375}
+  - {fileID: 857714033}
+  - {fileID: 960460711}
 --- !u!1 &1073745853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1139024813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1513,7 +1531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800, y: -635.6763}
+  m_AnchoredPosition: {x: 800, y: -768.08185}
   m_SizeDelta: {x: 825, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1139024814
@@ -1588,7 +1606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800, y: -39.392075}
+  m_AnchoredPosition: {x: 800, y: -434.5546}
   m_SizeDelta: {x: 780.7512, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161697281
@@ -2375,6 +2393,7 @@ GameObject:
   - component: {fileID: 1658228958}
   - component: {fileID: 1658228957}
   - component: {fileID: 1658228956}
+  - component: {fileID: 1658228960}
   m_Layer: 5
   m_Name: Loading Screen Canvas
   m_TagString: Untagged
@@ -2431,8 +2450,8 @@ Canvas:
   m_GameObject: {fileID: 1658228955}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1744047477}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2466,6 +2485,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1658228960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658228955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f535fb84c16e5c24484268bb75cb85f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingBarSlider: {fileID: 0}
+  loadDuration: 3
+  isEnableTransitionOnStart: 1
+  sceneName: Home Scene
+  videoPlayer: {fileID: 2019263496}
 --- !u!1 &1660792587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3281,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019263495}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ffcda89b0595eba45a75e5edee9f8ecc, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: bbea9432450d8004d83138afecd5b14e, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -3381,7 +3417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106194000
 RectTransform:
   m_ObjectHideFlags: 0
