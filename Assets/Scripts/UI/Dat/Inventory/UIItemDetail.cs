@@ -21,13 +21,13 @@ public class UIItemDetail : MonoBehaviour
     public UIInventory UIInventory;
     public UIAmountPicker UIMountPicker;
     public ItemInstance CurrentItemInstance;
-
+    public GameObject ItemDetail;
     private void OnEnable()
     {
-        transform.localScale = Vector3.zero; // Start from zero scale
-        transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
+        ItemDetail.transform.localScale = Vector3.zero; // Start from zero scale
+        ItemDetail.transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
             .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
-            .OnComplete(() => transform.DOScale(1f, 0.2f)); // Settle back to 1f
+            .OnComplete(() => ItemDetail.transform.DOScale(1f, 0.2f)); // Settle back to 1f
     }
     private void Awake()
     {

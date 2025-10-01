@@ -146,6 +146,11 @@ public class StoryGenerator : MonoBehaviour
             yield break;
         }
 
+        if (StoryManager.AudioManager != null)
+        {
+            StoryManager.AudioManager.PlaySFX("Click Function Yabis");
+        }
+
         // Store original position and rotation
         originalPosition = StoryManager.CurrentStory.transform.position;
         originalRotation = StoryManager.CurrentStory.transform.rotation;
@@ -154,7 +159,7 @@ public class StoryGenerator : MonoBehaviour
         StoryManager.CurrentStory.gameObject.transform.DOKill();
 
         // Calculate target position: slightly in front of the camera
-        Vector3 targetPosition = Camera.transform.position + Camera.transform.forward * 1f;
+        Vector3 targetPosition = Camera.transform.position + Camera.transform.forward * 1.5f;
 
         // Calculate target rotation: rotate 90 degrees on Z-axis relative to current rotation
         Quaternion targetRotation = StoryManager.CurrentStory.transform.rotation * Quaternion.Euler(0f, 0f, 180f);
@@ -315,6 +320,11 @@ public class StoryGenerator : MonoBehaviour
             if (story != null)
             {
                 story.gameObject.SetActive(true);
+
+                if(StoryManager.AudioManager != null)
+                {
+                    StoryManager.AudioManager.PlaySFX("Story Showup");
+                }
                 story.StartShowUp(waitTimeShowUpStory);
                 yield return new WaitForSeconds(showDelayTime);
             }
@@ -323,6 +333,9 @@ public class StoryGenerator : MonoBehaviour
                 Debug.LogWarning("Story trong StoryList bị null");
             }
         }
+
+        CheckStoryInFront();
+
     }
 
     // Hàm thêm animation lơ lửng chỉ trên trục Y bằng DOTween

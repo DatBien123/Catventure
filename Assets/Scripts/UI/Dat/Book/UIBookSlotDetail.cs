@@ -14,20 +14,33 @@ public class UIBookSlotDetail : MonoBehaviour
     public Button SpellButton;
 
     [Header("Reference")]
+    public UIBook UIBook;
     public RectTransform ImageRectTransform;
     public SO_Card CurrentCard;
-    public AudioSource AudioSource;
+    public GameObject TempDetail;
 
     private void Awake()
     {
     }
 
+    private void OnDisable()
+    {
+        if(UIBook.AudioManager != null)
+        {
+            UIBook.AudioManager.PlaySFX("Close");
+        }
+    }
     private void OnEnable()
     {
-        transform.localScale = Vector3.zero; // Start from zero scale
-        transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
+        TempDetail.transform.localScale = Vector3.zero; // Start from zero scale
+        TempDetail.transform.DOScale(1.1f, 0.3f) // Zoom to 1.1f slightly overshooting
             .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
-            .OnComplete(() => transform.DOScale(1f, 0.2f)); // Settle back to 1f
+            .OnComplete(() => TempDetail.transform.DOScale(1f, 0.2f)); // Settle back to 1f
+
+        if (UIBook.AudioManager != null)
+        {
+            UIBook.AudioManager.PlaySFX("Click Function Yabis");
+        }
     }
     void Start()
     {

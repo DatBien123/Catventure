@@ -39,6 +39,7 @@ public class StoryManager : MonoBehaviour
 
     IEnumerator PlayStory(SO_Story storyData)
     {
+
         // Setup
         isPlayingStory = true;
         StoryPanel.SetActive(true);

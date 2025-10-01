@@ -90,16 +90,16 @@ public class TutorialManager : MonoBehaviour
 
     public bool AllowNextStep = false;
 
-    private List<Button> allButtons = new List<Button>(); // Danh sách tất cả button trong Hierarchy
-
-    public TutorialBackground TutorialBackground;
-
-
     [Header("Button Highlight Animation")]
     public float HighlightPulseDuration = 1.0f; // Thời gian cho một chu kỳ pulse
     public Vector3 HighlightScaleMultiplier = new Vector3(1.1f, 1.1f, 1.1f); // Scale lên bao nhiêu (ví dụ: 1.1 lần)
 
     private Tween currentHighlightTween; // Tween hiện tại để highlight button
+
+    [Header("References")]
+    public AudioManager AudioManager;
+    public TutorialBackground TutorialBackground;
+    private List<Button> allButtons = new List<Button>(); // Danh sách tất cả button trong Hierarchy
 
     private void Awake()
     {
