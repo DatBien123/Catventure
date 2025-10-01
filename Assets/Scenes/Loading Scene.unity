@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 81957552}
   - component: {fileID: 81957553}
-  - component: {fileID: 81957554}
   m_Layer: 5
   m_Name: Loading Bar
   m_TagString: Untagged
@@ -211,23 +210,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &81957554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81957551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f535fb84c16e5c24484268bb75cb85f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingBarSlider: {fileID: 81957553}
-  loadDuration: 5
-  isEnableTransitionOnStart: 1
-  sceneName: Main Menu Scene
-  videoPlayer: {fileID: 1395276230}
 --- !u!1 &194474532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1516,7 @@ GameObject:
   - component: {fileID: 1784939837}
   - component: {fileID: 1784939836}
   - component: {fileID: 1784939835}
+  - component: {fileID: 1784939839}
   m_Layer: 5
   m_Name: Loading Screen Canvas
   m_TagString: Untagged
@@ -1625,6 +1608,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1784939839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784939834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f535fb84c16e5c24484268bb75cb85f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingBarSlider: {fileID: 81957553}
+  loadDuration: 5
+  isEnableTransitionOnStart: 1
+  sceneName: Main Menu Scene
+  videoPlayer: {fileID: 1395276230}
 --- !u!1 &1848745446
 GameObject:
   m_ObjectHideFlags: 0
