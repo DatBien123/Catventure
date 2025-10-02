@@ -30609,7 +30609,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1259025761}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -33149,7 +33149,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1001 &1527481009
 PrefabInstance:

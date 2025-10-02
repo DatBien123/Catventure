@@ -23,10 +23,12 @@ public struct Topic
     public int coinReward;
 
     [Header("Others")]
+    public int index;
     public string topicName;
     public TimelineAsset cutscene;
     public string minigameSceneName;
-    public bool isCompleted;           
+    public bool isUnlock;
+    public bool isCompleted;
 }
 [CreateAssetMenu(fileName = "Map Data", menuName = "Map/Map Data")]
 public class SO_Map : ScriptableObject

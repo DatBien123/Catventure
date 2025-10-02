@@ -21,14 +21,15 @@ public class UIMapTile : MonoBehaviour
 
     public void SelectMap()
     {
-        if (!MapData.Data.isUnlock)
-        {
-            StartCoroutine(ShowLockedNotify());
-            return;
-        }
+        //if (!MapData.Data.isUnlock)
+        //{
+        //    StartCoroutine(ShowLockedNotify());
+        //    return;
+        //}
 
         UIHome.UIMapDescription.SetupMapDescription(MapData);
         UIHome.UIMapDescription.gameObject.SetActive(true);
+        UIHome.UIMapDescription.MapDescription.SetActive(true);
         UIHome.audioManager.PlaySFX("Click Map Home");
     }
 
