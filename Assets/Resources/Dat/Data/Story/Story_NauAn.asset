@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21d2b859d3fbd234eace60380467806e, type: 3}
-  m_Name: Story_MoDau
+  m_Name: Story_NauAn
   m_EditorClassIdentifier: 
   Data:
     ID: 
-    Name: "Truy\u1EC7n M\u1EDF \u0111\u1EA7u"
+    Name: "Truy\u1EC7n H\xE0 N\u1ED9i"
     Icon: {fileID: 2800000, guid: 97efef1135439284ca18eb51bdcbf9d3, type: 3}
     description: 
     IsUnlocked: 0

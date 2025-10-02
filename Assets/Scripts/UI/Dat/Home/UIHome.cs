@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class UIHome : MonoBehaviour
 {
+    [Header("References")]
     public Animator animator;
     public AudioManager audioManager;
+    public UIMapDescription UIMapDescription;
+    public GameObject MapLockedNotify;
+
 
     public RectTransform[] Maps;
 

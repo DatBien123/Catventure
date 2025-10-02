@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741cc9fbf5fa0024080a07068cdd7fe8, type: 3}
+  m_Name: Ha Noi
+  m_EditorClassIdentifier: 
+  Data:
+    Name: "H\xE0 N\u1ED9i"
+    Image: {fileID: 21300000, guid: 211f3fc06b395b34fa3ae06cbeaa8a3d, type: 3}
+    isUnlock: 1
+    description: "H\xC0 N\u1ED8I - TH\u1EE6 \u0110\xD4 C\u1EE6A VI\u1EC6T NAM, N\u1ED4I
+      TI\u1EBENG V\u1EDAI H\u1ED2 G\u01AF\u01A0M XANH BI\u1EBEC \nV\xC0 TH\xC1P R\xD9A
+      NH\u1ECE XINH N\u1EB0M GI\u1EEEA H\u1ED2. NG\u01AF\u1EDCI TA K\u1EC2 R\u1EB0NG
+      \nN\u01A0I \u0110\xC2Y X\u01AFA KIA C\xD3 THANH G\u01AF\u01A0M TH\u1EA6N TR\u1EA2
+      L\u1EA0I R\xD9A V\xC0NG. \nV\xCC TH\u1EBE H\u1ED2 G\u01AF\u01A0M C\xD2N \u0110\u01AF\u1EE2C
+      G\u1ECCI L\xC0 H\u1ED2 HO\xC0N KI\u1EBEM \n- H\u1ED2 C\u1EE6A G\u01AF\u01A0M
+      B\xC1U."
+    topicList:
+    - TopicImage: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      topicName: "N\u1EA5u \u0103n"
+      cutscene: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
+      minigameSceneName: Minigame_Drag&DropCooking
+      isCompleted: 0
+    - TopicImage: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      topicName: "Gi\u1EA3i m\xE3"
+      cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
+      minigameSceneName: Minigame_Drag&DropCooking
+      isCompleted: 0
