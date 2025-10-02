@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
@@ -17,13 +18,18 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
     [Header("Data")]
     public Topic CurrentTopic;
 
-    
+    [Header("References")]
+    public UIMapDescription UIMapDescription;
     public int poolID { get; set; }
     public ObjectPooler<UIMapDetailSlot> pool { get; set; }
 
     private void Awake()
     {
-        Start_Button.onClick.AddListener(() => Start());
+        Start_Button.onClick.AddListener(() => StartPlay());
+    }
+    private void Start()
+    {
+        UIMapDescription = GameObject.FindAnyObjectByType<UIMapDescription>();
     }
     public void SetupMapDetailSlot(Topic topic)
     {
@@ -50,9 +56,10 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
         }
     }
 
-    public void Start()
+    public void StartPlay()
     {
-        
+        UIMapDescription.MapSelecting.Data.CurrentTopic = CurrentTopic;
+        SceneManager.LoadScene(CurrentTopic.minigameSceneName);
     }
 
 }

@@ -61,7 +61,7 @@ public class UIMapDetail : MonoBehaviour
     {
         Title.text = "Khám phá " + UIMapDescription.CurrentMapSelected.Data.Name;
         ProcessSlider.value = GetProcess();
-        Process.text = "Tiến trình khám phá: " +  GetProcess().ToString();
+        Process.text = "Tiến trình khám phá: " +  GetProcess().ToString() + "%";
 
         RefreshUIMap();
     }
@@ -75,7 +75,7 @@ public class UIMapDetail : MonoBehaviour
             if(topic.isCompleted) completedTopic++;
         }
 
-        return completedTopic / UIMapDescription.CurrentMapSelected.Data.topicList.Count;
+        return completedTopic * 100 / UIMapDescription.CurrentMapSelected.Data.topicList.Count;
 
     }
 

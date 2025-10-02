@@ -6,6 +6,7 @@ using UnityEngine.Timeline;
 public struct MapSelectingData
 {
     public SO_Map CurrentMapSelecting;
+    public Topic CurrentTopic;
 }
 
 [CreateAssetMenu(fileName = "Map Selecting Data", menuName = "Map/Map Selecting Data")]

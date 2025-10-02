@@ -8,7 +8,7 @@ public class FoodSelection : MonoBehaviour
 {
     // Lớp này sẽ đảm nhận vai trò xử lý logic của Food Selection
     // Là sinh ra các món ăn có thể nấu khi để ta chọn món r nấu
-    [SerializeField] private List<DishSO> allFoods; // Tất cả những món ăn có thể nấu sẽ là danh sách ở đây
+    [SerializeField] public List<DishSO> allFoods; // Tất cả những món ăn có thể nấu sẽ là danh sách ở đây
     [SerializeField] private GameObject foodItemPrefab; // prefab để sinh ra item Food trong danh sách ấy
     [SerializeField] private List<FoodItemUI> foods;
 

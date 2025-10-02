@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DragDropCookingMinigame : DragDropMinigame
@@ -6,6 +7,9 @@ public class DragDropCookingMinigame : DragDropMinigame
     public CookingManager cookingManager;
     public CookingRecipeSO recipe; // công thức món ăn ta muốn nấu 
     public CharacterPlayer zera;
+
+    public SO_MapSelecting MapSelecting;
+
      protected override void OnEnable()
     {
         base.OnEnable();
@@ -33,6 +37,29 @@ public class DragDropCookingMinigame : DragDropMinigame
         // Chuẩn bị dữ liệu để bắt đầu chạy các step tương ứng ở đây
         Debug.Log("Bắt đầu minigame nấu ăn");
         cookingManager.StartRecipe(recipe);
+
+        //Mo khoa minigame tiep theo
+        //MapSelecting.Data.CurrentTopic.isCompleted = true;
+
+        for (int i = 0; i < MapSelecting.Data.CurrentMapSelecting.Data.topicList.Count; i++)
+        {
+            if (MapSelecting.Data.CurrentMapSelecting.Data.topicList[i].index == MapSelecting.Data.CurrentTopic.index + 1)
+            {
+                var t = MapSelecting.Data.CurrentMapSelecting.Data.topicList[i];
+                t.isUnlock = true;
+                MapSelecting.Data.CurrentMapSelecting.Data.topicList[i] = t; // ghi lại vào list
+                break;
+            }
+            if (MapSelecting.Data.CurrentMapSelecting.Data.topicList[i].index == MapSelecting.Data.CurrentTopic.index)
+            {
+                var t = MapSelecting.Data.CurrentMapSelecting.Data.topicList[i];
+                t.isCompleted = true;
+                MapSelecting.Data.CurrentMapSelecting.Data.topicList[i] = t; // ghi lại vào list
+                break;
+            }
+        }
+
+
     }
     public override void EndGame(bool success)
     {
