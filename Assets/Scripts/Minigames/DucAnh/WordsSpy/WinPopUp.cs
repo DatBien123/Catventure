@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class WinPopUp : MonoBehaviour
 {
-    public GameObject winPopUp;
-
-    private void Awake() {
-        winPopUp.SetActive(false);
-    }
+    [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
+    [SerializeField] private int reward;
 
     private void OnEnable() {
         GameEvents.OnBoardCompleted += ShowWinPopUp;
@@ -18,7 +15,7 @@ public class WinPopUp : MonoBehaviour
     }
 
     private void ShowWinPopUp() {
-        winPopUp.SetActive(true);
+        VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
     public void LoadNextLevel() {

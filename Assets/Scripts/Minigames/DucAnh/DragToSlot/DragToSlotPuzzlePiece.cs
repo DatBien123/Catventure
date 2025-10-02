@@ -48,6 +48,7 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
             FixSwordGameManager.Instance.AddPoint();
 
             _completed = true;
+            this.enabled = false;
         } else {
             transform.position = _startPosition;
         }

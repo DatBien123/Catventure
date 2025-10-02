@@ -21,7 +21,7 @@ public class RotatePuzzlePiece : MonoBehaviour {
     private float randomRotationZ;
 
     private void Awake() {
-        randomRotationZ = Random.Range(correctRotationZ - 10f + 360f, correctRotationZ + 10f);
+        randomRotationZ = Random.Range(correctRotationZ - 30f + 360f, correctRotationZ + 30f); // offset = 30 degree
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, randomRotationZ);
 
         StartCoroutine(LerpColor());
@@ -69,6 +69,7 @@ public class RotatePuzzlePiece : MonoBehaviour {
             audioSource.PlayOneShot(completeClip);
             completed = true;
             DongSonDrumPatternGameManager.Instance.AddPoint();
+            this.enabled = false;
         }
     }
 

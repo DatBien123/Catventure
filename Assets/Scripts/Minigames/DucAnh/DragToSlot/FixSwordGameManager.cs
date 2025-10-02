@@ -6,7 +6,9 @@ public class FixSwordGameManager : MonoBehaviour
     public static FixSwordGameManager Instance { get; private set; }
 
     [SerializeField] private RectTransform UIWinPanel;
+    [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
     [SerializeField] private int pointsTowin;
+    [SerializeField] private int reward;
 
     private int currentPoints;
 
@@ -32,7 +34,7 @@ public class FixSwordGameManager : MonoBehaviour
 
     IEnumerator OpenWinPanel() {
         yield return new WaitForSeconds(1.0f);
-        UIWinPanel.gameObject.SetActive(true);
+        VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
 

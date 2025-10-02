@@ -5,8 +5,10 @@ public class DongSonDrumPatternGameManager : MonoBehaviour
 {
     public static DongSonDrumPatternGameManager Instance { get; private set; }
 
-    [SerializeField] private RectTransform UIWinPanel;
+    [SerializeField] private SwordChest Chest;
+    [SerializeField] private GameObject PuzzleLayers;
     [SerializeField] private int pointsTowin;
+    [SerializeField] private int reward;
 
     private int currentPoints;
 
@@ -19,6 +21,27 @@ public class DongSonDrumPatternGameManager : MonoBehaviour
         }
     }
 
+    public void ZoomInChest() {
+        StartCoroutine(IEZoomInChest());
+    }
+
+    private IEnumerator IEZoomInChest() {
+        int defaultVCamIndex = 0;
+        int zoominVCamIndex = 1;
+
+        CameraManager.Instance.SwitchCamera(zoominVCamIndex);
+
+        DongSonDrumPatternUIManager.Instance.FadeTransition();
+
+        yield return new WaitForSeconds(1);
+
+        CameraManager.Instance.SwitchCamera(defaultVCamIndex);
+
+        Chest.gameObject.SetActive(false);
+        PuzzleLayers.SetActive(true);
+    }
+
+
     public void AddPoint() {
         currentPoints++;
         CheckWin();
@@ -26,13 +49,13 @@ public class DongSonDrumPatternGameManager : MonoBehaviour
 
     public void CheckWin() {
         if (currentPoints >= pointsTowin) {
-            StartCoroutine(OpenWinPanel());
+            OnWinGame();
         }
     }
 
-    IEnumerator OpenWinPanel() {
-        yield return new WaitForSeconds(1.0f);
-        UIWinPanel.gameObject.SetActive(true);
+    void OnWinGame() {
+        DongSonDrumPatternUIManager.Instance.OpenWinPanel(reward);
     }
+
 
 }

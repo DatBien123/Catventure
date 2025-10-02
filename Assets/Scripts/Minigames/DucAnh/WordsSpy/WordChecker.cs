@@ -157,7 +157,7 @@ public class WordChecker : MonoBehaviour
     }
 
     private void CheckBoardCompleted() {
-        bool loadNextCategory = false;
+        //bool loadNextCategory = false;
         if(currentGameData.selectedBoardData.SearchWords.Count == _completedWords) {
             // Save current level progress
             var categoryName = currentGameData.selectedCategoryName;
@@ -183,30 +183,33 @@ public class WordChecker : MonoBehaviour
                 currentBoardIndex += 1;
             }
 
-            //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
+            DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
 
-            //Unlock next Category
-            if(currentBoardIndex >= currentLevelSize) {
-                currentCategoryIndex++;
-                if(currentCategoryIndex < gameLevelData.data.Count) { // If not the last Category
-                    categoryName = gameLevelData.data[currentCategoryIndex].categoryName;
-                    currentBoardIndex = 0;
-                    loadNextCategory = true;
+            GameEvents.OnBoardCompletedMethod();
 
-                    if(nextBoardIndex <= 0) {
-                        //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
-                    }
-                }
-                else {
-                    SceneManager.LoadScene("SelectCategoryScene");
-                }
-            } else {
-                GameEvents.OnBoardCompletedMethod();
-            }
+            // Unlock next Category
+            //if (currentBoardIndex >= currentLevelSize) {
+            //    currentCategoryIndex++;
+            //    if (currentCategoryIndex < gameLevelData.data.Count) { // If not the last Category
+            //        categoryName = gameLevelData.data[currentCategoryIndex].categoryName;
+            //        currentBoardIndex = 0;
+            //        loadNextCategory = true;
 
-            if(loadNextCategory) {
-                GameEvents.UnlockNextCategoryMethod();
-            }
+            //        if (nextBoardIndex <= 0) {
+            //            DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
+            //        }
+            //    }
+            //    else {
+            //        SceneManager.LoadScene("SelectCategoryScene");
+            //    }
+            //}
+            //else {
+            //    GameEvents.OnBoardCompletedMethod();
+            //}
+
+            //if (loadNextCategory) {
+            //    GameEvents.UnlockNextCategoryMethod();
+            //}
 
         }
     }
