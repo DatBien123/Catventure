@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class TimelineEvent : MonoBehaviour
 {
@@ -91,6 +92,9 @@ public class TimelineEvent : MonoBehaviour
     public Dialogue Dialogue;
     public CharacterPlayer Zera;
 
+    [Header("Skip button")]
+    public Button Skip_Button;
+
     private void Start()
     {
         if (Zera.isFirstTimeLogin)
@@ -103,6 +107,10 @@ public class TimelineEvent : MonoBehaviour
             HomeCanvas.SetActive(true);
         }
 
+        Skip_Button.onClick.AddListener(() =>
+        {
+            director.Stop();
+        });
     }
     void OnEnable()
     {

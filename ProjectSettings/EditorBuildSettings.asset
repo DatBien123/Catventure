@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DucAnh/Lander/LanderGameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DucAnh/Lander/LanderGameOverScene.unity
     guid: 4a1e17d034abe6349acafa0e0c285f55
   - enabled: 1
@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Minigame_FITB.unity
     guid: 3a7c6760b9f5f3e48886a49e700be7c8
+  - enabled: 1
+    path: Assets/Scenes/DucAnh/Rotate Image/DongSonDrumPattern.unity
+    guid: 74b9c2e5697795f46af57a26961f311f
+  - enabled: 1
+    path: Assets/Scenes/DucAnh/Drag To Slot/FixSword.unity
+    guid: 42cdc4b4d57870f4cb5d3cb2c4010aef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

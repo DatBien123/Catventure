@@ -8,6 +8,7 @@ public class UIMapTile : MonoBehaviour
 {
     [Header("Components")]
     public Button Map_Button;
+    public Image LockImage;
 
     [Header("References")]
     public UIHome UIHome;
@@ -20,6 +21,19 @@ public class UIMapTile : MonoBehaviour
         Map_Button.onClick.AddListener(() => SelectMap());
     }
 
+    public void SetupMapTile(bool isUnlock)
+    {
+        if (isUnlock)
+        {
+            if(LockImage != null)
+                LockImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (LockImage != null)
+                LockImage.gameObject.SetActive(true);
+        }
+    }
     public void SelectMap()
     {
         if (!MapInstance.isUnlock)

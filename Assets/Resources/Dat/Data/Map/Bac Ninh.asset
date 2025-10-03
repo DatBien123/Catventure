@@ -15,6 +15,36 @@ MonoBehaviour:
   Data:
     index: 2
     Name: "B\u1EAFc Ninh"
-    Image: {fileID: 0}
-    description: 
-    topicList: []
+    Image: {fileID: 21300000, guid: 2a3a78e0cc8380548b3027c517825f04, type: 3}
+    description: "H\xC0 N\u1ED8I - TH\u1EE6 \u0110\xD4 C\u1EE6A VI\u1EC6T NAM, N\u1ED4I
+      TI\u1EBENG V\u1EDAI H\u1ED2 G\u01AF\u01A0M XANH BI\u1EBEC \nV\xC0 TH\xC1P R\xD9A
+      NH\u1ECE XINH N\u1EB0M GI\u1EEEA H\u1ED2. NG\u01AF\u1EDCI TA K\u1EC2 R\u1EB0NG
+      \nN\u01A0I \u0110\xC2Y X\u01AFA KIA C\xD3 THANH G\u01AF\u01A0M TH\u1EA6N TR\u1EA2
+      L\u1EA0I R\xD9A V\xC0NG. \nV\xCC TH\u1EBE H\u1ED2 G\u01AF\u01A0M C\xD2N \u0110\u01AF\u1EE2C
+      G\u1ECCI L\xC0 H\u1ED2 HO\xC0N KI\u1EBEM \n- H\u1ED2 C\u1EE6A G\u01AF\u01A0M
+      B\xC1U."
+    topicList:
+    - TopicImage: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
+      description: 
+      enegyConsumed: 10
+      coinReward: 50
+      index: 0
+      topicName: "N\u1EA5u Ph\u1EDF"
+      cutscene: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
+      minigameSceneName: Minigame_Drag&DropCooking
+    - TopicImage: {fileID: 21300000, guid: 9f06792d94ae71c4d948106103ebb52b, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      index: 1
+      topicName: "Gi\u1EA3i m\xE3"
+      cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
+      minigameSceneName: DongSonDrumPattern
+    - TopicImage: {fileID: 21300000, guid: 99d4f1d25adac7c4ba89cd744a440522, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      index: 2
+      topicName: "S\u1EEDa ki\u1EBFm"
+      cutscene: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
+      minigameSceneName: FixSword

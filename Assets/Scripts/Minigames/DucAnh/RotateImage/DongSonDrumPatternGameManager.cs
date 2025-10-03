@@ -10,8 +10,11 @@ public class DongSonDrumPatternGameManager : MonoBehaviour
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
+
     private int currentPoints;
 
+    [Header("Data Save")]
+    public CharacterPlayer Player;
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -55,6 +58,11 @@ public class DongSonDrumPatternGameManager : MonoBehaviour
 
     void OnWinGame() {
         DongSonDrumPatternUIManager.Instance.OpenWinPanel(reward);
+
+        //Save
+        Player.Coin += reward;
+        SaveSystem.Save(Player, Player.Inventory);
+
     }
 
 

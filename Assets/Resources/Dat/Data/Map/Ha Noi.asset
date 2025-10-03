@@ -32,19 +32,35 @@ MonoBehaviour:
       topicName: "N\u1EA5u Ph\u1EDF"
       cutscene: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
       minigameSceneName: Minigame_Drag&DropCooking
-    - TopicImage: {fileID: 21300000, guid: 9f06792d94ae71c4d948106103ebb52b, type: 3}
+    - TopicImage: {fileID: 6059799596907309901, guid: 9d2f804fc3ec1d64d98922ac72b914d9, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
       index: 1
-      topicName: "Gi\u1EA3i m\xE3 "
+      topicName: "N\u1ED1i t\u1EEB"
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
-      minigameSceneName: Minigame_Drag&DropCooking
-    - TopicImage: {fileID: 6059799596907309901, guid: 7c1c694451d1b524fa06208173f00d38, type: 3}
+      minigameSceneName: WordsSpyGameScene
+    - TopicImage: {fileID: 21300000, guid: 9f06792d94ae71c4d948106103ebb52b, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
       index: 2
-      topicName: "N\u1ED1i t\u1EEB"
+      topicName: "Gi\u1EA3i m\xE3"
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
-      minigameSceneName: Minigame_Drag&DropCooking
+      minigameSceneName: DongSonDrumPattern
+    - TopicImage: {fileID: 21300000, guid: 99d4f1d25adac7c4ba89cd744a440522, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      index: 3
+      topicName: "S\u1EEDa ki\u1EBFm"
+      cutscene: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
+      minigameSceneName: FixSword
+    - TopicImage: {fileID: 21300000, guid: 9faae86274821174e81da5a1fa88e6cd, type: 3}
+      description: 
+      enegyConsumed: 0
+      coinReward: 0
+      index: 4
+      topicName: "\u0110i\u1EC1n t\u1EEB"
+      cutscene: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
+      minigameSceneName: Minigame_FITB
