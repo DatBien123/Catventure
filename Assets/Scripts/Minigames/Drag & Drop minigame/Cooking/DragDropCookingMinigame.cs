@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +9,15 @@ public class DragDropCookingMinigame : DragDropMinigame
     public CookingRecipeSO recipe; // công thức món ăn ta muốn nấu 
     public CharacterPlayer zera;
 
-    public SO_MapSelecting MapSelecting;
+    public List<SO_Map> AllMaps;
 
-     protected override void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
         cookingManager.onFinishCooking += ShowRewardUI;
     }
-    protected override void OnDisable() {
+    protected override void OnDisable()
+    {
         base.OnDisable();
         cookingManager.onFinishCooking -= ShowRewardUI;
 
@@ -23,11 +25,11 @@ public class DragDropCookingMinigame : DragDropMinigame
     public void Start()
     {
         //StartGame();
-        
+
     }
     public void Setup(CookingRecipeSO p_recipe)
     {
-        Debug.Log("Setup"); 
+        Debug.Log("Setup");
         recipe = p_recipe;
         StartGame();
     }
@@ -39,25 +41,7 @@ public class DragDropCookingMinigame : DragDropMinigame
         cookingManager.StartRecipe(recipe);
 
         //Mo khoa minigame tiep theo
-        //MapSelecting.Data.CurrentTopic.isCompleted = true;
-
-        for (int i = 0; i < MapSelecting.Data.CurrentMapSelecting.Data.topicList.Count; i++)
-        {
-            if (MapSelecting.Data.CurrentMapSelecting.Data.topicList[i].index == MapSelecting.Data.CurrentTopic.index + 1)
-            {
-                var t = MapSelecting.Data.CurrentMapSelecting.Data.topicList[i];
-                t.isUnlock = true;
-                MapSelecting.Data.CurrentMapSelecting.Data.topicList[i] = t; // ghi lại vào list
-                break;
-            }
-            if (MapSelecting.Data.CurrentMapSelecting.Data.topicList[i].index == MapSelecting.Data.CurrentTopic.index)
-            {
-                var t = MapSelecting.Data.CurrentMapSelecting.Data.topicList[i];
-                t.isCompleted = true;
-                MapSelecting.Data.CurrentMapSelecting.Data.topicList[i] = t; // ghi lại vào list
-                break;
-            }
-        }
+        //List<MapInstance> loadedMaps = MapSaveSystem.LoadMapData(AllMaps);
 
 
     }
@@ -68,7 +52,7 @@ public class DragDropCookingMinigame : DragDropMinigame
     }
     public override void GameOver()
     {
-        base.GameOver();    
+        base.GameOver();
 
     }
     public void ShowRewardUI()
@@ -79,8 +63,8 @@ public class DragDropCookingMinigame : DragDropMinigame
         {
             zera.Inventory.RemoveItem(req.ingredient, req.requiredAmount);
         }
-        zera.Inventory.AddItem(new ItemInstance(recipe.dishResult, 1 , false));
-        victoryRewardScreen.ShowRewardDragDrop(recipe.dishResult.icon, recipe.dishResult.dishName, recipe.reward,3);
+        zera.Inventory.AddItem(new ItemInstance(recipe.dishResult, 1, false));
+        victoryRewardScreen.ShowRewardDragDrop(recipe.dishResult.icon, recipe.dishResult.dishName, recipe.reward, 3);
     }
     public override void Replay()
     {
@@ -101,7 +85,7 @@ public class DragDropCookingMinigame : DragDropMinigame
         }
         );
     }
-    
+
 
 
 }

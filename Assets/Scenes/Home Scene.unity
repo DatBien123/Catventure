@@ -4479,8 +4479,12 @@ MonoBehaviour:
   Name: {fileID: 1502291718}
   Description: {fileID: 144114207}
   Image: {fileID: 1242367322}
-  CurrentMapSelected: {fileID: 0}
-  MapSelecting: {fileID: 11400000, guid: 5aa30d57b7f19f444a874dfbc85755fd, type: 2}
+  CurrentMapInstanceSelected:
+    MapData: {fileID: 0}
+    isUnlock: 0
+    isSelected: 0
+    UnlockTopicsIndex: 
+    CompletedTopicsIndex: 
   Explore_Button: {fileID: 1773422796}
   UIMapDetail: {fileID: 1675927688}
   MapDescription: {fileID: 256522461}
@@ -9134,7 +9138,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map_Button: {fileID: 354771679}
   UIHome: {fileID: 1518216937}
-  MapData: {fileID: 11400000, guid: bbd34d9890bc05c44abea873b7ac4670, type: 2}
+  MapInstance:
+    MapData: {fileID: 0}
+    isUnlock: 0
+    isSelected: 0
+    UnlockTopicsIndex: 
+    CompletedTopicsIndex: 
 --- !u!1 &359161807
 GameObject:
   m_ObjectHideFlags: 0
@@ -9728,7 +9737,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map_Button: {fileID: 387719110}
   UIHome: {fileID: 1518216937}
-  MapData: {fileID: 11400000, guid: 79e2a5e6f1cee7f478913f2953944b76, type: 2}
+  MapInstance:
+    MapData: {fileID: 0}
+    isUnlock: 0
+    isSelected: 0
+    UnlockTopicsIndex: 
+    CompletedTopicsIndex: 
 --- !u!1 &391736431
 GameObject:
   m_ObjectHideFlags: 0
@@ -21412,6 +21426,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1577662403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1055630993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055630994}
+  - component: {fileID: 1055630995}
+  m_Layer: 0
+  m_Name: MapSaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055630994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055630993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1520161404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055630995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055630993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bbf11da05fbe1045acc0f56a05056fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFileName: mapData.json
+  AllMaps:
+  - {fileID: 11400000, guid: 96f854f4bd943474f831c04e35773d3a, type: 2}
+  - {fileID: 11400000, guid: fa6a578b9f84c664fa0add3e6dd9a61a, type: 2}
+  - {fileID: 11400000, guid: bbd34d9890bc05c44abea873b7ac4670, type: 2}
+  - {fileID: 11400000, guid: 79e2a5e6f1cee7f478913f2953944b76, type: 2}
 --- !u!1 &1061241336
 GameObject:
   m_ObjectHideFlags: 0
@@ -25231,7 +25295,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map_Button: {fileID: 1209449646}
   UIHome: {fileID: 1518216937}
-  MapData: {fileID: 11400000, guid: fa6a578b9f84c664fa0add3e6dd9a61a, type: 2}
+  MapInstance:
+    MapData: {fileID: 0}
+    isUnlock: 0
+    isSelected: 0
+    UnlockTopicsIndex: 
+    CompletedTopicsIndex: 
 --- !u!1 &1214189882
 GameObject:
   m_ObjectHideFlags: 0
@@ -32984,6 +33053,7 @@ GameObject:
   - component: {fileID: 1518216934}
   - component: {fileID: 1518216933}
   - component: {fileID: 1518216937}
+  - component: {fileID: 1518216938}
   m_Layer: 5
   m_Name: Home Canvas
   m_TagString: Untagged
@@ -33096,6 +33166,28 @@ MonoBehaviour:
   - {fileID: 387719109}
   - {fileID: 354771678}
   DelayTime: 1.2
+--- !u!114 &1518216938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518216932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cc1070a5cc1174aa897c9f90cf6269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListMapTile:
+  - {fileID: 1717230987}
+  - {fileID: 1209449649}
+  - {fileID: 354771682}
+  - {fileID: 387719113}
+  AllMaps:
+  - {fileID: 11400000, guid: 96f854f4bd943474f831c04e35773d3a, type: 2}
+  - {fileID: 11400000, guid: fa6a578b9f84c664fa0add3e6dd9a61a, type: 2}
+  - {fileID: 11400000, guid: bbd34d9890bc05c44abea873b7ac4670, type: 2}
+  - {fileID: 11400000, guid: 79e2a5e6f1cee7f478913f2953944b76, type: 2}
 --- !u!1 &1520161403
 GameObject:
   m_ObjectHideFlags: 0
@@ -33126,6 +33218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1458294914}
+  - {fileID: 1055630994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532553669
@@ -37779,7 +37872,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map_Button: {fileID: 1717230984}
   UIHome: {fileID: 1518216937}
-  MapData: {fileID: 11400000, guid: 96f854f4bd943474f831c04e35773d3a, type: 2}
+  MapInstance:
+    MapData: {fileID: 0}
+    isUnlock: 0
+    isSelected: 0
+    UnlockTopicsIndex: 
+    CompletedTopicsIndex: 
 --- !u!1 &1728848099
 GameObject:
   m_ObjectHideFlags: 0

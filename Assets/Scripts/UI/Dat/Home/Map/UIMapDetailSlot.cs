@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
 {
@@ -17,9 +18,12 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
 
     [Header("Data")]
     public Topic CurrentTopic;
+    public bool IsUnlocked;
+    public bool IsCompleted;
 
     [Header("References")]
     public UIMapDescription UIMapDescription;
+
     public int poolID { get; set; }
     public ObjectPooler<UIMapDetailSlot> pool { get; set; }
 
@@ -27,20 +31,25 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
     {
         Start_Button.onClick.AddListener(() => StartPlay());
     }
+
     private void Start()
     {
-        UIMapDescription = GameObject.FindAnyObjectByType<UIMapDescription>();
+        UIMapDescription = FindObjectOfType<UIMapDescription>();
     }
-    public void SetupMapDetailSlot(Topic topic)
+
+    public void SetupMapDetailSlot(Topic topic, bool isUnlocked, bool isCompleted)
     {
         CurrentTopic = topic;
+        IsUnlocked = isUnlocked;
+        IsCompleted = isCompleted;
+
         Image.sprite = CurrentTopic.TopicImage;
         Title.text = CurrentTopic.topicName;
 
-        EnegyConsume.text = "Tiêu thụ: " +  CurrentTopic.enegyConsumed.ToString();
+        EnegyConsume.text = "Tiêu thụ: " + CurrentTopic.enegyConsumed.ToString();
         CoinReward.text = "Thưởng: " + CurrentTopic.coinReward.ToString();
 
-        if (CurrentTopic.isUnlock)
+        if (IsUnlocked)
         {
             LockedUI.SetActive(false);
             EnegyConsume.gameObject.SetActive(true);
@@ -58,8 +67,37 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
 
     public void StartPlay()
     {
-        UIMapDescription.MapSelecting.Data.CurrentTopic = CurrentTopic;
+        // Giả sử khi hoàn thành minigame, bạn sẽ gọi một hàm để đánh dấu topic đã hoàn thành
         SceneManager.LoadScene(CurrentTopic.minigameSceneName);
+        CompleteTopic();
     }
 
+    // Gọi hàm này khi hoàn thành minigame để cập nhật trạng thái
+    public void CompleteTopic()
+    {
+        if (!IsCompleted)
+        {
+            IsCompleted = true;
+            var mapInstance = UIMapDescription.CurrentMapInstanceSelected;
+            if (!mapInstance.CompletedTopicsIndex.Contains(CurrentTopic.index))
+            {
+                mapInstance.CompletedTopicsIndex.Add(CurrentTopic.index);
+            }
+
+            // Mở khóa topic tiếp theo nếu có
+            int nextTopicIndex = CurrentTopic.index + 1;
+            if (nextTopicIndex < mapInstance.MapData.Data.topicList.Count &&
+                !mapInstance.UnlockTopicsIndex.Contains(nextTopicIndex))
+            {
+                mapInstance.UnlockTopicsIndex.Add(nextTopicIndex);
+            }
+
+            // Lưu trạng thái
+            MapManager mapManager = FindObjectOfType<MapManager>();
+            MapSaveSystem.Save(mapManager.ListMapTile.Select(tile => tile.MapInstance).ToList());
+
+            // Cập nhật UI
+            UIMapDescription.UIMapDetail.RefreshUIMap();
+        }
+    }
 }

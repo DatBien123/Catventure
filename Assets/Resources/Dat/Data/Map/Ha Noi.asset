@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ha Noi
   m_EditorClassIdentifier: 
   Data:
+    index: 0
     Name: "H\xE0 N\u1ED9i"
     Image: {fileID: 21300000, guid: 211f3fc06b395b34fa3ae06cbeaa8a3d, type: 3}
-    isUnlock: 1
     description: "H\xC0 N\u1ED8I - TH\u1EE6 \u0110\xD4 C\u1EE6A VI\u1EC6T NAM, N\u1ED4I
       TI\u1EBENG V\u1EDAI H\u1ED2 G\u01AF\u01A0M XANH BI\u1EBEC \nV\xC0 TH\xC1P R\xD9A
       NH\u1ECE XINH N\u1EB0M GI\u1EEEA H\u1ED2. NG\u01AF\u1EDCI TA K\u1EC2 R\u1EB0NG
@@ -28,49 +28,23 @@ MonoBehaviour:
       description: 
       enegyConsumed: 10
       coinReward: 50
-      index: 1
+      index: 0
       topicName: "N\u1EA5u Ph\u1EDF"
       cutscene: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
       minigameSceneName: Minigame_Drag&DropCooking
-      isUnlock: 1
-      isCompleted: 0
     - TopicImage: {fileID: 21300000, guid: 9f06792d94ae71c4d948106103ebb52b, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
-      index: 2
+      index: 1
       topicName: "Gi\u1EA3i m\xE3 "
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
       minigameSceneName: Minigame_Drag&DropCooking
-      isUnlock: 0
-      isCompleted: 0
     - TopicImage: {fileID: 6059799596907309901, guid: 7c1c694451d1b524fa06208173f00d38, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
-      index: 3
+      index: 2
       topicName: "N\u1ED1i t\u1EEB"
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
       minigameSceneName: Minigame_Drag&DropCooking
-      isUnlock: 0
-      isCompleted: 0
-    - TopicImage: {fileID: 6059799596907309901, guid: 7c1c694451d1b524fa06208173f00d38, type: 3}
-      description: 
-      enegyConsumed: 0
-      coinReward: 0
-      index: 3
-      topicName: "N\u1ED1i t\u1EEB"
-      cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
-      minigameSceneName: Minigame_Drag&DropCooking
-      isUnlock: 0
-      isCompleted: 0
-    - TopicImage: {fileID: 6059799596907309901, guid: 7c1c694451d1b524fa06208173f00d38, type: 3}
-      description: 
-      enegyConsumed: 0
-      coinReward: 0
-      index: 3
-      topicName: "N\u1ED1i t\u1EEB"
-      cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
-      minigameSceneName: Minigame_Drag&DropCooking
-      isUnlock: 0
-      isCompleted: 0

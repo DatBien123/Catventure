@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Ca Mau
   m_EditorClassIdentifier: 
   Data:
-    Name: 
+    index: 3
+    Name: "C\xE0 Mau"
     Image: {fileID: 0}
     description: 
+    topicList: []

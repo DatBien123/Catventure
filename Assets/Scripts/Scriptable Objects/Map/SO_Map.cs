@@ -5,9 +5,9 @@ using UnityEngine.Timeline;
 [System.Serializable]
 public struct MapData
 {
+    public int index;
     public string Name;
     public Sprite Image;
-    public bool isUnlock;
     [TextArea] public string description;
 
     public List<Topic> topicList;
@@ -27,8 +27,6 @@ public struct Topic
     public string topicName;
     public TimelineAsset cutscene;
     public string minigameSceneName;
-    public bool isUnlock;
-    public bool isCompleted;
 }
 [CreateAssetMenu(fileName = "Map Data", menuName = "Map/Map Data")]
 public class SO_Map : ScriptableObject

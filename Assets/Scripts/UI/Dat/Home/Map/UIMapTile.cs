@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Collections; // ⚠️ nhớ import DOTween
+using System.Collections;
+using System.Linq;
 
 public class UIMapTile : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class UIMapTile : MonoBehaviour
     public UIHome UIHome;
 
     [Header("Data")]
-    public SO_Map MapData;
+    public MapInstance MapInstance;
 
     private void Awake()
     {
@@ -21,13 +22,24 @@ public class UIMapTile : MonoBehaviour
 
     public void SelectMap()
     {
-        //if (!MapData.Data.isUnlock)
-        //{
-        //    StartCoroutine(ShowLockedNotify());
-        //    return;
-        //}
+        if (!MapInstance.isUnlock)
+        {
+            StartCoroutine(ShowLockedNotify());
+            return;
+        }
 
-        UIHome.UIMapDescription.SetupMapDescription(MapData);
+        // Đặt tất cả map khác thành không chọn
+        foreach (var tile in FindObjectsOfType<UIMapTile>())
+        {
+            tile.MapInstance.isSelected = false;
+        }
+        MapInstance.isSelected = true;
+
+        // Lưu trạng thái sau khi chọn map
+        MapManager mapManager = FindObjectOfType<MapManager>();
+        MapSaveSystem.Save(mapManager.ListMapTile.Select(tile => tile.MapInstance).ToList());
+
+        UIHome.UIMapDescription.SetupMapDescription(MapInstance);
         UIHome.UIMapDescription.gameObject.SetActive(true);
         UIHome.UIMapDescription.MapDescription.SetActive(true);
         UIHome.audioManager.PlaySFX("Click Map Home");
@@ -37,16 +49,16 @@ public class UIMapTile : MonoBehaviour
     {
         GameObject notifyObj = UIHome.MapLockedNotify.gameObject;
 
-        // Nếu notify đang hiện rồi thì reset animation lại
+        // Nếu notify đang hiện thì reset animation
         notifyObj.SetActive(true);
 
         RectTransform rect = notifyObj.GetComponent<RectTransform>();
 
-        // Reset vị trí gốc để rung từ trung tâm
+        // Reset vị trí gốc
         Vector3 originalPos = rect.anchoredPosition;
         rect.anchoredPosition = originalPos;
 
-        // Nếu có CanvasGroup thì fade in
+        // Fade in nếu có CanvasGroup
         CanvasGroup cg = notifyObj.GetComponent<CanvasGroup>();
         if (cg != null)
         {
@@ -54,13 +66,12 @@ public class UIMapTile : MonoBehaviour
             cg.DOFade(1, 0.2f);
         }
 
-        // Hiệu ứng rung trái phải 3 lần trong 0.5 giây
+        // Hiệu ứng rung
         rect.DOShakeAnchorPos(0.5f, strength: new Vector2(20, 0), vibrato: 10, randomness: 0, snapping: false, fadeOut: true);
 
-        // Thêm âm thanh nếu muốn
         UIHome.audioManager.PlaySFX("Map Locked Notify");
 
-        // Chờ vài giây rồi ẩn notify đi
+        // Chờ rồi ẩn notify
         yield return new WaitForSeconds(1.2f);
 
         if (cg != null)

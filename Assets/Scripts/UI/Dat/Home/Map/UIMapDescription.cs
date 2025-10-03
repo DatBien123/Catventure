@@ -1,6 +1,7 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UIMapDescription : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class UIMapDescription : MonoBehaviour
     public Image Image;
 
     [Header("Data")]
-    public SO_Map CurrentMapSelected;
-    public SO_MapSelecting MapSelecting;
+    public MapInstance CurrentMapInstanceSelected;
 
     [Header("Buttons")]
     public Button Explore_Button;
@@ -24,14 +24,18 @@ public class UIMapDescription : MonoBehaviour
     {
         Explore_Button.onClick.AddListener(() => Explore());
     }
-    public void SetupMapDescription(SO_Map mapData)
-    {
-        CurrentMapSelected = mapData;
-        MapSelecting.Data.CurrentMapSelecting = CurrentMapSelected;
 
-        Name.text = mapData.Data.Name;
-        Description.text = mapData.Data.description.ToString();
-        Image.sprite = mapData.Data.Image;
+    public void SetupMapDescription(MapInstance mapInstance)
+    {
+        CurrentMapInstanceSelected = mapInstance;
+
+        Name.text = mapInstance.MapData.Data.Name;
+        Description.text = mapInstance.MapData.Data.description;
+        Image.sprite = mapInstance.MapData.Data.Image;
+
+        // Lưu trạng thái khi thiết lập map description
+        MapManager mapManager = FindObjectOfType<MapManager>();
+        MapSaveSystem.Save(mapManager.ListMapTile.Select(tile => tile.MapInstance).ToList());
     }
 
     public void Explore()
