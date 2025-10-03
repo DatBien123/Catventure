@@ -1647,7 +1647,7 @@ MonoBehaviour:
   PuzzleLayers: {fileID: 824835883}
   pointsTowin: 2
   reward: 100
-  Player: {fileID: 0}
+  Player: {fileID: 776164044}
 --- !u!1 &227116378
 GameObject:
   m_ObjectHideFlags: 0
