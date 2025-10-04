@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FixSwordGameManager : MonoBehaviour
 {
@@ -10,8 +12,13 @@ public class FixSwordGameManager : MonoBehaviour
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
+    [SerializeField] private UnityEvent playBackgroundMusic;
     private int currentPoints;
 
+    public void Start()
+    {
+        playBackgroundMusic?.Invoke();
+    }
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);

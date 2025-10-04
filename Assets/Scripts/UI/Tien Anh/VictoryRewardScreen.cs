@@ -25,7 +25,6 @@ public class VictoryRewardScreen : MonoBehaviour
         rewardText.text = $"PHẦN THƯỞNG: {this.reward}";
         StartCoroutine(SpawnStars());
         Debug.Log("Sinh ra ngôi sao");
-
     }
     public void ShowRewardDragDrop(Sprite itemSprite, string itemName, float reward, int star)
     {

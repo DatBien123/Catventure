@@ -211,11 +211,11 @@ public class CuttingStep : MonoBehaviour, ICookingStep
     }
     IEnumerator ShowFinishedText()
     {
+        stepUI.ingredientBarUI.MarkItemAsCollected(cookingStep.requiredIngredients[currentIngredient]);
         stepUI.finishedText.GetComponent<FinishedTextUI>().ShowFinishedText();
         yield return new WaitForSeconds(3f);
         stepUI.finishedText.GetComponent<FinishedTextUI>().HideFinishedText();
 
-        stepUI.ingredientBarUI.MarkItemAsCollected(cookingStep.requiredIngredients[currentIngredient]);
         if (currentIngredient + 1 == cookingStep.requiredIngredients.Length)
         {
             CompleteStep();
