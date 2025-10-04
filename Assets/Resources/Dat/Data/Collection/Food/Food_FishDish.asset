@@ -19,4 +19,10 @@ MonoBehaviour:
     description: "Th\u1EBB \"\u0110\u0129a c\xE1\"\nTi\xEAu th\u1EE5 \u0111\u0129a
       c\xE1 s\u1EBD t\u0103ng th\xEAm: "
     Type: 0
+    additiveValue: 0.15
     SpellClip: {fileID: 0}
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

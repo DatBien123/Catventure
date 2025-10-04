@@ -34,7 +34,7 @@ public class UIBookSlot : MonoBehaviour
         TemLayerLock.gameObject.SetActive(false);
         VolcabularyLayerLock.gameObject.SetActive(false);
 
-        if (card.CardData.Data.Type == CardType.Food)
+        if (card.CardData.Data.Type == CardType.Food || card.CardData.Data.Type == CardType.Vegetable)
         {
             if (card.isUnlock)
             {

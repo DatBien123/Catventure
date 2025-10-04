@@ -17,6 +17,11 @@ public class UIIntro : MonoBehaviour
     public Image ImageLayer;
 
     public VideoPlayer videoPlayer;
+
+    private void Awake()
+    {
+        videoPlayer.Prepare();
+    }
     void Start()
     {
         StartIntro();

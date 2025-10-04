@@ -4,6 +4,7 @@ using UnityEngine;
 public enum CardType
 {
     Food,
+    Vegetable,
     Temp,
     Volcabulary
 }
@@ -15,6 +16,7 @@ public struct CardData
     public Sprite Icon;
     [TextArea] public string description;
     public CardType Type;
+    public float additiveValue;
     public AudioClip SpellClip;
 }
 

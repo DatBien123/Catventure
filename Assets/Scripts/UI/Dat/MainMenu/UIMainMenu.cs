@@ -1,10 +1,24 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UIMainMenu : MonoBehaviour
 {
     public RectTransform[] Maps;
+
+
+    public VideoPlayer VideoPlayer;
+    public void Awake()
+    {
+        VideoPlayer.Prepare();
+        VideoPlayer.prepareCompleted += OnPrepared;
+    }
+
+    void OnPrepared(VideoPlayer vp)
+    {
+        Debug.Log("Prepared");
+    }
 
     public void OnEnable()
     {

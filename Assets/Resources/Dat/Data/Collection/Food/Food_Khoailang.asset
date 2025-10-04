@@ -18,5 +18,11 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: 02acd02d5fec57a4e89659f0fbc18521, type: 3}
     description: "Th\u1EBB \"Khoai lang\"\nKhi thu ho\u1EA1ch c\xE2y Khoai lang 
       th\xEC s\u1EA3n l\u01B0\u1EE3ng s\u1EBD t\u0103ng th\xEAm: "
-    Type: 0
+    Type: 1
+    additiveValue: 0.3
     SpellClip: {fileID: 0}
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

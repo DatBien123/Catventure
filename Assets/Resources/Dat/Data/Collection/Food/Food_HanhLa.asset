@@ -18,5 +18,11 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: 81809ebfb73917e4aad6bf100419c722, type: 3}
     description: "Th\u1EBB \"H\xE0nh l\xE1\"\nKhi thu ho\u1EA1ch H\xE0nh l\xE1 th\xEC
       s\u1EA3n l\u01B0\u1EE3ng H\xE0nh l\xE1 s\u1EBD t\u0103ng th\xEAm: "
-    Type: 0
+    Type: 1
+    additiveValue: 0.3
     SpellClip: {fileID: 0}
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

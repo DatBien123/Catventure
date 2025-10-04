@@ -88,6 +88,7 @@ public class TimelineEvent : MonoBehaviour
     public GameObject UIs;     // GameObject cần active/disable
     public GameObject HomeCanvas;
     public GameObject CutSceneUI;
+    public GameObject TutorialUI;
 
     [Header("References")]
     public Dialogue Dialogue;
@@ -108,6 +109,7 @@ public class TimelineEvent : MonoBehaviour
             UIs.SetActive(true);
             HomeCanvas.SetActive(true);
             CutSceneUI.SetActive(false);
+            TutorialUI.SetActive(true);
         }
 
         Skip_Button.onClick.AddListener(() =>
@@ -141,8 +143,8 @@ public class TimelineEvent : MonoBehaviour
     {
         // Khi timeline kết thúc (hoặc Stop)
         UIs.SetActive(true);
-        HomeCanvas.SetActive(true);
-        CutSceneUI.SetActive(true);
+        //HomeCanvas.SetActive(true);
+        CutSceneUI.SetActive(false);
         ////Dialogue
         DialogueData dialogueData = Dialogue.DialogueDataBase.Find(dialogueData => dialogueData.Topic == "First Time Open Game");
         Dialogue.UIDialogue.SetCurrentDialogueData(dialogueData);

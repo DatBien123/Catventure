@@ -8,7 +8,11 @@ public class UIMapTile : MonoBehaviour
 {
     [Header("Components")]
     public Button Map_Button;
+    public Image Map_Image;
     public Image LockImage;
+    public Color UnlockColor;
+    public Color LockColor;
+    public GameObject MapName;
 
     [Header("References")]
     public UIHome UIHome;
@@ -27,11 +31,15 @@ public class UIMapTile : MonoBehaviour
         {
             if(LockImage != null)
                 LockImage.gameObject.SetActive(false);
+            Map_Image.color = UnlockColor;
+            MapName.SetActive(true);
         }
         else
         {
             if (LockImage != null)
                 LockImage.gameObject.SetActive(true);
+            Map_Image.color = LockColor;
+            MapName.SetActive(false);
         }
     }
     public void SelectMap()

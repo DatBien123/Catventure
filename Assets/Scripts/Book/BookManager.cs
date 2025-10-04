@@ -7,9 +7,34 @@ public class BookManager : MonoBehaviour
     public List<CardInstance> cardInstances;
     public int CardPerCouplePage = 8;
 
-    private void Start()
+    private void Awake()
     {
         BookSaveSystem.Load(this); // Tải trạng thái isUnlock từ JSON
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UnlockCard("9", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            UnlockCard("8", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UnlockCard("7", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UnlockCard("6", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            UnlockCard("5", true);
+        }
     }
 
     #region [Data]
@@ -46,7 +71,7 @@ public class BookManager : MonoBehaviour
 
         foreach (CardInstance card in cardInstances)
         {
-            if (card.CardData.Data.Type == CardType.Food)
+            if (card.CardData.Data.Type == CardType.Food || card.CardData.Data.Type == CardType.Vegetable)
             {
                 result.Add(new FoodCardInstance(card.CardData, card.isUnlock));
             }

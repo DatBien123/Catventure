@@ -9,6 +9,10 @@ public class UIBookSlotDetail : MonoBehaviour
     public Image Image;
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
+    public TextMeshProUGUI AdditiveValue;
+
+    public Image ResourceAddtiveImage;
+    public Sprite EnegyImg;
 
     [Header("Button")]
     public Button SpellButton;
@@ -18,6 +22,7 @@ public class UIBookSlotDetail : MonoBehaviour
     public RectTransform ImageRectTransform;
     public CardInstance CurrentCard;
     public GameObject TempDetail;
+    public GameObject BenefitUI;
 
     private void Awake()
     {
@@ -50,13 +55,26 @@ public class UIBookSlotDetail : MonoBehaviour
     public void SetupBookSlotDetail(CardInstance card)
     {
         CurrentCard = card;
-        if(CurrentCard.CardData.Data.Type == CardType.Food)
+        if(CurrentCard.CardData.Data.Type == CardType.Food || CurrentCard.CardData.Data.Type == CardType.Vegetable)
         {
             ImageRectTransform.sizeDelta = new Vector2(217.5f, 217.5f);
+            BenefitUI.SetActive(true);
+
+
+            AdditiveValue.text ="+ " +( card.CardData.Data.additiveValue * 100).ToString() + "%";
+            if (card.CardData.Data.Type == CardType.Food)
+            {
+                ResourceAddtiveImage.sprite = EnegyImg;
+            }
+            else if (card.CardData.Data.Type == CardType.Vegetable)
+            {
+                ResourceAddtiveImage.sprite = card.CardData.Data.Icon;
+            }
         }
         else
         {
             ImageRectTransform.sizeDelta = new Vector2(150, 217.5f);
+            BenefitUI.SetActive(false);
         }
 
         Image.sprite = card.CardData.Data.Icon;

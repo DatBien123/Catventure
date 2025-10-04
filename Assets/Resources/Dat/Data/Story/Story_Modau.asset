@@ -15,46 +15,40 @@ MonoBehaviour:
   Data:
     ID: 0
     Name: "Truy\u1EC7n M\u1EDF \u0111\u1EA7u"
-    Icon: {fileID: 2800000, guid: 97efef1135439284ca18eb51bdcbf9d3, type: 3}
+    Icon: {fileID: 2800000, guid: b0f44365286d305488763fba3cc1bbe5, type: 3}
     description: 
     StoryPageDatas:
-    - StoryImage: {fileID: 21300000, guid: 67201083b03e5a644b2ef58324be5f4e, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 8983b7b62341f9947be6110dd445fac9, type: 3}
+    - StoryImage: {fileID: 21300000, guid: cf72b8de7a2f3a146a6402a80dc8e960, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 8983b7b62341f9947be6110dd445fac9, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 0a3a9f298b7889143a8a9249c6d8abeb, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 103d8608966bad84384db23373676b84, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 99bd16cb55113374585d186543b408a8, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: ad49c27bc313ad14b814eda262d9759c, type: 3}
+    - StoryImage: {fileID: 21300000, guid: e0b9d38a2f18d724bb627aebf74654f1, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 103d8608966bad84384db23373676b84, type: 3}
+      - {fileID: 8300000, guid: ad49c27bc313ad14b814eda262d9759c, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 787c2a31a8e93e64f9a430e9047364fa, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: e9806a980699b874bb258e2b2e11d7bd, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 23732b8b515dce248bffe6e86fb2453a, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: c3c31fbd74397314788a76060f8b00c7, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 8bbd7d8b78266514e81816f891e68e28, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: e9806a980699b874bb258e2b2e11d7bd, type: 3}
+      - {fileID: 8300000, guid: c3c31fbd74397314788a76060f8b00c7, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 308add4f31d0f7241ac65fc8bcb7cff9, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: edbb00c0bad8b4b40ace0d2ebd10c3ca, type: 3}
+    - StoryImage: {fileID: 21300000, guid: c26eb923b32da2a4baf87db3f1f30218, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: edbb00c0bad8b4b40ace0d2ebd10c3ca, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: f894e1e9e27564a4ca426308709efc3d, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 0b21c9e695398284a8e95b09d9cb56da, type: 3}
+    - StoryImage: {fileID: 21300000, guid: facd0958af4b7f44bbe69ad11717a30a, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 0b21c9e695398284a8e95b09d9cb56da, type: 3}
+      - {fileID: 8300000, guid: 4c032e1b64fdb6b409de799f141f88d0, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: b3cfd9e103ba8094a9e11a1ed8f9c852, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 4c032e1b64fdb6b409de799f141f88d0, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 7c80c1b8d460a20409a1b22a09148a54, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 105d746e1af932148a96824dcc879315, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 3d234f2fef5938547b2310e33a1c96c3, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 6be50474972b6ef4baf326a820bd2642, type: 3}
+    - StoryImage: {fileID: 21300000, guid: e9dd0bf76dc14f24db36404e709bb7ea, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 105d746e1af932148a96824dcc879315, type: 3}
+      - {fileID: 8300000, guid: 6be50474972b6ef4baf326a820bd2642, type: 3}
       isDelay: 0
       delayTime: 0

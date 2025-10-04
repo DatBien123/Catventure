@@ -55,15 +55,23 @@ public class StoryManager : MonoBehaviour
             isApplyNextPage = false;
             //yield return new WaitForSeconds(.5f);
             StoryImage.sprite = CurrentStoryPageData.StoryImage;
-            CurrentSound.source.clip = CurrentStoryPageData.StoryAudioClip;
-            CurrentSound.source.volume = 1;
-            CurrentSound.source.pitch = 1;
-            CurrentSound.source.loop = false;
-            CurrentSound.source.Play();
 
-            Debug.Log($"phát!");
-            //yield return new WaitWhile(() => isApplyNextPage == false);
-            yield return new WaitForSeconds(CurrentStoryPageData.StoryAudioClip.length);
+            int currentAudioIndex = 0;
+
+            while(currentAudioIndex < CurrentStoryPageData.StoryAudioClips.Count)
+            {
+                CurrentSound.source.clip = CurrentStoryPageData.StoryAudioClips[currentAudioIndex];
+                CurrentSound.source.volume = 1;
+                CurrentSound.source.pitch = 1;
+                CurrentSound.source.loop = false;
+                CurrentSound.source.Play();
+
+                Debug.Log($"phát!");
+                //yield return new WaitWhile(() => isApplyNextPage == false);
+                yield return new WaitForSeconds(CurrentStoryPageData.StoryAudioClips[currentAudioIndex].length);
+                currentAudioIndex++;
+            }
+
 
             if (CurrentStoryPageData.isDelay)
             {

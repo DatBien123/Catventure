@@ -18,7 +18,7 @@ public struct StoryData
 public struct StoryPageData
 {
     public Sprite StoryImage;
-    public AudioClip StoryAudioClip;
+    public List<AudioClip> StoryAudioClips;
 
     public bool isDelay;
     public float delayTime;
