@@ -9,7 +9,12 @@ public class UIBookSlot : MonoBehaviour
 
     [Header("Reference")]
     public UIBook UIBook;
-    public SO_Card CurrentCardData;
+    public CardInstance CurrentCard;
+
+    [Header("Layer Lock")]
+    public Image TemLayerLock;
+    public Image VolcabularyLayerLock;
+    public Image FoodLayerLock;
 
     public void Awake()
     {
@@ -20,22 +25,81 @@ public class UIBookSlot : MonoBehaviour
         Button.onClick.AddListener(() => ShowBookSlotInfo());
     }
 
-    public void SetupBookSlot(SO_Card card)
+    public void SetupBookSlot(CardInstance card)
     {
-        CurrentCardData = card;
-        Image.sprite = card.Data.Icon;
+        CurrentCard = card;
+        Image.sprite = card.CardData.Data.Icon;
+
+        FoodLayerLock.gameObject.SetActive(false);
+        TemLayerLock.gameObject.SetActive(false);
+        VolcabularyLayerLock.gameObject.SetActive(false);
+
+        if (card.CardData.Data.Type == CardType.Food)
+        {
+            if (card.isUnlock)
+            {
+                if(FoodLayerLock != null)
+                {
+                    FoodLayerLock.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (FoodLayerLock != null)
+                {
+                    FoodLayerLock.gameObject.SetActive(true);
+                }
+            }
+        }
+        else if(card.CardData.Data.Type == CardType.Temp)
+        {
+            if (card.isUnlock)
+            {
+                if (TemLayerLock != null)
+                {
+                    TemLayerLock.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (TemLayerLock != null)
+                {
+                    TemLayerLock.gameObject.SetActive(true);
+                }
+            }
+        }
+        else if(card.CardData.Data.Type == CardType.Volcabulary)
+        {
+            if (card.isUnlock)
+            {
+                if (VolcabularyLayerLock != null)
+                {
+                    VolcabularyLayerLock.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (VolcabularyLayerLock != null)
+                {
+                    VolcabularyLayerLock.gameObject.SetActive(true);
+                }
+            }
+        }
     }
     public void RemoveDataBookSlot()
     {
-        CurrentCardData = null;
+        CurrentCard = null;
         Image.sprite = null;
+        FoodLayerLock.gameObject.SetActive(false);
+        TemLayerLock.gameObject.SetActive(false);
+        VolcabularyLayerLock.gameObject.SetActive(false);
     }
     public void ShowBookSlotInfo()
     {
-        if(CurrentCardData != null)
+        if(CurrentCard != null && CurrentCard.isUnlock)
         {
-            Debug.Log("Show Book Slot info: " + CurrentCardData.Data.Name);
-            UIBook.BookSlotDetail.SetupBookSlotDetail(CurrentCardData);
+            Debug.Log("Show Book Slot info: " + CurrentCard.CardData.Data.Name);
+            UIBook.BookSlotDetail.SetupBookSlotDetail(CurrentCard);
             UIBook.BookSlotDetail.gameObject.SetActive(true);
         }
     }

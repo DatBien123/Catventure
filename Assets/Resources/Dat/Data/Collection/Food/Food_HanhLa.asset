@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a7b70e25b73e7042abbc89c81c92264, type: 3}
-  m_Name: Food_Pho
+  m_Name: Food_HanhLa
   m_EditorClassIdentifier: 
   Data:
-    ID: 0
-    Name: "Th\u1EBB Ph\u1EDF"
-    Icon: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
-    description: "Th\u1EBB \"Ph\u1EDF\"\nKhi ti\xEAu th\u1EE5 m\u1ED9t b\xE1t Ph\u1EDF
-      s\u1EBD t\u0103ng th\xEAm: "
+    ID: 2
+    Name: "Th\u1EBB H\xE0nh l\xE1"
+    Icon: {fileID: 21300000, guid: 81809ebfb73917e4aad6bf100419c722, type: 3}
+    description: "Th\u1EBB \"H\xE0nh l\xE1\"\nKhi thu ho\u1EA1ch H\xE0nh l\xE1 th\xEC
+      s\u1EA3n l\u01B0\u1EE3ng H\xE0nh l\xE1 s\u1EBD t\u0103ng th\xEAm: "
     Type: 0
     SpellClip: {fileID: 0}

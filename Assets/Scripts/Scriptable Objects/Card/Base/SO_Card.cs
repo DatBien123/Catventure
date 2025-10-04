@@ -16,10 +16,8 @@ public struct CardData
     [TextArea] public string description;
     public CardType Type;
     public AudioClip SpellClip;
-    public bool IsUnlocked;
 }
 
-//[CreateAssetMenu(fileName = "Card Data", menuName = "Collection System/Card Data")]
 public abstract class SO_Card : ScriptableObject, IUsable
 {
     public CardData Data;

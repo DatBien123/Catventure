@@ -132,6 +132,12 @@ public class StoryGenerator : MonoBehaviour
     Coroutine C_ReadStory;
     void StartReadStory()
     {
+        if (StoryManager.CurrentStory == null || !StoryManager.CurrentStory.StoryData.isUnlock)
+        {
+            Debug.LogWarning("CurrentStory is null or not unlocked!");
+            return;
+        }
+
         if (C_ReadStory != null) StopCoroutine(C_ReadStory);
         C_ReadStory = StartCoroutine(ReadStory());
     }
@@ -255,7 +261,7 @@ public class StoryGenerator : MonoBehaviour
             Story story = hit.collider.GetComponentInParent<Story>() ?? hit.collider.GetComponent<Story>();
             if (story != null)
             {
-                Debug.Log("Chạm vào Story: " + (story.StoryData != null ? story.StoryData.name : "StoryData bị null"));
+                Debug.Log("Chạm vào Story: " + (story.StoryData != null ? story.StoryData.StoryData.name : "StoryData bị null"));
                 StoryManager.CurrentStory = story;
             }
             else

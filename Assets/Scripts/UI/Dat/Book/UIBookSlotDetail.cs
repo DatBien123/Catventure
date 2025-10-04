@@ -16,7 +16,7 @@ public class UIBookSlotDetail : MonoBehaviour
     [Header("Reference")]
     public UIBook UIBook;
     public RectTransform ImageRectTransform;
-    public SO_Card CurrentCard;
+    public CardInstance CurrentCard;
     public GameObject TempDetail;
 
     private void Awake()
@@ -47,10 +47,10 @@ public class UIBookSlotDetail : MonoBehaviour
         SpellButton.onClick.AddListener(() => Spell());
     }
 
-    public void SetupBookSlotDetail(SO_Card card)
+    public void SetupBookSlotDetail(CardInstance card)
     {
         CurrentCard = card;
-        if(CurrentCard.Data.Type == CardType.Food)
+        if(CurrentCard.CardData.Data.Type == CardType.Food)
         {
             ImageRectTransform.sizeDelta = new Vector2(217.5f, 217.5f);
         }
@@ -59,9 +59,9 @@ public class UIBookSlotDetail : MonoBehaviour
             ImageRectTransform.sizeDelta = new Vector2(150, 217.5f);
         }
 
-        Image.sprite = card.Data.Icon;
-        Name.text = card.Data.Name;
-        Description.text = card.Data.description;
+        Image.sprite = card.CardData.Data.Icon;
+        Name.text = card.CardData.Data.Name;
+        Description.text = card.CardData.Data.description;
     }
     public void Spell()
     {

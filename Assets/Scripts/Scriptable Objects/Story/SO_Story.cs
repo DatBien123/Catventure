@@ -10,7 +10,6 @@ public struct StoryData
     public string Name;
     public Texture2D Icon;
     [TextArea] public string description;
-    public bool IsUnlocked;
 
     public List<StoryPageData> StoryPageDatas;
 }

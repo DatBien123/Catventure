@@ -10,7 +10,7 @@ public enum EStoryType
 }
 public class StoryManager : MonoBehaviour
 {
-    public List<SO_Story> Stories = new List<SO_Story>();
+    public List<StoryInstance> Stories = new List<StoryInstance>();
     public Story CurrentStory;
     public StoryPageData CurrentStoryPageData;
     public int CurrentIndex = 0;
@@ -28,23 +28,24 @@ public class StoryManager : MonoBehaviour
     {
         CurrentSound = new Sound();
         CurrentSound.source = gameObject.AddComponent<AudioSource>();
+        StorySaveSystem.Load(this); // Tải trạng thái isUnlock khi khởi tạo
     }
 
     Coroutine C_PlayStory;
-    public void StartPlayStory(SO_Story storyData)
+    public void StartPlayStory(StoryInstance story)
     {
         if (C_PlayStory != null) StopCoroutine(C_PlayStory);
-        C_PlayStory = StartCoroutine(PlayStory(storyData));
+        C_PlayStory = StartCoroutine(PlayStory(story));
     }
-
-    IEnumerator PlayStory(SO_Story storyData)
+    #region [Actions]
+    IEnumerator PlayStory(StoryInstance story)
     {
 
         // Setup
         isPlayingStory = true;
         StoryPanel.SetActive(true);
         CurrentIndex = 0;
-        CurrentStoryPageData = storyData.Data.StoryPageDatas[CurrentIndex];
+        CurrentStoryPageData = story.StoryData.Data.StoryPageDatas[CurrentIndex];
 
         yield return StartCoroutine(FadeInImageLayer());
         yield return StartCoroutine(FadeOutImageLayer());
@@ -82,7 +83,6 @@ public class StoryManager : MonoBehaviour
         StoryGenerator.StartStopReadStory();
 
     }
-
     private IEnumerator FadeInImageLayer()
     {
         // Ensure ImageLayer starts with alpha 0
@@ -102,7 +102,6 @@ public class StoryManager : MonoBehaviour
         }
         ImageLayer.color = new Color(startColor.r, startColor.g, startColor.b, 1f); // Ensure alpha is exactly 1
     }
-
     private IEnumerator FadeOutImageLayer()
     {
         // Ensure ImageLayer starts with alpha 1
@@ -122,14 +121,13 @@ public class StoryManager : MonoBehaviour
         }
         ImageLayer.color = new Color(startColor.r, startColor.g, startColor.b, 0f); // Ensure alpha is exactly 0
     }
-
     public void OnNextStoryPage()
     {
         CurrentIndex++;
 
-        if (CurrentIndex < CurrentStory.StoryData.Data.StoryPageDatas.Count)
+        if (CurrentIndex < CurrentStory.StoryData.StoryData.Data.StoryPageDatas.Count)
         {
-            CurrentStoryPageData = CurrentStory.StoryData.Data.StoryPageDatas[CurrentIndex];
+            CurrentStoryPageData = CurrentStory.StoryData.StoryData.Data.StoryPageDatas[CurrentIndex];
             StoryImage.sprite = CurrentStoryPageData.StoryImage;
             isApplyNextPage = true;
         }
@@ -139,15 +137,29 @@ public class StoryManager : MonoBehaviour
             isPlayingStory = false;
         }
     }
-
     public void OnPreviousStoryPage()
     {
         CurrentIndex--;
         if (CurrentIndex >= 0)
         {
-            CurrentStoryPageData = CurrentStory.StoryData.Data.StoryPageDatas[CurrentIndex];
+            CurrentStoryPageData = CurrentStory.StoryData.StoryData.Data.StoryPageDatas[CurrentIndex];
             StoryImage.sprite = CurrentStoryPageData.StoryImage;
             isApplyNextPage = true;
         }
     }
+    #endregion
+
+    #region [Data]
+    //Data
+    // Phương thức để unlock story (gọi khi cần)
+    public void UnlockStory(string storyID, bool isUnlock)
+    {
+        StoryInstance storyInstance = Stories.Find(s => s.StoryData.Data.ID == storyID);
+        if (storyInstance != null)
+        {
+            storyInstance.isUnlock = isUnlock;
+            StorySaveSystem.Save(this); // Lưu ngay khi thay đổi
+        }
+    }
+    #endregion
 }
