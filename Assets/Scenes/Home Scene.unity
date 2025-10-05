@@ -24449,7 +24449,7 @@ MonoBehaviour:
   CameraDistanceFactor: 1.5
   rotationSpeed: 10
   rotationDuration: 0.5
-  delayShowUp: 1.5
+  delayShowUp: 1
   delayShowUpStories: 0.25
   waitTimeShowUpStory: 0.25
   Animator: {fileID: 911232677}
@@ -40908,13 +40908,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stories:
   - StoryData: {fileID: 11400000, guid: bbd2fc50bf04f014fba956506fa23ab3, type: 2}
-    isUnlock: 0
-  - StoryData: {fileID: 11400000, guid: ebef00d4064b91f4f8f5943ee3613dce, type: 2}
-    isUnlock: 0
-  - StoryData: {fileID: 11400000, guid: ba01b0da4e2598a4fbcc3cd8e900f455, type: 2}
-    isUnlock: 0
+    isUnlock: 1
   - StoryData: {fileID: 11400000, guid: d8cad8691fc3c17408a19f0423008ce6, type: 2}
-    isUnlock: 0
+    isUnlock: 1
+  - StoryData: {fileID: 11400000, guid: ebef00d4064b91f4f8f5943ee3613dce, type: 2}
+    isUnlock: 1
+  - StoryData: {fileID: 11400000, guid: ba01b0da4e2598a4fbcc3cd8e900f455, type: 2}
+    isUnlock: 1
+  - StoryData: {fileID: 11400000, guid: a18975ed8efb9034b89a0c29c761e241, type: 2}
+    isUnlock: 1
   CurrentStory: {fileID: 0}
   CurrentStoryPageData:
     StoryImage: {fileID: 0}

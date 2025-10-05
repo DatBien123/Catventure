@@ -18,43 +18,23 @@ MonoBehaviour:
     Icon: {fileID: 2800000, guid: 7e429e5d22df68745903b24b567a2fa4, type: 3}
     description: 
     StoryPageDatas:
-    - StoryImage: {fileID: 21300000, guid: 67201083b03e5a644b2ef58324be5f4e, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 0a3a9f298b7889143a8a9249c6d8abeb, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 99bd16cb55113374585d186543b408a8, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 806493dd4f270dd45b0ccff2c9acdc8d, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 2fbb5bbdc1028074998888e86dbf35c4, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 787c2a31a8e93e64f9a430e9047364fa, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 23732b8b515dce248bffe6e86fb2453a, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: f078a35498c7eb6448f048eb1319ce49, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 5f9032ec4cbb6bc4b9a9a6d33c5fb9e1, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 308add4f31d0f7241ac65fc8bcb7cff9, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 4accfe9736d9f3d499653fe5fd4e72e3, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 2bd1072f33fa9a94b8882855533edfeb, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: f894e1e9e27564a4ca426308709efc3d, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: b3cfd9e103ba8094a9e11a1ed8f9c852, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 7c80c1b8d460a20409a1b22a09148a54, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 3d234f2fef5938547b2310e33a1c96c3, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 015a46101c27ee74da65e29981bf2f9c, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 10713fb4a99ee48449f000a2310c15e0, type: 3}
       isDelay: 0
       delayTime: 0

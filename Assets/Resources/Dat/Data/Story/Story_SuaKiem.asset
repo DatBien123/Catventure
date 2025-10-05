@@ -18,43 +18,43 @@ MonoBehaviour:
     Icon: {fileID: 2800000, guid: 9399eea23be912943beb26388e92ca32, type: 3}
     description: 
     StoryPageDatas:
-    - StoryImage: {fileID: 21300000, guid: 67201083b03e5a644b2ef58324be5f4e, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 0a3a9f298b7889143a8a9249c6d8abeb, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 99bd16cb55113374585d186543b408a8, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 1b5b8bc03d0287149a2839058cd8a0c3, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: ca8e77b6e2ccf614e976e9c02b75fb05, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 787c2a31a8e93e64f9a430e9047364fa, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 6e7b0a091e662e746a0150ab1dfa7ebb, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: d4a89f5f034eebb4391a974fdf8f3197, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 23732b8b515dce248bffe6e86fb2453a, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: f943ae84e03282a4d95b23ee13b53eca, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 8024c021cc433e147baa5cfccbabd0ea, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 308add4f31d0f7241ac65fc8bcb7cff9, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 9805458bd9f06a741bf9d733df481e8a, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: d38b3fbdee7c23b428c0e825a66b6d0e, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: f894e1e9e27564a4ca426308709efc3d, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: bf586f166f296d04b8a615147dfc99e0, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 4dd2e30a0c8290047a396987fa50a5ba, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: b3cfd9e103ba8094a9e11a1ed8f9c852, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: 7306088cc7340094b99b08ab9cbfd7a3, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 72f8f2812e9eda74a947c57d777921b6, type: 3}
+      isDelay: 1
+      delayTime: 0
+    - StoryImage: {fileID: 21300000, guid: a565239de604d5f438db19b773d9718f, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: b1499d402a25669448ede5d2fbb5c06e, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 7c80c1b8d460a20409a1b22a09148a54, type: 3}
-      StoryAudioClips: []
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 3d234f2fef5938547b2310e33a1c96c3, type: 3}
-      StoryAudioClips: []
+    - StoryImage: {fileID: 21300000, guid: a565239de604d5f438db19b773d9718f, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 4c43551aadd7a174487cbf8e3a1d6422, type: 3}
       isDelay: 0
       delayTime: 0

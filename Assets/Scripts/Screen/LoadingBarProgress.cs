@@ -1,5 +1,6 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -20,6 +21,8 @@ public class LoadingBarProgress : MonoBehaviour
     public string sceneName;
     public VideoPlayer videoPlayer;
 
+    [Header("Event")]
+    public UnityEvent OnLoadingFinished;
     private void Awake()
     {
         // Uncomment if you want to assign the slider in code
@@ -62,12 +65,12 @@ public class LoadingBarProgress : MonoBehaviour
     }
 
     Coroutine C_LoadScene;
+    #region [Load Async]
     public void StartLoadSceneAsync(string sceneName)
     {
         if (C_LoadScene != null) StopCoroutine(C_LoadScene);
         C_LoadScene = StartCoroutine(LoadSceneAsync(sceneName));
     }
-
     IEnumerator LoadSceneAsync(string sceneName)
     {
         // Wait briefly to ensure video playback stabilizes
@@ -124,13 +127,14 @@ public class LoadingBarProgress : MonoBehaviour
             videoPlayer.Stop();
         }
     }
+    #endregion
 
+    #region [Load Normal]
     public void StartLoadSceneNormal(string sceneName)
     {
         if (C_LoadScene != null) StopCoroutine(C_LoadScene);
         C_LoadScene = StartCoroutine(LoadSceneNormal(sceneName));
     }
-
     IEnumerator LoadSceneNormal(string sceneName)
     {
         float elapsedTime = 0.0f;
@@ -168,4 +172,51 @@ public class LoadingBarProgress : MonoBehaviour
         }
         SceneManager.LoadScene(sceneName);
     }
+    #endregion
+
+    #region [Load Only Video]
+    public void StartLoadOnlyVideo()
+    {
+        if (C_LoadScene != null) StopCoroutine(C_LoadScene);
+        C_LoadScene = StartCoroutine(LoadOnlyVideo());
+    }
+    IEnumerator LoadOnlyVideo()
+    {
+        float elapsedTime = 0.0f;
+
+        if (videoPlayer != null)
+        {
+            videoPlayer.gameObject.SetActive(true);
+        }
+
+        float updateInterval = 0.1f; // Update slider every 0.1 seconds
+        float lastUpdateTime = 0.0f;
+
+        while (elapsedTime <= loadDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime - lastUpdateTime >= updateInterval)
+            {
+                float rate = elapsedTime / loadDuration;
+                float progress = Mathf.Clamp01(rate / 0.9f);
+                if (loadingBarSlider != null)
+                {
+                    loadingBarSlider.value = progress;
+                }
+                Debug.Log($"Loading progress: {(progress * 100):F2}%");
+                lastUpdateTime = elapsedTime;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (videoPlayer != null)
+        {
+            videoPlayer.Stop();
+        }
+
+        OnLoadingFinished?.Invoke();
+    }
+    #endregion
 }
