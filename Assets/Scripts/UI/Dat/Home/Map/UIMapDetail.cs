@@ -63,7 +63,7 @@ public class UIMapDetail : MonoBehaviour
     public void SetupMapDetail()
     {
         Title.text = "Khám phá " + UIMapDescription.CurrentMapInstanceSelected.MapData.Data.Name;
-        ProcessSlider.value = GetProcess();
+        ProcessSlider.value = GetProcess() / 100;
         Process.text = "Tiến trình khám phá: " + GetProcess().ToString("F0") + "%";
 
         RefreshUIMap();

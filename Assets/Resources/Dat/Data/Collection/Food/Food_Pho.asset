@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Food_Pho
   m_EditorClassIdentifier: 
   Data:
-    ID: 
-    Name: Pho
+    ID: 0
+    Name: "Th\u1EBB Ph\u1EDF"
     Icon: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
-    description: "M\u1ED9t m\xF3n \u0103n ngon c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t"
+    description: "Th\u1EBB \"Ph\u1EDF\"\nKhi ti\xEAu th\u1EE5 m\u1ED9t b\xE1t Ph\u1EDF
+      s\u1EBD t\u0103ng th\xEAm: "
     Type: 0
+    additiveValue: 0.15
     SpellClip: {fileID: 0}
-    IsUnlocked: 0
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

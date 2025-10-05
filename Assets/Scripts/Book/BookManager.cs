@@ -1,54 +1,98 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
-    public List<SO_Card> cards;
+    public List<CardInstance> cardInstances;
     public int CardPerCouplePage = 8;
 
-    public List<SO_TempCard> GetTempCards()
+    private void Awake()
     {
-        List<SO_TempCard> result = new List<SO_TempCard>();
+        BookSaveSystem.Load(this); // Tải trạng thái isUnlock từ JSON
 
-        foreach (SO_Card card in cards)
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if(card.Data.Type == CardType.Temp)
+            UnlockCard("9", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            UnlockCard("8", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UnlockCard("7", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UnlockCard("6", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            UnlockCard("5", true);
+        }
+    }
+
+    #region [Data]
+    public void UnlockCard(string cardID, bool isUnlock)
+    {
+        CardInstance cardInstance = cardInstances.Find(c => c.CardData.Data.ID == cardID);
+        if (cardInstance != null)
+        {
+            cardInstance.isUnlock = isUnlock;
+            BookSaveSystem.Save(this); // Lưu ngay khi thay đổi
+        }
+    }
+    #endregion
+
+    #region [Actions]
+    public List<TempCardInstance> GetTempCards()
+    {
+        List<TempCardInstance> result = new List<TempCardInstance>();
+
+        foreach (CardInstance card in cardInstances)
+        {
+            if (card.CardData.Data.Type == CardType.Temp)
             {
-                result.Add(card as SO_TempCard);
+                result.Add(new TempCardInstance(card.CardData, card.isUnlock));
             }
         }
 
         return result;
     }
 
-    public List<SO_FoodCard> GetFoodCards()
+    public List<FoodCardInstance> GetFoodCards()
     {
-        List<SO_FoodCard> result = new List<SO_FoodCard>();
+        List<FoodCardInstance> result = new List<FoodCardInstance>();
 
-        foreach (SO_Card card in cards)
+        foreach (CardInstance card in cardInstances)
         {
-            if (card.Data.Type == CardType.Food)
+            if (card.CardData.Data.Type == CardType.Food || card.CardData.Data.Type == CardType.Vegetable)
             {
-                result.Add(card as SO_FoodCard);
+                result.Add(new FoodCardInstance(card.CardData, card.isUnlock));
             }
         }
 
         return result;
     }
 
-    public List<SO_Vocabulary> GetVocabularyCards()
+    public List<VocabularyCardInstance> GetVocabularyCards()
     {
-        List<SO_Vocabulary> result = new List<SO_Vocabulary>();
+        List<VocabularyCardInstance> result = new List<VocabularyCardInstance>();
 
-        foreach (SO_Card card in cards)
+        foreach (CardInstance card in cardInstances)
         {
-            if (card.Data.Type == CardType.Volcabulary)
+            if (card.CardData.Data.Type == CardType.Volcabulary)
             {
-                result.Add(card as SO_Vocabulary);
+                result.Add(new VocabularyCardInstance(card.CardData, card.isUnlock));
             }
         }
 
         return result;
     }
+    #endregion
 }

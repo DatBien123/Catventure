@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Vocabulary_Leaf
   m_EditorClassIdentifier: 
   Data:
-    ID: 
-    Name: Leaf Word
+    ID: 11
+    Name: "Th\u1EBB ng\xF4n ng\u1EEF \"Leaf\""
     Icon: {fileID: 21300000, guid: acb36f9ee01321246972bd75f738374d, type: 3}
-    description: 
-    Type: 2
-    IsUnlocked: 0
+    description: "Th\u1EBB nh\u1EADn \u0111\u01B0\u1EE3c khi v\u01B0\u1EE3t qua c\xE2u
+      \u0111\u1ED1."
+    Type: 3
+    additiveValue: 0
+    SpellClip: {fileID: 0}

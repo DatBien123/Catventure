@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: Food_FishDish
   m_EditorClassIdentifier: 
   Data:
-    ID: 
-    Name: Fish Dish
+    ID: 4
+    Name: "Th\u1EBB \u0110\u0129a c\xE1"
     Icon: {fileID: 21300000, guid: 929893b5845d9e64d8d9695b4100db32, type: 3}
-    description: "M\u1ED9t \u0111\u0129a c\xE1 \u0111\u01B0\u1EE3c ch\u1EBF bi\u1EBFn
-      k\xEC c\xF4ng"
+    description: "Th\u1EBB \"\u0110\u0129a c\xE1\"\nTi\xEAu th\u1EE5 \u0111\u0129a
+      c\xE1 s\u1EBD t\u0103ng th\xEAm: "
     Type: 0
+    additiveValue: 0.15
     SpellClip: {fileID: 0}
-    IsUnlocked: 0
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

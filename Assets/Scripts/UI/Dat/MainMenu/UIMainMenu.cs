@@ -1,10 +1,69 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UIMainMenu : MonoBehaviour
 {
     public RectTransform[] Maps;
+
+
+    public VideoPlayer VideoPlayer;
+    public void Awake()
+    {
+        VideoPlayer.Prepare();
+
+        StartCoroutine(PreloadNextScene("Home Scene"));
+    }
+
+    public AsyncOperation preloadSceneOp;
+
+    public void ActiveHomeScene()
+    {
+        if (preloadSceneOp != null)
+        {
+            // 1️⃣ Cho phép kích hoạt scene Home
+            preloadSceneOp.allowSceneActivation = true;
+
+            StartCoroutine(SwitchToHomeAndUnloadMenu());
+        }
+    }
+
+    private IEnumerator SwitchToHomeAndUnloadMenu()
+    {
+        // 2️⃣ Đợi scene Home kích hoạt hoàn toàn
+        Scene homeScene = SceneManager.GetSceneByName("Home Scene");
+        while (!homeScene.isLoaded)
+            yield return null;
+
+        // 3️⃣ Chuyển active scene sang Home
+        SceneManager.SetActiveScene(homeScene);
+
+        // 4️⃣ Bây giờ mới được phép unload Main Menu
+        yield return SceneManager.UnloadSceneAsync("Main Menu Scene");
+
+        Debug.Log("✅ Main Menu đã được unload khỏi bộ nhớ");
+    }
+    IEnumerator PreloadNextScene(string nextScene)
+    {
+        //Wait for first frame
+        yield return null;
+
+        preloadSceneOp = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        preloadSceneOp.allowSceneActivation = false;
+
+        // Theo dõi tiến trình nếu muốn
+        while (preloadSceneOp.progress < 0.9f)
+        {
+            Debug.Log("Loading progress: " + (preloadSceneOp.progress * 100) + "%");
+            yield return null;
+        }
+
+        Debug.Log("Scene đã load xong và sẵn sàng để kích hoạt!");
+    }
+
 
     public void OnEnable()
     {
@@ -27,5 +86,7 @@ public class UIMainMenu : MonoBehaviour
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo);
         }
+
+
     }
 }

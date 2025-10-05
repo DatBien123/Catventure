@@ -104,7 +104,8 @@ public class TimelineEventDienTu : MonoBehaviour
                 if (ListMapLoaded[i].UnlockTopicsIndex.Count == ListMapLoaded[i].CompletedTopicsIndex.Count)
                 {
                     ListMapLoaded[i + 1].isUnlock = true;
-                    ListMapLoaded[i + 1].UnlockTopicsIndex.Add(0);
+                    if (!ListMapLoaded[i + 1].UnlockTopicsIndex.Contains(0))
+                        ListMapLoaded[i + 1].UnlockTopicsIndex.Add(0);
                 }
             }
         }

@@ -77,33 +77,35 @@ public class TimelineEventSuaKiem : MonoBehaviour
 
     public void CompleteTopic()
     {
-        MapInstance mapInstance = GetCurrentMapSelecting();
-        if (!mapInstance.CompletedTopicsIndex.Contains(GetCurrentTopic().index))
+        MapInstance mapSelecting = GetCurrentMapSelecting();
+        if (!mapSelecting.CompletedTopicsIndex.Contains(GetCurrentTopic().index))
         {
-            mapInstance.CompletedTopicsIndex.Add(GetCurrentTopic().index);
+            mapSelecting.CompletedTopicsIndex.Add(GetCurrentTopic().index);
         }
         // Mở khóa topic tiếp theo nếu có
         int nextTopicIndex = GetCurrentTopic().index + 1;
-        if (nextTopicIndex < mapInstance.MapData.Data.topicList.Count &&
-            !mapInstance.UnlockTopicsIndex.Contains(nextTopicIndex))
+        if (nextTopicIndex < mapSelecting.MapData.Data.topicList.Count &&
+            !mapSelecting.UnlockTopicsIndex.Contains(nextTopicIndex))
         {
-            mapInstance.UnlockTopicsIndex.Add(nextTopicIndex);
+            mapSelecting.UnlockTopicsIndex.Add(nextTopicIndex);
         }
 
         List<MapInstance> ListMapLoaded = MapSaveSystem.Load();
         for (int i = 0; i < ListMapLoaded.Count; i++)
         {
-            if (ListMapLoaded[i].MapData.Data.Name == mapInstance.MapData.Data.Name)
+            if (ListMapLoaded[i].MapData.Data.Name == mapSelecting.MapData.Data.Name)
             {
-                ListMapLoaded[i].isUnlock = mapInstance.isUnlock;
-                ListMapLoaded[i].isSelected = mapInstance.isSelected;
-                ListMapLoaded[i].UnlockTopicsIndex = mapInstance.UnlockTopicsIndex;
-                ListMapLoaded[i].CompletedTopicsIndex = mapInstance.CompletedTopicsIndex;
+                ListMapLoaded[i].isUnlock = mapSelecting.isUnlock;
+                ListMapLoaded[i].isSelected = mapSelecting.isSelected;
+                ListMapLoaded[i].UnlockTopicsIndex = mapSelecting.UnlockTopicsIndex;
+                ListMapLoaded[i].CompletedTopicsIndex = mapSelecting.CompletedTopicsIndex;
 
                 //Mo khoa map tiep theo
                 if (ListMapLoaded[i].UnlockTopicsIndex.Count == ListMapLoaded[i].CompletedTopicsIndex.Count)
                 {
                     ListMapLoaded[i + 1].isUnlock = true;
+
+                    if(!ListMapLoaded[i + 1].UnlockTopicsIndex.Contains(0))
                     ListMapLoaded[i + 1].UnlockTopicsIndex.Add(0);
                 }
             }

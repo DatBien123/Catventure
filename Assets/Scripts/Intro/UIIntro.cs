@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -17,6 +18,11 @@ public class UIIntro : MonoBehaviour
     public Image ImageLayer;
 
     public VideoPlayer videoPlayer;
+
+    private void Awake()
+    {
+        videoPlayer.Prepare();
+    }
     void Start()
     {
         StartIntro();

@@ -24,7 +24,7 @@ MonoBehaviour:
       G\u1ECCI L\xC0 H\u1ED2 HO\xC0N KI\u1EBEM \n- H\u1ED2 C\u1EE6A G\u01AF\u01A0M
       B\xC1U."
     topicList:
-    - TopicImage: {fileID: 21300000, guid: d90d9cf37d6d4924fb4f82cb336c6861, type: 3}
+    - TopicImage: {fileID: 21300000, guid: b7e18eee86f4a5b42aab2a946261efa0, type: 3}
       description: 
       enegyConsumed: 10
       coinReward: 50
@@ -32,7 +32,7 @@ MonoBehaviour:
       topicName: "N\u1EA5u Ph\u1EDF"
       cutscene: {fileID: 11400000, guid: 4488db7619634774cb281f15e650643e, type: 2}
       minigameSceneName: Minigame_Drag&DropCooking
-    - TopicImage: {fileID: 6059799596907309901, guid: 9d2f804fc3ec1d64d98922ac72b914d9, type: 3}
+    - TopicImage: {fileID: 21300000, guid: 7e429e5d22df68745903b24b567a2fa4, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       topicName: "N\u1ED1i t\u1EEB"
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
       minigameSceneName: WordsSpyGameScene
-    - TopicImage: {fileID: 21300000, guid: 9f06792d94ae71c4d948106103ebb52b, type: 3}
+    - TopicImage: {fileID: 21300000, guid: 7e429e5d22df68745903b24b567a2fa4, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
       topicName: "Gi\u1EA3i m\xE3"
       cutscene: {fileID: 11400000, guid: 8196c7d8580390e4e95864649a889820, type: 2}
       minigameSceneName: DongSonDrumPattern
-    - TopicImage: {fileID: 21300000, guid: 99d4f1d25adac7c4ba89cd744a440522, type: 3}
+    - TopicImage: {fileID: 21300000, guid: 9399eea23be912943beb26388e92ca32, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
@@ -56,11 +56,11 @@ MonoBehaviour:
       topicName: "S\u1EEDa ki\u1EBFm"
       cutscene: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
       minigameSceneName: FixSword
-    - TopicImage: {fileID: 21300000, guid: 9faae86274821174e81da5a1fa88e6cd, type: 3}
+    - TopicImage: {fileID: 21300000, guid: b2d551b1193c7f34d8fa4723dd395e47, type: 3}
       description: 
       enegyConsumed: 0
       coinReward: 0
       index: 4
       topicName: "\u0110i\u1EC1n t\u1EEB"
-      cutscene: {fileID: 11400000, guid: 8bf132d577ebf3040ac8242f5a79491b, type: 2}
+      cutscene: {fileID: 11400000, guid: 1c2a5b4038fa17140a9ef09aba4029fb, type: 2}
       minigameSceneName: Minigame_FITB

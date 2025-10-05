@@ -4,6 +4,7 @@ using UnityEngine;
 public enum CardType
 {
     Food,
+    Vegetable,
     Temp,
     Volcabulary
 }
@@ -15,11 +16,10 @@ public struct CardData
     public Sprite Icon;
     [TextArea] public string description;
     public CardType Type;
+    public float additiveValue;
     public AudioClip SpellClip;
-    public bool IsUnlocked;
 }
 
-//[CreateAssetMenu(fileName = "Card Data", menuName = "Collection System/Card Data")]
 public abstract class SO_Card : ScriptableObject, IUsable
 {
     public CardData Data;

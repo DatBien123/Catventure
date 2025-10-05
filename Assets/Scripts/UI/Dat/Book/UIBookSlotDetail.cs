@@ -9,6 +9,10 @@ public class UIBookSlotDetail : MonoBehaviour
     public Image Image;
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
+    public TextMeshProUGUI AdditiveValue;
+
+    public Image ResourceAddtiveImage;
+    public Sprite EnegyImg;
 
     [Header("Button")]
     public Button SpellButton;
@@ -16,8 +20,9 @@ public class UIBookSlotDetail : MonoBehaviour
     [Header("Reference")]
     public UIBook UIBook;
     public RectTransform ImageRectTransform;
-    public SO_Card CurrentCard;
+    public CardInstance CurrentCard;
     public GameObject TempDetail;
+    public GameObject BenefitUI;
 
     private void Awake()
     {
@@ -47,21 +52,34 @@ public class UIBookSlotDetail : MonoBehaviour
         SpellButton.onClick.AddListener(() => Spell());
     }
 
-    public void SetupBookSlotDetail(SO_Card card)
+    public void SetupBookSlotDetail(CardInstance card)
     {
         CurrentCard = card;
-        if(CurrentCard.Data.Type == CardType.Food)
+        if(CurrentCard.CardData.Data.Type == CardType.Food || CurrentCard.CardData.Data.Type == CardType.Vegetable)
         {
             ImageRectTransform.sizeDelta = new Vector2(217.5f, 217.5f);
+            BenefitUI.SetActive(true);
+
+
+            AdditiveValue.text ="+ " +( card.CardData.Data.additiveValue * 100).ToString() + "%";
+            if (card.CardData.Data.Type == CardType.Food)
+            {
+                ResourceAddtiveImage.sprite = EnegyImg;
+            }
+            else if (card.CardData.Data.Type == CardType.Vegetable)
+            {
+                ResourceAddtiveImage.sprite = card.CardData.Data.Icon;
+            }
         }
         else
         {
             ImageRectTransform.sizeDelta = new Vector2(150, 217.5f);
+            BenefitUI.SetActive(false);
         }
 
-        Image.sprite = card.Data.Icon;
-        Name.text = card.Data.Name;
-        Description.text = card.Data.description;
+        Image.sprite = card.CardData.Data.Icon;
+        Name.text = card.CardData.Data.Name;
+        Description.text = card.CardData.Data.description;
     }
     public void Spell()
     {

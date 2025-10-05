@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7b70e25b73e7042abbc89c81c92264, type: 3}
+  m_Name: Food_HanhLa
+  m_EditorClassIdentifier: 
+  Data:
+    ID: 2
+    Name: "Th\u1EBB H\xE0nh l\xE1"
+    Icon: {fileID: 21300000, guid: 81809ebfb73917e4aad6bf100419c722, type: 3}
+    description: "Th\u1EBB \"H\xE0nh l\xE1\"\nKhi thu ho\u1EA1ch H\xE0nh l\xE1 th\xEC
+      s\u1EA3n l\u01B0\u1EE3ng H\xE0nh l\xE1 s\u1EBD t\u0103ng th\xEAm: "
+    Type: 1
+    additiveValue: 0.3
+    SpellClip: {fileID: 0}
+  RewardData:
+    Harvests: 0
+    ExpBonus: 0
+    SellPrice: 0
+    consumReward: {fileID: 0}

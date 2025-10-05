@@ -12,6 +12,7 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
     public TextMeshProUGUI EnegyConsume;
     public TextMeshProUGUI CoinReward;
     public GameObject LockedUI;
+    public GameObject StarPanel;
 
     [Header("Data")]
     public Button Start_Button;
@@ -62,6 +63,16 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
             EnegyConsume.gameObject.SetActive(false);
             CoinReward.gameObject.SetActive(false);
             Start_Button.gameObject.SetActive(false);
+        }
+
+        if (isCompleted)
+        {
+            StarPanel.SetActive(true);
+
+        }
+        else
+        {
+            StarPanel.SetActive(false );
         }
     }
 

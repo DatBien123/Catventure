@@ -13,49 +13,48 @@ MonoBehaviour:
   m_Name: Story_SuaKiem
   m_EditorClassIdentifier: 
   Data:
-    ID: 
-    Name: "Truy\u1EC7n M\u1EDF \u0111\u1EA7u"
-    Icon: {fileID: 2800000, guid: 97efef1135439284ca18eb51bdcbf9d3, type: 3}
+    ID: 3
+    Name: "Truy\u1EC7n S\u1EEDa ki\u1EBFm"
+    Icon: {fileID: 2800000, guid: 9399eea23be912943beb26388e92ca32, type: 3}
     description: 
-    IsUnlocked: 0
     StoryPageDatas:
-    - StoryImage: {fileID: 21300000, guid: 67201083b03e5a644b2ef58324be5f4e, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 8983b7b62341f9947be6110dd445fac9, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 0a3a9f298b7889143a8a9249c6d8abeb, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 103d8608966bad84384db23373676b84, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 99bd16cb55113374585d186543b408a8, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: ad49c27bc313ad14b814eda262d9759c, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 1b5b8bc03d0287149a2839058cd8a0c3, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: ca8e77b6e2ccf614e976e9c02b75fb05, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 787c2a31a8e93e64f9a430e9047364fa, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: e9806a980699b874bb258e2b2e11d7bd, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 6e7b0a091e662e746a0150ab1dfa7ebb, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: d4a89f5f034eebb4391a974fdf8f3197, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 23732b8b515dce248bffe6e86fb2453a, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: c3c31fbd74397314788a76060f8b00c7, type: 3}
+    - StoryImage: {fileID: 21300000, guid: f943ae84e03282a4d95b23ee13b53eca, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 8024c021cc433e147baa5cfccbabd0ea, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 308add4f31d0f7241ac65fc8bcb7cff9, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: edbb00c0bad8b4b40ace0d2ebd10c3ca, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 9805458bd9f06a741bf9d733df481e8a, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: d38b3fbdee7c23b428c0e825a66b6d0e, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: f894e1e9e27564a4ca426308709efc3d, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 0b21c9e695398284a8e95b09d9cb56da, type: 3}
+    - StoryImage: {fileID: 21300000, guid: bf586f166f296d04b8a615147dfc99e0, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 4dd2e30a0c8290047a396987fa50a5ba, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: b3cfd9e103ba8094a9e11a1ed8f9c852, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 4c032e1b64fdb6b409de799f141f88d0, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 7306088cc7340094b99b08ab9cbfd7a3, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 72f8f2812e9eda74a947c57d777921b6, type: 3}
+      isDelay: 1
+      delayTime: 0
+    - StoryImage: {fileID: 21300000, guid: a565239de604d5f438db19b773d9718f, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: b1499d402a25669448ede5d2fbb5c06e, type: 3}
       isDelay: 0
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 7c80c1b8d460a20409a1b22a09148a54, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 105d746e1af932148a96824dcc879315, type: 3}
-      isDelay: 0
-      delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 3d234f2fef5938547b2310e33a1c96c3, type: 3}
-      StoryAudioClip: {fileID: 8300000, guid: 6be50474972b6ef4baf326a820bd2642, type: 3}
+    - StoryImage: {fileID: 21300000, guid: a565239de604d5f438db19b773d9718f, type: 3}
+      StoryAudioClips:
+      - {fileID: 8300000, guid: 4c43551aadd7a174487cbf8e3a1d6422, type: 3}
       isDelay: 0
       delayTime: 0
