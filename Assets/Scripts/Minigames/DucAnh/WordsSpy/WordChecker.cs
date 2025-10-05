@@ -183,9 +183,9 @@ public class WordChecker : MonoBehaviour
                 currentBoardIndex += 1;
             }
 
-            DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
+            //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
 
-            GameEvents.OnBoardCompletedMethod();
+            WordsSpyGameManager.Instance.OnWinGame();
 
             // Unlock next Category
             //if (currentBoardIndex >= currentLevelSize) {
