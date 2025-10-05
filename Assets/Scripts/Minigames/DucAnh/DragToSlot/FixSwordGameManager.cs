@@ -3,16 +3,20 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FixSwordGameManager : MonoBehaviour
+public class FixSwordGameManager : BaseMinigame
 {
     public static FixSwordGameManager Instance { get; private set; }
 
     [SerializeField] private RectTransform UIWinPanel;
     [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
+    [SerializeField] private GameObject MusicManager;
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
     [SerializeField] private UnityEvent playBackgroundMusic;
+    [Header("Data Save")]
+    public CharacterPlayer Player;
+
     private int currentPoints;
 
     public void Start()
@@ -33,10 +37,19 @@ public class FixSwordGameManager : MonoBehaviour
         CheckWin();
     }
 
-    public void CheckWin() {
+    private void CheckWin() {
         if (currentPoints >= pointsTowin) {
-            StartCoroutine(OpenWinPanel());
+            OnWinGame();
         }
+    }
+
+    private void OnWinGame() {
+        MusicManager.SetActive(false);
+        StartCoroutine(OpenWinPanel());
+
+        //Save
+        Player.Coin += reward;
+        SaveSystem.Save(Player, Player.Inventory);
     }
 
     IEnumerator OpenWinPanel() {
@@ -44,5 +57,18 @@ public class FixSwordGameManager : MonoBehaviour
         VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
-
+    public override void ExitGame() {
+        base.ExitGame();
+        // Thoát game về home menu
+        Debug.Log("Quay về Home Menu");
+        popupUI.ShowConfirm(
+        "MENU",
+        "Bạn muốn về Home Menu sao?",
+        yesCallback: () => {
+            GoToScene("Home Scene");
+        },
+        noCallback: () => {
+        }
+        );
+    }
 }

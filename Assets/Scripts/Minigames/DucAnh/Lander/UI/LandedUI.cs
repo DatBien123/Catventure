@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,12 +30,12 @@ public class LandedUI : MonoBehaviour {
 
     private void Lander_OnLanded(object sender, Lander.OnLandedEventArgs e) {
         if (e.landingType == Lander.LandingType.Success) {
-            titleTextMesh.text = "SUCCESSFUL LANDING!";
-            nextButtonTextMesh.text = "CONTINUE";
+            titleTextMesh.text = "Hạ cánh thành công!";
+            nextButtonTextMesh.text = "Tiếp tục";
             nextButtonClickAction = LanderGameManager.Instance.GoToNextLevel;
         } else {
-            titleTextMesh.text = "<color=#ff0000>CRASH!</color>";
-            nextButtonTextMesh.text = "RETRY";
+            titleTextMesh.text = "<color=#ff0000>Bể tàu!</color>";
+            nextButtonTextMesh.text = "Thử lại";
             nextButtonClickAction = LanderGameManager.Instance.RetryLevel;
         }
 

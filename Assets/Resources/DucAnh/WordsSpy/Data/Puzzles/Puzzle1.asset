@@ -51,7 +51,7 @@ MonoBehaviour:
     - P
     - R
     - Q
-    - E
+    - L
   - Size: 10
     Row:
     - T
@@ -63,7 +63,7 @@ MonoBehaviour:
     - G
     - O
     - T
-    - K
+    - A
   - Size: 10
     Row:
     - L
@@ -75,7 +75,7 @@ MonoBehaviour:
     - C
     - F
     - O
-    - A
+    - K
   - Size: 10
     Row:
     - E
@@ -87,7 +87,7 @@ MonoBehaviour:
     - F
     - F
     - V
-    - L
+    - E
   - Size: 10
     Row:
     - Y

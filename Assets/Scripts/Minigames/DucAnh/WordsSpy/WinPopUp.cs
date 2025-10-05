@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WinPopUp : MonoBehaviour
@@ -15,10 +16,15 @@ public class WinPopUp : MonoBehaviour
     }
 
     private void ShowWinPopUp() {
-        VictoryRewardScreen.ShowRewardFITB(reward, 3);
+        StartCoroutine(IEOpenWinPanel(reward));
     }
 
     public void LoadNextLevel() {
         GameEvents.LoadNextLevelMethod();
+    }
+
+    private IEnumerator IEOpenWinPanel(int reward) {
+        yield return new WaitForSeconds(1.0f);
+        VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 }
