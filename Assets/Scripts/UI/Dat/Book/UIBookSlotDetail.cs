@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,9 @@ public class UIBookSlotDetail : MonoBehaviour
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
     public TextMeshProUGUI AdditiveValue;
+    public TextMeshProUGUI OwnedText;
+    public Color OwnedColor;
+    public Color NotOwnedColor;
 
     public Image ResourceAddtiveImage;
     public Sprite EnegyImg;
@@ -80,6 +83,17 @@ public class UIBookSlotDetail : MonoBehaviour
         Image.sprite = card.CardData.Data.Icon;
         Name.text = card.CardData.Data.Name;
         Description.text = card.CardData.Data.description;
+
+        if (CurrentCard.isUnlock)
+        {
+            OwnedText.text = "Đã sở hữu";
+            OwnedText.color = OwnedColor;
+        }
+        else
+        {
+            OwnedText.text = "Chưa sở hữu";
+            OwnedText.color = NotOwnedColor;
+        }
     }
     public void Spell()
     {

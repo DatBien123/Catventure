@@ -19,6 +19,7 @@ public class UIMapDescription : MonoBehaviour
     [Header("References")]
     public UIMapDetail UIMapDetail;
     public GameObject MapDescription;
+    public LoadingBarProgress LoadingBarProgress;
 
     private void Awake()
     {

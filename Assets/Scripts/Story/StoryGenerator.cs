@@ -72,6 +72,7 @@ public class StoryGenerator : MonoBehaviour
     private void OnEnable()
     {
         Animator.CrossFadeInFixedTime("Story_Open", 0.0f);
+        if(StoryList.Count > 0)ResetStories();
         StartShowStories(delayShowUpStories);
     }
 
@@ -134,7 +135,7 @@ public class StoryGenerator : MonoBehaviour
     {
         if (StoryManager.CurrentStory == null || !StoryManager.CurrentStory.StoryData.isUnlock)
         {
-            Debug.LogWarning("CurrentStory is null or not unlocked!");
+            StartCoroutine(StoryManager.ShowLockedNotify());
             return;
         }
 
@@ -312,6 +313,15 @@ public class StoryGenerator : MonoBehaviour
         }
     }
 
+    void ResetStories()
+    {
+        int count = StoryManager.Stories.Count;
+
+        for (int i = 0; i < count; i++)
+        {
+            StoryList[i].SetupStory(StoryManager.Stories[i]);
+        }
+    }
     void StartShowStories(float showDelayTime)
     {
         if (C_ShowUpStories != null) StopCoroutine(C_ShowUpStories);

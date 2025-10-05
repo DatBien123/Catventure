@@ -79,7 +79,8 @@ public class UIMapDetailSlot : MonoBehaviour, IObjectPool<UIMapDetailSlot>
     public void StartPlay()
     {
         // Giả sử khi hoàn thành minigame, bạn sẽ gọi một hàm để đánh dấu topic đã hoàn thành
-        SceneManager.LoadScene(CurrentTopic.minigameSceneName);
+        UIMapDescription.LoadingBarProgress.gameObject.SetActive(true);
+        UIMapDescription.LoadingBarProgress.StartLoadSceneAsync(CurrentTopic.minigameSceneName);
         //CompleteTopic();
     }
 

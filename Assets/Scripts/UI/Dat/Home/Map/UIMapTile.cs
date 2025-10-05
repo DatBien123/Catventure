@@ -44,10 +44,17 @@ public class UIMapTile : MonoBehaviour
     }
     public void SelectMap()
     {
+
+
         if (!MapInstance.isUnlock)
         {
             StartCoroutine(ShowLockedNotify());
             return;
+        }
+
+        if (UIHome.TutorialManager.currentPart.TutorialName == "Home Adventure" && UIHome.TutorialManager.currentStep.stepName == "HaNoi Tap")
+        {
+            UIHome.TutorialManager.AllowNextStep = true;
         }
 
         // Đặt tất cả map khác thành không chọn

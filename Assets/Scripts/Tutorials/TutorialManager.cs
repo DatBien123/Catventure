@@ -107,15 +107,27 @@ public class TutorialManager : MonoBehaviour
         allButtons.AddRange(FindObjectsOfType<Button>(true));
 
         // Khởi tạo tutorial
-        currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
-        currentStep = currentPart.TutorialSteps[currentStepIndex];
+        //currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
+        //currentStep = currentPart.TutorialSteps[currentStepIndex];
 
         //Data reader
         TutorialSaveSystem.Load(this);
 
-        var tutPart = tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == currentPart.TutorialName);
-        currentPart.isPartCompleted = tutPart.isPartCompleted;
+        //var tutPart = tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == currentPart.TutorialName);
+        //currentPart.isPartCompleted = tutPart.isPartCompleted;
         //Data reader
+
+        for(int i = 0; i < tutorialDatabase.TutorialParts.Count; i++)
+        {
+            if (!tutorialDatabase.TutorialParts[i].isPartCompleted)
+            {
+                currentTutorialIndex = i;
+                currentPart = tutorialDatabase.TutorialParts[i];
+
+                currentStep = currentPart.TutorialSteps[currentStepIndex];
+                break;
+            }
+        }
 
         if (!currentPart.isPartCompleted)
         {
@@ -253,7 +265,7 @@ public class TutorialManager : MonoBehaviour
 
         if (currentTutorialIndex < tutorialDatabase.TutorialParts.Count - 1)
         {
-            currentTutorialIndex++;
+            //currentTutorialIndex++;
             currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
             currentStepIndex = 0;
             currentStep = currentPart.TutorialSteps[currentStepIndex];

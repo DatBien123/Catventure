@@ -29512,8 +29512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1f163f210bc5241a59b6042470dadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoryData: {fileID: 11400000, guid: ebef00d4064b91f4f8f5943ee3613dce, type: 2}
+  StoryData:
+    StoryData: {fileID: 0}
+    isUnlock: 0
   MeshRenderer: {fileID: 4620139624009745691}
+  UnlockColor: {r: 1, g: 1, b: 1, a: 1}
+  LockedColor: {r: 0.23773581, g: 0.19871125, b: 0.19871125, a: 1}
   OnShowUp:
     m_PersistentCalls:
       m_Calls:

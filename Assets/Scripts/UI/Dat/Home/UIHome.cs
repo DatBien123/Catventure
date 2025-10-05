@@ -9,7 +9,7 @@ public class UIHome : MonoBehaviour
     public AudioManager audioManager;
     public UIMapDescription UIMapDescription;
     public GameObject MapLockedNotify;
-
+    public TutorialManager TutorialManager;
 
     public RectTransform[] Maps;
 

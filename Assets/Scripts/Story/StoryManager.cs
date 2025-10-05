@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +25,13 @@ public class StoryManager : MonoBehaviour
     public AudioManager AudioManager;
     public Image ImageLayer;
     public Sound CurrentSound;
+
+    public GameObject StoryLockedNotify;
     private void Awake()
     {
         CurrentSound = new Sound();
         CurrentSound.source = gameObject.AddComponent<AudioSource>();
+
         StorySaveSystem.Load(this); // Tải trạng thái isUnlock khi khởi tạo
     }
 
@@ -170,4 +174,43 @@ public class StoryManager : MonoBehaviour
         }
     }
     #endregion
+
+    public IEnumerator ShowLockedNotify()
+    {
+        GameObject notifyObj = StoryLockedNotify.gameObject;
+
+        // Nếu notify đang hiện thì reset animation
+        notifyObj.SetActive(true);
+
+        RectTransform rect = notifyObj.GetComponent<RectTransform>();
+
+        // Reset vị trí gốc
+        Vector3 originalPos = rect.anchoredPosition;
+        rect.anchoredPosition = originalPos;
+
+        // Fade in nếu có CanvasGroup
+        CanvasGroup cg = notifyObj.GetComponent<CanvasGroup>();
+        if (cg != null)
+        {
+            cg.alpha = 0;
+            cg.DOFade(1, 0.2f);
+        }
+
+        // Hiệu ứng rung
+        rect.DOShakeAnchorPos(0.5f, strength: new Vector2(20, 0), vibrato: 10, randomness: 0, snapping: false, fadeOut: true);
+
+        AudioManager.PlaySFX("Map Locked Notify");
+
+        // Chờ rồi ẩn notify
+        yield return new WaitForSeconds(1.2f);
+
+        if (cg != null)
+        {
+            cg.DOFade(0, 0.2f).OnComplete(() => notifyObj.SetActive(false));
+        }
+        else
+        {
+            notifyObj.SetActive(false);
+        }
+    }
 }

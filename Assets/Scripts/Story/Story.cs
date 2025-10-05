@@ -7,6 +7,8 @@ public class Story : MonoBehaviour
     public StoryInstance StoryData;
 
     public MeshRenderer MeshRenderer;
+    public Color UnlockColor;
+    public Color LockedColor;
 
     public UnityEvent OnShowUp;
     public UnityEvent OffShowUp;
@@ -22,6 +24,15 @@ public class Story : MonoBehaviour
         Material.SetTexture("_BaseMap", story.StoryData.Data.Icon);
         Material.SetTexture("_MetallicGlossMap", story.StoryData.Data.Icon);
         Material.EnableKeyword("_METALLICGLOSSMAP"); // bật keyword để dùng map
+
+        if (story.isUnlock)
+        {
+            Material.SetColor("_BaseColor", UnlockColor);
+        }
+        else
+        {
+            Material.SetColor("_BaseColor", LockedColor);
+        }
     }
 
     public void StartShowUp(float waitTime)

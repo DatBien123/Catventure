@@ -24,10 +24,10 @@ public class TutorialIndicator : MonoBehaviour
     }
     private void Start()
     {
-        TutorialSaveSystem.Load(TutorialManager);
+        //TutorialSaveSystem.Load(TutorialManager);
 
-        var tutPart = TutorialManager.tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == TutorialManager.currentPart.TutorialName);
-        TutorialManager.currentPart.isPartCompleted = tutPart.isPartCompleted;
+        //var tutPart = TutorialManager.tutorialDatabase.TutorialParts.Find(tutPart => tutPart.TutorialName == TutorialManager.currentPart.TutorialName);
+        //TutorialManager.currentPart.isPartCompleted = tutPart.isPartCompleted;
 
         Debug.Log("Current Tut State is: " + TutorialManager.currentPart.isPartCompleted);
 
