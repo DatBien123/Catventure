@@ -1,5 +1,7 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FixSwordGameManager : BaseMinigame
 {
@@ -11,11 +13,16 @@ public class FixSwordGameManager : BaseMinigame
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
+    [SerializeField] private UnityEvent playBackgroundMusic;
     [Header("Data Save")]
     public CharacterPlayer Player;
 
     private int currentPoints;
 
+    public void Start()
+    {
+        playBackgroundMusic?.Invoke();
+    }
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);

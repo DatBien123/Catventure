@@ -1437,7 +1437,9 @@ MonoBehaviour:
   MusicManager: {fileID: 352470831}
   pointsTowin: 5
   reward: 100
-  Player: {fileID: 2137771536}
+  playBackgroundMusic:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &245798903
 Transform:
   m_ObjectHideFlags: 0
@@ -13524,6 +13526,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6337384692621364975, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584940763162651914, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6801175923762136787, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
