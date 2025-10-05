@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DragToSlotPuzzlePiece : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
     private Vector2 _startPosition;
     private Vector2 _offset;
 
+    public static Action onAddPoint;
     void Awake()
     {
         _startPosition = transform.position;
@@ -45,8 +47,8 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
             transform.position = _slot.transform.position;
             _particleSystem.Play();
             _slot.PlacedCorrectly();
-            FixSwordGameManager.Instance.AddPoint();
-
+            //FixSwordGameManager.Instance.AddPoint();
+            onAddPoint?.Invoke();   
             _completed = true;
             this.enabled = false;
         } else {

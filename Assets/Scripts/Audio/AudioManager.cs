@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
         }
 
         instance = this;
-        if(!isDestroyOnLoad)DontDestroyOnLoad(gameObject);
+        if (!isDestroyOnLoad) DontDestroyOnLoad(gameObject);
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -69,9 +69,10 @@ public class AudioManager : MonoBehaviour
         }
 
     }
-    public void StopSFX(string name) {
+    public void StopSFX(string name)
+    {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s != null) s.source.Stop();
+        if (s != null) s.source.Stop();
         else return;
     }
     public void PlayMusic(string name)
@@ -122,8 +123,8 @@ public class AudioManager : MonoBehaviour
         foreach (Sound sound in sounds)
         {
 
-                if (sound.source.isPlaying)
-                    sound.source.Stop();
+            if (sound.source.isPlaying)
+                sound.source.Stop();
         }
     }
     public void PlayPronunciation(AudioClip clip)
