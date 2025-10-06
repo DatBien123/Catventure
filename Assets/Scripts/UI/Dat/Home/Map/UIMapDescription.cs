@@ -19,6 +19,7 @@ public class UIMapDescription : MonoBehaviour
     [Header("References")]
     public UIMapDetail UIMapDetail;
     public GameObject MapDescription;
+    public UIHome UIHome;
     public LoadingBarProgress LoadingBarProgress;
 
     private void Awake()
@@ -41,6 +42,10 @@ public class UIMapDescription : MonoBehaviour
 
     public void Explore()
     {
+        if (UIHome.TutorialManager.currentPart.TutorialName == "Home Adventure" && UIHome.TutorialManager.currentStep.stepName == "Kham pha Tap")
+        {
+            UIHome.TutorialManager.AllowNextStep = true;
+        }
         UIMapDetail.gameObject.SetActive(true);
         UIMapDetail.SetupMapDetail();
         MapDescription.SetActive(false);

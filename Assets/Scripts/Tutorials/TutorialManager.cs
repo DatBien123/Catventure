@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening; // Import DOTween
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening; // Import DOTween
 
 [System.Serializable]
 public enum ETutorialType
@@ -45,6 +45,7 @@ public struct TutorialStep
 
     [Header("Target Button (Optional)")] // Thêm này để reference trực tiếp
     public UnityEngine.UI.Button TargetButton; // Kéo thả button từ Hierarchy vào Editor
+    public string targetButtonName;
     public bool isHightlightButton;
 
     public bool isStepCompleted;
@@ -147,7 +148,7 @@ public class TutorialManager : MonoBehaviour
             // Disable tất cả button trừ target nếu là Tap
             if (isApplyTutorials && currentStep.InteractType == ETutorialType.Tap)
             {
-                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName, currentStep.targetButtonName);
             }
 
             isApplyTutorials = true;
@@ -160,7 +161,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     // Hàm disable tất cả button trừ target (dựa trên reference hoặc tên)
-    public void DisableAllButtonsExceptTarget(Button targetButton, string targetButtonName)
+    public void DisableAllButtonsExceptTarget(Button targetButton, string targetButtonName, string buttonName = "")
     {
         foreach (Button btn in allButtons)
         {
@@ -200,6 +201,24 @@ public class TutorialManager : MonoBehaviour
             else
             {
                 Debug.LogWarning($"Button '{targetButtonName}' not found in Hierarchy!");
+            }
+        }
+
+        if(buttonName != "")
+        {
+            GameObject buttonObject = GameObject.Find(buttonName);
+
+            Button button = buttonObject.GetComponent<Button>();
+
+            UIButton UIbutton = buttonObject.GetComponent<UIButton>();
+            if (UIbutton)
+            {
+                UIbutton.canClick = true;
+            }
+
+            if (button)
+            {
+                button.interactable = true;
             }
         }
 
@@ -266,39 +285,39 @@ public class TutorialManager : MonoBehaviour
         StopButtonHighlightAnimation();
 
 
-        if (currentTutorialIndex < tutorialDatabase.TutorialParts.Count - 1)
-        {
-            //currentTutorialIndex++;
-            currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
-            currentStepIndex = 0;
-            currentStep = currentPart.TutorialSteps[currentStepIndex];
+        //if (currentTutorialIndex < tutorialDatabase.TutorialParts.Count - 1)
+        //{
+        //    //currentTutorialIndex++;
+        //    currentPart = tutorialDatabase.TutorialParts[currentTutorialIndex];
+        //    currentStepIndex = 0;
+        //    currentStep = currentPart.TutorialSteps[currentStepIndex];
 
-            if (currentStep.InteractType == ETutorialType.TapRandom)
-            {
-                TutorialBackground.SetCanReceiveTouch(true);
-            }
-            else
-            {
-                TutorialBackground.SetCanReceiveTouch(false);
-            }
+        //    if (currentStep.InteractType == ETutorialType.TapRandom)
+        //    {
+        //        TutorialBackground.SetCanReceiveTouch(true);
+        //    }
+        //    else
+        //    {
+        //        TutorialBackground.SetCanReceiveTouch(false);
+        //    }
 
-            // Xử lý button cho step mới
-            if (isApplyTutorials && (currentStep.InteractType == ETutorialType.Tap || currentStep.InteractType == ETutorialType.TapRandom))
-            {
-                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
-            }
-            else
-            {
-                EnableAllButtons(); // Enable cho Drag hoặc loại khác
-            }
-        }
-        else
-        {
+        //    // Xử lý button cho step mới
+        //    if (isApplyTutorials && (currentStep.InteractType == ETutorialType.Tap || currentStep.InteractType == ETutorialType.TapRandom))
+        //    {
+        //        DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+        //    }
+        //    else
+        //    {
+        //        EnableAllButtons(); // Enable cho Drag hoặc loại khác
+        //    }
+        //}
+        //else
+        //{
             // Tutorial hoàn thành, enable lại tất cả
             EnableAllButtons();
             isApplyTutorials = false; // (Tùy chọn) Tắt tutorial
             TutorialBackground.SetCanReceiveTouch(false);
-        }
+        //}
     }
 
     public void OnNextTutorialStep()
@@ -324,7 +343,7 @@ public class TutorialManager : MonoBehaviour
             // Xử lý button cho step mới
             if (isApplyTutorials && (currentStep.InteractType == ETutorialType.Tap || currentStep.InteractType == ETutorialType.TapRandom))
             {
-                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+                DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName, currentStep.targetButtonName);
             }
             else
             {
@@ -360,7 +379,7 @@ public class TutorialManager : MonoBehaviour
         currentStep = currentPart.TutorialSteps[currentStepIndex];
         if (isApplyTutorials && currentStep.InteractType == ETutorialType.Tap)
         {
-            DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName);
+            DisableAllButtonsExceptTarget(currentStep.TargetButton, currentStep.stepName, currentStep.targetButtonName);
         }
         else
         {

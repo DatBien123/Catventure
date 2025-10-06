@@ -13,6 +13,7 @@ public class TimelineEventCooking : MonoBehaviour
     [Header("References")]
     public FoodSelection FoodSelection;
     public GameObject CutSceneUI;
+    public GameObject TutorialUI;
 
     [Header("Foods")]
     public List<DishSO> ListFood;
@@ -167,6 +168,7 @@ public class TimelineEventCooking : MonoBehaviour
     void OnTimelinePlay(PlayableDirector obj)
     {
         CutSceneUI.SetActive(true);
+        TutorialUI.SetActive(false);
         CompleteTopic();
 
     }
@@ -174,6 +176,7 @@ public class TimelineEventCooking : MonoBehaviour
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
+        TutorialUI.SetActive(true);
     }
     #endregion
 }

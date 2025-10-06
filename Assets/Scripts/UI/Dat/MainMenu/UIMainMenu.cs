@@ -9,21 +9,30 @@ public class UIMainMenu : MonoBehaviour
 {
     public RectTransform[] Maps;
 
-
     public VideoPlayer VideoPlayer;
+
     public void Awake()
     {
+
         VideoPlayer.Prepare();
 
         StartCoroutine(PreloadNextScene("Home Scene"));
+
+
+
     }
 
+    private void Start()
+    {
+
+    }
     public AsyncOperation preloadSceneOp;
 
     public void ActiveHomeScene()
     {
         if (preloadSceneOp != null)
         {
+
             // 1️⃣ Cho phép kích hoạt scene Home
             preloadSceneOp.allowSceneActivation = true;
 

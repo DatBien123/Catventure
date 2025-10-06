@@ -1243,6 +1243,7 @@ MonoBehaviour:
   - {fileID: 857714033}
   - {fileID: 960460711}
   VideoPlayer: {fileID: 2019263496}
+  audioManager: {fileID: 0}
 --- !u!1 &1073745853
 GameObject:
   m_ObjectHideFlags: 0
