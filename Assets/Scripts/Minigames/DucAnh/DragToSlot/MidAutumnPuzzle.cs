@@ -8,7 +8,6 @@ public class MidAutumnPuzzle : BaseMinigame
     public static MidAutumnPuzzle Instance { get; private set; }
 
     [SerializeField] private RectTransform UIWinPanel;
-    [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
@@ -18,12 +17,12 @@ public class MidAutumnPuzzle : BaseMinigame
 
     private int currentPoints;
 
-    public new void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
         DragToSlotPuzzlePiece.onAddPoint += AddPoint;
     }
-    public new void OnDisable()
+    protected override void OnDisable()
     {
         base.OnDisable();
         DragToSlotPuzzlePiece.onAddPoint -= AddPoint;
@@ -71,7 +70,7 @@ public class MidAutumnPuzzle : BaseMinigame
     IEnumerator OpenWinPanel()
     {
         yield return new WaitForSeconds(1.0f);
-        VictoryRewardScreen.ShowRewardFITB(reward, 3);
+        victoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
     public override void ExitGame()
