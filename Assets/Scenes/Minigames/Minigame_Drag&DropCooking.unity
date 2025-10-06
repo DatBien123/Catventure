@@ -15563,9 +15563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ad7898b38b75a47b47da0b160c7200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Back To Home Menu
+  actionName: Exit
   canClick: 1
-  canKeepPress: 0
+  canKeepPress: 1
 --- !u!1 &565295058
 GameObject:
   m_ObjectHideFlags: 0
@@ -31524,7 +31524,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1021552879}
   m_HandleRect: {fileID: 1021552878}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -36441,6 +36441,7 @@ MonoBehaviour:
   - {fileID: 1388015914}
   WingTransforms:
   - {fileID: 1039319756}
+  ItemsInitialized: []
 --- !u!4 &1798871695
 Transform:
   m_ObjectHideFlags: 0
