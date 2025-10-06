@@ -8,7 +8,6 @@ public class DragDropCookingMinigame : DragDropMinigame
     public CookingManager cookingManager;
     public CookingRecipeSO recipe; // công thức món ăn ta muốn nấu 
     public CharacterPlayer zera;
-
     public List<SO_Map> AllMaps;
 
     protected override void OnEnable()

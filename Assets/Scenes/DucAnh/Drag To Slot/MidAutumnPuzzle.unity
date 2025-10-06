@@ -1546,7 +1546,6 @@ MonoBehaviour:
   inputBlocker: {fileID: 793624180}
   popupUI: {fileID: 2068705263}
   UIWinPanel: {fileID: 139929061}
-  VictoryRewardScreen: {fileID: 139929063}
   pointsTowin: 6
   reward: 100
   playBackgroundMusic:

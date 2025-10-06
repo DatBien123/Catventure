@@ -30,13 +30,13 @@ public class FoodSelection : MonoBehaviour
     public void OnEnable()
     {
         UIEventSystem.Register("Cook",Cook);
-        UIEventSystem.Register("Back To Home Menu", BackToHomeMenu);
+        UIEventSystem.Register("Exit", Exit);
 
     }
     public void OnDisable()
     {
         UIEventSystem.Unregister("Cook", Cook);
-        UIEventSystem.Unregister("Back To Home Menu", BackToHomeMenu);
+        UIEventSystem.Unregister("Exit", Exit);
 
     }
     void Start()
@@ -119,8 +119,16 @@ public class FoodSelection : MonoBehaviour
         // cập nhật panel bên phải
         foodSelectionUI.ShowFoodInformation(dish);
     }
-    public void BackToHomeMenu()
+    public void Exit()
     {
-        SceneManager.LoadScene("Home Scene");
+        popupUI.ShowConfirm(
+"MENU",
+"Bạn muốn về Home Menu sao?",
+yesCallback: () => {
+    SceneManager.LoadScene("Home Scene");
+},
+noCallback: () => {
+}
+);
     }
 }
