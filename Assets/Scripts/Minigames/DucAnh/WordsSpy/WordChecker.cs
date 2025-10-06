@@ -157,59 +157,10 @@ public class WordChecker : MonoBehaviour
     }
 
     private void CheckBoardCompleted() {
-        //bool loadNextCategory = false;
         if(currentGameData.selectedBoardData.SearchWords.Count == _completedWords) {
-            // Save current level progress
-            var categoryName = currentGameData.selectedCategoryName;
-            var currentBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(categoryName);
-            var nextBoardIndex = -1;
-            var currentCategoryIndex = 0;
-            bool readNextLevelName = false;
-
-            for (int index = 0; index < gameLevelData.data.Count; index++) {
-                if(readNextLevelName) {
-                    nextBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(gameLevelData.data[index].categoryName);
-                    readNextLevelName = false;
-                }
-
-                if (gameLevelData.data[index].categoryName == categoryName) {
-                    readNextLevelName = true;
-                    currentCategoryIndex = index;
-                }
-            }
-
-            var currentLevelSize = gameLevelData.data[currentCategoryIndex].boardData.Count;
-            if(currentBoardIndex < currentLevelSize) {
-                currentBoardIndex += 1;
-            }
-
-            //DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
-
+ 
             WordsSpyGameManager.Instance.OnWinGame();
 
-            // Unlock next Category
-            //if (currentBoardIndex >= currentLevelSize) {
-            //    currentCategoryIndex++;
-            //    if (currentCategoryIndex < gameLevelData.data.Count) { // If not the last Category
-            //        categoryName = gameLevelData.data[currentCategoryIndex].categoryName;
-            //        currentBoardIndex = 0;
-            //        loadNextCategory = true;
-
-            //        if (nextBoardIndex <= 0) {
-            //            DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
-            //        }
-            //    }
-            //    else {
-            //        SceneManager.LoadScene("SelectCategoryScene");
-            //    }
-            //}
-            //else {
-            //    GameEvents.OnBoardCompletedMethod();
-            //}
-
-            //if (loadNextCategory) {
-            //    GameEvents.UnlockNextCategoryMethod();
-            //}
 
         }
     }

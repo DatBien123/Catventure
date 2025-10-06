@@ -6,6 +6,7 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+/.utmp/*
 
 # Tệp tự động sinh ra bởi Unity
 *.csproj
