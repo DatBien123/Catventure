@@ -11,7 +11,7 @@ public class AnswerButtonEffect : MonoBehaviour
     [SerializeField] private Image smallWrongCheckMark;
     [SerializeField] private CanvasGroup canvasGroup;
     public GameObject confettiEffect;
-
+    public ParticleSystem correctEffect;
 
 
     public void ResetEffects()
@@ -25,6 +25,7 @@ public class AnswerButtonEffect : MonoBehaviour
 
     public void ShowCorrectEffect()
     {
+        correctEffect.Play();
         bigCorrectCheckMark.gameObject.SetActive(true);
         bigCorrectCheckMark.color = new Color(1, 1, 1, 1);
         bigCorrectCheckMark.rectTransform.anchoredPosition = Vector2.zero;

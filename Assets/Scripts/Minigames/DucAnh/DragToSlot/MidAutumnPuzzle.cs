@@ -1,15 +1,14 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FixSwordGameManager : BaseMinigame
+public class MidAutumnPuzzle : BaseMinigame
 {
-    public static FixSwordGameManager Instance { get; private set; }
+    public static MidAutumnPuzzle Instance { get; private set; }
 
     [SerializeField] private RectTransform UIWinPanel;
     [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
-    [SerializeField] private GameObject MusicManager;
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
 
@@ -31,30 +30,37 @@ public class FixSwordGameManager : BaseMinigame
     }
     public void Start()
     {
+        Debug.Log("Chạy nhạc");
         playBackgroundMusic?.Invoke();
     }
-    private void Awake() {
-        if (Instance != null && Instance != this) {
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
             Destroy(gameObject);
         }
-        else {
+        else
+        {
             Instance = this;
         }
     }
 
-    public void AddPoint() { 
+    public void AddPoint()
+    {
         currentPoints++;
         CheckWin();
     }
 
-    private void CheckWin() {
-        if (currentPoints >= pointsTowin) {
+    private void CheckWin()
+    {
+        if (currentPoints >= pointsTowin)
+        {
             OnWinGame();
         }
     }
 
-    private void OnWinGame() {
-        MusicManager.SetActive(false);
+    private void OnWinGame()
+    {
         StartCoroutine(OpenWinPanel());
 
         //Save
@@ -62,12 +68,14 @@ public class FixSwordGameManager : BaseMinigame
         SaveSystem.Save(Player, Player.Inventory);
     }
 
-    IEnumerator OpenWinPanel() {
+    IEnumerator OpenWinPanel()
+    {
         yield return new WaitForSeconds(1.0f);
         VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
-    public override void ExitGame() {
+    public override void ExitGame()
+    {
         base.ExitGame();
         // Thoát game về home menu
         Debug.Log("Quay về Home Menu");
