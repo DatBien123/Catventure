@@ -42,6 +42,9 @@ public class CharacterPlayer : Character
     [Header("Wing Transform Set")]
     public List<Transform> WingTransforms;
 
+
+    [Header("Initialized Data")]
+    public List<ItemInstance> ItemsInitialized;
     protected override void Awake()
     {
         base.Awake();
@@ -53,6 +56,19 @@ public class CharacterPlayer : Character
         //if (Wing == null) Wing = null;
 
         SaveSystem.Load(this, Inventory);
+
+        if (isFirstTimeLogin)
+        {
+            foreach (var Item in ItemsInitialized) {
+                Inventory.AddItem(Item);
+            }
+        }
+
+
+    }
+
+    void InitializedDataValue()
+    {
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

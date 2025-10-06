@@ -19,6 +19,8 @@ public class UIIntro : MonoBehaviour
 
     public VideoPlayer videoPlayer;
 
+    public AudioManager audioManager;
+
     private void Awake()
     {
         videoPlayer.Prepare();
@@ -46,6 +48,7 @@ public class UIIntro : MonoBehaviour
 
         LoadingUI.gameObject.SetActive(true);
 
+        audioManager.PlayMusic("Loading - Menu Music");
     }
 
     private IEnumerator FadeInImageLayer()
