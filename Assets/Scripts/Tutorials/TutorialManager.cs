@@ -117,6 +117,9 @@ public class TutorialManager : MonoBehaviour
         //currentPart.isPartCompleted = tutPart.isPartCompleted;
         //Data reader
 
+        //init
+        currentPart.isPartCompleted = true;
+
         for(int i = 0; i < tutorialDatabase.TutorialParts.Count; i++)
         {
             if (!tutorialDatabase.TutorialParts[i].isPartCompleted)
