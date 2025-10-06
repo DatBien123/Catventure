@@ -963,6 +963,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148917760}
   m_CullTransparentMesh: 1
+--- !u!114 &149199437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2968287911844017134, guid: 920c099646a3fff4b86e767b72371ac8, type: 3}
+  m_PrefabInstance: {fileID: 524142235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1d4190c96dab84ebbae2f7057417fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &183512533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5901021493927842033, guid: 920c099646a3fff4b86e767b72371ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4789,6 +4804,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 667051317}
   CutSceneUI: {fileID: 746592768}
+  AudioManager: {fileID: 149199437}
+  WordsSpySoundManager: {fileID: 1213001545}
   Skip_Button: {fileID: 584397700}
 --- !u!1001 &673140396
 PrefabInstance:

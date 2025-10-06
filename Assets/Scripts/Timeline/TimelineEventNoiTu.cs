@@ -12,9 +12,13 @@ public class TimelineEventNoiTu : MonoBehaviour
 
     [Header("References")]
     public GameObject CutSceneUI;
+    public AudioManager AudioManager;
+    public WordsSpySoundManager WordsSpySoundManager;
 
     [Header("Skip button")]
     public Button Skip_Button;
+
+
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
@@ -130,12 +134,16 @@ public class TimelineEventNoiTu : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
+        AudioManager.gameObject.SetActive(false);
+        WordsSpySoundManager.gameObject.SetActive(false);
 
     }
 
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
+        AudioManager.gameObject.SetActive(false);
+        WordsSpySoundManager.gameObject.SetActive(true);
     }
     #endregion
 }
