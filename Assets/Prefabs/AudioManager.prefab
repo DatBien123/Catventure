@@ -74,7 +74,7 @@ MonoBehaviour:
     type: 1
     source: {fileID: 0}
   - name: Instruction Cooking
-    clip: {fileID: 8300000, guid: ce5928eb30143ad47b521559daccba7c, type: 3}
+    clip: {fileID: 8300000, guid: 77eca8d02ef5e92498a4fc46ea80d3ae, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -234,3 +234,4 @@ MonoBehaviour:
     loop: 0
     type: 1
     source: {fileID: 0}
+  isDestroyOnLoad: 0

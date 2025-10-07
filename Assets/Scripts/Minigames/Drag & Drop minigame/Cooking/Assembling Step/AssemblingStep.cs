@@ -119,6 +119,9 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
         image.sprite = step.requiredIngredients[index].processing.assemblingData.icon;
         canvasGroup.alpha = 0;
         RectTransform rt = ingredients[index].GetComponent<RectTransform>();
+        Vector3 rotation = rt.localEulerAngles;
+        rotation.x = 20f;
+        rt.localEulerAngles = rotation; 
         Vector2 originalPos = rt.anchoredPosition;
         rt.anchoredPosition = originalPos + new Vector2(0, 100f);
 

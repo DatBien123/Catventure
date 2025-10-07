@@ -35,13 +35,13 @@ public class HandTutorial : MonoBehaviour
         handTransform.position.z // giữ nguyên z
         );
         // Sau vài giây → di chuyển tay
-        DOVirtual.DelayedCall(4f, () =>
+        DOVirtual.DelayedCall(8f, () =>
         {
             scaleTween.Kill(); // Dừng scale
             handTransform.localScale = new Vector3(3, 3, 1);
 
             // Di chuyển tay từ nguyên liệu đến nồi
-            handTransform.DOMove(targetPos, 3f)
+            handTransform.DOMove(targetPos, 5f)
                 .SetEase(Ease.InOutQuad)
                     .OnComplete(() =>
                     {
