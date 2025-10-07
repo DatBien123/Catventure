@@ -4,18 +4,20 @@ using System.Collections.Generic;
 public class MapInstance
 {
     public SO_Map MapData;
+    public bool isPlayUnlock;
     public bool isUnlock;
     public bool isSelected;
 
     public List<int> UnlockTopicsIndex;
     public List<int> CompletedTopicsIndex;
 
-    public MapInstance(SO_Map map, List<int> unlockTopicsIndex, List<int> completedTopicsIndex, bool unlock, bool selected)
+    public MapInstance(SO_Map map, List<int> unlockTopicsIndex, List<int> completedTopicsIndex, bool unlock, bool selected, bool isPlayUnlock)
     {
         this.MapData = map;
         this.UnlockTopicsIndex = unlockTopicsIndex;
         this.CompletedTopicsIndex = completedTopicsIndex;
         this.isUnlock = unlock;
         this.isSelected = selected;
+        this.isPlayUnlock = isPlayUnlock;
     }
 }

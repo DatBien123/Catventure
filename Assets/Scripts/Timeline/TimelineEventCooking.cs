@@ -171,6 +171,7 @@ public class TimelineEventCooking : MonoBehaviour
         TutorialUI.SetActive(false);
         CompleteTopic();
 
+        GameSession.Instance.SetLastScene("Minigame_Drag&DropCooking");
     }
 
     void OnTimelineStop(PlayableDirector obj)

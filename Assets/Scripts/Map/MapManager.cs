@@ -29,6 +29,8 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < ListMapTile.Count && i < loadedMaps.Count; i++)
         {
             ListMapTile[i].MapInstance = loadedMaps[i];
+            Debug.Log("Unlock: " + ListMapTile[i].MapInstance.isPlayUnlock);
+
             ListMapTile[i].SetupMapTile(ListMapTile[i].MapInstance.isUnlock);
         }
 

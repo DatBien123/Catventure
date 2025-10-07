@@ -133,6 +133,8 @@ public class TimelineEventSuaKiem : MonoBehaviour
         CutSceneUI.SetActive(true);
         CompleteTopic();
         MusicManager.SetActive(false);
+
+        GameSession.Instance.SetLastScene("FixSword");
     }
 
     void OnTimelineStop(PlayableDirector obj)

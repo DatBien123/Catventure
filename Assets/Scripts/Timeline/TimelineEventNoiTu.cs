@@ -135,6 +135,7 @@ public class TimelineEventNoiTu : MonoBehaviour
         CompleteTopic();
         WordsSpySoundManager.SetActive(false);
 
+        GameSession.Instance.SetLastScene("WordsSpyGameScene");
     }
 
     void OnTimelineStop(PlayableDirector obj)

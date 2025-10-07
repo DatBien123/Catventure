@@ -130,6 +130,7 @@ public class TimelineEventDienTu : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
+        GameSession.Instance.SetLastScene("Minigame_FITB");
 
     }
 

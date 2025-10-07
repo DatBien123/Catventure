@@ -36,6 +36,7 @@ public class MapSaveSystem : MonoBehaviour
                 MapName = mapInstance.MapData.Data.Name,
                 MapIndex = mapInstance.MapData.Data.index,
                 IsUnlock = mapInstance.isUnlock,
+                IsPlayUnlock = mapInstance.isPlayUnlock,
                 IsSelected = mapInstance.isSelected,
                 UnlockTopicsIndex = mapInstance.UnlockTopicsIndex ?? new List<int>(),
                 CompletedTopicsIndex = mapInstance.CompletedTopicsIndex ?? new List<int>()
@@ -85,6 +86,7 @@ public class MapSaveSystem : MonoBehaviour
                     map,
                     isUnlock ? new List<int> { 0 } : new List<int>(), // Topic với index = 0 được mở khóa cho map index = 0
                     new List<int>(),
+                    isUnlock,
                     isUnlock, // Truyền isUnlock
                     isUnlock  // Truyền isSelected, đặt giống isUnlock cho mặc định
                 ));
@@ -111,6 +113,7 @@ public class MapSaveSystem : MonoBehaviour
                         isUnlock ? new List<int> { 0 } : new List<int>(),
                         new List<int>(),
                         isUnlock,
+                        isUnlock,
                         isUnlock
                     ));
                 }
@@ -128,7 +131,8 @@ public class MapSaveSystem : MonoBehaviour
                         serializableMap.UnlockTopicsIndex ?? new List<int>(),
                         serializableMap.CompletedTopicsIndex ?? new List<int>(),
                         serializableMap.IsUnlock,
-                        serializableMap.IsSelected
+                        serializableMap.IsSelected,
+                        serializableMap.IsPlayUnlock
                     ));
                     Debug.Log($"MapSaveSystem: Loaded map - Name: {map.Data.Name}, Index: {map.Data.index}, IsUnlock: {mapInstances.Last().isUnlock}, IsSelected: {mapInstances.Last().isSelected}");
                 }
@@ -149,6 +153,7 @@ public class MapSaveSystem : MonoBehaviour
                         isUnlock ? new List<int> { 0 } : new List<int>(),
                         new List<int>(),
                         isUnlock,
+                        isUnlock,
                         isUnlock
                     ));
                 }
@@ -166,6 +171,7 @@ public class MapSaveSystem : MonoBehaviour
                     map,
                     isUnlock ? new List<int> { 0 } : new List<int>(),
                     new List<int>(),
+                    isUnlock,
                     isUnlock,
                     isUnlock
                 ));
@@ -300,6 +306,7 @@ public class MapSaveSystem : MonoBehaviour
         public int MapIndex;
         public bool IsUnlock;
         public bool IsSelected;
+        public bool IsPlayUnlock;
         public List<int> UnlockTopicsIndex;
         public List<int> CompletedTopicsIndex;
     }

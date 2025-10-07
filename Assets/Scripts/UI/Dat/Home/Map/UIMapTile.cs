@@ -13,6 +13,7 @@ public class UIMapTile : MonoBehaviour
     public Color UnlockColor;
     public Color LockColor;
     public GameObject MapName;
+    public string name;
 
     [Header("References")]
     public UIHome UIHome;
@@ -29,10 +30,19 @@ public class UIMapTile : MonoBehaviour
     {
         if (isUnlock)
         {
-            if(LockImage != null)
-                LockImage.gameObject.SetActive(false);
-            Map_Image.color = UnlockColor;
-            MapName.SetActive(true);
+
+
+            if (!MapInstance.isPlayUnlock)
+            {
+                PlayUnlockMap();
+            }
+            else
+            {
+                if (LockImage != null)
+                    LockImage.gameObject.SetActive(false);
+                Map_Image.color = UnlockColor;
+                MapName.SetActive(true);
+            }
         }
         else
         {
@@ -41,6 +51,8 @@ public class UIMapTile : MonoBehaviour
             Map_Image.color = LockColor;
             MapName.SetActive(false);
         }
+
+
     }
     public void SelectMap()
     {
@@ -56,6 +68,9 @@ public class UIMapTile : MonoBehaviour
         {
             UIHome.TutorialManager.AllowNextStep = true;
         }
+
+
+        //GameSession.Instance.SetLastSelectedMap(name);
 
         // Đặt tất cả map khác thành không chọn
         foreach (var tile in FindObjectsOfType<UIMapTile>())
@@ -112,4 +127,102 @@ public class UIMapTile : MonoBehaviour
             notifyObj.SetActive(false);
         }
     }
+
+    Coroutine C_PlayUnlockMap;
+    public void PlayUnlockMap()
+    {
+        if (MapInstance.isUnlock && !MapInstance.isPlayUnlock)
+        {
+            if (C_PlayUnlockMap != null) StopCoroutine(C_PlayUnlockMap);
+            C_PlayUnlockMap = StartCoroutine(Coroutine_PlayUnlockMap());
+        }
+
+    }
+
+    IEnumerator Coroutine_PlayUnlockMap()
+    {
+        //Disable All Buttons-----------------------------------
+        DisableAllButtons();
+
+        Map_Button.interactable = true;
+
+        yield return new WaitForSeconds(2.0f);
+
+
+        //
+        Debug.Log("Play Unlock");
+        LockImage.gameObject.SetActive(true);
+        // Bước 1: Nếu có LockImage thì fade mờ dần và ẩn
+        if (LockImage != null && LockImage.gameObject.activeSelf)
+        {
+            CanvasGroup cg = LockImage.GetComponent<CanvasGroup>();
+
+            // Nếu LockImage chưa có CanvasGroup thì thêm vào để dùng fade
+            if (cg == null)
+                cg = LockImage.gameObject.AddComponent<CanvasGroup>();
+
+            cg.alpha = 1f;
+
+            // Fade out trong 0.5 giây
+            cg.DOFade(0f, 2f);
+
+            // Đợi fade xong rồi tắt LockImage
+            yield return new WaitForSeconds(2f);
+            LockImage.gameObject.SetActive(false);
+        }
+
+        // Bước 2: Đổi màu từ LockColor sang UnlockColor
+        Map_Image.color = LockColor; // đảm bảo bắt đầu từ màu khóa
+
+        // Tween đổi màu trong 0.7 giây
+        Map_Image.DOColor(UnlockColor, 2f);
+
+        // Có thể đợi thêm để chắc chắn hoàn tất màu
+        yield return new WaitForSeconds(2f);
+
+        // Hiện tên map nếu có
+        if (MapName != null)
+            MapName.SetActive(true);
+
+        // Reset cờ để không lặp lại animation khi load lại
+        MapInstance.isPlayUnlock = true;
+
+        // Lưu trạng thái khi thiết lập map description
+        MapManager mapManager = FindObjectOfType<MapManager>();
+
+        for (int i = 0; i< mapManager.ListMapTile.Count; i++)
+        {
+            if(mapManager.ListMapTile[i].MapInstance.MapData.name == MapInstance.MapData.name)
+            {
+                mapManager.ListMapTile[i].MapInstance.isPlayUnlock = true;
+
+                Debug.Log("Playyyyy");
+            }
+        }
+        MapSaveSystem.Save(mapManager.ListMapTile.Select(tile => tile.MapInstance).ToList());
+
+        EnableAllButtons();
+
+        //Notify
+        UIHome.UUnlockMapNotify.SetupUIUnlockMapNotify(MapInstance);
+        UIHome.UUnlockMapNotify.gameObject.SetActive(true);
+    }
+
+    public void EnableAllButtons()
+    {
+        foreach (Button btn in FindObjectsOfType<Button>(true))
+        {
+            btn.interactable = true;
+        }
+    }
+    public void DisableAllButtons()
+    {
+        foreach (Button btn in FindObjectsOfType<Button>(true))
+        {
+            btn.interactable = false;
+
+        }
+    }
+
+
 }

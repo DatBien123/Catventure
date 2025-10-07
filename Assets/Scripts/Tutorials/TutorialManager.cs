@@ -167,6 +167,12 @@ public class TutorialManager : MonoBehaviour
         {
             btn.interactable = false; // Disable tất cả trước
 
+            UIMapTile mapTile = btn.GetComponent<UIMapTile>();
+            if (mapTile)
+            {
+                mapTile.MapName.SetActive(false);
+            }
+
             //Button Cua tien anh
             UIButton uiButton = btn.GetComponent<UIButton>();
             if (uiButton) uiButton.canClick = false;
@@ -178,6 +184,11 @@ public class TutorialManager : MonoBehaviour
         {
             targetButton.interactable = true;
 
+            UIMapTile mapTile = targetButton.GetComponent<UIMapTile>();
+            if (mapTile)
+            {
+                mapTile.MapName.SetActive(true);
+            }
             //Button Cua tien anh
             UIButton uiButton = targetButton.GetComponent<UIButton>();
             if (uiButton) uiButton.canClick = true;
@@ -190,6 +201,12 @@ public class TutorialManager : MonoBehaviour
             if (target != null)
             {
                 target.interactable = true;
+
+                UIMapTile mapTile = target.GetComponent<UIMapTile>();
+                if (mapTile)
+                {
+                    mapTile.MapName.SetActive(true);
+                }
 
                 //Button Cua tien anh
                 UIButton uiButton = target.GetComponent<UIButton>();
@@ -235,6 +252,12 @@ public class TutorialManager : MonoBehaviour
         foreach (Button btn in allButtons)
         {
             btn.interactable = true;
+
+            UIMapTile mapTile = btn.GetComponent<UIMapTile>();
+            if (mapTile)
+            {
+                mapTile.MapName.SetActive(true);
+            }
             //Button Cua tien anh
             UIButton uiButton = btn.GetComponent<UIButton>();
             if (uiButton) uiButton.canClick = true;
@@ -245,6 +268,13 @@ public class TutorialManager : MonoBehaviour
         foreach (Button btn in allButtons)
         {
             btn.interactable = false;
+
+            UIMapTile mapTile = btn.GetComponent<UIMapTile>();
+            if (mapTile)
+            {
+                mapTile.MapName.SetActive(false);
+            }
+
             //Button Cua tien anh
             UIButton uiButton = btn.GetComponent<UIButton>();
             if (uiButton) uiButton.canClick = false;
