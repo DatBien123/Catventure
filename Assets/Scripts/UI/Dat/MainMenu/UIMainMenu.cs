@@ -60,7 +60,7 @@ public class UIMainMenu : MonoBehaviour
         //Wait for first frame
         yield return null;
 
-        preloadSceneOp = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        preloadSceneOp = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Single);
         preloadSceneOp.allowSceneActivation = false;
 
         // Theo dõi tiến trình nếu muốn

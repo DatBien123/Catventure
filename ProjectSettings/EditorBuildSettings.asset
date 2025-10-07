@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DucAnh/Drag To Slot/FixSword.unity
     guid: 42cdc4b4d57870f4cb5d3cb2c4010aef
+  - enabled: 1
+    path: Assets/Scenes/DucAnh/Drag To Slot/MidAutumnPuzzle.unity
+    guid: eb3a1725adbb5234ba4d228643161f87
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
