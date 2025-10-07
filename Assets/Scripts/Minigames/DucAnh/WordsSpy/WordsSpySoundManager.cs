@@ -8,7 +8,7 @@ public class WordsSpySoundManager : MonoBehaviour
 
     public static WordsSpySoundManager instance;
 
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Awake() {
         if (instance == null) {
@@ -16,15 +16,6 @@ public class WordsSpySoundManager : MonoBehaviour
         } else {
             Destroy(this);
         }
-    }
-
-    private void Start() {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.Play();
-    }
-
-    private void Update() {
-
     }
 
     public void ToggleBackgroundMusic() {
@@ -35,7 +26,6 @@ public class WordsSpySoundManager : MonoBehaviour
             _audioSource.Play();
         }
     }
-
 
     public void ToggleSoundFX() {
         _muteSoundFX = !_muteSoundFX;

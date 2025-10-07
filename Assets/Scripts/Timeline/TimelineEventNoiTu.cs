@@ -11,9 +11,8 @@ public class TimelineEventNoiTu : MonoBehaviour
     public PlayableDirector director;   // Gán PlayableDirector vào đây
 
     [Header("References")]
-    public GameObject CutSceneUI;
-    public AudioManager AudioManager;
-    public WordsSpySoundManager WordsSpySoundManager;
+    [SerializeField] private GameObject CutSceneUI;
+    [SerializeField] private GameObject WordsSpySoundManager;
 
     [Header("Skip button")]
     public Button Skip_Button;
@@ -134,16 +133,14 @@ public class TimelineEventNoiTu : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
-        AudioManager.gameObject.SetActive(false);
-        WordsSpySoundManager.gameObject.SetActive(false);
+        WordsSpySoundManager.SetActive(false);
 
     }
 
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
-        AudioManager.gameObject.SetActive(false);
-        WordsSpySoundManager.gameObject.SetActive(true);
+        WordsSpySoundManager.SetActive(true);
     }
     #endregion
 }

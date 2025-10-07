@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class WordsSpyGameManager : BaseMinigame
 {
@@ -34,21 +33,19 @@ public class WordsSpyGameManager : BaseMinigame
         StartCoroutine(IEOpenWinPanel(reward));
     }
 
-    public void LoadNextLevel() {
-        GameEvents.LoadNextLevelMethod();
-    }
-
     private IEnumerator IEOpenWinPanel(int reward) {
         yield return new WaitForSeconds(1.0f);
+        AudioManager.instance.PlaySFX("Minigame Completed");
         victoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
     public void OnWinGame() {
+        GameEvents.OnBoardCompletedMethod();
+
         //Save
         Player.Coin += reward;
         SaveSystem.Save(Player, Player.Inventory);
 
-        GameEvents.OnBoardCompletedMethod();
     }
 
     public override void ExitGame() {

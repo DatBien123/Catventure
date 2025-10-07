@@ -96,6 +96,7 @@ public class WordChecker : MonoBehaviour
     private void CheckWord() {
         foreach (var searchingWord in currentGameData.selectedBoardData.SearchWords) { 
             if(_word == searchingWord.Word) {
+                AudioManager.instance.PlaySFX("Correct Answer");
                 GameEvents.CorrectWordMethod(_word, _correctSquareList);
                 _completedWords++;
                 _word = string.Empty;

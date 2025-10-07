@@ -60,6 +60,7 @@ public class DongSonDrumPatternGameManager : BaseMinigame
 
     void OnWinGame() {
         MusicManager.SetActive(false);
+        AudioManager.instance.PlaySFX("Chest Unlock");
         DongSonDrumPatternUIManager.Instance.OpenWinPanel(reward);
 
         //Save

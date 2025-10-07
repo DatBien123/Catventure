@@ -30,12 +30,12 @@ public class LandedUI : MonoBehaviour {
 
     private void Lander_OnLanded(object sender, Lander.OnLandedEventArgs e) {
         if (e.landingType == Lander.LandingType.Success) {
-            titleTextMesh.text = "Hạ cánh thành công!";
-            nextButtonTextMesh.text = "Tiếp tục";
-            nextButtonClickAction = LanderGameManager.Instance.GoToNextLevel;
+            titleTextMesh.text = "HẠ CÁNH THÀNH CÔNG!";
+            nextButtonTextMesh.text = "TIẾP TỤC";
+            nextButtonClickAction = GoBackToHomeScene;
         } else {
-            titleTextMesh.text = "<color=#ff0000>Bể tàu!</color>";
-            nextButtonTextMesh.text = "Thử lại";
+            titleTextMesh.text = "<color=#ff0000>BỂ TÀU</color>";
+            nextButtonTextMesh.text = "THỬ LẠI";
             nextButtonClickAction = LanderGameManager.Instance.RetryLevel;
         }
 
@@ -58,4 +58,7 @@ public class LandedUI : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    private void GoBackToHomeScene() {
+        SceneManager.LoadScene(Constants.HOME_SCENE_NAME);
+    }
 }

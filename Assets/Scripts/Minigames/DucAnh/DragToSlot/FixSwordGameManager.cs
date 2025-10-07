@@ -54,7 +54,6 @@ public class FixSwordGameManager : BaseMinigame
     }
 
     private void OnWinGame() {
-        MusicManager.SetActive(false);
         StartCoroutine(OpenWinPanel());
 
         //Save
@@ -64,6 +63,7 @@ public class FixSwordGameManager : BaseMinigame
 
     IEnumerator OpenWinPanel() {
         yield return new WaitForSeconds(1.0f);
+        MusicManager.SetActive(false);
         VictoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 

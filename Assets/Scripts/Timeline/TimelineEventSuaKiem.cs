@@ -12,6 +12,7 @@ public class TimelineEventSuaKiem : MonoBehaviour
 
     [Header("References")]
     public GameObject CutSceneUI;
+    [SerializeField] private GameObject MusicManager;
 
     [Header("Skip button")]
     public Button Skip_Button;
@@ -131,12 +132,13 @@ public class TimelineEventSuaKiem : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
-
+        MusicManager.SetActive(false);
     }
 
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
+        MusicManager.SetActive(true);
     }
     #endregion
 }

@@ -11,7 +11,8 @@ public class TimelineEventGiaima : MonoBehaviour
     public PlayableDirector director;   // Gán PlayableDirector vào đây
 
     [Header("References")]
-    public GameObject CutSceneUI;
+    [SerializeField] private GameObject CutSceneUI;
+    [SerializeField] private GameObject MusicManager;
 
     [Header("Skip button")]
     public Button Skip_Button;
@@ -130,12 +131,13 @@ public class TimelineEventGiaima : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
-
+        MusicManager.SetActive(false);
     }
 
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
+        MusicManager.SetActive(true);
     }
     #endregion
 }

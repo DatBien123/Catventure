@@ -7667,6 +7667,7 @@ MonoBehaviour:
           ScaleOffset: {x: 0, y: 0, z: 0}
         SizeOffset: {x: 1000, y: 200}
         TargetButton: {fileID: 0}
+        targetButtonName: 
         isHightlightButton: 0
         isStepCompleted: 0
       isDisableAllButtons: 1
@@ -7697,6 +7698,7 @@ MonoBehaviour:
       ScaleOffset: {x: 0, y: 0, z: 0}
     SizeOffset: {x: 0, y: 0}
     TargetButton: {fileID: 0}
+    targetButtonName: 
     isHightlightButton: 0
     isStepCompleted: 0
   currentStepIndex: 0
@@ -12723,6 +12725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1944592334}
   CutSceneUI: {fileID: 455938230}
+  MusicManager: {fileID: 352470831}
   Skip_Button: {fileID: 737257542}
 --- !u!1001 &1950867154
 PrefabInstance:
@@ -14431,6 +14434,7 @@ MonoBehaviour:
   - {fileID: 724861573}
   WingTransforms:
   - {fileID: 361885991}
+  ItemsInitialized: []
 --- !u!4 &2137771537
 Transform:
   m_ObjectHideFlags: 0
