@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2fe0eb4073850742af6e88d80694a0d, type: 2}
   - {fileID: 11400000, guid: e20b8072862c9804785723855efa2482, type: 2}
   instructionImage: {fileID: 0}
-  timeRequired: 120
+  timeRequired: 300
