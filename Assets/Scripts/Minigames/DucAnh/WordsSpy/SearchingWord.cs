@@ -8,6 +8,7 @@ public class SearchingWord : MonoBehaviour
 {
     public TMP_Text displayedText;
     public Image crossLine;
+    [SerializeField] private Image icon;
 
     private string _word;
 
@@ -19,9 +20,10 @@ public class SearchingWord : MonoBehaviour
         GameEvents.OnCorrectWord -= CorrectWord;
     }
 
-    public void SetWords(string word) {
+    public void SetWords(string word, Sprite sprite) {
         _word = word;
         displayedText.text = word;
+        icon.sprite = sprite;
     }
 
     public void CorrectWord(string word, List<int> squareIndexes) {

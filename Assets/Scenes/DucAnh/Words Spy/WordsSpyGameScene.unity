@@ -6707,9 +6707,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1549846540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 246, y: -123}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 233, y: -503}
   m_SizeDelta: {x: 300, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924432174
@@ -6726,9 +6726,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGameData: {fileID: 11400000, guid: 2cb03bf044ba550419b5d27ac96c1199, type: 2}
   searchingWordPrefab: {fileID: 466614555418543288, guid: b8ac3406ded2acd43b22c08e933257fa, type: 3}
-  offset: 10
+  Icons:
+  - {fileID: 21300000, guid: 359c21316c138024e880abf4dc7fb457, type: 3}
+  - {fileID: 21300000, guid: d8c0e7d68595b9a4db97845897812382, type: 3}
+  - {fileID: 21300000, guid: 8d380544fd5b22240a3b4b65ba73c29b, type: 3}
+  - {fileID: 21300000, guid: 14258906f21c26c46903e800575ac525, type: 3}
+  - {fileID: 21300000, guid: 0dcf87d5cfb0d714882bb0a7133ebcf1, type: 3}
+  offset: 0
   maxColumns: 1
-  maxRows: 5
+  maxRows: 10
 --- !u!114 &924432175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9349,7 +9355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -287, y: -72}
+  m_AnchoredPosition: {x: -276, y: -76}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350508162

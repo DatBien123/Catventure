@@ -35,7 +35,6 @@ public class WordsSpyGameManager : BaseMinigame
 
     private IEnumerator IEOpenWinPanel(int reward) {
         yield return new WaitForSeconds(1.0f);
-        AudioManager.instance.PlaySFX("Minigame Completed");
         victoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
