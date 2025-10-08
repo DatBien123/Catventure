@@ -1,10 +1,13 @@
-using System;
+﻿using System;
 using UnityEngine;
 
-public class Lander : MonoBehaviour {
+public class Lander : BaseMinigame {
 
     [SerializeField] private Joystick joystick;
 
+    [Header("Data Save")]
+    public CharacterPlayer Player;
+    [SerializeField] private int reward;
 
     private const float GRAVITY_NORMAL = 0.7f;
 
@@ -137,6 +140,7 @@ public class Lander : MonoBehaviour {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
         }
@@ -153,6 +157,7 @@ public class Lander : MonoBehaviour {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
         }
@@ -169,6 +174,7 @@ public class Lander : MonoBehaviour {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
         }
@@ -185,9 +191,11 @@ public class Lander : MonoBehaviour {
         Debug.Log("landingAngleScore: " + landingAngleScore);
         Debug.Log("landingspeedScore: " + landingSpeedScore);
 
-        int score = Mathf.RoundToInt((landingAngleScore + landingSpeedScore) * landingPad.GetScoreMultiplier());
+        int multiplier = landingPad.GetScoreMultiplier();
+        int score = Mathf.RoundToInt((landingAngleScore + landingSpeedScore) * multiplier);
 
         Debug.Log("score: " + score);
+
         OnLanded?.Invoke(this, new OnLandedEventArgs {
             landingType = LandingType.Success,
             dotVector = dotVector,
@@ -195,6 +203,17 @@ public class Lander : MonoBehaviour {
             scoreMultiplier = landingPad.GetScoreMultiplier(),
             score = score,
         });
+
+        if (multiplier == 1 ) {
+            victoryRewardScreen.ShowRewardFITB(reward, 2);
+        } else {
+            victoryRewardScreen.ShowRewardFITB(reward * multiplier, 3);
+        }
+
+        //Save
+        Player.Coin += score;
+        SaveSystem.Save(Player, Player.Inventory);
+
         SetState(State.GameOver);
     }
 
@@ -243,4 +262,18 @@ public class Lander : MonoBehaviour {
         return landerRigidbody2D.linearVelocityY;
     }
 
+    public override void ExitGame() {
+        base.ExitGame();
+        // Thoát game về home menu
+        Debug.Log("Quay về Home Menu");
+        popupUI.ShowConfirm(
+        "MENU",
+        "Bạn muốn về Home Menu sao?",
+        yesCallback: () => {
+            GoToScene("Home Scene");
+        },
+        noCallback: () => {
+        }
+        );
+    }
 }
