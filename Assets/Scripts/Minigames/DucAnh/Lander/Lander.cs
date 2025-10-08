@@ -102,21 +102,21 @@ public class Lander : BaseMinigame {
                 Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
                 // Up / Thrust
-                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone || joystickDirection.y > 0) {
+                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone || joystickDirection.y > gamepadDeadzone) {
                     float force = 700f;
                     landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
                     OnUpForce?.Invoke(this, EventArgs.Empty);
                 }
 
                 // Left / Rotate CCW
-                if (Input.GetKey(KeyCode.A) || movementInput.x < -gamepadDeadzone || joystickDirection.x < 0) {
+                if (Input.GetKey(KeyCode.A) || movementInput.x < -gamepadDeadzone || joystickDirection.x < -gamepadDeadzone) {
                     float turnSpeed = +100f;
                     landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnLeftForce?.Invoke(this, EventArgs.Empty);
                 }
 
                 // Right / Rotate CW
-                if (Input.GetKey(KeyCode.D) || movementInput.x > gamepadDeadzone || joystickDirection.x > 0) {
+                if (Input.GetKey(KeyCode.D) || movementInput.x > gamepadDeadzone || joystickDirection.x > gamepadDeadzone) {
                     float turnSpeed = -100f;
                     landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnRightForce?.Invoke(this, EventArgs.Empty);
