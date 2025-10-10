@@ -41451,6 +41451,8 @@ MonoBehaviour:
   TutorialUI: {fileID: 1767757607}
   Dialogue: {fileID: 1121701441}
   Zera: {fileID: 6764709}
+  StoryManager: {fileID: 1758344715}
+  StoryData: {fileID: 11400000, guid: bbd2fc50bf04f014fba956506fa23ab3, type: 2}
   Skip_Button: {fileID: 58703025}
 --- !u!320 &1672497385
 PlayableDirector:

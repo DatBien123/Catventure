@@ -36,17 +36,26 @@ public class UIShopSlot : MonoBehaviour,IObjectPool<UIShopSlot>, IPointerClickHa
         nameText.text = item.commonData.itemName;
         priceText.text = item.commonData.price.ToString();
 
-        if(shopItem as SO_Outfit)
+        //Init
+        ownedIndicate.gameObject.SetActive(false);
+        isOwned = false;
+
+        if (shopItem.commonData.itemType != ItemType.Consumable && shopItem.commonData.itemType != ItemType.Crops)
         {
+            Debug.Log("not consumable");
             if (uiShop.UIInventory.inventoryManager.CheckItemExist(shopItem))
             {
                 ownedIndicate.gameObject.SetActive(true);
                 isOwned = true;
+
+                Debug.Log("not consumable true");
             }
             else
             {
                 ownedIndicate.gameObject.SetActive(false);
                 isOwned = false;
+
+                Debug.Log("not consumable false");
             }
         }
     }

@@ -133,7 +133,7 @@ public class TimelineEventGiaima : MonoBehaviour
         CompleteTopic();
         MusicManager.SetActive(false);
 
-        GameSession.Instance.SetLastScene("DongSonDrumPattern");
+        //GameSession.Instance.SetLastScene("DongSonDrumPattern");
     }
 
     void OnTimelineStop(PlayableDirector obj)

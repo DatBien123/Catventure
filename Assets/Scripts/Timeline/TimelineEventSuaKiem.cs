@@ -134,7 +134,7 @@ public class TimelineEventSuaKiem : MonoBehaviour
         CompleteTopic();
         MusicManager.SetActive(false);
 
-        GameSession.Instance.SetLastScene("FixSword");
+        //GameSession.Instance.SetLastScene("FixSword");
     }
 
     void OnTimelineStop(PlayableDirector obj)

@@ -93,10 +93,12 @@ public class TimelineEvent : MonoBehaviour
     [Header("References")]
     public Dialogue Dialogue;
     public CharacterPlayer Zera;
-
+    public StoryManager StoryManager;
+    public SO_Story StoryData;
 
     [Header("Skip button")]
     public Button Skip_Button;
+
 
     private void Start()
     {
@@ -153,6 +155,19 @@ public class TimelineEvent : MonoBehaviour
         //Data
         Zera.isFirstTimeLogin = false;
         SaveSystem.Save(Zera, Zera.Inventory);
+
+        if (StoryManager)
+        {
+            foreach(var Story in StoryManager.Stories)
+            {
+                if(StoryData.name == Story.StoryData.name)
+                {
+                    Story.isUnlock = true;
+                }
+            }
+
+            StorySaveSystem.Save(StoryManager);
+        }
     }
     #endregion
 }

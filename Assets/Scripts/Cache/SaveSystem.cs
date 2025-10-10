@@ -129,7 +129,7 @@ public class SaveSystem : MonoBehaviour
                 instance = new ItemInstance(item, itemData.Quantity, itemData.IsEquiped);
             }
 
-            inventory.AddItem(instance);
+            inventory.AddItemLoad(instance);
         }
 
         // Load các outfit đang equip
