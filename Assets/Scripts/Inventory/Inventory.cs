@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
 
             if (ItemInstance is OutfitInstance outfitInstance)
             {
-                slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, addAmount, false)));
+                slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, addAmount, outfitInstance.IsEquiped)));
             }
             else if (ItemInstance is ConsumableInstance consumableInstance)
             {
@@ -68,6 +68,65 @@ public class Inventory : MonoBehaviour
         }
 
         SaveSystem.Save(owner, this);
+    }
+
+    public void AddItemLoad(ItemInstance ItemInstance)
+    {
+        if (!ItemInstance.ItemStaticData.commonData.isStackable)
+        {
+            for (int i = 0; i < ItemInstance.Quantity; i++)
+            {
+                if (ItemInstance is OutfitInstance outfitInstance)
+                {
+                    slots.Add(new InventorySlot(outfitInstance));
+                }
+                else
+                {
+                    slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, 1)));
+                }
+            }
+            return;
+        }
+
+        int remain = ItemInstance.Quantity;
+
+        foreach (var slot in slots)
+        {
+            if (slot.ItemInstance.ItemStaticData.commonData.itemName == ItemInstance.ItemStaticData.commonData.itemName && !slot.isFull)
+            {
+                int space = ItemInstance.ItemStaticData.commonData.maxQuantityAllowed - slot.ItemInstance.Quantity;
+                int addAmount = Mathf.Min(space, remain);
+
+                slot.Add(addAmount);
+                remain -= addAmount;
+                if (remain <= 0) return;
+            }
+        }
+
+        while (remain > 0)
+        {
+            int addAmount = Mathf.Min(ItemInstance.ItemStaticData.commonData.maxQuantityAllowed, remain);
+
+            if (ItemInstance is OutfitInstance outfitInstance)
+            {
+                slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, addAmount, outfitInstance.IsEquiped)));
+            }
+            else if (ItemInstance is ConsumableInstance consumableInstance)
+            {
+                slots.Add(new InventorySlot(new ConsumableInstance(consumableInstance.ItemStaticData, addAmount)));
+            }
+            else if (ItemInstance is CropsInstance cropsInstance)
+            {
+                slots.Add(new InventorySlot(new CropsInstance(cropsInstance.ItemStaticData, addAmount)));
+            }
+            else
+            {
+                slots.Add(new InventorySlot(new ItemInstance(ItemInstance.ItemStaticData, addAmount)));
+            }
+
+            remain -= addAmount;
+        }
+
     }
     #endregion
 
