@@ -37,7 +37,7 @@ public class QTEBar : MonoBehaviour
     private void Start()
     {
         cookingProgress.slider.onValueChanged.AddListener(OnCookingProgressChanged);
-        QTEPressButton.SetDelayTime(1.5f);
+        QTEPressButton.SetDelayTime(1f);
     }
 
     private void OnCookingProgressChanged(float value)
@@ -52,20 +52,17 @@ public class QTEBar : MonoBehaviour
 
     private void Update()
     {
-        // di chuyển Pointer đến TargetPosition ở đây là điểm A hoặc điểm B
-        pointerTransform.position = Vector3.MoveTowards(pointerTransform.position, targetPosition.position, moveSpeed * Time.deltaTime);
+        pointerTransform.position = Vector3.MoveTowards(
+            pointerTransform.position,
+            targetPosition.position,
+            moveSpeed * Time.deltaTime
+        );
 
-        // Nếu đã ở điểm A thì targetPosition điểm phải đến tiếp theo là điểm B
-        if(Vector3.Distance(pointerTransform.position, pointA.position) < 0.1f) // hàm kiểm tra khoảng cách giữa pointer và điểm A
-        {
+        if (Vector3.Distance(pointerTransform.position, pointA.position) < 0.1f)
             targetPosition = pointB;
-          
-        }
-        // Nếu ở điểm B rồi thì target Position điểm phải đến tiếp theo là A
-        else if (Vector3.Distance(pointerTransform.position, pointB.position) < 0.1f){
-            targetPosition = pointA;    
-        }
-
+        else if (Vector3.Distance(pointerTransform.position, pointB.position) < 0.1f)
+            targetPosition = pointA;
+        Debug.Log(Time.timeScale);
 
     }
 
@@ -78,7 +75,7 @@ public class QTEBar : MonoBehaviour
         if (RectTransformUtility.RectangleContainsScreenPoint(greenZone, pointerTransform.position, null))
         {
             cookingProgress.AddCookingProgress(25, 0.5f);
-            moveSpeed += 100;
+            moveSpeed += 25;
             AudioManager.instance.PlaySFX("Perfect Zone");
             onPerfectZone?.Invoke();
 
@@ -98,7 +95,7 @@ public class QTEBar : MonoBehaviour
         else if (RectTransformUtility.RectangleContainsScreenPoint(yellowZone, pointerTransform.position, null))
         {
             cookingProgress.AddCookingProgress(10, 0.5f);
-            moveSpeed += 100;
+            moveSpeed += 25;
             AudioManager.instance.PlaySFX("Good Zone");
             onGoodZone?.Invoke();
 

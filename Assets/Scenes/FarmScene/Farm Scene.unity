@@ -33553,7 +33553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: ================== Home =================
-    clip: {fileID: 8300000, guid: 5089864b0a5e5cd4cb2dd2d1a9b296f2, type: 3}
+    clip: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
@@ -33574,7 +33574,7 @@ MonoBehaviour:
     type: 1
     source: {fileID: 0}
   - name: ================== Yabis ==================
-    clip: {fileID: 8300000, guid: 5089864b0a5e5cd4cb2dd2d1a9b296f2, type: 3}
+    clip: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0

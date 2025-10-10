@@ -28,8 +28,8 @@ public class UIButton : MonoBehaviour, IPointerClickHandler
 
         // Dùng Sequence để dễ thêm delay
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOScale(targetScale, 0.1f).SetEase(Ease.InOutSine));
-        seq.Append(transform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack));
+        seq.Append(transform.DOScale(targetScale, 0.05f).SetEase(Ease.InOutSine));
+        seq.Append(transform.DOScale(originalScale, 0.05f).SetEase(Ease.OutBack));
         //seq.AppendInterval(0.1f); // Delay thêm giây (có thể chỉnh thành 2f nếu muốn)
 
         // Sau khi hiệu ứng + delay xong, gọi hành động
