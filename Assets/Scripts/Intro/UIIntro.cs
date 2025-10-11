@@ -15,6 +15,7 @@ public class UIIntro : MonoBehaviour
     public float delayTime = 3.0f;
 
     public TextMeshProUGUI Text;
+    public Image Image;
     public Image ImageLayer;
 
     public VideoPlayer videoPlayer;
@@ -32,6 +33,11 @@ public class UIIntro : MonoBehaviour
         Text.transform.DOScale(1.1f, .5f) // Zoom to 1.1f slightly overshooting
             .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
             .OnComplete(() => Text.transform.DOScale(1f, 1f)); // Settle back to 1f
+
+        Image.transform.localScale = Vector3.zero; // Start from zero scale
+        Image.transform.DOScale(1.1f, .5f) // Zoom to 1.1f slightly overshooting
+            .SetEase(Ease.OutBack) // Adds a back effect for the overshoot
+            .OnComplete(() => Image.transform.DOScale(1f, 1f)); // Settle back to 1f
     }
     public void StartIntro()
     {
@@ -41,6 +47,8 @@ public class UIIntro : MonoBehaviour
 
     IEnumerator Intro()
     {
+        audioManager.PlayMusic("Loading - Menu Music");
+
         yield return StartCoroutine(FadeOutImageLayer());
         yield return new WaitForSeconds(delayTime);
         yield return StartCoroutine(FadeInImageLayer());
@@ -48,14 +56,13 @@ public class UIIntro : MonoBehaviour
 
         LoadingUI.gameObject.SetActive(true);
 
-        audioManager.PlayMusic("Loading - Menu Music");
     }
 
     private IEnumerator FadeInImageLayer()
     {
         // Ensure ImageLayer starts with alpha 0
         Color startColor = ImageLayer.color;
-        startColor.a = 0f;
+        startColor.a = .5f;
         ImageLayer.color = startColor;
 
         // Fade in (alpha 0 to 1)

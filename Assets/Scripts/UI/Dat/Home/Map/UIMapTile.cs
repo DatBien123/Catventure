@@ -141,72 +141,66 @@ public class UIMapTile : MonoBehaviour
 
     IEnumerator Coroutine_PlayUnlockMap()
     {
-        //Disable All Buttons-----------------------------------
+        // Disable all buttons trong lúc chơi animation
         DisableAllButtons();
 
-        Map_Button.interactable = true;
+        //Map_Button.interactable = true;
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
-
-        //
         Debug.Log("Play Unlock");
         LockImage.gameObject.SetActive(true);
-        // Bước 1: Nếu có LockImage thì fade mờ dần và ẩn
+
+        // Bước 1: Nếu có LockImage thì rung và co nhỏ dần
         if (LockImage != null && LockImage.gameObject.activeSelf)
         {
-            CanvasGroup cg = LockImage.GetComponent<CanvasGroup>();
+            RectTransform rect = LockImage.GetComponent<RectTransform>();
+            rect.localScale = Vector3.one; // reset scale
 
-            // Nếu LockImage chưa có CanvasGroup thì thêm vào để dùng fade
-            if (cg == null)
-                cg = LockImage.gameObject.AddComponent<CanvasGroup>();
+            // Rung nhẹ (shake)
+            rect.DOShakeScale(0.5f, strength: 0.3f, vibrato: 10, randomness: 0, fadeOut: true);
+            yield return new WaitForSeconds(0.5f);
 
-            cg.alpha = 1f;
+            // Co nhỏ dần
+            rect.DOScale(Vector3.zero, 0.8f)
+                .SetEase(Ease.InBack)
+                .OnComplete(() => LockImage.gameObject.SetActive(false));
 
-            // Fade out trong 0.5 giây
-            cg.DOFade(0f, 2f);
-
-            // Đợi fade xong rồi tắt LockImage
-            yield return new WaitForSeconds(2f);
-            LockImage.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.8f);
         }
 
         // Bước 2: Đổi màu từ LockColor sang UnlockColor
-        Map_Image.color = LockColor; // đảm bảo bắt đầu từ màu khóa
+        Map_Image.color = LockColor;
+        Map_Image.DOColor(UnlockColor, 1.5f).SetEase(Ease.OutSine);
 
-        // Tween đổi màu trong 0.7 giây
-        Map_Image.DOColor(UnlockColor, 2f);
-
-        // Có thể đợi thêm để chắc chắn hoàn tất màu
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         // Hiện tên map nếu có
         if (MapName != null)
             MapName.SetActive(true);
 
-        // Reset cờ để không lặp lại animation khi load lại
+        // Reset cờ để không lặp lại animation
         MapInstance.isPlayUnlock = true;
 
-        // Lưu trạng thái khi thiết lập map description
+        // Cập nhật trạng thái map trong MapManager
         MapManager mapManager = FindObjectOfType<MapManager>();
-
-        for (int i = 0; i< mapManager.ListMapTile.Count; i++)
+        foreach (var tile in mapManager.ListMapTile)
         {
-            if(mapManager.ListMapTile[i].MapInstance.MapData.name == MapInstance.MapData.name)
+            if (tile.MapInstance.MapData.name == MapInstance.MapData.name)
             {
-                mapManager.ListMapTile[i].MapInstance.isPlayUnlock = true;
-
-                Debug.Log("Playyyyy");
+                tile.MapInstance.isPlayUnlock = true;
+                break;
             }
         }
         MapSaveSystem.Save(mapManager.ListMapTile.Select(tile => tile.MapInstance).ToList());
 
         EnableAllButtons();
 
-        //Notify
+        // Notify
         UIHome.UUnlockMapNotify.SetupUIUnlockMapNotify(MapInstance);
         UIHome.UUnlockMapNotify.gameObject.SetActive(true);
     }
+
 
     public void EnableAllButtons()
     {
