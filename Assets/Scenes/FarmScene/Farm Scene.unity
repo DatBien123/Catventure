@@ -3348,14 +3348,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -31516,7 +31514,6 @@ RectTransform:
   - {fileID: 699474022}
   - {fileID: 1683267821}
   - {fileID: 1386338210}
-  - {fileID: 1078019104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -33715,8 +33712,8 @@ MonoBehaviour:
     type: 1
     source: {fileID: 0}
   - name: Background Music
-    clip: {fileID: 8300000, guid: 5d1a638179550f74fae0bc9c5d8a7144, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: e45df48a78bfd0d44b330ab5f774e5be, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 1
     type: 0
@@ -34344,7 +34341,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 100
-  orthographic: 0
+  orthographic: 1
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -36906,9 +36903,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078019102}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -800, y: -135.89598, z: 0}
-  m_LocalScale: {x: 1.8089315, y: 1.8089315, z: 1.8089315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1548985297}
@@ -36923,7 +36920,7 @@ Transform:
   - {fileID: 1683710599}
   - {fileID: 829548822}
   - {fileID: 1712784530}
-  m_Father: {fileID: 901395978}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079540759
 GameObject:
@@ -128995,7 +128992,7 @@ Transform:
   m_GameObject: {fileID: 2076322738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132951,3 +132948,4 @@ SceneRoots:
   - {fileID: 832806035}
   - {fileID: 1323077986}
   - {fileID: 987539329}
+  - {fileID: 1078019104}

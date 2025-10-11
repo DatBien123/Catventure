@@ -13512,14 +13512,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -21390,7 +21388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 105d9a81097ae624a8ca7ac5f3a2afae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b9119cea7da8c24480234fb8df5c0ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29545,7 +29543,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.0000019073486, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214189884
 MonoBehaviour:
@@ -29576,8 +29574,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290681650
-  m_fontColor: {r: 0.19496614, g: 0.6095349, b: 0.7433963, a: 1}
+    rgba: 4292922510
+  m_fontColor: {r: 0.55574936, g: 0.7983713, b: 0.8792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29594,13 +29592,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.6
+  m_fontSize: 44.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -30653,7 +30651,7 @@ MonoBehaviour:
     type: 1
     source: {fileID: 0}
   - name: Background Music
-    clip: {fileID: 8300000, guid: d1596cc87e730284b9b00928968c4a19, type: 3}
+    clip: {fileID: 8300000, guid: 0d84656659975304eb7cf61314c6af40, type: 3}
     volume: 0.4
     pitch: 1
     loop: 1
@@ -30674,7 +30672,7 @@ MonoBehaviour:
     type: 1
     source: {fileID: 0}
   - name: Mid Autumn
-    clip: {fileID: 8300000, guid: 76be25e6a3e6de4419e9ae659cd9503f, type: 3}
+    clip: {fileID: 8300000, guid: 0f814ab6d6f14fe4f9aacec6cbbaca10, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -40225,7 +40223,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 301, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635026866
 MonoBehaviour:
