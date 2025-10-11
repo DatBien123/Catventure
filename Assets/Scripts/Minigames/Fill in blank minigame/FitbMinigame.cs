@@ -14,10 +14,10 @@ public class FitbMinigame : BaseMinigame
     // UI
     public GameObject startMinigamePanel;
     public GameObject userInterface;
-
+    public TimelineEventDienTu timeLineCutscene; // cutscene của FITB Minigame
     void Start()
     {
-        startMinigamePanel.GetComponent<StartMinigamePanel>().Setup("ĐIỀN TỪ", null, null, levelData.timeRequired, levelData.reward);
+        startMinigamePanel.GetComponent<StartMinigamePanel>().Setup("TRẢ KIẾM", null, null, levelData.timeRequired, levelData.reward);
 
     }
     protected override void OnEnable()
@@ -72,7 +72,7 @@ public class FitbMinigame : BaseMinigame
         }
     }
 
-    private void ShowRewardUI()
+    public void ShowRewardUI()
     {
         EndGame(true);
         inputBlocker.SetActive(false);
@@ -102,7 +102,11 @@ public class FitbMinigame : BaseMinigame
                     }
                     else
                     {
-                        ShowRewardUI();
+                        AudioManager.instance.StopAllMusic();
+                        Debug.Log("Đã trả lời xong hết hãy hiển thị timeline cutscene ở đây");
+                        timeLineCutscene.director.Play();
+                        countDownTimer.StopCountDown();
+                        //ShowRewardUI();
                     }
                 });
             });

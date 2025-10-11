@@ -15,7 +15,7 @@ public class StartMinigamePanel : MonoBehaviour
 
     public void Setup(string title, Sprite sprite, string itemName, float timeRequired, float reward)
     {
-        Debug.Log("Setup minigame");
+        //Debug.Log("Setup minigame");
         this.title = title;
         this.itemName = itemName;
         this.timeRequired = timeRequired.ToString();

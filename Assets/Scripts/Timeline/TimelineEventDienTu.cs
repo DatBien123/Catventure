@@ -12,14 +12,13 @@ public class TimelineEventDienTu : MonoBehaviour
 
     [Header("References")]
     public GameObject CutSceneUI;
-
+    public FitbMinigame fitbMinigame;
     [Header("Skip button")]
     public Button Skip_Button;
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
-        director.Play();
-
+        //director.Play();
         Skip_Button.onClick.AddListener(() =>
         {
             director.Stop();
@@ -130,6 +129,7 @@ public class TimelineEventDienTu : MonoBehaviour
     {
         CutSceneUI.SetActive(true);
         CompleteTopic();
+        Debug.Log("Play cutscene");
         //GameSession.Instance.SetLastScene("Minigame_FITB");
 
     }
@@ -137,6 +137,7 @@ public class TimelineEventDienTu : MonoBehaviour
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
+        fitbMinigame.ShowRewardUI();
     }
     #endregion
 }

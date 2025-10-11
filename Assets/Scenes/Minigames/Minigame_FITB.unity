@@ -7304,7 +7304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1132980062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11368,6 +11368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1686606774}
   CutSceneUI: {fileID: 1132980061}
+  fitbMinigame: {fileID: 1934796219}
   Skip_Button: {fileID: 1291676502}
 --- !u!1 &1694572072
 GameObject:
@@ -13676,6 +13677,7 @@ MonoBehaviour:
   correctAnswers: 0
   startMinigamePanel: {fileID: 1042207070}
   userInterface: {fileID: 1169911449}
+  timeLineCutscene: {fileID: 1686606775}
 --- !u!4 &1934796220
 Transform:
   m_ObjectHideFlags: 0
