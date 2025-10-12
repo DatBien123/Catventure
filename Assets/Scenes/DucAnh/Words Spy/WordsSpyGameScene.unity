@@ -2476,7 +2476,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6941881627910376039, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 975439178}
+    - targetCorrespondingSourceObject: {fileID: 1173581144458018230, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 408322251}
   m_SourcePrefab: {fileID: 100100000, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+--- !u!1 &408322249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1173581144458018230, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+  m_PrefabInstance: {fileID: 408322248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &408322250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2496449978800722574, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+  m_PrefabInstance: {fileID: 408322248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &408322251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f18f15eb60c2a44b33df8d43f1fb40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homeButton: {fileID: 408322250}
 --- !u!114 &408322253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 437057170450471076, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
@@ -13942,11 +13974,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 586853860}
-  - {fileID: 1607619818}
-  - {fileID: 1549846540}
   - {fileID: 227658633}
-  - {fileID: 473569596}
+  - {fileID: 1607619818}
   - {fileID: 408322248}
+  - {fileID: 1549846540}
+  - {fileID: 473569596}
   - {fileID: 1168647862}
   - {fileID: 1067250850}
   - {fileID: 1642036692}

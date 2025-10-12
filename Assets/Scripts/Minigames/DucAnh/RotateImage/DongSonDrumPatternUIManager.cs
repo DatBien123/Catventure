@@ -6,7 +6,6 @@ public class DongSonDrumPatternUIManager : MonoBehaviour
 {
     public static DongSonDrumPatternUIManager Instance { get; private set; }
 
-    [SerializeField] private RectTransform UIWinPanel;
     [SerializeField] private VictoryRewardScreen victoryRewardScreen;
     [SerializeField] private Image fadePanel; 
 
