@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
             {
                 if (ItemInstance is OutfitInstance outfitInstance)
                 {
-                    slots.Add(new InventorySlot(outfitInstance));
+                    slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, 1, outfitInstance.IsEquiped)));
                 }
                 else
                 {
@@ -78,7 +78,7 @@ public class Inventory : MonoBehaviour
             {
                 if (ItemInstance is OutfitInstance outfitInstance)
                 {
-                    slots.Add(new InventorySlot(outfitInstance));
+                    slots.Add(new InventorySlot(new OutfitInstance(outfitInstance.ItemStaticData, 1, outfitInstance.IsEquiped)));
                 }
                 else
                 {

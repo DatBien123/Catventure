@@ -110,6 +110,8 @@ public class UIInventory : MonoBehaviour
     #region [Filter]
     public void ChangeFilter(FilterType filter)
     {
+        if(currentFilter == filter) return;
+
         if(AudioManager != null)
         {
             AudioManager.PlaySFX("Filter");
@@ -276,20 +278,49 @@ public class UIInventory : MonoBehaviour
                 (currentFilter == FilterType.Consumable && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Consumable) ||
                 (currentFilter == FilterType.Wing && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Wing) ||
                 (currentFilter == FilterType.Crops && slot.ItemInstance.ItemStaticData.commonData.itemType == ItemType.Crops)
-            )
-            // 👇 Sắp xếp theo giá tăng dần
-            .OrderBy(slot => slot.ItemInstance.ItemStaticData.commonData.price);
+            ).ToList();
+        // 👇 Sắp xếp theo giá tăng dần
+        filteredSlots.Sort((a, b) => a.ItemInstance.ItemStaticData.commonData.itemName.CompareTo(b.ItemInstance.ItemStaticData.commonData.itemName));
 
-        // Tạo UI Slot mới dựa trên dữ liệu đã lọc
-        foreach (var invSlot in filteredSlots)
+        //// Tạo UI Slot mới dựa trên dữ liệu đã lọc
+        //foreach (var invSlot in filteredSlots)
+        //{
+        //    UIInventorySlot uiSlot = pooler.GetNew();
+        //    uiSlot.slotData = invSlot;
+
+        //    uiSlot.SetupSlot(invSlot);
+        //    // Đảm bảo thứ tự trong Hierarchy khớp với sắp xếp
+        //    uiSlot.Outline.enabled = false;
+        //    uiSlots.Add(uiSlot);
+        //}
+
+        for (int i = 0; i < filteredSlots.Count; i++)
         {
+            var invSlot = filteredSlots[i];
             UIInventorySlot uiSlot = pooler.GetNew();
             uiSlot.slotData = invSlot;
-
             uiSlot.SetupSlot(invSlot);
+
+            // Đảm bảo thứ tự trong Hierarchy khớp với sắp xếp
+            uiSlot.transform.SetSiblingIndex(i);
+
             uiSlot.Outline.enabled = false;
             uiSlots.Add(uiSlot);
+
+            //Others
+            if (uiSlot.slotData.ItemInstance.IsEquiped)
+            {
+                Debug.Log("Equiped");
+                uiSlot.EquipedImage.gameObject.SetActive(true);
+            }
+
+            else
+            {
+                Debug.Log("not Equiped");
+                uiSlot.EquipedImage.gameObject.SetActive(false);
+            }
         }
+
 
         if (buttonTakeoff != null)
             buttonTakeoff.gameObject.SetActive(false);
@@ -297,6 +328,9 @@ public class UIInventory : MonoBehaviour
             buttonWear.gameObject.SetActive(false);
 
         UpdateResourceUI();
+
+        // 👇 Ép Unity rebuild layout để UI hiển thị đúng thứ tự mới
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)slotParent);
     }
 
 
