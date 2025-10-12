@@ -48,62 +48,62 @@ public class Pot : MonoBehaviour, IDropHandler, IDropIngredientTarget
 
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject dropped = eventData.pointerDrag;
+//        GameObject dropped = eventData.pointerDrag;
 
-        if (dropped == null) return;
-        Ingredient ingredient = dropped.GetComponent<Ingredient>();
-        IngredientSO data = ingredient.ingredientData;
-        string ingredientName = ingredient.GetCraftingItem();
-        int currentIndex = addedIngredients.Count;
-        if(currentIndex < currentStep.requiredIngredients.Count() && data == currentStep.requiredIngredients[currentIndex])
-        {
-            addedIngredients.Add(ingredientName);
-            // cập nhật Ingredient Bar
-            BoilingStirringUI.Instance.ingredientBarUI.MarkItemAsCollected(data);
-            BoilingStirringStep.Instance.ShowCorrectEffect(ingredientName);
-            dropped.transform.SetParent(ingredientsInPot.transform);
-            Vector2 randomPos = new Vector2(UnityEngine.Random.Range(-60f, 60f), UnityEngine.Random.Range(-50f, 0f));
-            Vector2 targetPos = new Vector2(randomPos.x, randomPos.y + 50f);
-            ingredient.rectTransform.anchoredPosition = targetPos;
+//        if (dropped == null) return;
+//        Ingredient ingredient = dropped.GetComponent<Ingredient>();
+//        IngredientSO data = ingredient.ingredientData;
+//        string ingredientName = ingredient.GetCraftingItem();
+//        int currentIndex = addedIngredients.Count;
+//        if(currentIndex < currentStep.requiredIngredients.Count() && data == currentStep.requiredIngredients[currentIndex])
+//        {
+//            addedIngredients.Add(ingredientName);
+//            // cập nhật Ingredient Bar
+//            BoilingStirringUI.Instance.ingredientBarUI.MarkItemAsCollected(data);
+//            BoilingStirringStep.Instance.ShowCorrectEffect(ingredientName);
+//            dropped.transform.SetParent(ingredientsInPot.transform);
+//            Vector2 randomPos = new Vector2(UnityEngine.Random.Range(-60f, 60f), UnityEngine.Random.Range(-50f, 0f));
+//            Vector2 targetPos = new Vector2(randomPos.x, randomPos.y + 50f);
+//            ingredient.rectTransform.anchoredPosition = targetPos;
 
-            Sequence seq = DOTween.Sequence();
-            seq.Append(ingredient.rectTransform.DOAnchorPos(new Vector2(randomPos.x, -50f), 0.2f).SetEase(Ease.InQuad));
-            seq.Append(ingredient.rectTransform.DOAnchorPos(randomPos, 0.3f).SetEase(Ease.OutBack));
+//            Sequence seq = DOTween.Sequence();
+//            seq.Append(ingredient.rectTransform.DOAnchorPos(new Vector2(randomPos.x, -50f), 0.2f).SetEase(Ease.InQuad));
+//            seq.Append(ingredient.rectTransform.DOAnchorPos(randomPos, 0.3f).SetEase(Ease.OutBack));
 
-            seq.AppendCallback(() =>
-{
-    // hiệu ứng trôi nổi
-    ingredient.rectTransform
-        .DOAnchorPos(randomPos + new Vector2(0, 10f), 2f) // nhấp nhô lên xuống 10px
-        .SetEase(Ease.InOutSine)
-        .SetLoops(-1, LoopType.Yoyo);
+//            seq.AppendCallback(() =>
+//{
+//    // hiệu ứng trôi nổi
+//    ingredient.rectTransform
+//        .DOAnchorPos(randomPos + new Vector2(0, 10f), 2f) // nhấp nhô lên xuống 10px
+//        .SetEase(Ease.InOutSine)
+//        .SetLoops(-1, LoopType.Yoyo);
 
-    // xoay nhẹ cho tự nhiên
-    ingredient.rectTransform
-        .DORotate(new Vector3(0, 0, 5f), 3f, RotateMode.FastBeyond360)
-        .SetEase(Ease.InOutSine)
-        .SetLoops(-1, LoopType.Yoyo);
-});
+//    // xoay nhẹ cho tự nhiên
+//    ingredient.rectTransform
+//        .DORotate(new Vector3(0, 0, 5f), 3f, RotateMode.FastBeyond360)
+//        .SetEase(Ease.InOutSine)
+//        .SetLoops(-1, LoopType.Yoyo);
+//});
 
-            ingredientInPot.Add(dropped);
-            AudioManager.instance.PlaySFX("Correct Ingredient");
+//            ingredientInPot.Add(dropped);
+//            AudioManager.instance.PlaySFX("Correct Ingredient");
 
 
-        }
-        else
-        {
-            // trả nguyên liệu về đúng chỗ ban đầu
-            BoilingStirringStep.Instance.ShowIncorrectEffect();
-            ingredient.ReturnToOriginalPosition(); // ✅ Trả về
-            AudioManager.instance.PlaySFX("Incorrect Ingredient");
+//        }
+//        else
+//        {
+//            // trả nguyên liệu về đúng chỗ ban đầu
+//            BoilingStirringStep.Instance.ShowIncorrectEffect();
+//            ingredient.ReturnToOriginalPosition(); // ✅ Trả về
+//            AudioManager.instance.PlaySFX("Incorrect Ingredient");
 
-        }
-        if (addedIngredients.Count == currentStep.requiredIngredients.Count())
-        {
-            BoilingStirringStep.Instance.HandleCookingDragAndDrop();
-            BoilingStirringStep.Instance.ShowQTEBar();
+//        }
+//        if (addedIngredients.Count == currentStep.requiredIngredients.Count())
+//        {
+//            BoilingStirringStep.Instance.HandleCookingDragAndDrop();
+//            BoilingStirringStep.Instance.ShowQTEBar();
 
-        }
+//        }
     }
     public void StopParticleEffect()
     {
@@ -174,7 +174,58 @@ public class Pot : MonoBehaviour, IDropHandler, IDropIngredientTarget
 
     public void AcceptIngredient(Ingredient ingredient)
     {
-        //Debug.Log("Thả vào nồi");
+        IngredientSO data = ingredient.ingredientData;
+        string ingredientName = ingredient.GetCraftingItem();
+        int currentIndex = addedIngredients.Count;
+        if (currentIndex < currentStep.requiredIngredients.Count() && data == currentStep.requiredIngredients[currentIndex])
+        {
+            addedIngredients.Add(ingredientName);
+            // cập nhật Ingredient Bar
+            BoilingStirringUI.Instance.ingredientBarUI.MarkItemAsCollected(data);
+            BoilingStirringStep.Instance.ShowCorrectEffect(ingredientName);
+            ingredient.gameObject.transform.SetParent(ingredientsInPot.transform);
+            Vector2 randomPos = new Vector2(UnityEngine.Random.Range(-60f, 60f), UnityEngine.Random.Range(-50f, 0f));
+            Vector2 targetPos = new Vector2(randomPos.x, randomPos.y + 50f);
+            ingredient.rectTransform.anchoredPosition = targetPos;
+
+            Sequence seq = DOTween.Sequence();
+            seq.Append(ingredient.rectTransform.DOAnchorPos(new Vector2(randomPos.x, -50f), 0.2f).SetEase(Ease.InQuad));
+            seq.Append(ingredient.rectTransform.DOAnchorPos(randomPos, 0.3f).SetEase(Ease.OutBack));
+
+            seq.AppendCallback(() =>
+            {
+                // hiệu ứng trôi nổi
+                ingredient.rectTransform
+                    .DOAnchorPos(randomPos + new Vector2(0, 10f), 2f) // nhấp nhô lên xuống 10px
+                    .SetEase(Ease.InOutSine)
+                    .SetLoops(-1, LoopType.Yoyo);
+
+                // xoay nhẹ cho tự nhiên
+                ingredient.rectTransform
+                    .DORotate(new Vector3(0, 0, 5f), 3f, RotateMode.FastBeyond360)
+                    .SetEase(Ease.InOutSine)
+                    .SetLoops(-1, LoopType.Yoyo);
+            });
+
+            ingredientInPot.Add(ingredient.gameObject);
+            AudioManager.instance.PlaySFX("Correct Ingredient");
+
+
+        }
+        else
+        {
+            // trả nguyên liệu về đúng chỗ ban đầu
+            BoilingStirringStep.Instance.ShowIncorrectEffect();
+            ingredient.ReturnToOriginalPosition(); // ✅ Trả về
+            AudioManager.instance.PlaySFX("Incorrect Ingredient");
+
+        }
+        if (addedIngredients.Count == currentStep.requiredIngredients.Count())
+        {
+            BoilingStirringStep.Instance.HandleCookingDragAndDrop();
+            BoilingStirringStep.Instance.ShowQTEBar();
+
+        }
     }
 }
 
