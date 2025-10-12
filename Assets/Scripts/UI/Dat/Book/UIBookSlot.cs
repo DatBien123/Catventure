@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIBookSlot : MonoBehaviour
@@ -34,14 +34,26 @@ public class UIBookSlot : MonoBehaviour
         CurrentCard = card;
         Image.sprite = card.CardData.Data.Icon;
 
+        // Lấy ColorBlock hiện tại của Button
+        var colors = Button.colors;
+
         if (card.isUnlock)
         {
             Image.color = UnlockColor;
+
+            // Gán màu cho Normal Color khi mở khóa
+            colors.normalColor = UnlockColor;
         }
         else
         {
             Image.color = LockColor;
+
+            // Gán màu cho Normal Color khi bị khóa
+            colors.normalColor = LockColor;
         }
+
+        // Cập nhật lại ColorBlock cho Button
+        Button.colors = colors;
 
         //FoodLayerLock.gameObject.SetActive(false);
         //TemLayerLock.gameObject.SetActive(false);

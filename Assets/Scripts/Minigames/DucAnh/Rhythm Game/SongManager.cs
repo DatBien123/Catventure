@@ -9,6 +9,7 @@ public class SongManager : MonoBehaviour {
     [SerializeField] private Transform[] laneSpawnPoints; // 4 spawn points for 4 lanes
 
     [Header("Song Settings")]
+    [SerializeField] private int reward = 100;
     [SerializeField] private float bpm = 85f;
     [SerializeField] private float firstBeatTime = 13f;
     [SerializeField] private float lastBeatTime = 20f;
@@ -36,6 +37,8 @@ public class SongManager : MonoBehaviour {
     private int greatHits = 0;
     private int goodHits = 0;
     private int missedNotes = 0;
+    private int star = 3;
+    private bool isPlaying;
 
     void Start() {
         // Calculate beat interval (60 seconds / BPM)
@@ -47,6 +50,7 @@ public class SongManager : MonoBehaviour {
 
         if (audioSource != null && audioSource.clip != null) {
             audioSource.Play();
+            isPlaying = true;
         }
 
         UpdateUI();
@@ -54,6 +58,8 @@ public class SongManager : MonoBehaviour {
     }
 
     void Update() {
+        if (!isPlaying) return;
+
         //calculate the position in seconds
         songPosition = (float) (AudioSettings.dspTime - dsptimesong);
         durationLine.fillAmount = songPosition / audioSource.clip.length;
@@ -63,6 +69,15 @@ public class SongManager : MonoBehaviour {
             SpawnNote();
             nextBeatTime += beatInterval;
         }
+
+        if (songPosition >= audioSource.clip.length) {
+            OnSongEnd();
+        }
+    }
+
+    private void OnSongEnd() {
+        isPlaying = false;
+        RhythmGameManager.Instance.OnFinishGame(reward, star, perfectHits, greatHits, goodHits, missedNotes, maxCombo, score);
     }
 
     void SpawnNote() {
