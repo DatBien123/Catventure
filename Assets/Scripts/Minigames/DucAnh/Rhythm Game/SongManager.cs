@@ -5,8 +5,8 @@ using DG.Tweening;
 public class SongManager : MonoBehaviour {
     [Header("Note Settings")]
     [SerializeField] private GameObject notePrefab;
-    [SerializeField] private Transform[] laneSpawnPoints; // 4 spawn points for 4 lanes
     [SerializeField] private float noteSpeed = 5f;
+    [SerializeField] private Transform[] laneSpawnPoints; // 4 spawn points for 4 lanes
 
     [Header("Song Settings")]
     [SerializeField] private float bpm = 85f;

@@ -102,7 +102,7 @@ public class Lander : BaseMinigame {
                 Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
                 // Up / Thrust
-                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone || joystickDirection.y > gamepadDeadzone) {
+                if (Input.GetKey(KeyCode.W) || movementInput.y > gamepadDeadzone || joystickDirection.y > 0) {
                     float force = 700f;
                     landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
                     OnUpForce?.Invoke(this, EventArgs.Empty);

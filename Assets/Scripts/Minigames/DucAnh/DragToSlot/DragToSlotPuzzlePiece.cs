@@ -15,7 +15,6 @@ public class DragToSlotPuzzlePiece : MonoBehaviour
 
     [SerializeField] private float shakeDuration = 0.5f;
     [SerializeField] private float shakeAmount = 0.1f;
-    [SerializeField] private float decreaseFactor = 1.0f;
 
     private bool _dragging;
     private bool _completed;
