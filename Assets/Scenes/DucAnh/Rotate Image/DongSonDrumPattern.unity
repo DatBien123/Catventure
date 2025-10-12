@@ -5125,6 +5125,8 @@ MonoBehaviour:
   CutSceneUI: {fileID: 659831506}
   MusicManager: {fileID: 1366572135}
   Skip_Button: {fileID: 171050993}
+  StoryManager: {fileID: 0}
+  StoryData: {fileID: 0}
 --- !u!1 &793252332
 GameObject:
   m_ObjectHideFlags: 0

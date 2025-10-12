@@ -18,23 +18,23 @@ MonoBehaviour:
     Icon: {fileID: 2800000, guid: b7e18eee86f4a5b42aab2a946261efa0, type: 3}
     description: 
     StoryPageDatas:
-    - StoryImage: {fileID: 21300000, guid: 1911094afc8c3c649a8dc557408ec264, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 04cb2d100451d9041a9c54bf6cd1f477, type: 3}
       StoryAudioClips:
-      - {fileID: 8300000, guid: 10c6730300d57d244a97f3d4dc6ea045, type: 3}
+      - {fileID: 8300000, guid: 2b69e679f7c06034d825850ef1509c80, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 35012d0a373a3014799f8bbec52d8a7b, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 787d7c1e7ab29214ca24f5bd95f3bd04, type: 3}
       StoryAudioClips:
-      - {fileID: 8300000, guid: 3dc1a86e78b05594a8fa848035750dd6, type: 3}
+      - {fileID: 8300000, guid: 99fe2f1499918c743a97069159f6d7f6, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: fbb28ce3640cc854fa7e68ddaafe6412, type: 3}
+    - StoryImage: {fileID: 21300000, guid: bc6f935fafa97334d85f6de2871479cc, type: 3}
       StoryAudioClips:
-      - {fileID: 8300000, guid: 901dbf2cf1046634d8601f3acbcdecd1, type: 3}
+      - {fileID: 8300000, guid: 37455467bd5dc5b4fbdb266ebdca1612, type: 3}
       isDelay: 1
       delayTime: 0
-    - StoryImage: {fileID: 21300000, guid: 2369fe255059df242b640704f2f61ca9, type: 3}
+    - StoryImage: {fileID: 21300000, guid: 464a4c1d6350b8b498a849335b9f146d, type: 3}
       StoryAudioClips:
-      - {fileID: 8300000, guid: f528dc9a5c9c3004889adcd1c7714a55, type: 3}
-      isDelay: 1
+      - {fileID: 8300000, guid: 916559a0cde7a2c4898c33cea4ded1cb, type: 3}
+      isDelay: 0
       delayTime: 0

@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Loading - Menu Music
-    clip: {fileID: 8300000, guid: 3404d311a9547e446a794d10127d0645, type: 3}
+    clip: {fileID: 8300000, guid: 7bce4ab662da8cb44a7c92dac8289665, type: 3}
     volume: 0.527
     pitch: 1
     loop: 1

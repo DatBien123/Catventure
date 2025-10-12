@@ -15,6 +15,10 @@ public class TimelineEventDienTu : MonoBehaviour
     public FitbMinigame fitbMinigame;
     [Header("Skip button")]
     public Button Skip_Button;
+
+    [Header("Story")]
+    public StoryManager StoryManager;
+    public SO_Story StoryData;
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
@@ -138,6 +142,19 @@ public class TimelineEventDienTu : MonoBehaviour
     {
         CutSceneUI.SetActive(false);
         fitbMinigame.ShowRewardUI();
+
+        if (StoryManager)
+        {
+            foreach (var Story in StoryManager.Stories)
+            {
+                if (StoryData.name == Story.StoryData.name)
+                {
+                    Story.isUnlock = true;
+                }
+            }
+
+            StorySaveSystem.Save(StoryManager);
+        }
     }
     #endregion
 }

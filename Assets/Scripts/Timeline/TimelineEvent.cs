@@ -93,6 +93,8 @@ public class TimelineEvent : MonoBehaviour
     [Header("References")]
     public Dialogue Dialogue;
     public CharacterPlayer Zera;
+
+    [Header("Story")]
     public StoryManager StoryManager;
     public SO_Story StoryData;
 

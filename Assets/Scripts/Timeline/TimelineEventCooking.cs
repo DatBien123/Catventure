@@ -22,6 +22,10 @@ public class TimelineEventCooking : MonoBehaviour
 
     [Header("Skip button")]
     public Button Skip_Button;
+
+    [Header("Story")]
+    public StoryManager StoryManager;
+    public SO_Story StoryData;
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
@@ -178,6 +182,19 @@ public class TimelineEventCooking : MonoBehaviour
     {
         CutSceneUI.SetActive(false);
         TutorialUI.SetActive(true);
+
+        if (StoryManager)
+        {
+            foreach (var Story in StoryManager.Stories)
+            {
+                if (StoryData.name == Story.StoryData.name)
+                {
+                    Story.isUnlock = true;
+                }
+            }
+
+            StorySaveSystem.Save(StoryManager);
+        }
     }
     #endregion
 }
