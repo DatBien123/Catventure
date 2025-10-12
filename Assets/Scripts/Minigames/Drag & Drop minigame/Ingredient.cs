@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -47,25 +48,22 @@ public class Ingredient : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         canvasGroup.blocksRaycasts = true;
 
-        if (eventData.pointerEnter == null)
+        // Quét tất cả vật thể dưới con trỏ chuột
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        foreach (var result in results)
         {
-            rectTransform.position = originalPosition;
-            //Debug.Log("❌ Sai chỗ");
-            return;
+            var target = result.gameObject.GetComponentInParent<IDropIngredientTarget>();
+            if (target != null)
+            {
+                target.AcceptIngredient(this);
+                return;
+            }
         }
 
-        // Tìm object có script implement IDropTarget
-        var target = eventData.pointerEnter.GetComponentInParent<IDropIngredientTarget>();
-        if (target != null)
-        {
-            //Debug.Log("✅ Thả đúng chỗ: " + target);
-            target.AcceptIngredient(this);
-        }
-        else
-        {
-            rectTransform.position = originalPosition;
-           // Debug.Log("❌ Sai chỗ");
-        }
+        // Không trúng vùng nào thì quay về chỗ cũ
+        rectTransform.position = originalPosition;
     }
     public string GetCraftingItem() { return ingredientData != null ? ingredientData.name : ""; }
     public void ReturnToOriginalPosition()

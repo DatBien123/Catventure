@@ -22,15 +22,11 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
 
     public void OnEnable()
     {
-        dragDropCookingMinigame.GetCountDownSystem().OnCountdownComplete += StartStep;
+        dragDropCookingMinigame.GetCountDownSystem().OnCountdownComplete += AllowInputPlayer;
 
     }
     public void OnDisable() {
-        dragDropCookingMinigame.GetCountDownSystem().OnCountdownComplete -= StartStep;
-
-    }
-    public void Start()
-    {
+        dragDropCookingMinigame.GetCountDownSystem().OnCountdownComplete -= AllowInputPlayer;
     }
     public void CompleteStep()
     {
@@ -42,10 +38,14 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
     {
         step = data;
         AudioManager.instance.PlayMusic("Chill music");
+        dragDropCookingMinigame.inputBlocker.SetActive(true);   
         gameObject.SetActive(true);
-        dragDropCookingMinigame.GetCountDownSystem().StartCountdown321();
         // Sinh ra bát phở để tương tác ở đây rồi gán
         GameObject foodPrefabUI = Instantiate(dragDropCookingMinigame.recipe.dishResult.foodPrefab, assemblingUI.transform);
+        // Lấy RectTransform của object mới
+        RectTransform rt = foodPrefabUI.GetComponent<RectTransform>();
+        // Đặt vị trí theo toạ độ local trong Canvas
+        rt.anchoredPosition = new Vector2(0f, 100f);
 
         // Đặt ngay phía TRÊN "Ingredients"
         Transform ingredients = assemblingUI.transform.Find("Ingredients");
@@ -56,11 +56,11 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
         }
 
         foodPrefab = foodPrefabUI;
+        StartStep();
     }
 
     public void StartStep()
     {
-        dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(step.timeRequired);
         CanvasGroup canvasGroupBowl = foodPrefab.GetComponent<CanvasGroup>();
         canvasGroupBowl.alpha = 0;
         RectTransform rtBowl = foodPrefab.GetComponent<RectTransform>();
@@ -102,9 +102,24 @@ public class AssemblingStep : MonoBehaviour, ICookingStep
 
         DG.Tweening.Sequence sequence = DOTween.Sequence();
         sequence.Append(sq1);
-        sequence.Append(sq2);   
+        sequence.Append(sq2);
+        sequence.AppendInterval(2f);
+        sequence.AppendCallback(() => {
+            AudioManager.instance.PlaySFX("Intruction Assembling");
+        });
+        // thêm 2 giây delay
+        sequence.AppendInterval(6f);
 
+        sequence.OnComplete(() => {
+            dragDropCookingMinigame.GetCountDownSystem().StartCountdown321();
+        });
 
+    }
+    // Cho phép người chơi ấn
+    public void AllowInputPlayer()
+    {
+        dragDropCookingMinigame.GetCountDownSystem().SetTimeStart(step.timeRequired);
+        dragDropCookingMinigame.inputBlocker.SetActive(false);  
     }
     public void ShowIngredient(int index)
     {

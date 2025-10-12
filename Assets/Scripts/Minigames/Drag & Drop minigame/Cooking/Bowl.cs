@@ -3,8 +3,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
 using System.Linq;
+using UnityEngine.EventSystems;
 
-public class Bowl : MonoBehaviour, IDropIngredientTarget
+public class Bowl : MonoBehaviour,IDropHandler, IDropIngredientTarget
 {
     public List<GameObject> ingredientsInBowl;
     public AssemblingStep assemblingStep;
@@ -25,7 +26,8 @@ public class Bowl : MonoBehaviour, IDropIngredientTarget
     }
     public void AcceptIngredient(Ingredient ingredient)
     {
-        ingredient.gameObject.SetActive(false); 
+        Debug.Log("Thả vào bát");
+        ingredient.gameObject.SetActive(false);
         Debug.Log("Thả vào bát");
         Debug.Log(ingredient.ingredientData.ingredientName);
         GameObject ingredientInPot = ingredientsInBowl.Find(obj => obj.name == ingredient.ingredientData.ingredientName);
@@ -75,5 +77,41 @@ public class Bowl : MonoBehaviour, IDropIngredientTarget
     void Update()
     {
         
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        //GameObject dropped = eventData.pointerDrag;
+
+        //if (dropped == null) return;
+        //Ingredient ingredient = dropped.GetComponent<Ingredient>();
+        //Debug.Log("Thả vào bát");
+        //ingredient.gameObject.SetActive(false); 
+        //Debug.Log(ingredient.ingredientData.ingredientName);
+        //GameObject ingredientInPot = ingredientsInBowl.Find(obj => obj.name == ingredient.ingredientData.ingredientName);
+        //if (ingredientInPot != null)
+        //{
+        //    Debug.Log("✅ Đã tìm thấy trong bát: " + ingredientInPot.name);
+        //    ingredientInPot.SetActive(true);
+        //    CanvasGroup canvasGroup = ingredientInPot.GetComponent<CanvasGroup>();
+        //    RectTransform rt = ingredientInPot.GetComponent<RectTransform>();
+        //    Vector2 originalPos = rt.anchoredPosition;
+        //    rt.anchoredPosition = originalPos + new Vector2(0, 100f);
+
+        //    DG.Tweening.Sequence sq = DOTween.Sequence();
+        //    sq.Append(canvasGroup.DOFade(1f, 0.2f));
+        //    sq.Join(rt.DOAnchorPosY(originalPos.y - 15f, 0.3f).SetEase(Ease.OutCubic));
+        //    sq.AppendCallback(() =>
+        //    {
+        //        AudioManager.instance.PlaySFX("Button Pop Sound");
+        //    });
+        //    sq.Append(rt.DOAnchorPosY(originalPos.y, 0.15f).SetEase(Ease.OutBack));
+        //    if (CheckAllActive()) assemblingStep.ShowDishCompleted();
+
+        //}
+        //else
+        //{
+        //    Debug.Log("❌ Không có " + ingredient.ingredientData.ingredientName + " trong bát");
+        //}
     }
 }
