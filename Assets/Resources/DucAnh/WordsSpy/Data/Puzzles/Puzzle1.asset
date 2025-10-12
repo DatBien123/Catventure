@@ -99,7 +99,7 @@ MonoBehaviour:
     - U
     - W
     - L
-    - K
+    - Z
   - Size: 10
     Row:
     - R
@@ -111,7 +111,7 @@ MonoBehaviour:
     - N
     - R
     - Y
-    - A
+    - T
   - Size: 10
     Row:
     - Q
@@ -123,7 +123,7 @@ MonoBehaviour:
     - T
     - Z
     - N
-    - L
+    - Y
   - Size: 10
     Row:
     - U
