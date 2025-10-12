@@ -1276,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -412.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2596632706655130990, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2650813738829412117, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -15296,10 +15300,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1658083730}
   - {fileID: 1934281565}
   - {fileID: 1230320569}
   - {fileID: 5210869218484672756}
-  - {fileID: 1658083730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1855695039
@@ -17293,11 +17297,11 @@ PrefabInstance:
     - target: {fileID: 3200607537930637870, guid: fff299aed7e88e345a14d85166aae034, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 1c736badf0c8d5c4da80bbb063be8f5a, type: 3}
+      objectReference: {fileID: 8300000, guid: a30aef8f21f2f60418e9fa4716d8bec3, type: 3}
     - target: {fileID: 3200607537930637870, guid: fff299aed7e88e345a14d85166aae034, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1c736badf0c8d5c4da80bbb063be8f5a, type: 3}
+      objectReference: {fileID: 8300000, guid: a30aef8f21f2f60418e9fa4716d8bec3, type: 3}
     - target: {fileID: 3758281385049902676, guid: fff299aed7e88e345a14d85166aae034, type: 3}
       propertyPath: m_Name
       value: MusicManager
