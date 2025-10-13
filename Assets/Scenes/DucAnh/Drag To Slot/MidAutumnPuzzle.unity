@@ -5422,7 +5422,6 @@ GameObject:
   - component: {fileID: 917897644}
   - component: {fileID: 917897643}
   - component: {fileID: 917897642}
-  - component: {fileID: 917897641}
   m_Layer: 5
   m_Name: BackgroundCanvas
   m_TagString: Untagged
@@ -5430,23 +5429,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &917897641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917897640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &917897642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9591,7 +9573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12737,7 +12719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13353,6 +13335,8 @@ MonoBehaviour:
   CutSceneUI: {fileID: 455938230}
   MusicManager: {fileID: 0}
   Skip_Button: {fileID: 737257542}
+  StoryManager: {fileID: 0}
+  StoryData: {fileID: 0}
 --- !u!1001 &1950867154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14175,6 +14159,10 @@ PrefabInstance:
     - target: {fileID: 2416391392136988118, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -412.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596632706655130990, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2650813738829412117, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
       propertyPath: m_AnchorMax.y
