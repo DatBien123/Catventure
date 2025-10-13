@@ -29517,7 +29517,7 @@ MonoBehaviour:
     isUnlock: 0
   MeshRenderer: {fileID: 4620139624009745691}
   UnlockColor: {r: 1, g: 1, b: 1, a: 1}
-  LockedColor: {r: 0.23773581, g: 0.19871125, b: 0.19871125, a: 1}
+  LockedColor: {r: 0.4339623, g: 0.36927733, b: 0.36927733, a: 1}
   OnShowUp:
     m_PersistentCalls:
       m_Calls:

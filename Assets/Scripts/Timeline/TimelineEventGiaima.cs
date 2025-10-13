@@ -22,13 +22,15 @@ public class TimelineEventGiaima : MonoBehaviour
     public SO_Story StoryData;
     private void Start()
     {
-        director.playableAsset = GetCorrespondingCutScene();
-        director.Play();
+        //director.playableAsset = GetCorrespondingCutScene();
+        //director.Play();
 
-        Skip_Button.onClick.AddListener(() =>
-        {
-            director.Stop();
-        });
+        //Skip_Button.onClick.AddListener(() =>
+        //{
+        //    director.Stop();
+        //});
+
+        CompleteTopic();
     }
     public MapInstance GetCurrentMapSelecting()
     {
