@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lander : BaseMinigame {
 
+    [SerializeField] private Text crashText;
     [SerializeField] private Joystick joystick;
 
     [Header("Data Save")]
@@ -140,6 +142,7 @@ public class Lander : BaseMinigame {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            crashText.text = "Va chạm địa hình!";
             gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
@@ -157,6 +160,7 @@ public class Lander : BaseMinigame {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            crashText.text = "Đáp tàu quá mạnh!";
             gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
@@ -174,6 +178,7 @@ public class Lander : BaseMinigame {
                 scoreMultiplier = 0,
                 score = 0,
             });
+            crashText.text = "Đáp tàu quá nghiêng!";
             gameOverScreen.Setup();
             SetState(State.GameOver);
             return;
