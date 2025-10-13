@@ -18,6 +18,10 @@ public class WordsSpySoundManager : MonoBehaviour
         }
     }
 
+    public void PlaySFX(AudioClip audioClip) {
+        _audioSource.PlayOneShot(audioClip);
+    }
+
     public void ToggleBackgroundMusic() {
         _muteBackgroundMusic = !_muteBackgroundMusic;
         if ( _muteBackgroundMusic ) {

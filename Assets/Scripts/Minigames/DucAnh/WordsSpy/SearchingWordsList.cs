@@ -7,6 +7,7 @@ public class SearchingWordsList : MonoBehaviour {
     public GameDataSO currentGameData;
     public GameObject searchingWordPrefab;
     [SerializeField] private List<Sprite> Icons = new List<Sprite>();
+    [SerializeField] private List<AudioClip>  AudioClips= new List<AudioClip>();
     public float offset = 0.0f;
     public int maxColumns = 5;
     public int maxRows = 4;
@@ -66,7 +67,7 @@ public class SearchingWordsList : MonoBehaviour {
             _words[index].transform.SetParent(this.transform);
             _words[index].GetComponent<RectTransform>().localScale = squareScale;
             _words[index].GetComponent<RectTransform>().localPosition = new Vector3(0f, 0f, 0f);
-            _words[index].GetComponent<SearchingWord>().SetWords(currentGameData.selectedBoardData.SearchWords[index].Word, Icons[index]);
+            _words[index].GetComponent<SearchingWord>().SetWords(currentGameData.selectedBoardData.SearchWords[index].Word, Icons[index], AudioClips[index]);
         }
     }
 
