@@ -6716,6 +6716,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8d380544fd5b22240a3b4b65ba73c29b, type: 3}
   - {fileID: 21300000, guid: 14258906f21c26c46903e800575ac525, type: 3}
   - {fileID: 21300000, guid: 0dcf87d5cfb0d714882bb0a7133ebcf1, type: 3}
+  AudioClips:
+  - {fileID: 8300000, guid: 2b754f0731600d445b6da73712899152, type: 3}
+  - {fileID: 8300000, guid: 687c85d9959a5234c9f3084780f8155d, type: 3}
+  - {fileID: 8300000, guid: f286d0efa0f96cc41bbeaab5d9b3f086, type: 3}
+  - {fileID: 8300000, guid: 958743b8fd0e65e489dde39eb1c1cbb6, type: 3}
+  - {fileID: 8300000, guid: 4e6c03f41459ecb459b96f3a5c2ecaa3, type: 3}
   offset: 0
   maxColumns: 1
   maxRows: 10
