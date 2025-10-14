@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,7 @@ public class TimelineEventDienTu : MonoBehaviour
 {
     #region [New]
     public PlayableDirector director;   // Gán PlayableDirector vào đây
-
+    public TimelineAsset cutsceneTraKiemEnd;      // Timeline cho Cutscene cuối
     [Header("References")]
     public GameObject CutSceneUI;
     public FitbMinigame fitbMinigame;
@@ -19,10 +20,12 @@ public class TimelineEventDienTu : MonoBehaviour
     [Header("Story")]
     public StoryManager StoryManager;
     public SO_Story StoryData;
+    // Chạy lần đầu thì sẽ là cutscene đầu
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
-        //director.Play();
+        director.Play();
+        
         Skip_Button.onClick.AddListener(() =>
         {
             director.Stop();
@@ -141,8 +144,7 @@ public class TimelineEventDienTu : MonoBehaviour
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
-        fitbMinigame.ShowRewardUI();
-
+        if (obj.playableAsset == cutsceneTraKiemEnd) fitbMinigame.ShowRewardUI();
         if (StoryManager)
         {
             foreach (var Story in StoryManager.Stories)

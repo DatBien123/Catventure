@@ -104,6 +104,7 @@ public class FitbMinigame : BaseMinigame
                     {
                         AudioManager.instance.StopAllMusic();
                         Debug.Log("Đã trả lời xong hết hãy hiển thị timeline cutscene ở đây");
+                        timeLineCutscene.director.playableAsset = timeLineCutscene.cutsceneTraKiemEnd;
                         timeLineCutscene.director.Play();
                         countDownTimer.StopCountDown();
                         //ShowRewardUI();
