@@ -11,15 +11,15 @@ public class TimelineEventSuaKiem : MonoBehaviour
     public PlayableDirector director;   // Gán PlayableDirector vào đây
 
     [Header("References")]
-    public GameObject CutSceneUI;
+    [SerializeField] private GameObject CutSceneUI;
     [SerializeField] private GameObject MusicManager;
 
     [Header("Skip button")]
-    public Button Skip_Button;
+    [SerializeField] private Button Skip_Button;
 
     [Header("Story")]
-    public StoryManager StoryManager;
-    public SO_Story StoryData;
+    [SerializeField] private StoryManager StoryManager;
+    [SerializeField] private SO_Story StoryData;
     private void Start()
     {
         director.playableAsset = GetCorrespondingCutScene();
@@ -144,7 +144,7 @@ public class TimelineEventSuaKiem : MonoBehaviour
     void OnTimelineStop(PlayableDirector obj)
     {
         CutSceneUI.SetActive(false);
-        MusicManager.SetActive(true);
+        FixSwordGameManager.Instance.OpenWinPanel();
 
         if (StoryManager)
         {

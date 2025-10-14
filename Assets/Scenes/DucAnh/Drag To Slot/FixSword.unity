@@ -850,11 +850,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &139929061 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1031052709358706793, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
-  m_PrefabInstance: {fileID: 2057535402}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &139929063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 437057170450471076, guid: e7a6a804715944947b93fd224cb9438c, type: 3}
@@ -1542,18 +1537,15 @@ MonoBehaviour:
   health: {fileID: 0}
   countDownTimer: {fileID: 0}
   gameOverScreen: {fileID: 0}
-  victoryRewardScreen: {fileID: 0}
+  victoryRewardScreen: {fileID: 139929063}
   tapToContinueButton: {fileID: 0}
   inputBlocker: {fileID: 0}
   popupUI: {fileID: 2057535403}
-  UIWinPanel: {fileID: 139929061}
-  VictoryRewardScreen: {fileID: 139929063}
   MusicManager: {fileID: 352470831}
+  WinGameClip: {fileID: 8300000, guid: b2724510d8b02ae4389ef6259d9118b4, type: 3}
   pointsTowin: 5
   reward: 100
-  playBackgroundMusic:
-    m_PersistentCalls:
-      m_Calls: []
+  CutSceneGameObject: {fileID: 1864429992}
   Player: {fileID: 2137771536}
 --- !u!4 &245798903
 Transform:
@@ -12846,7 +12838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1864429993
 Transform:
   m_ObjectHideFlags: 0
