@@ -24,6 +24,7 @@ public class SongManager : MonoBehaviour {
 
     //the current position of the song (in seconds)
     private float songPosition;
+    private float songDelay = 5f;
 
     //how much time (in seconds) has passed since the song started
     float dsptimesong;
@@ -41,9 +42,11 @@ public class SongManager : MonoBehaviour {
     private bool isPlaying;
 
     void Start() {
+        audioSource.PlayDelayed(songDelay);
+
         // Calculate beat interval (60 seconds / BPM)
         beatInterval = 60f / bpm;
-        nextBeatTime = Time.time + firstBeatTime; // Give firstBeatTime seconds before first note
+        nextBeatTime = Time.time + firstBeatTime - beatInterval; // Give firstBeatTime seconds before first note
 
         //record the time when the song starts
         dsptimesong = (float) AudioSettings.dspTime;

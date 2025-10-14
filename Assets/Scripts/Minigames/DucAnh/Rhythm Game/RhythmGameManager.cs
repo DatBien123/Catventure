@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RhythmGameManager : BaseMinigame
@@ -19,15 +20,22 @@ public class RhythmGameManager : BaseMinigame
         else {
             Instance = this;
         }
+
+        countDownTimer.StartCountdown321();
     }
 
-    public void OnFinishGame (float reward, int star, int perfectCount, int greatCount, int goodCount, int missCount, int maxComboCount, int totalScore) {
+    public void OnFinishGame (int reward, int star, int perfectCount, int greatCount, int goodCount, int missCount, int maxComboCount, int totalScore) {
         perfectCountText.text += perfectCount;
         greatCountText.text += greatCount;
         goodCountText.text += goodCount;
         missCountText.text += missCount;
         maxComboCountText.text += maxComboCount;
         totalScoreText.text += totalScore;
+        StartCoroutine(OpenUIReward(reward, star));
+    }
+
+    IEnumerator OpenUIReward(int reward, int star) {
+        yield return new WaitForSeconds(5f);
         victoryRewardScreen.ShowRewardFITB(reward, star);
     }
 
