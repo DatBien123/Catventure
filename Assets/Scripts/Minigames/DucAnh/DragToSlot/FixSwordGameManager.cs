@@ -7,32 +7,29 @@ public class FixSwordGameManager : BaseMinigame
 {
     public static FixSwordGameManager Instance { get; private set; }
 
-    [SerializeField] private RectTransform UIWinPanel;
-    [SerializeField] private VictoryRewardScreen VictoryRewardScreen;
     [SerializeField] private GameObject MusicManager;
+    [SerializeField] private AudioClip WinGameClip;
     [SerializeField] private int pointsTowin;
     [SerializeField] private int reward;
+    [SerializeField] private GameObject CutSceneGameObject;
 
-    [SerializeField] private UnityEvent playBackgroundMusic;
     [Header("Data Save")]
     public CharacterPlayer Player;
 
     private int currentPoints;
 
-    public new void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
         DragToSlotPuzzlePiece.onAddPoint += AddPoint;
     }
-    public new void OnDisable()
+
+    protected override void OnDisable()
     {
         base.OnDisable();
         DragToSlotPuzzlePiece.onAddPoint -= AddPoint;
     }
-    public void Start()
-    {
-        playBackgroundMusic?.Invoke();
-    }
+
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -54,17 +51,28 @@ public class FixSwordGameManager : BaseMinigame
     }
 
     private void OnWinGame() {
-        StartCoroutine(OpenWinPanel());
+        MusicManager.SetActive(false);
+        AudioManager.instance.PlayPronunciation(WinGameClip);
+        StartCoroutine(IEOpenCutScene());
 
         //Save
         Player.Coin += reward;
         SaveSystem.Save(Player, Player.Inventory);
     }
 
-    IEnumerator OpenWinPanel() {
+    IEnumerator IEOpenCutScene() {
+        yield return new WaitForSeconds(2.0f);
+        CutSceneGameObject.SetActive(true);
+    }
+
+    public void OpenWinPanel() {
+        StartCoroutine(IEOpenWinPanel());
+    }
+
+    IEnumerator IEOpenWinPanel() {
         yield return new WaitForSeconds(1.0f);
         MusicManager.SetActive(false);
-        VictoryRewardScreen.ShowRewardFITB(reward, 3);
+        victoryRewardScreen.ShowRewardFITB(reward, 3);
     }
 
     public override void ExitGame() {
