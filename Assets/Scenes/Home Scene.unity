@@ -27175,7 +27175,7 @@ MonoBehaviour:
   UIDialogue: {fileID: 1121701440}
   DialogueDataBase:
   - Topic: First Time Open Game
-    SpeakerImage: {fileID: 21300000, guid: f5fce54740bc90d4f92bd228db02e53e, type: 3}
+    SpeakerImage: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
     SpeakerName: Zera
     DialogueLines:
     - text: "\xD4i \u0111au \u0111\u1EA7u qu\xE1 !"
@@ -44828,7 +44828,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Tr\u01B0\u1EDBc ti\xEAn, h\xE3y th\u1EED b\u1EA5m v\xE0o \u0111\u1ED3ng
           h\u1ED3 Yabis tr\u01B0\u1EDBc !"
         TutContentOffset:
@@ -44851,7 +44851,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "\u0110\xE2y l\xE0 giao di\u1EC7n t\u1ED5ng th\u1EC3 c\u1EE7a
           \u0111\u1ED3ng h\u1ED3 Yabis nh\xE9 b\u1EA1n !"
         TutContentOffset:
@@ -44874,7 +44874,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Ph\u1EA7n n\xE0y l\xE0 t\xFAi \u0111\u1ED3. B\u1EA1n c\xF3 th\u1EC3
           l\u01B0u tr\u1EEF nh\u1EEFng item m\xE0 b\u1EA1n ki\u1EBFm \u0111\u01B0\u1EE3c
           v\xE0o \u0111\u1EA5y !"
@@ -44898,7 +44898,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "C\xF2n \u0111\xE2y l\xE0 n\u01A1i \u0111\u1EC3 ch\u1EE9a nh\u1EEFng
           \u0111i\u1EC1u tuy\u1EC7t v\u1EDDi m\xE0 ch\u0169ng ta c\xF3 th\u1EC3 s\u01B0u
           t\u1EA7m \u0111\u01B0\u1EE3c khi kh\xE1m ph\xE1 !"
@@ -44922,7 +44922,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "\u0110\xE2y l\xE0 c\u1EEDa h\xE0ng di \u0111\u1ED9ng !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -44944,7 +44944,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "V\xE0 cu\u1ED1i c\xF9ng l\xE0 cu\u1ED1n truy\u1EC7n \u0111\u1EC3
           l\u01B0u tr\u1EE9 th\xF4ng tin c\u1EE7a t\u1EEBng v\xF9ng !"
         TutContentOffset:
@@ -44967,7 +44967,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 3a78ebfa680fcb94b93cf901d824a338, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "\u0110\u01B0\u1EE3c r\u1ED3i, gi\u1EDD h\xE3y ra b\xEAn ngo\xE0i
           n\xE0o !"
         TutContentOffset:
@@ -44990,7 +44990,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "C\xF2n \u0111\xE2y l\xE0 ph\u1EA7n n\xF4ng tr\u1EA1i, n\u01A1i
           m\xE0 ta c\xF3 th\u1EC3 tham gia tr\u1ED3ng tr\u1ECDt v\u1EDBi nh\u1EEFng
           ng\u01B0\u1EDDi n\xF4ng d\xE2n t\u1ED1t b\u1EE5ng!"
@@ -45018,7 +45018,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD h\xE3y b\u1EAFt \u0111\u1EA7u kh\xE1m ph\xE1 n\xE0o
           !"
         TutContentOffset:
@@ -45041,7 +45041,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Ch\xFAng ta h\xE3y b\u1EAFt \u0111\u1EA7u v\u1EDBi H\xE0 N\u1ED9i
           b\u1EA1n nh\xE9 !"
         TutContentOffset:
@@ -45064,7 +45064,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD th\xEC h\xE3y b\u1EAFt \u0111\u1EA7u th\xF4i !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -45369,7 +45369,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 400}
+  m_SizeDelta: {x: 250, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775242719
 MonoBehaviour:
@@ -47113,7 +47113,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 400, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837492187
 MonoBehaviour:

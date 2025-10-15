@@ -393,7 +393,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "\u0110\xE2y l\xE0 n\xF4ng tr\u1EA1i c\u1EE7a ch\xFAng ta"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -415,7 +415,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "H\xE3y gh\xE9 th\u0103m C\u1EEDa h\xE0ng h\u1EA1t gi\u1ED1ng
           n\xE0o !"
         TutContentOffset:
@@ -438,7 +438,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "H\xE3y ch\u1ECDn m\u1ED9t h\u1EA1t gi\u1ED1ng b\u1EA5t k\xEC"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -460,7 +460,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD h\xE3y mua n\xE0o !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -482,7 +482,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Th\xEAm m\u1ED9t b\u01B0\u1EDBc n\u1EEFa ! \u0110\u1EC3 ho\xE0n
           t\u1EA5t n\xE0o !"
         TutContentOffset:
@@ -505,7 +505,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD th\xEC h\xE3y r\u1EDDi kh\u1ECFi C\u1EEDa h\xE0ng H\u1EA1t
           gi\u1ED1ng n\xE0o !"
         TutContentOffset:
@@ -528,7 +528,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y ch\u1ECDn m\u1ED9t \xF4 \u0111\u1EA5t kh\xF4
           b\u1EA5t k\xEC"
         TutContentOffset:
@@ -551,7 +551,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y k\xE9o Can n\u01B0\u1EDBc n\xE0y v\xE0o m\u1ED9t
           trong s\u1ED1 nh\u1EEFng \xF4 \u0111\u1EA5t."
         TutContentOffset:
@@ -574,7 +574,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "H\xE3y t\u01B0\u1EDBi n\u01B0\u1EDBc cho nh\u1EEFng \xF4 \u0111\u1EA5t
           kh\xF4 n\xE0o !"
         TutContentOffset:
@@ -597,7 +597,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y ch\u1ECDn m\u1ED9t \xF4 \u0111\u1EA5t \u01B0\u1EDBt"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -619,7 +619,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y k\xE9o C\xE2y tr\u1ED3ng  v\xE0o m\u1ED9t trong
           s\u1ED1 nh\u1EEFng \xF4 \u0111\u1EA5t."
         TutContentOffset:
@@ -642,7 +642,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "H\xE3y tr\u1ED3ng c\xE2y cho nh\u1EEFng \xF4 \u0111\u1EA5t n\xE0o
           !"
         TutContentOffset:
@@ -665,7 +665,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD ch\xFAng ta h\xE3y \u0111\u1EE3i c\xE2y l\u1EDBn v\xE0
           thu ho\u1EA1ch nh\xE9 !"
         TutContentOffset:
@@ -689,7 +689,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y ch\u1ECDn m\u1ED9t \xF4 \u0111\u1EA5t c\xF3
           th\u1EC3 thu ho\u1EA1ch"
         TutContentOffset:
@@ -712,7 +712,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n c\u1EA7n di chuy\u1EC3n c\xE1i li\u1EC1m \u0111\u1EBFn
           n\u01A1i c\u1EA7n thu ho\u1EA1ch !"
         TutContentOffset:
@@ -735,7 +735,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD h\xE3y thu ho\u1EA1ch th\xF4i !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -757,7 +757,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Tuy\u1EC7t v\u1EDBi ! Gi\u1EDD \u0111\xE2y b\u1EA1n \u0111\xE3
           c\xF3 th\u1EC3 qu\u1EA3n l\xED n\xF4ng tr\u1EA1i c\u1EE7a m\xECnh r\u1ED3i
           \u0111\u1EA5y !"
@@ -781,7 +781,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: f05324595deda444f8d6255f1830782e, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "Gi\u1EDD h\xE3y quay l\u1EA1i B\u1EA3n \u0111\u1ED3 n\xE0o !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -300, z: 0}
@@ -114614,7 +114614,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676278469
 MonoBehaviour:

@@ -3082,7 +3082,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 400, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252231134
 MonoBehaviour:
@@ -29593,7 +29593,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "\u0110\xE2y l\xE0 ph\u1EA7n h\u01B0\u1EDBng d\u1EABn v\u1EC1
           n\u1EA5u \u0103n"
         TutContentOffset:
@@ -29616,7 +29616,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EA1n h\xE3y ch\u1ECDn m\u1ED9t m\xF3n \u0103n b\u1EA5t k\xEC"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
@@ -29638,7 +29638,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "R\u1ED3i gi\u1EDD h\xE3y b\u1EAFt \u0111\u1EA7u n\u1EA5u \u0103n
           n\xE0o !"
         TutContentOffset:
@@ -29661,7 +29661,7 @@ MonoBehaviour:
         DragOffsets: []
         DragDirection: 
         isShowTutContent: 1
-        ImageTutContent: {fileID: 21300000, guid: 6db13b802d88ff64b85529857a715598, type: 3}
+        ImageTutContent: {fileID: 21300000, guid: 953ace1f1a0b0c94787e122ea5b587e4, type: 3}
         TutContent: "B\u1EAFt \u0111\u1EA7u !"
         TutContentOffset:
           PositionOffset: {x: 0, y: -50, z: 0}
