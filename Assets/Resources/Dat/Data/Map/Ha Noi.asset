@@ -62,5 +62,5 @@ MonoBehaviour:
       coinReward: 0
       index: 4
       topicName: "\u0110i\u1EC1n t\u1EEB"
-      cutscene: {fileID: 11400000, guid: 1c2a5b4038fa17140a9ef09aba4029fb, type: 2}
+      cutscene: {fileID: 11400000, guid: 9932cbb310ecaf94db39c4890e627bce, type: 2}
       minigameSceneName: Minigame_FITB

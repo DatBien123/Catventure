@@ -48,8 +48,8 @@ public class FitbMinigame : BaseMinigame
 
     public override void EndGame(bool success)
     {
-    base.EndGame(success);
-    //DOTween.KillAll(); // ✅ hủy toàn bộ delayed call khi end game
+        base.EndGame(success);
+        //DOTween.KillAll(); // ✅ hủy toàn bộ delayed call khi end game
 
     }
 
@@ -76,7 +76,7 @@ public class FitbMinigame : BaseMinigame
     {
         EndGame(true);
         inputBlocker.SetActive(false);
-        victoryRewardScreen.ShowRewardFITB(levelData.reward,3);
+        victoryRewardScreen.ShowRewardFITB(levelData.reward, 3);
     }
 
     void OnAnswerSelected(bool isCorrect)
@@ -97,13 +97,14 @@ public class FitbMinigame : BaseMinigame
                 {
                     if (!IsGameWin())  // kiểm tra trước khi gọi
                     {
-                        VideoManager.instance.videoPanel.SetActive(false);  
+                        VideoManager.instance.videoPanel.SetActive(false);
                         ShowQuestion(currentIndex);
                     }
                     else
                     {
                         AudioManager.instance.StopAllMusic();
                         Debug.Log("Đã trả lời xong hết hãy hiển thị timeline cutscene ở đây");
+                        timeLineCutscene.director.playableAsset = timeLineCutscene.cutsceneTraKiemEnd;
                         timeLineCutscene.director.Play();
                         countDownTimer.StopCountDown();
                         //ShowRewardUI();
@@ -111,7 +112,7 @@ public class FitbMinigame : BaseMinigame
                 });
             });
 
- 
+
         }
         else
         {

@@ -7414,7 +7414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1132980062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11396,7 +11396,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1686606770}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 1c2a5b4038fa17140a9ef09aba4029fb, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 9932cbb310ecaf94db39c4890e627bce, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -11462,6 +11462,18 @@ PlayableDirector:
     value: {fileID: 193694072}
   - key: {fileID: -3037026831665953187, guid: 1c2a5b4038fa17140a9ef09aba4029fb, type: 2}
     value: {fileID: 1496997428}
+  - key: {fileID: -2351310982501482808, guid: 9932cbb310ecaf94db39c4890e627bce, type: 2}
+    value: {fileID: 1132980061}
+  - key: {fileID: -8993836601559158105, guid: 9932cbb310ecaf94db39c4890e627bce, type: 2}
+    value: {fileID: 193694072}
+  - key: {fileID: -3037026831665953187, guid: 9932cbb310ecaf94db39c4890e627bce, type: 2}
+    value: {fileID: 1496997428}
+  - key: {fileID: -2351310982501482808, guid: f2bc7ceba7da17643bb10ffd0bceb48f, type: 2}
+    value: {fileID: 1132980061}
+  - key: {fileID: -8993836601559158105, guid: f2bc7ceba7da17643bb10ffd0bceb48f, type: 2}
+    value: {fileID: 193694072}
+  - key: {fileID: -3037026831665953187, guid: f2bc7ceba7da17643bb10ffd0bceb48f, type: 2}
+    value: {fileID: 1496997428}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1686606775
@@ -11477,6 +11489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   director: {fileID: 1686606774}
+  cutsceneTraKiemEnd: {fileID: 11400000, guid: f2bc7ceba7da17643bb10ffd0bceb48f, type: 2}
   CutSceneUI: {fileID: 1132980061}
   fitbMinigame: {fileID: 1934796219}
   Skip_Button: {fileID: 1291676502}
